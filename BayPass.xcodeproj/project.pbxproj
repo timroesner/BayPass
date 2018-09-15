@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22049D9E214C9DF0007FF904 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049D9D214C9DF0007FF904 /* AppDelegate.swift */; };
+		22049DA0214C9DF0007FF904 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049D9F214C9DF0007FF904 /* ViewController.swift */; };
+		22049DA3214C9DF0007FF904 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22049DA1214C9DF0007FF904 /* Main.storyboard */; };
+		22049DA5214C9DF2007FF904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22049DA4214C9DF2007FF904 /* Assets.xcassets */; };
+		22049DA8214C9DF2007FF904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22049DA6214C9DF2007FF904 /* LaunchScreen.storyboard */; };
+		22049DB3214C9DF2007FF904 /* BayPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DB2214C9DF2007FF904 /* BayPassTests.swift */; };
+		22049DBE214C9DF3007FF904 /* BayPassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBD214C9DF3007FF904 /* BayPassUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22049DAF214C9DF2007FF904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22049D92214C9DF0007FF904 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22049D99214C9DF0007FF904;
+			remoteInfo = BayPass;
+		};
+		22049DBA214C9DF3007FF904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22049D92214C9DF0007FF904 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22049D99214C9DF0007FF904;
+			remoteInfo = BayPass;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22049D9A214C9DF0007FF904 /* BayPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BayPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22049D9D214C9DF0007FF904 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		22049D9F214C9DF0007FF904 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		22049DA2214C9DF0007FF904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		22049DA4214C9DF2007FF904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22049DA7214C9DF2007FF904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		22049DA9214C9DF2007FF904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22049DAE214C9DF2007FF904 /* BayPassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BayPassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22049DB2214C9DF2007FF904 /* BayPassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayPassTests.swift; sourceTree = "<group>"; };
+		22049DB4214C9DF2007FF904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22049DB9214C9DF3007FF904 /* BayPassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BayPassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22049DBD214C9DF3007FF904 /* BayPassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayPassUITests.swift; sourceTree = "<group>"; };
+		22049DBF214C9DF3007FF904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22049D97214C9DF0007FF904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22049DAB214C9DF2007FF904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22049DB6214C9DF3007FF904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22049D91214C9DF0007FF904 = {
+			isa = PBXGroup;
+			children = (
+				22049D9C214C9DF0007FF904 /* BayPass */,
+				22049DB1214C9DF2007FF904 /* BayPassTests */,
+				22049DBC214C9DF3007FF904 /* BayPassUITests */,
+				22049D9B214C9DF0007FF904 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22049D9B214C9DF0007FF904 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22049D9A214C9DF0007FF904 /* BayPass.app */,
+				22049DAE214C9DF2007FF904 /* BayPassTests.xctest */,
+				22049DB9214C9DF3007FF904 /* BayPassUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22049D9C214C9DF0007FF904 /* BayPass */ = {
+			isa = PBXGroup;
+			children = (
+				22049D9D214C9DF0007FF904 /* AppDelegate.swift */,
+				22049D9F214C9DF0007FF904 /* ViewController.swift */,
+				22049DA1214C9DF0007FF904 /* Main.storyboard */,
+				22049DA4214C9DF2007FF904 /* Assets.xcassets */,
+				22049DA6214C9DF2007FF904 /* LaunchScreen.storyboard */,
+				22049DA9214C9DF2007FF904 /* Info.plist */,
+			);
+			path = BayPass;
+			sourceTree = "<group>";
+		};
+		22049DB1214C9DF2007FF904 /* BayPassTests */ = {
+			isa = PBXGroup;
+			children = (
+				22049DB2214C9DF2007FF904 /* BayPassTests.swift */,
+				22049DB4214C9DF2007FF904 /* Info.plist */,
+			);
+			path = BayPassTests;
+			sourceTree = "<group>";
+		};
+		22049DBC214C9DF3007FF904 /* BayPassUITests */ = {
+			isa = PBXGroup;
+			children = (
+				22049DBD214C9DF3007FF904 /* BayPassUITests.swift */,
+				22049DBF214C9DF3007FF904 /* Info.plist */,
+			);
+			path = BayPassUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22049D99214C9DF0007FF904 /* BayPass */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22049DC2214C9DF3007FF904 /* Build configuration list for PBXNativeTarget "BayPass" */;
+			buildPhases = (
+				22049D96214C9DF0007FF904 /* Sources */,
+				22049D97214C9DF0007FF904 /* Frameworks */,
+				22049D98214C9DF0007FF904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BayPass;
+			productName = BayPass;
+			productReference = 22049D9A214C9DF0007FF904 /* BayPass.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22049DAD214C9DF2007FF904 /* BayPassTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22049DC5214C9DF3007FF904 /* Build configuration list for PBXNativeTarget "BayPassTests" */;
+			buildPhases = (
+				22049DAA214C9DF2007FF904 /* Sources */,
+				22049DAB214C9DF2007FF904 /* Frameworks */,
+				22049DAC214C9DF2007FF904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22049DB0214C9DF2007FF904 /* PBXTargetDependency */,
+			);
+			name = BayPassTests;
+			productName = BayPassTests;
+			productReference = 22049DAE214C9DF2007FF904 /* BayPassTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		22049DB8214C9DF3007FF904 /* BayPassUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22049DC8214C9DF3007FF904 /* Build configuration list for PBXNativeTarget "BayPassUITests" */;
+			buildPhases = (
+				22049DB5214C9DF3007FF904 /* Sources */,
+				22049DB6214C9DF3007FF904 /* Frameworks */,
+				22049DB7214C9DF3007FF904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22049DBB214C9DF3007FF904 /* PBXTargetDependency */,
+			);
+			name = BayPassUITests;
+			productName = BayPassUITests;
+			productReference = 22049DB9214C9DF3007FF904 /* BayPassUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22049D92214C9DF0007FF904 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Tim Roesner";
+				TargetAttributes = {
+					22049D99214C9DF0007FF904 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					22049DAD214C9DF2007FF904 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 22049D99214C9DF0007FF904;
+					};
+					22049DB8214C9DF3007FF904 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 22049D99214C9DF0007FF904;
+					};
+				};
+			};
+			buildConfigurationList = 22049D95214C9DF0007FF904 /* Build configuration list for PBXProject "BayPass" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22049D91214C9DF0007FF904;
+			productRefGroup = 22049D9B214C9DF0007FF904 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22049D99214C9DF0007FF904 /* BayPass */,
+				22049DAD214C9DF2007FF904 /* BayPassTests */,
+				22049DB8214C9DF3007FF904 /* BayPassUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22049D98214C9DF0007FF904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22049DA8214C9DF2007FF904 /* LaunchScreen.storyboard in Resources */,
+				22049DA5214C9DF2007FF904 /* Assets.xcassets in Resources */,
+				22049DA3214C9DF0007FF904 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22049DAC214C9DF2007FF904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22049DB7214C9DF3007FF904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22049D96214C9DF0007FF904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22049DA0214C9DF0007FF904 /* ViewController.swift in Sources */,
+				22049D9E214C9DF0007FF904 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22049DAA214C9DF2007FF904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22049DB3214C9DF2007FF904 /* BayPassTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22049DB5214C9DF3007FF904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22049DBE214C9DF3007FF904 /* BayPassUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22049DB0214C9DF2007FF904 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22049D99214C9DF0007FF904 /* BayPass */;
+			targetProxy = 22049DAF214C9DF2007FF904 /* PBXContainerItemProxy */;
+		};
+		22049DBB214C9DF3007FF904 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22049D99214C9DF0007FF904 /* BayPass */;
+			targetProxy = 22049DBA214C9DF3007FF904 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22049DA1214C9DF0007FF904 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22049DA2214C9DF0007FF904 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		22049DA6214C9DF2007FF904 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22049DA7214C9DF2007FF904 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22049DC0214C9DF3007FF904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		22049DC1214C9DF3007FF904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22049DC3214C9DF3007FF904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
+				INFOPLIST_FILE = BayPass/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPass;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22049DC4214C9DF3007FF904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
+				INFOPLIST_FILE = BayPass/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPass;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		22049DC6214C9DF3007FF904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
+				INFOPLIST_FILE = BayPassTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPassTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BayPass.app/BayPass";
+			};
+			name = Debug;
+		};
+		22049DC7214C9DF3007FF904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
+				INFOPLIST_FILE = BayPassTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPassTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BayPass.app/BayPass";
+			};
+			name = Release;
+		};
+		22049DC9214C9DF3007FF904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
+				INFOPLIST_FILE = BayPassUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPassUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BayPass;
+			};
+			name = Debug;
+		};
+		22049DCA214C9DF3007FF904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
+				INFOPLIST_FILE = BayPassUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPassUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BayPass;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22049D95214C9DF0007FF904 /* Build configuration list for PBXProject "BayPass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22049DC0214C9DF3007FF904 /* Debug */,
+				22049DC1214C9DF3007FF904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22049DC2214C9DF3007FF904 /* Build configuration list for PBXNativeTarget "BayPass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22049DC3214C9DF3007FF904 /* Debug */,
+				22049DC4214C9DF3007FF904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22049DC5214C9DF3007FF904 /* Build configuration list for PBXNativeTarget "BayPassTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22049DC6214C9DF3007FF904 /* Debug */,
+				22049DC7214C9DF3007FF904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22049DC8214C9DF3007FF904 /* Build configuration list for PBXNativeTarget "BayPassUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22049DC9214C9DF3007FF904 /* Debug */,
+				22049DCA214C9DF3007FF904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22049D92214C9DF0007FF904 /* Project object */;
+}
