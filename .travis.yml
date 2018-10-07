@@ -1,0 +1,6 @@
+os: osx
+osx_image: xcode10	
+language: swift
+script: xcodebuild clean build test -scheme "CI" -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
+notifications:
+    slack: dattworkspace:dOHdcFiG3BrlqZC0zbzXmZiX
