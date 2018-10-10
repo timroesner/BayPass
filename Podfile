@@ -6,9 +6,7 @@ target 'BayPass' do
   use_frameworks!
 
   # Pods for BayPass
-  pod 'SwiftFormat/CLI'
-  pod 'SwiftLint', '~> 0.27'
-
+  pod 'SwiftFormat/CLI', '0.35.6'
 
   target 'BayPassTests' do
     inherit! :search_paths
