@@ -1,0 +1,15 @@
+--indent 4
+--allman false
+--wraparguments disabled
+--wrapelements disabled 
+--header ignore 
+--empty void 
+--ranges spaced 
+--trimwhitespace always 
+--linebreaks lf 
+--commas always 
+--comments indent 
+--ifdef indent 
+--hexliteralcase uppercase 
+--semicolons inline 
+--insertlines true
