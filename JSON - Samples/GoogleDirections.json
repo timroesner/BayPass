@@ -1,0 +1,1604 @@
+{
+    "geocoded_waypoints": [
+        {
+            "geocoder_status": "OK",
+            "place_id": "ChIJ1_zwMYXMj4ARM7PaaLLGv2M",
+            "types": [
+                "route"
+            ]
+        },
+        {
+            "geocoder_status": "OK",
+            "partial_match": true,
+            "place_id": "ChIJ_Yjh6Za1j4AR-sm4t2XLIc0",
+            "types": [
+                "street_address"
+            ]
+        }
+    ],
+    "routes": [
+        {
+            "bounds": {
+                "northeast": {
+                    "lat": 37.3494552,
+                    "lng": -121.886048
+                },
+                "southwest": {
+                    "lat": 37.3230286,
+                    "lng": -122.0150588
+                }
+            },
+            "copyrights": "Map data ©2018 Google",
+            "fare": {
+                "currency": "USD",
+                "text": "$2.25",
+                "value": 2.25
+            },
+            "legs": [
+                {
+                    "arrival_time": {
+                        "text": "1:56pm",
+                        "time_zone": "America/Los_Angeles",
+                        "value": 1539636989
+                    },
+                    "departure_time": {
+                        "text": "12:43pm",
+                        "time_zone": "America/Los_Angeles",
+                        "value": 1539632611
+                    },
+                    "distance": {
+                        "text": "9.7 mi",
+                        "value": 15670
+                    },
+                    "duration": {
+                        "text": "1 hour 13 mins",
+                        "value": 4378
+                    },
+                    "end_address": "1 Apple Park Way, Cupertino, CA 95014, USA",
+                    "end_location": {
+                        "lat": 37.3346553,
+                        "lng": -122.0126537
+                    },
+                    "start_address": "N 6th St, San Jose, CA 95112, USA",
+                    "start_location": {
+                        "lat": 37.3494552,
+                        "lng": -121.8932844
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0.7 mi",
+                                "value": 1149
+                            },
+                            "duration": {
+                                "text": "14 mins",
+                                "value": 869
+                            },
+                            "end_location": {
+                                "lat": 37.3419254,
+                                "lng": -121.8934824
+                            },
+                            "html_instructions": "Walk to 2nd & Bassett",
+                            "polyline": {
+                                "points": "cy}bF~g~fV`BhEDLr@nBd@nADLFNv@jBf@rADNh@pALZd@rAFN|@m@vHgFf@_@JIn@a@hD_CJIlH_FLIjAw@LG^Y"
+                            },
+                            "start_location": {
+                                "lat": 37.3494552,
+                                "lng": -121.8932844
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "0.3 mi",
+                                        "value": 438
+                                    },
+                                    "duration": {
+                                        "text": "6 mins",
+                                        "value": 332
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3473981,
+                                        "lng": -121.8975586
+                                    },
+                                    "html_instructions": "Head <b>southwest</b> on <b>Jackson St</b> toward <b>N 5th St</b>",
+                                    "polyline": {
+                                        "points": "cy}bF~g~fV`BhEDLr@nBd@nADLFNv@jBf@rADNh@pALZd@rAFN"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3494552,
+                                        "lng": -121.8932844
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "0.4 mi",
+                                        "value": 711
+                                    },
+                                    "duration": {
+                                        "text": "9 mins",
+                                        "value": 537
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3419254,
+                                        "lng": -121.8934824
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>N 2nd St</b><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "gl}bFvb_gV|@m@vHgFf@_@JIn@a@hD_CJIlH_FLIjAw@LG^Y"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3473981,
+                                        "lng": -121.8975586
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        },
+                        {
+                            "distance": {
+                                "text": "8.1 mi",
+                                "value": 12973
+                            },
+                            "duration": {
+                                "text": "39 mins",
+                                "value": 2340
+                            },
+                            "end_location": {
+                                "lat": 37.3231111,
+                                "lng": -122.0150588
+                            },
+                            "html_instructions": "Bus towards 323 Limited De Anza College",
+                            "polyline": {
+                                "points": "oi|bF`i~fVEMb@[|BeBfCgBpCoBrAaAlBmA\\U`Ao@tGkEVQtA}@@AJITQn@e@f@]x@m@hBkAfCcBx@i@jAw@zGkElBjF|ArEJVJV|AvDhAzCFP|A`EPf@Tt@hAdDHRHTDJTn@N^Vl@Nb@l@zA?@Rf@DNRf@L\\\\|@HPTd@JHTl@L^FNBDhAxBbAjBJP`@t@T`@jBrD|CvG@VJP@D\\r@HPFL\\t@b@`AHPDPFf@FLBf@BdADbB@n@@n@Fv@JxANpABPEZ@HDt@FjC?RBpA?P@RHxEFrE?FBr@@bANnI@lC?~@@pC?\\?hB?r@?fA@tB?fF?nC@v@?X?`B?x@@fA@dEA`@BpE?zA?N@|E?HAfA?\\?pB@|D?V?~D@X?jE?R@pC?rC?t@@fC?`@?j@@hB?f@?|@?`A?H?hB?Z@nA?r@?t@?F?B?F?F?pA@vA?zB?dA@N?xA?fB?V@hC?R?b@?`B?D@j@?`@?\\?p@?h@?J@\\@p@BX@^DrADjCBdB@d@?T?H?L?H?d@?H?b@?HAh@@VAd@?Z?JALAb@GdAC`@AJC\\Cd@Gz@A^?V?L?rA?bB?`E?zA@xA?rB?DAvD@`@@pA?p@?@?H@tB?`B@X?^@X?X?v@@rBL^BfE@vF@vD?bD?f@?vF@rD@tD?jG?rK@hA?bBM^?zA?|A?j@?V?T?r@@xB?|@BlF?bD@j@?vC@lD@tA?X?P@fA?~GBrF?dB?zH@lA?jA?R?J@lO@vN@bG@`HARNb@?~C@|MDvL@vD?tAMb@?XAf@?^@VAJ?R?x@@tA?vA?d@@l@?R?jA?vA?fA?@?h@?`@?l@?j@?h@?P?L?^?nA?Z?L?J?J@t@?rA?~CBxD?|A?tA?Z@t@?\\?@?pA@jA?nA?~AEdEA~B?x@AJ?~A?TAbB@zC?X?ZBrABdE?ZBfEBzC?|B?X?T?X?tF?pJ?n@?N?L?bA@zAO?"
+                            },
+                            "start_location": {
+                                "lat": 37.3418385,
+                                "lng": -121.893454
+                            },
+                            "transit_details": {
+                                "arrival_stop": {
+                                    "location": {
+                                        "lat": 37.3231111,
+                                        "lng": -122.0150588
+                                    },
+                                    "name": "Stevens Creek & Wolfe"
+                                },
+                                "arrival_time": {
+                                    "text": "1:37pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539635820
+                                },
+                                "departure_stop": {
+                                    "location": {
+                                        "lat": 37.3418385,
+                                        "lng": -121.893454
+                                    },
+                                    "name": "2nd & Bassett"
+                                },
+                                "departure_time": {
+                                    "text": "12:58pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539633480
+                                },
+                                "headsign": "323 Limited De Anza College",
+                                "line": {
+                                    "agencies": [
+                                        {
+                                            "name": "VTA",
+                                            "phone": "1 (408) 321-2300",
+                                            "url": "http://www.vta.org/"
+                                        }
+                                    ],
+                                    "name": "De Anza Col - Downtown San Jose",
+                                    "short_name": "323",
+                                    "vehicle": {
+                                        "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                                        "name": "Bus",
+                                        "type": "BUS"
+                                    }
+                                },
+                                "num_stops": 12
+                            },
+                            "travel_mode": "TRANSIT"
+                        },
+                        {
+                            "distance": {
+                                "text": "1.0 mi",
+                                "value": 1548
+                            },
+                            "duration": {
+                                "text": "19 mins",
+                                "value": 1168
+                            },
+                            "end_location": {
+                                "lat": 37.3346553,
+                                "lng": -122.0126537
+                            },
+                            "html_instructions": "Walk to 1 Apple Park Way, Cupertino, CA 95014, USA",
+                            "polyline": {
+                                "points": "}sxbFbavgVAwC@a@aIHk@?}B@WBeF@}A@w@Bg@@yB@w@@o@@[AcA?oB?iA@i@?i@?C?G?]AG?U?a@?{CAg@Ac@?g@AY?aAAgAAcBAc@?YAu@AyA??kB@qADk@H_@NUNU"
+                            },
+                            "start_location": {
+                                "lat": 37.3230286,
+                                "lng": -122.0150567
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "269 ft",
+                                        "value": 82
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 68
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3230317,
+                                        "lng": -122.0141339
+                                    },
+                                    "html_instructions": "Head <b>east</b> on <b>Stevens Creek Blvd</b> toward <b>Miller Ave</b>/<b>N Wolfe Rd</b>",
+                                    "polyline": {
+                                        "points": "}sxbFbavgVAwC@a@"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3230286,
+                                        "lng": -122.0150567
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "0.8 mi",
+                                        "value": 1321
+                                    },
+                                    "duration": {
+                                        "text": "17 mins",
+                                        "value": 992
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3349104,
+                                        "lng": -122.0142015
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>N Wolfe Rd</b>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "}sxbFh{ugVaIHk@?}B@WBeF@}A@w@Bg@@yB@w@@o@@[AcA?oB?iA@i@?i@?C?G?]AG?U?a@?{CAg@Ac@?g@AY?aAAgAAcBAc@?YAu@AyA?"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3230317,
+                                        "lng": -122.0141339
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "476 ft",
+                                        "value": 145
+                                    },
+                                    "duration": {
+                                        "text": "2 mins",
+                                        "value": 108
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3346553,
+                                        "lng": -122.0126537
+                                    },
+                                    "html_instructions": "Turn <b>right</b> onto <b>Apple Park Way</b><div style=\"font-size:0.9em\">Restricted usage road</div><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                                    "maneuver": "turn-right",
+                                    "polyline": {
+                                        "points": "e~zbFv{ugV?kB@qADk@H_@NUNU"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3349104,
+                                        "lng": -122.0142015
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                }
+            ],
+            "overview_polyline": {
+                "points": "cy}bF~g~fV`EvKlB|EbBpEFN|@m@~IgGpFuDtKiH^YPEEMb@[|BeBfCgBdFqDbN_JzB{AfDcCjHyEfJcGjE~L~DbKdBrEf@|AbBzEtCvHhAtCTd@JHb@lAJTlCdFnD|G|CvG@VLVlAhCl@rALx@FLBf@HhDB~ARpCRbBCd@Dt@FjCBdBRrMTnMB|JBdXDhW@tYD~VBtVDlS?~C@lA?nABdCPxGDjD?fACjEOvCQ~C@hU@pH@rDBtD?pA@rBL^D~L@zIBhS@lYM^?zA?hC@zEDzNHb`@D`r@BdPARNb@@|RFnR?tAMb@A`A?vABrN?jHFf]@nFEdHAxDCdFDdHJdQ?fE?fT?pA@zAO?N?AwC@a@aIHiD@WBeF@uCDaDBgBB_BAmG@q@A{FCgDCiFEoCA@}DNkA^k@"
+            },
+            "summary": "",
+            "warnings": [
+                "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+            ],
+            "waypoint_order": []
+        },
+        {
+            "bounds": {
+                "northeast": {
+                    "lat": 37.3494552,
+                    "lng": -121.886194
+                },
+                "southwest": {
+                    "lat": 37.2857757,
+                    "lng": -122.0150236
+                }
+            },
+            "copyrights": "Map data ©2018 Google",
+            "fare": {
+                "currency": "USD",
+                "text": "$4.50",
+                "value": 4.5
+            },
+            "legs": [
+                {
+                    "arrival_time": {
+                        "text": "2:14pm",
+                        "time_zone": "America/Los_Angeles",
+                        "value": 1539638084
+                    },
+                    "departure_time": {
+                        "text": "12:47pm",
+                        "time_zone": "America/Los_Angeles",
+                        "value": 1539632848
+                    },
+                    "distance": {
+                        "text": "14.1 mi",
+                        "value": 22633
+                    },
+                    "duration": {
+                        "text": "1 hour 27 mins",
+                        "value": 5236
+                    },
+                    "end_address": "1 Apple Park Way, Cupertino, CA 95014, USA",
+                    "end_location": {
+                        "lat": 37.3346553,
+                        "lng": -122.0126537
+                    },
+                    "start_address": "N 6th St, San Jose, CA 95112, USA",
+                    "start_location": {
+                        "lat": 37.3494552,
+                        "lng": -121.8932844
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0.4 mi",
+                                "value": 665
+                            },
+                            "duration": {
+                                "text": "9 mins",
+                                "value": 511
+                            },
+                            "end_location": {
+                                "lat": 37.3460042,
+                                "lng": -121.8979005
+                            },
+                            "html_instructions": "Walk to Japantown / Ayer Station (0)",
+                            "polyline": {
+                                "points": "cy}bF~g~fV`BhEDLr@nBd@nADLFNv@jBf@rADNh@pALZd@rAFNXp@Rj@HT^dALIXUfCcBDCFN@@"
+                            },
+                            "start_location": {
+                                "lat": 37.3494552,
+                                "lng": -121.8932844
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "0.3 mi",
+                                        "value": 541
+                                    },
+                                    "duration": {
+                                        "text": "7 mins",
+                                        "value": 409
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3469632,
+                                        "lng": -121.8984909
+                                    },
+                                    "html_instructions": "Head <b>southwest</b> on <b>Jackson St</b> toward <b>N 5th St</b>",
+                                    "polyline": {
+                                        "points": "cy}bF~g~fV`BhEDLr@nBd@nADLFNv@jBf@rADNh@pALZd@rAFNXp@Rj@HT^dA"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3494552,
+                                        "lng": -121.8932844
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "390 ft",
+                                        "value": 119
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 88
+                                    },
+                                    "end_location": {
+                                        "lat": 37.346011,
+                                        "lng": -121.8978858
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>N 1st St</b>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "oi}bFph_gVLIXUfCcBDCFN"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3469632,
+                                        "lng": -121.8984909
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "16 ft",
+                                        "value": 5
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 14
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3460042,
+                                        "lng": -121.8979005
+                                    },
+                                    "html_instructions": "Turn <b>right</b> onto <b>Rankin Ave</b>",
+                                    "maneuver": "turn-right",
+                                    "polyline": {
+                                        "points": "qc}bFxd_gV@@"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.346011,
+                                        "lng": -121.8978858
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        },
+                        {
+                            "distance": {
+                                "text": "6.2 mi",
+                                "value": 10044
+                            },
+                            "duration": {
+                                "text": "30 mins",
+                                "value": 1800
+                            },
+                            "end_location": {
+                                "lat": 37.2857905,
+                                "lng": -121.9431739
+                            },
+                            "html_instructions": "Light rail towards Winchester",
+                            "polyline": {
+                                "points": "y_}bFdb_gVAAxAcA@?bDyBpKmHvByA~CwBj@_@r@i@z@m@BO@SCMGWM[Qe@KYCSDYDMLOzIeGBAzNyJFEdMsIzCsBdBqARCTDNFNf@Zx@Rb@b@dAh@~At@pBd@jAf@`AdArCb@fAf@lAPf@^jAd@~AXv@r@pBjBbFN^Tr@Pb@JXDX@X@V?FRr@Xt@BLBL?LALAHCHGLIHyCrBgAt@KFQJODODQBWBqCXIBGDEBEDCDEFGLCHARAL?L\\dCFb@^jC?@XnBBT?N@XFhDBxABr@?ZAXCTCPCLGRIPCFEJYf@Yl@MTEPEPAJAL?H@H@J@FBFBD@DDFBBBBBDDBJFDBF@D?J@vAGz@C`BGhAEt@CTAJ?~@C\\@x@CVCRENEnAWzBg@ZINETCVC^A|AGXAL?H?LBVDTFLDLHVNXRVRRPRVb@h@RVh@l@rB~BdHbIrDdEt@x@dAlAtEjFtA|A`@d@pAxAx@~@TVxA`BbAhA`FvFjBtBdAlAbAjAV\\j@l@vB`C^d@`@b@b@d@`@b@fCvCfAdAxA|ApAxAVXt@z@?@f@j@xAbBlAvA~@hAhAnAv@~@`@b@xDjEpB~BfHbIhHbI`HbItA|AbAlAx@~@x@fAp@x@|AhBNNTVx@|@?@h@j@dBdBpDbE`H~HhHjIdDvDTTPRb@d@?@jAtARVRXRRj@j@`A|@pAjA\\Xd@`@f@`@z@n@^VnBtA~G|EhHfFpCnBpCbBh@^VRAD"
+                            },
+                            "start_location": {
+                                "lat": 37.3454089,
+                                "lng": -121.8974706
+                            },
+                            "transit_details": {
+                                "arrival_stop": {
+                                    "location": {
+                                        "lat": 37.2857905,
+                                        "lng": -121.9431739
+                                    },
+                                    "name": "Downtown Campbell"
+                                },
+                                "arrival_time": {
+                                    "text": "1:26pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539635160
+                                },
+                                "departure_stop": {
+                                    "location": {
+                                        "lat": 37.3454089,
+                                        "lng": -121.8974706
+                                    },
+                                    "name": "Japantown / Ayer Station (0)"
+                                },
+                                "departure_time": {
+                                    "text": "12:56pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539633360
+                                },
+                                "headsign": "Winchester",
+                                "line": {
+                                    "agencies": [
+                                        {
+                                            "name": "VTA",
+                                            "phone": "1 (408) 321-2300",
+                                            "url": "http://www.vta.org/"
+                                        }
+                                    ],
+                                    "color": "#8bc34a",
+                                    "name": "Mountain View - Winchester",
+                                    "short_name": "902",
+                                    "vehicle": {
+                                        "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/tram2.png",
+                                        "name": "Light rail",
+                                        "type": "TRAM"
+                                    }
+                                },
+                                "num_stops": 11
+                            },
+                            "travel_mode": "TRANSIT"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.2 mi",
+                                "value": 308
+                            },
+                            "duration": {
+                                "text": "4 mins",
+                                "value": 239
+                            },
+                            "end_location": {
+                                "lat": 37.2878737,
+                                "lng": -121.9429595
+                            },
+                            "html_instructions": "Walk to Civc Center & Central",
+                            "polyline": {
+                                "points": "amqbFh~ggV?E?G@K@GBUBMuBaBs@g@c@WULEDGHGHGJc@h@MPOPQZEHENEJAFAFCN?H"
+                            },
+                            "start_location": {
+                                "lat": 37.2860941,
+                                "lng": -121.9429251
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "102 ft",
+                                        "value": 31
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 29
+                                    },
+                                    "end_location": {
+                                        "lat": 37.2860277,
+                                        "lng": -121.9425817
+                                    },
+                                    "html_instructions": "Head <b>east</b> on <b>Orchard City Dr</b> toward <b>Railway Ave</b>",
+                                    "polyline": {
+                                        "points": "amqbFh~ggV?E?G@K@GBUBM"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.2860941,
+                                        "lng": -121.9429251
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "443 ft",
+                                        "value": 135
+                                    },
+                                    "duration": {
+                                        "text": "2 mins",
+                                        "value": 97
+                                    },
+                                    "end_location": {
+                                        "lat": 37.2870585,
+                                        "lng": -121.9417673
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>Railway Ave</b>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "ulqbFb|ggVuBaBs@g@c@W"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.2860277,
+                                        "lng": -121.9425817
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "466 ft",
+                                        "value": 142
+                                    },
+                                    "duration": {
+                                        "text": "2 mins",
+                                        "value": 113
+                                    },
+                                    "end_location": {
+                                        "lat": 37.2878737,
+                                        "lng": -121.9429595
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>Civic Center Dr</b><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "csqbF`wggVULEDGHGHGJc@h@MPOPQZEHENEJAFAFCN?H"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.2870585,
+                                        "lng": -121.9417673
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        },
+                        {
+                            "distance": {
+                                "text": "7.1 mi",
+                                "value": 11398
+                            },
+                            "duration": {
+                                "text": "37 mins",
+                                "value": 2220
+                            },
+                            "end_location": {
+                                "lat": 37.335562,
+                                "lng": -122.014028
+                            },
+                            "html_instructions": "Bus towards 26 Sunnyvale Lockheed",
+                            "polyline": {
+                                "points": "kxqbFl~ggVF@Aj@?lABbG?jFA|C?vADp@FXVj@tArBJX@DD`@?zC?X@\\@fC@b@?B@n@?fJ?`G?rEBzE?vE@hC@d@?hCApE@pB@N?T@|@@f@BrBDzBHTBp@@ZDbBFlB@v@HvE@l@DxCBbBBVHv@Jr@Jl@Hp@DTD^@b@@h@HjF@l@BvB@~@DtBHpFBdB@RDbDDnBDvBBhAGRFtC?ZD~D@@DJ?h@PrJH~H?R@zAAl@C`AG|@Gl@Gf@It@SfAKr@Qx@CL]dA_@hAQf@Q`@MTU`@gDbFOT{@lAEFuBzCOFg@r@]d@MRGFWVSNMFi@TK?SECRCXG`@EPEPCJCJIRMVINCFMRINKPo@bAS\\gBhCc@n@MPILOf@EVEVCVCd@QhCAN?D]hFe@fISlDAVCRIfBEj@c@vIMxB?DC^AF_@lGGdAKjBS`HANCdAKrFI`EC`BChAK`E?|AEzEC`BAnBIdGI|HA~@AJu@A}AAqC?aA@oA@uD?iE@sG@{@@kA?}B@}C?gA@}KBmB?m@@_CA}@E_COq@Gw@KMA{@QsDaAMCgEeAOQq@Ui@Oe@MSG[Ke@M_@COJMCy@GiEIaDEcDIq@CK?}BEcA@sCG_@?a@@i@BA?y@@_@AcDKm@Cs@?E?OM_@?]@_@D_@H{@\\e@RqClAo@Ra@J_@Bq@@G?G@yA@_DB_@?A?wD@S?S?{@DmA?A@oFDwA@Q@SAK?eC?iACsABK?kBD]@wA@O?U@E?Q?G?E?Y@W?Q?qA?qB@e@?M?_@?]A[?a@?G?E?]AsA?{A?qCCc@?S?_BCmAAO?_@?Q?s@?A?oAC_A?S?{@A?["
+                            },
+                            "start_location": {
+                                "lat": 37.2879044,
+                                "lng": -121.9429528
+                            },
+                            "transit_details": {
+                                "arrival_stop": {
+                                    "location": {
+                                        "lat": 37.335562,
+                                        "lng": -122.014028
+                                    },
+                                    "name": "Wolfe & Apple Parkway"
+                                },
+                                "arrival_time": {
+                                    "text": "2:12pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539637920
+                                },
+                                "departure_stop": {
+                                    "location": {
+                                        "lat": 37.2879044,
+                                        "lng": -121.9429528
+                                    },
+                                    "name": "Civc Center & Central"
+                                },
+                                "departure_time": {
+                                    "text": "1:35pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539635700
+                                },
+                                "headsign": "26 Sunnyvale Lockheed",
+                                "line": {
+                                    "agencies": [
+                                        {
+                                            "name": "VTA",
+                                            "phone": "1 (408) 321-2300",
+                                            "url": "http://www.vta.org/"
+                                        }
+                                    ],
+                                    "name": "Sunnyvale/Lockheed - Eastridge",
+                                    "short_name": "26",
+                                    "vehicle": {
+                                        "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                                        "name": "Bus",
+                                        "type": "BUS"
+                                    }
+                                },
+                                "num_stops": 31
+                            },
+                            "travel_mode": "TRANSIT"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.1 mi",
+                                "value": 218
+                            },
+                            "duration": {
+                                "text": "3 mins",
+                                "value": 163
+                            },
+                            "end_location": {
+                                "lat": 37.3346553,
+                                "lng": -122.0126537
+                            },
+                            "html_instructions": "Walk to 1 Apple Park Way, Cupertino, CA 95014, USA",
+                            "polyline": {
+                                "points": "gb{bFt{ugVt@@t@?T??kB@qADk@H_@NUNU"
+                            },
+                            "start_location": {
+                                "lat": 37.3355628,
+                                "lng": -122.0141937
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "240 ft",
+                                        "value": 73
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 55
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3349104,
+                                        "lng": -122.0142015
+                                    },
+                                    "html_instructions": "Head <b>south</b> on <b>N Wolfe Rd</b> toward <b>Apple Park Way</b>",
+                                    "polyline": {
+                                        "points": "gb{bFt{ugVt@@t@?T?"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3355628,
+                                        "lng": -122.0141937
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "476 ft",
+                                        "value": 145
+                                    },
+                                    "duration": {
+                                        "text": "2 mins",
+                                        "value": 108
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3346553,
+                                        "lng": -122.0126537
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>Apple Park Way</b><div style=\"font-size:0.9em\">Restricted usage road</div><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "e~zbFv{ugV?kB@qADk@H_@NUNU"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3349104,
+                                        "lng": -122.0142015
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                }
+            ],
+            "overview_polyline": {
+                "points": "cy}bF~g~fV`EvKlB|EbDtI^dALI`DyBDCFN@@tBuAvAeAdDyBtU_PnBwADc@Ke@_@aAOm@Jg@LOzIeG~N{JhRmMdBqARCTDNFj@`Bv@hB~ApElAlCpChHpBjGdEhL\\|@DX@X@^l@hBFZAZERQVaFhD]R_@Ji@F{C\\MHW`@E\\AZdAvH\\dC@h@NrIEn@G^[x@s@tASf@G\\AVHd@NVXTLDP@~HYvCIvAAj@IvFoAd@Iv@EnCId@Hb@LvA`Af@h@v@`AvRvTfLpMbQzRrNfPdAhAnE|EjDvDlAtAnEhFbF|F|Zr]tNnPjB`ClBxBxBbCdBdBpDbEjQjSpFfGjAvAf@p@rEhEfDlCxUrPpCnBpCbB`Ar@AD{@o@?MJw@iDiCc@WULMNOTq@z@a@l@Sl@EV?HEAF@Aj@BpIAhKDhCFXVj@tArBJXFf@?tDDlE@lZBrLBnDAzIB`CFnFDzBHTDlAX`NFfEFzBTjBT~AJt@BlAPpMT`NTtMGRFtCDzE@@DJ?h@ZrT@nBEnBOjBQ|A_@zBUfA}@nCc@hAc@v@yFnIuBzCOFeAxAUZk@f@w@\\_@EU`BW|@i@bAyAbCcDxEU~@In@WdEyAvVkAfTg@rIKjBS`HEtAUtLSjMUrTK|JAJu@AoFAqCBoUDoLBkOBmD?}DUiBSiASaEeAgEeAOQ{Ae@{Bo@_@COJgAKkJOuEMiCEcA@sCGaA@k@ByA?qEOy@?OM_@?}@F{Af@wD`BqA^aBF{GDkE@oADwKHe@?qC?iACsABwBD{CD{D@eE@cBA}NIuIEoAA?[?^jB@T??kB@qADk@H_@NUNU"
+            },
+            "summary": "",
+            "warnings": [
+                "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+            ],
+            "waypoint_order": []
+        },
+        {
+            "bounds": {
+                "northeast": {
+                    "lat": 37.3494552,
+                    "lng": -121.886048
+                },
+                "southwest": {
+                    "lat": 37.3230286,
+                    "lng": -122.0150588
+                }
+            },
+            "copyrights": "Map data ©2018 Google",
+            "fare": {
+                "currency": "USD",
+                "text": "$6.00",
+                "value": 6
+            },
+            "legs": [
+                {
+                    "arrival_time": {
+                        "text": "2:14pm",
+                        "time_zone": "America/Los_Angeles",
+                        "value": 1539638084
+                    },
+                    "departure_time": {
+                        "text": "12:58pm",
+                        "time_zone": "America/Los_Angeles",
+                        "value": 1539633511
+                    },
+                    "distance": {
+                        "text": "9.9 mi",
+                        "value": 15866
+                    },
+                    "duration": {
+                        "text": "1 hour 16 mins",
+                        "value": 4573
+                    },
+                    "end_address": "1 Apple Park Way, Cupertino, CA 95014, USA",
+                    "end_location": {
+                        "lat": 37.3346553,
+                        "lng": -122.0126537
+                    },
+                    "start_address": "N 6th St, San Jose, CA 95112, USA",
+                    "start_location": {
+                        "lat": 37.3494552,
+                        "lng": -121.8932844
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0.7 mi",
+                                "value": 1149
+                            },
+                            "duration": {
+                                "text": "14 mins",
+                                "value": 869
+                            },
+                            "end_location": {
+                                "lat": 37.3419254,
+                                "lng": -121.8934824
+                            },
+                            "html_instructions": "Walk to 2nd & Bassett",
+                            "polyline": {
+                                "points": "cy}bF~g~fV`BhEDLr@nBd@nADLFNv@jBf@rADNh@pALZd@rAFN|@m@vHgFf@_@JIn@a@hD_CJIlH_FLIjAw@LG^Y"
+                            },
+                            "start_location": {
+                                "lat": 37.3494552,
+                                "lng": -121.8932844
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "0.3 mi",
+                                        "value": 438
+                                    },
+                                    "duration": {
+                                        "text": "6 mins",
+                                        "value": 332
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3473981,
+                                        "lng": -121.8975586
+                                    },
+                                    "html_instructions": "Head <b>southwest</b> on <b>Jackson St</b> toward <b>N 5th St</b>",
+                                    "polyline": {
+                                        "points": "cy}bF~g~fV`BhEDLr@nBd@nADLFNv@jBf@rADNh@pALZd@rAFN"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3494552,
+                                        "lng": -121.8932844
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "0.4 mi",
+                                        "value": 711
+                                    },
+                                    "duration": {
+                                        "text": "9 mins",
+                                        "value": 537
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3419254,
+                                        "lng": -121.8934824
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>N 2nd St</b><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "gl}bFvb_gV|@m@vHgFf@_@JIn@a@hD_CJIlH_FLIjAw@LG^Y"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3473981,
+                                        "lng": -121.8975586
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        },
+                        {
+                            "distance": {
+                                "text": "8.1 mi",
+                                "value": 12973
+                            },
+                            "duration": {
+                                "text": "39 mins",
+                                "value": 2340
+                            },
+                            "end_location": {
+                                "lat": 37.3231111,
+                                "lng": -122.0150588
+                            },
+                            "html_instructions": "Bus towards 323 Limited De Anza College",
+                            "polyline": {
+                                "points": "oi|bF`i~fVEMb@[|BeBfCgBpCoBrAaAlBmA\\U`Ao@tGkEVQtA}@@AJITQn@e@f@]x@m@hBkAfCcBx@i@jAw@zGkElBjF|ArEJVJV|AvDhAzCFP|A`EPf@Tt@hAdDHRHTDJTn@N^Vl@Nb@l@zA?@Rf@DNRf@L\\\\|@HPTd@JHTl@L^FNBDhAxBbAjBJP`@t@T`@jBrD|CvG@VJP@D\\r@HPFL\\t@b@`AHPDPFf@FLBf@BdADbB@n@@n@Fv@JxANpABPEZ@HDt@FjC?RBpA?P@RHxEFrE?FBr@@bANnI@lC?~@@pC?\\?hB?r@?fA@tB?fF?nC@v@?X?`B?x@@fA@dEA`@BpE?zA?N@|E?HAfA?\\?pB@|D?V?~D@X?jE?R@pC?rC?t@@fC?`@?j@@hB?f@?|@?`A?H?hB?Z@nA?r@?t@?F?B?F?F?pA@vA?zB?dA@N?xA?fB?V@hC?R?b@?`B?D@j@?`@?\\?p@?h@?J@\\@p@BX@^DrADjCBdB@d@?T?H?L?H?d@?H?b@?HAh@@VAd@?Z?JALAb@GdAC`@AJC\\Cd@Gz@A^?V?L?rA?bB?`E?zA@xA?rB?DAvD@`@@pA?p@?@?H@tB?`B@X?^@X?X?v@@rBL^BfE@vF@vD?bD?f@?vF@rD@tD?jG?rK@hA?bBM^?zA?|A?j@?V?T?r@@xB?|@BlF?bD@j@?vC@lD@tA?X?P@fA?~GBrF?dB?zH@lA?jA?R?J@lO@vN@bG@`HARNb@?~C@|MDvL@vD?tAMb@?XAf@?^@VAJ?R?x@@tA?vA?d@@l@?R?jA?vA?fA?@?h@?`@?l@?j@?h@?P?L?^?nA?Z?L?J?J@t@?rA?~CBxD?|A?tA?Z@t@?\\?@?pA@jA?nA?~AEdEA~B?x@AJ?~A?TAbB@zC?X?ZBrABdE?ZBfEBzC?|B?X?T?X?tF?pJ?n@?N?L?bA@zAO?"
+                            },
+                            "start_location": {
+                                "lat": 37.3418385,
+                                "lng": -121.893454
+                            },
+                            "transit_details": {
+                                "arrival_stop": {
+                                    "location": {
+                                        "lat": 37.3231111,
+                                        "lng": -122.0150588
+                                    },
+                                    "name": "Stevens Creek & Wolfe"
+                                },
+                                "arrival_time": {
+                                    "text": "1:52pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539636720
+                                },
+                                "departure_stop": {
+                                    "location": {
+                                        "lat": 37.3418385,
+                                        "lng": -121.893454
+                                    },
+                                    "name": "2nd & Bassett"
+                                },
+                                "departure_time": {
+                                    "text": "1:13pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539634380
+                                },
+                                "headsign": "323 Limited De Anza College",
+                                "line": {
+                                    "agencies": [
+                                        {
+                                            "name": "VTA",
+                                            "phone": "1 (408) 321-2300",
+                                            "url": "http://www.vta.org/"
+                                        }
+                                    ],
+                                    "name": "De Anza Col - Downtown San Jose",
+                                    "short_name": "323",
+                                    "vehicle": {
+                                        "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                                        "name": "Bus",
+                                        "type": "BUS"
+                                    }
+                                },
+                                "num_stops": 12
+                            },
+                            "travel_mode": "TRANSIT"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.1 mi",
+                                "value": 194
+                            },
+                            "duration": {
+                                "text": "3 mins",
+                                "value": 153
+                            },
+                            "end_location": {
+                                "lat": 37.3240372,
+                                "lng": -122.0141656
+                            },
+                            "html_instructions": "Walk to Wolfe & Stevens Creek",
+                            "polyline": {
+                                "points": "}sxbFbavgVAwC@a@iEF"
+                            },
+                            "start_location": {
+                                "lat": 37.3230286,
+                                "lng": -122.0150567
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "269 ft",
+                                        "value": 82
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 68
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3230317,
+                                        "lng": -122.0141339
+                                    },
+                                    "html_instructions": "Head <b>east</b> on <b>Stevens Creek Blvd</b> toward <b>Miller Ave</b>/<b>N Wolfe Rd</b>",
+                                    "polyline": {
+                                        "points": "}sxbFbavgVAwC@a@"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3230286,
+                                        "lng": -122.0150567
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "367 ft",
+                                        "value": 112
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 85
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3240372,
+                                        "lng": -122.0141656
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>N Wolfe Rd</b><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "}sxbFh{ugViEF"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3230317,
+                                        "lng": -122.0141339
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.8 mi",
+                                "value": 1332
+                            },
+                            "duration": {
+                                "text": "9 mins",
+                                "value": 540
+                            },
+                            "end_location": {
+                                "lat": 37.335562,
+                                "lng": -122.014028
+                            },
+                            "html_instructions": "Bus towards 26 Sunnyvale Lockheed",
+                            "polyline": {
+                                "points": "kxxbF`{ugV?JoFDwA@Q@SAK?eC?iACsABK?kBD]@wA@O?U@E?Q?G?E?Y@W?Q?qA?qB@e@?M?_@?]A[?a@?G?E?]AsA?{A?qCCc@?S?_BCmAAO?_@?Q?s@?A?oAC_A?S?{@A?["
+                            },
+                            "start_location": {
+                                "lat": 37.3237369,
+                                "lng": -122.0140941
+                            },
+                            "transit_details": {
+                                "arrival_stop": {
+                                    "location": {
+                                        "lat": 37.335562,
+                                        "lng": -122.014028
+                                    },
+                                    "name": "Wolfe & Apple Parkway"
+                                },
+                                "arrival_time": {
+                                    "text": "2:12pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539637920
+                                },
+                                "departure_stop": {
+                                    "location": {
+                                        "lat": 37.3237369,
+                                        "lng": -122.0140941
+                                    },
+                                    "name": "Wolfe & Stevens Creek"
+                                },
+                                "departure_time": {
+                                    "text": "2:03pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539637380
+                                },
+                                "headsign": "26 Sunnyvale Lockheed",
+                                "line": {
+                                    "agencies": [
+                                        {
+                                            "name": "VTA",
+                                            "phone": "1 (408) 321-2300",
+                                            "url": "http://www.vta.org/"
+                                        }
+                                    ],
+                                    "name": "Sunnyvale/Lockheed - Eastridge",
+                                    "short_name": "26",
+                                    "vehicle": {
+                                        "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                                        "name": "Bus",
+                                        "type": "BUS"
+                                    }
+                                },
+                                "num_stops": 2
+                            },
+                            "travel_mode": "TRANSIT"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.1 mi",
+                                "value": 218
+                            },
+                            "duration": {
+                                "text": "3 mins",
+                                "value": 163
+                            },
+                            "end_location": {
+                                "lat": 37.3346553,
+                                "lng": -122.0126537
+                            },
+                            "html_instructions": "Walk to 1 Apple Park Way, Cupertino, CA 95014, USA",
+                            "polyline": {
+                                "points": "gb{bFt{ugVt@@t@?T??kB@qADk@H_@NUNU"
+                            },
+                            "start_location": {
+                                "lat": 37.3355628,
+                                "lng": -122.0141937
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "240 ft",
+                                        "value": 73
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 55
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3349104,
+                                        "lng": -122.0142015
+                                    },
+                                    "html_instructions": "Head <b>south</b> on <b>N Wolfe Rd</b> toward <b>Apple Park Way</b>",
+                                    "polyline": {
+                                        "points": "gb{bFt{ugVt@@t@?T?"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3355628,
+                                        "lng": -122.0141937
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "476 ft",
+                                        "value": 145
+                                    },
+                                    "duration": {
+                                        "text": "2 mins",
+                                        "value": 108
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3346553,
+                                        "lng": -122.0126537
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>Apple Park Way</b><div style=\"font-size:0.9em\">Restricted usage road</div><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "e~zbFv{ugV?kB@qADk@H_@NUNU"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3349104,
+                                        "lng": -122.0142015
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                }
+            ],
+            "overview_polyline": {
+                "points": "cy}bF~g~fV`EvKlB|EbBpEFN|@m@~IgGpFuDtKiH^YPEEMb@[|BeBfCgBdFqDbN_JzB{AfDcCjHyEfJcGjE~L~DbKdBrEf@|AbBzEtCvHhAtCTd@JHb@lAJTlCdFnD|G|CvG@VLVlAhCl@rALx@FLBf@HhDB~ARpCRbBCd@Dt@FjCBdBRrMTnMB|JBdXDhW@tYD~VBtVDlS?~C@lA?nABdCPxGDjD?fACjEOvCQ~C@hU@pH@rDBtD?pA@rBL^D~L@zIBhS@lYM^?zA?hC@zEDzNHb`@D`r@BdPARNb@@|RFnR?tAMb@A`A?vABrN?jHFf]@nFEdHAxDCdFDdHJdQ?fE?fT?pA@zAO?N?AwC@a@iEFz@O?JgIFe@?qC?iACsABwBD{CDe@?{IBqVMeECoAA?[?^jB@T??kB@qADk@H_@NUNU"
+            },
+            "summary": "",
+            "warnings": [
+                "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+            ],
+            "waypoint_order": []
+        },
+        {
+            "bounds": {
+                "northeast": {
+                    "lat": 37.353636,
+                    "lng": -121.8933469
+                },
+                "southwest": {
+                    "lat": 37.323038,
+                    "lng": -122.014268
+                }
+            },
+            "copyrights": "Map data ©2018 Google",
+            "fare": {
+                "currency": "USD",
+                "text": "$6.00",
+                "value": 6
+            },
+            "legs": [
+                {
+                    "arrival_time": {
+                        "text": "2:30pm",
+                        "time_zone": "America/Los_Angeles",
+                        "value": 1539639044
+                    },
+                    "departure_time": {
+                        "text": "12:48pm",
+                        "time_zone": "America/Los_Angeles",
+                        "value": 1539632934
+                    },
+                    "distance": {
+                        "text": "13.1 mi",
+                        "value": 21072
+                    },
+                    "duration": {
+                        "text": "1 hour 42 mins",
+                        "value": 6110
+                    },
+                    "end_address": "1 Apple Park Way, Cupertino, CA 95014, USA",
+                    "end_location": {
+                        "lat": 37.3346553,
+                        "lng": -122.0126537
+                    },
+                    "start_address": "N 6th St, San Jose, CA 95112, USA",
+                    "start_location": {
+                        "lat": 37.3494679,
+                        "lng": -121.8933469
+                    },
+                    "steps": [
+                        {
+                            "distance": {
+                                "text": "0.2 mi",
+                                "value": 359
+                            },
+                            "duration": {
+                                "text": "4 mins",
+                                "value": 268
+                            },
+                            "end_location": {
+                                "lat": 37.3520403,
+                                "lng": -121.8940676
+                            },
+                            "html_instructions": "Walk to Taylor & 7th",
+                            "polyline": {
+                                "points": "ey}bFlh~fVaLpHKHGOc@iAg@qA"
+                            },
+                            "start_location": {
+                                "lat": 37.3494679,
+                                "lng": -121.8933469
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "0.2 mi",
+                                        "value": 274
+                                    },
+                                    "duration": {
+                                        "text": "3 mins",
+                                        "value": 195
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3516611,
+                                        "lng": -121.89485
+                                    },
+                                    "html_instructions": "Head <b>northwest</b> on <b>N 6th St</b> toward <b>E Taylor St</b>",
+                                    "polyline": {
+                                        "points": "ey}bFlh~fVaLpHKHGO"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3494679,
+                                        "lng": -121.8933469
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "279 ft",
+                                        "value": 85
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 73
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3520403,
+                                        "lng": -121.8940676
+                                    },
+                                    "html_instructions": "Turn <b>right</b> onto <b>E Taylor St</b><div style=\"font-size:0.9em\">Destination will be on the left</div>",
+                                    "maneuver": "turn-right",
+                                    "polyline": {
+                                        "points": "{f~bFxq~fVc@iAg@qA"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3516611,
+                                        "lng": -121.89485
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        },
+                        {
+                            "distance": {
+                                "text": "2.9 mi",
+                                "value": 4658
+                            },
+                            "duration": {
+                                "text": "30 mins",
+                                "value": 1800
+                            },
+                            "end_location": {
+                                "lat": 37.3337294,
+                                "lng": -121.9245068
+                            },
+                            "html_instructions": "Bus towards 61 Good Sam Hospital",
+                            "polyline": {
+                                "points": "mi~bF`m~fVHEjAbDfBvE?@dBrEb@fAdDvIjA~CJTJVcAr@}CrBmEvCQL]TA@aAp@kHdFKFKHFPDPRl@Nd@f@vA`@`A\\v@z@`BPb@\\~@v@zBp@hBDLl@zAr@`Bp@zATb@PHDHR`@V^^r@DFBFBBDHLPPX`@j@PX\\h@z@nALR`@p@lD`Gb@r@fDlFJPjBpCl@z@FJHJ`@_@LST[@MvBcClAuAbBmBTUbEuEVYLArAsADGBARWLCNCNBHDn@lAFFbAhB\\j@RZHLvAxBd@l@^d@^f@NPRD|AlCrB~Cb@p@HNNTrDlFZb@Rd@F\\?XOlC@p@Dj@Fd@FPL\\Vd@^l@h@t@@@nBnClCvDf@r@bBbCnC|DlAdBx@hAKL"
+                            },
+                            "start_location": {
+                                "lat": 37.3520657,
+                                "lng": -121.8940873
+                            },
+                            "transit_details": {
+                                "arrival_stop": {
+                                    "location": {
+                                        "lat": 37.3337294,
+                                        "lng": -121.9245068
+                                    },
+                                    "name": "Naglee & Park"
+                                },
+                                "arrival_time": {
+                                    "text": "1:24pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539635040
+                                },
+                                "departure_stop": {
+                                    "location": {
+                                        "lat": 37.3520657,
+                                        "lng": -121.8940873
+                                    },
+                                    "name": "Taylor & 7th"
+                                },
+                                "departure_time": {
+                                    "text": "12:54pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539633240
+                                },
+                                "headsign": "61 Good Sam Hospital",
+                                "line": {
+                                    "agencies": [
+                                        {
+                                            "name": "VTA",
+                                            "phone": "1 (408) 321-2300",
+                                            "url": "http://www.vta.org/"
+                                        }
+                                    ],
+                                    "name": "Good Sam Hosp - Sierra & Piedmont",
+                                    "short_name": "61",
+                                    "vehicle": {
+                                        "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                                        "name": "Bus",
+                                        "type": "BUS"
+                                    }
+                                },
+                                "num_stops": 13
+                            },
+                            "travel_mode": "TRANSIT"
+                        },
+                        {
+                            "distance": {
+                                "text": "302 ft",
+                                "value": 92
+                            },
+                            "duration": {
+                                "text": "1 min",
+                                "value": 76
+                            },
+                            "end_location": {
+                                "lat": 37.3342796,
+                                "lng": -121.9243752
+                            },
+                            "html_instructions": "Walk to Park & Naglee",
+                            "polyline": {
+                                "points": "uvzbF~jdgVGMk@y@IKs@~@"
+                            },
+                            "start_location": {
+                                "lat": 37.3337051,
+                                "lng": -121.9244814
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "157 ft",
+                                        "value": 48
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 34
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3340206,
+                                        "lng": -121.924058
+                                    },
+                                    "html_instructions": "Head <b>northeast</b> on <b>Naglee Ave</b> toward <b>Park Ave</b>",
+                                    "polyline": {
+                                        "points": "uvzbF~jdgVGMk@y@IK"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3337051,
+                                        "lng": -121.9244814
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "144 ft",
+                                        "value": 44
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 42
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3342796,
+                                        "lng": -121.9243752
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>Park Ave</b><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "sxzbFjhdgVs@~@"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3340206,
+                                        "lng": -121.924058
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        },
+                        {
+                            "distance": {
+                                "text": "9.8 mi",
+                                "value": 15745
+                            },
+                            "duration": {
+                                "text": "55 mins",
+                                "value": 3300
+                            },
+                            "end_location": {
+                                "lat": 37.335562,
+                                "lng": -122.014028
+                            },
+                            "html_instructions": "Bus towards 81 WB Moffett Field - NASA Ames",
+                            "polyline": {
+                                "points": "ozzbF~idgVLRgArA]b@wAfB[`@qBfCo@v@s@`AoCnDcArAqBhCkAzAyAlBQTIJIJA@MNORWZMRaBrBj@v@RZUbBETOh@Sz@Ef@@j@f@pB`BxGJ^^vAJp@D^XnCPtBF^DL`@|A~AjGTz@TbADj@@b@?B?dCCfMg@?U?k@?a@?k@?qH?c@JMDe@NkChAsAj@qAn@UJyHlDm@XoClAwDbBa@PSHcCnA{DlB_EjBA@WJyCtAqAkFuAkF?AuAgFwAiFcBmGMe@Qo@oAeFmAgFe@kBo@mC|@uAfAoANQRQNM`@]EEEGIKKOSUKOU_@UYY_@a@[GCUBGBMRSh@i@zA[z@A?ELUb@v@p@V\\FLPh@HTDPv@bD\\tAlAfFnAdFPn@pBrHXbA|@dDlApEFVtAjFpAjFpAnFx@jDV`ArAhF~CzLNl@Lb@FXXhAx@~Cv@~CPr@NfABh@?\\?~A@lE?zA?pB?bC?nD@|D@nE?~D?v@AdH?`F?N@nB?V?P?n@?n@?LArD?`@?nC?h@HbCB~@F|A@`C?xDBnB?r@@^Ap@IdAk@lD[nBCp@?`@~AAF?dBAlAAfK?hGAzBEP?jBEx@Ar@El@M~Bu@lAi@NGBAbAc@p@zCXpATdB?v@?|@?b@?N?r@?tA?f@?b@@p@?hB@b@@bE?|@?tF?`H@fE@dF?nA@rD?bD?vD?~M@pABrH@hCA`@?R?RGP?zA?B@^A`GCvJ?nA?D@rBLZ@l@?dB?zB?h@?xBDdH?tA?|@z@?~A@@?tB?bB@tI?d@BRFbBl@z@VPBd@@hBDbA@h@?xA@@?|@?vD@L?lC@bB@lA@`@@~A?j@@`@?^@F?D?D@D?D@F@F@HBPDRH`@Nr@Vd@PPDJBLBNBLBF?J@H@X?dA?jA?v@@T?bDCPHLFJDB@@BBB@B@D@DH^?L@b@@rC?ZBfEBzC?|B?X?T?X?V?d@?vD?pJOXGJGB[JmA?A@oFDwA@Q@SAK?eC?iACsABK?kBD]@wA@O?U@E?Q?G?E?Y@W?Q?qA?qB@e@?M?_@?]A[?a@?G?E?]AsA?{A?qCCc@?S?_BCmAAO?_@?Q?s@?A?oAC_A?S?{@A?["
+                            },
+                            "start_location": {
+                                "lat": 37.3343193,
+                                "lng": -121.924324
+                            },
+                            "transit_details": {
+                                "arrival_stop": {
+                                    "location": {
+                                        "lat": 37.335562,
+                                        "lng": -122.014028
+                                    },
+                                    "name": "Wolfe & Apple Parkway"
+                                },
+                                "arrival_time": {
+                                    "text": "2:28pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539638880
+                                },
+                                "departure_stop": {
+                                    "location": {
+                                        "lat": 37.3343193,
+                                        "lng": -121.924324
+                                    },
+                                    "name": "Park & Naglee"
+                                },
+                                "departure_time": {
+                                    "text": "1:33pm",
+                                    "time_zone": "America/Los_Angeles",
+                                    "value": 1539635580
+                                },
+                                "headsign": "81 WB Moffett Field - NASA Ames",
+                                "line": {
+                                    "agencies": [
+                                        {
+                                            "name": "VTA",
+                                            "phone": "1 (408) 321-2300",
+                                            "url": "http://www.vta.org/"
+                                        }
+                                    ],
+                                    "name": "Moffett/Ames Ctr - San Jose State",
+                                    "short_name": "81",
+                                    "vehicle": {
+                                        "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                                        "name": "Bus",
+                                        "type": "BUS"
+                                    }
+                                },
+                                "num_stops": 42
+                            },
+                            "travel_mode": "TRANSIT"
+                        },
+                        {
+                            "distance": {
+                                "text": "0.1 mi",
+                                "value": 218
+                            },
+                            "duration": {
+                                "text": "3 mins",
+                                "value": 163
+                            },
+                            "end_location": {
+                                "lat": 37.3346553,
+                                "lng": -122.0126537
+                            },
+                            "html_instructions": "Walk to 1 Apple Park Way, Cupertino, CA 95014, USA",
+                            "polyline": {
+                                "points": "gb{bFt{ugVt@@t@?T??kB@qADk@H_@NUNU"
+                            },
+                            "start_location": {
+                                "lat": 37.3355628,
+                                "lng": -122.0141937
+                            },
+                            "steps": [
+                                {
+                                    "distance": {
+                                        "text": "240 ft",
+                                        "value": 73
+                                    },
+                                    "duration": {
+                                        "text": "1 min",
+                                        "value": 55
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3349104,
+                                        "lng": -122.0142015
+                                    },
+                                    "html_instructions": "Head <b>south</b> on <b>N Wolfe Rd</b> toward <b>Apple Park Way</b>",
+                                    "polyline": {
+                                        "points": "gb{bFt{ugVt@@t@?T?"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3355628,
+                                        "lng": -122.0141937
+                                    },
+                                    "travel_mode": "WALKING"
+                                },
+                                {
+                                    "distance": {
+                                        "text": "476 ft",
+                                        "value": 145
+                                    },
+                                    "duration": {
+                                        "text": "2 mins",
+                                        "value": 108
+                                    },
+                                    "end_location": {
+                                        "lat": 37.3346553,
+                                        "lng": -122.0126537
+                                    },
+                                    "html_instructions": "Turn <b>left</b> onto <b>Apple Park Way</b><div style=\"font-size:0.9em\">Restricted usage road</div><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                                    "maneuver": "turn-left",
+                                    "polyline": {
+                                        "points": "e~zbFv{ugV?kB@qADk@H_@NUNU"
+                                    },
+                                    "start_location": {
+                                        "lat": 37.3349104,
+                                        "lng": -122.0142015
+                                    },
+                                    "travel_mode": "WALKING"
+                                }
+                            ],
+                            "travel_mode": "WALKING"
+                        }
+                    ],
+                    "traffic_speed_entry": [],
+                    "via_waypoint": []
+                }
+            ],
+            "overview_polyline": {
+                "points": "ey}bFlh~fVmLzHk@yAg@qAEBHEjAbDfBxEhCzGhGdPaMlImKnHWPLb@b@rAhAxCxAxCn@bBhBdFr@hBdB|DTb@PHXj@v@rAR\\rApBhC~DpEtHrD~FjDdFn@s@T[@MdEyExBcCzEoFLArAsAHIRWLCNCNBHDn@lAjApBp@fA`BfCdArAn@x@RD|AlCvCpEXd@nEpGRd@F\\OfDF|ANv@d@bAzDtFtDjFrF`IfCnDKLBEs@gAIKs@~@GKLReBvBuGhIyJnMkF|Ge@n@aBrBj@v@RZUbBU~@Sz@Ef@@j@f@pBlBxH^vAJp@^nDPtBF^f@jBtBfITbADj@@f@ClQ}@?kL?q@Pe@NkChAeDzAoIxDwK|EwCxA{JxEYLyCtAqAkFuAmFmDqMqBsHaBuGsBsIo@mC|@uAvAaBb@_@`@]EEOSaAuAo@y@i@_@]FMRSh@eAvCGLUb@v@p@^j@Z~@|@tDlErQvGnV|AbGbDzMpAlFrFdT~@tDpB~HPr@NfABfA@lH?`OBdS?fS?hCArJHlDJ|CD~M?pAIdAk@lD[nBCp@?`@~AAlBAtMAdKG|BElBGl@M~Bu@|Aq@fAe@jAlFTdB?v@?`B?bA@rEBnKBd]@~Q@pPD|LAt@?RGP?~A?`HA`QLZ@l@?`FD~O?|@z@?`B@xE@zJBvBt@lAZnCFlB@pIB|OHr@BZDpAb@vBr@r@JtBB|HAn@XHPJd@@p@HrO?fE?fRWd@c@NwKHe@?qC?iACsABwBD{CD{D@eE@cBA}NIuIEoAA?[?^jB@T??kB@qADk@H_@NUNU"
+            },
+            "summary": "",
+            "warnings": [
+                "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+            ],
+            "waypoint_order": []
+        }
+    ],
+    "status": "OK"
+}
