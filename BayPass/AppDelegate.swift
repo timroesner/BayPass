@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
         }
+        let vc = MapViewController()
+        
+        window?.rootViewController = vc
         return true
     }
 
