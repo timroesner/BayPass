@@ -26,6 +26,7 @@
 		22049DBE214C9DF3007FF904 /* BayPassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBD214C9DF3007FF904 /* BayPassUITests.swift */; };
 		2212D7232179956D00ADFE3D /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212D7222179956D00ADFE3D /* TicketViewController.swift */; };
 		2212D7252179957800ADFE3D /* ClipperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212D7242179957800ADFE3D /* ClipperViewController.swift */; };
+		2212D7272179985400ADFE3D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212D7262179985400ADFE3D /* TabViewController.swift */; };
 		3F2A3909C8E024CD3AE14311 /* Pods_BayPassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */; };
 		6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A00918D217EAB1D0087A32B /* BikeDock.swift */; };
 		6A009190217EACCD0087A32B /* Scooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A00918F217EACCD0087A32B /* Scooter.swift */; };
@@ -163,6 +164,7 @@
 				2212D7222179956D00ADFE3D /* TicketViewController.swift */,
 				2212D7242179957800ADFE3D /* ClipperViewController.swift */,
 				22049D9F214C9DF0007FF904 /* MapViewController.swift */,
+				2212D7282179AD8800ADFE3D /* Controller */,
 				22049DA4214C9DF2007FF904 /* Assets.xcassets */,
 				22049DA6214C9DF2007FF904 /* LaunchScreen.storyboard */,
 				22049DA9214C9DF2007FF904 /* Info.plist */,
@@ -499,6 +501,7 @@
 				2212D7252179957800ADFE3D /* ClipperViewController.swift in Sources */,
 				22049DA0214C9DF0007FF904 /* MapViewController.swift in Sources */,
 				22049D9E214C9DF0007FF904 /* AppDelegate.swift in Sources */,
+				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
 				2212D7232179956D00ADFE3D /* TicketViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
