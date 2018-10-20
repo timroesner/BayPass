@@ -1,0 +1,50 @@
+{
+    "?xml": {
+        "@version": "1.0",
+        "@encoding": "utf-8"
+    },
+    "root": {
+        "uri": {
+            "#cdata-section": "http://api.bart.gov/api/sched.aspx?cmd=fare&orig=sfia&dest=pitt&json=y"
+        },
+        "origin": "SFIA",
+        "destination": "PITT",
+        "sched_num": "48",
+        "trip": {
+            "fare": "12.85",
+            "discount": {
+                "clipper": "4.60"
+            }
+        },
+        "fares": {
+            "@level": "normal",
+            "fare": [
+                {
+                    "@amount": "12.35",
+                    "@class": "clipper",
+                    "@name": "Clipper"
+                },
+                {
+                    "@amount": "12.85",
+                    "@class": "cash",
+                    "@name": "BART Blue Ticket"
+                },
+                {
+                    "@amount": "4.60",
+                    "@class": "rtcclipper",
+                    "@name": "Senior/Disabled Clipper"
+                },
+                {
+                    "@amount": "6.15",
+                    "@class": "student",
+                    "@name": "Youth Clipper"
+                }
+            ]
+        },
+        "message": {
+            "co2_emissions": {
+                "#cdata-section": "<p>CO<sub>2</sub> emissions saved by this BART trip: <strong>35.5 pounds.</strong> <a href=\"http://www.bart.gov/guide/carbon\">Read more</a></p>"
+            }
+        }
+    }
+}
