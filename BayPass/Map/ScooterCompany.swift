@@ -10,13 +10,15 @@ import CoreLocation
 import UIKit
 
 struct ScooterCompany {
-    var name: String
+    var name: String = ""
 
     func calculatePrice(minutes _: Int) -> Double {
+        // TODO: Implement here
         return 0
     }
 
     func getScootersInArea(loc _: CLLocation) -> [Scooter] {
+        // TODO: Implement here
         return []
     }
 }

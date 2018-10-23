@@ -10,8 +10,8 @@ import CoreLocation
 import UIKit
 
 struct Scooter {
-    var code: String
-    var location: CLLocation
-    var battery: String
-    var company: ScooterCompany
+    var code: String = ""
+    var location: CLLocation = CLLocation()
+    var battery: String = ""
+    var company: ScooterCompany = ScooterCompany(name: "")
 }

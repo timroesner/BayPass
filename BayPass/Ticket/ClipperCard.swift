@@ -9,11 +9,15 @@
 import UIKit
 
 struct ClipperCard {
-    var number: Int
-    var cashValue: Double
-    var passes: [Pass]
+    var number: Int = 0
+    var cashValue: Double = 0
+    var passes: [Pass] = [Pass]()
 
-    func addCash(amount _: Double) {}
+    func addCash(amount _: Double) {
+        // TODO: Implement here
+    }
 
-    func addPass(new _: Pass) {}
+    func addPass(new _: Pass) {
+        // TODO: Implement here
+    }
 }
