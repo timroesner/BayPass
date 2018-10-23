@@ -509,6 +509,11 @@
 				22049D9E214C9DF0007FF904 /* AppDelegate.swift in Sources */,
 				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
 				2212D7232179956D00ADFE3D /* TicketViewController.swift in Sources */,
+				2212D7252179957800ADFE3D /* ClipperViewController.swift in Sources */,
+				22049DA0214C9DF0007FF904 /* MapViewController.swift in Sources */,
+				22049D9E214C9DF0007FF904 /* AppDelegate.swift in Sources */,
+				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
+				2212D7232179956D00ADFE3D /* TicketViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
