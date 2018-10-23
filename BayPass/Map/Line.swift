@@ -9,10 +9,12 @@
 import UIKit
 
 struct Line {
-    var name: String
-    var code: Int
-    var destination: String
+    var name: String = ""
+    var code: Int = 0
+    var destination: String = ""
     var stops: [Station]
 
-    func getStops() {}
+    func getStops() {
+        // TODO: Implement here
+    }
 }

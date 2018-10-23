@@ -10,15 +10,8 @@ import CoreLocation
 import UIKit
 
 struct Scooter {
-<<<<<<< HEAD
     var code: String = ""
     var location: CLLocation = CLLocation()
     var battery: String = ""
     var company: ScooterCompany = ScooterCompany(name: "")
-=======
-    var code: String
-    var location: CLLocation
-    var battery: String
-    var company: ScooterCompany
->>>>>>> Added the struct based off UML Diagram
 }
