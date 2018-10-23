@@ -13,6 +13,11 @@ struct BikeDock {
     var location: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
     var bikesAvailible: Int = 0
 
+    init(location: CLLocation, bikesAvailible: Int) {
+        this.location = location
+        this.bikesAvailible = bikesAvailible
+    }
+
     func calculatePrice(start _: CLLocation, end _: CLLocation) -> Double {
         // TODO: Implement here
         return 0
