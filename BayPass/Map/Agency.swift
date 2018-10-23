@@ -13,7 +13,6 @@ struct Agency {
     var routes: [Line]
 
     func getRoutes() -> [Line] {
-        // TODO: Implement here
-        return []
+        return routes
     }
 }
