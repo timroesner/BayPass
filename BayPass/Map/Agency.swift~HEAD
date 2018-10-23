@@ -9,10 +9,10 @@
 import UIKit
 
 struct Agency {
-    var name: String
+    var name: String = ""
     var routes: [Line]
 
     func getRoutes() -> [Line] {
-        return []
+        return routes
     }
 }

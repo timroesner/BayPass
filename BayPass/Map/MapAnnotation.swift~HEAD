@@ -7,13 +7,19 @@
 //
 
 import CoreLocation
+import MapKit
 import UIKit
 
 struct MapAnnotation {
-    var title: String
+    var title: String = ""
     var location: CLLocation = CLLocation(latitude: 0, longitude: 0)
-    var icon: UIImage
+    var icon: UIImage = UIImage(coder: NSCoder())!
 
-    func createFromScooter(scooter _: Scooter) {}
-    func createFromStation(station _: Station) {}
+    func createFromScooter(scooter _: Scooter) {
+        // TODO: Implement here
+    }
+
+    func createFromStation(station _: Station) {
+        // TODO: Implement here
+    }
 }
