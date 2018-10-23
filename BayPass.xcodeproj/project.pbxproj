@@ -24,6 +24,12 @@
 		2262C31A2182A165000586EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2262C3192182A165000586EE /* Localizable.strings */; };
 		2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31B2182A3D1000586EE /* MKPolyline.swift */; };
 		3F2A3909C8E024CD3AE14311 /* Pods_BayPassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */; };
+		6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A00918D217EAB1D0087A32B /* BikeDock.swift */; };
+		6A009190217EACCD0087A32B /* Scooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A00918F217EACCD0087A32B /* Scooter.swift */; };
+		6A009193217EAD820087A32B /* ScooterCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A009192217EAD820087A32B /* ScooterCompany.swift */; };
+		6A009196217EAF1A0087A32B /* ClipperCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A009195217EAF1A0087A32B /* ClipperCard.swift */; };
+		6A009198217EAF800087A32B /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A009197217EAF800087A32B /* Pass.swift */; };
+		6A00919A217EAFFE0087A32B /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A009199217EAFFE0087A32B /* Ticket.swift */; };
 		6A0ED22E217BF28E003CD497 /* Agency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0ED22D217BF28E003CD497 /* Agency.swift */; };
 		6A0ED230217BF383003CD497 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0ED22F217BF383003CD497 /* Line.swift */; };
 		6A0ED232217BF4BD003CD497 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0ED231217BF4BD003CD497 /* Station.swift */; };
@@ -74,6 +80,12 @@
 		2262C3192182A165000586EE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2262C31B2182A3D1000586EE /* MKPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPolyline.swift; sourceTree = "<group>"; };
 		4D4F7368CE1FD8AB6E3F8FE1 /* Pods-BayPassTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A00918D217EAB1D0087A32B /* BikeDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDock.swift; sourceTree = "<group>"; };
+		6A00918F217EACCD0087A32B /* Scooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scooter.swift; sourceTree = "<group>"; };
+		6A009192217EAD820087A32B /* ScooterCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScooterCompany.swift; sourceTree = "<group>"; };
+		6A009195217EAF1A0087A32B /* ClipperCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperCard.swift; sourceTree = "<group>"; };
+		6A009197217EAF800087A32B /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		6A009199217EAFFE0087A32B /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		6A0ED22D217BF28E003CD497 /* Agency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agency.swift; sourceTree = "<group>"; };
 		6A0ED22F217BF383003CD497 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6A0ED231217BF4BD003CD497 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -140,6 +152,8 @@
 		22049D9C214C9DF0007FF904 /* BayPass */ = {
 			isa = PBXGroup;
 			children = (
+				6A009194217EAF090087A32B /* Ticket */,
+				6A009191217EAD580087A32B /* Map */,
 				22049D9D214C9DF0007FF904 /* AppDelegate.swift */,
 				2262C31021829BC6000586EE /* Extensions */,
 				2212D7282179AD8800ADFE3D /* Controller */,
@@ -208,6 +222,31 @@
 				1D31F2CAC184996691217676 /* Pods-BayPassUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6A009191217EAD580087A32B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				6A0ED22D217BF28E003CD497 /* Agency.swift */,
+				6A0ED22F217BF383003CD497 /* Line.swift */,
+				6A0ED231217BF4BD003CD497 /* Station.swift */,
+				6A0ED233217BF9D9003CD497 /* TransitMode.swift */,
+				6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */,
+				6A00918D217EAB1D0087A32B /* BikeDock.swift */,
+				6A00918F217EACCD0087A32B /* Scooter.swift */,
+				6A009192217EAD820087A32B /* ScooterCompany.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		6A009194217EAF090087A32B /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				6A009195217EAF1A0087A32B /* ClipperCard.swift */,
+				6A009197217EAF800087A32B /* Pass.swift */,
+				6A009199217EAFFE0087A32B /* Ticket.swift */,
+			);
+			path = Ticket;
 			sourceTree = "<group>";
 		};
 		E1C9A42F6ABBA89034F445B2 /* Frameworks */ = {
@@ -435,16 +474,22 @@
 				2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */,
 				22049DA0214C9DF0007FF904 /* MapViewController.swift in Sources */,
 				22049DA0214C9DF0007FF904 /* ViewController.swift in Sources */,
+				6A009193217EAD820087A32B /* ScooterCompany.swift in Sources */,
 				6A0ED232217BF4BD003CD497 /* Station.swift in Sources */,
 				6A0ED236217BFA4B003CD497 /* MapAnnotation.swift in Sources */,
+				6A009198217EAF800087A32B /* Pass.swift in Sources */,
 				6A0ED234217BF9D9003CD497 /* TransitMode.swift in Sources */,
+				6A00919A217EAFFE0087A32B /* Ticket.swift in Sources */,
 				6A0ED230217BF383003CD497 /* Line.swift in Sources */,
+				6A009190217EACCD0087A32B /* Scooter.swift in Sources */,
+				6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */,
 				6A0ED22E217BF28E003CD497 /* Agency.swift in Sources */,
 				22049D9E214C9DF0007FF904 /* AppDelegate.swift in Sources */,
 				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
 				2262C31621829E4A000586EE /* Collection.swift in Sources */,
 				2262C31821829F79000586EE /* String.swift in Sources */,
 				2212D7232179956D00ADFE3D /* TicketViewController.swift in Sources */,
+				6A009196217EAF1A0087A32B /* ClipperCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

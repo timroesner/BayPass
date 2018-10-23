@@ -6,16 +6,17 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
-
 struct Station {
     var name: String
     var code: Int
     var transitModes: [TransitMode]
     var lines: [Line]
-    var location: CLLLocation
+    var location: CLLocation
 
-    func getDepartureTimes() -> [Int] {}
-
-    func getPrimaryTransitMode() -> TransitMode {}
+    func getDepartureTimes() -> [Int] { return [] }
+    func getPrimaryTransitMode() -> TransitMode {
+        return TransitMode.calTrain
+    }
 }

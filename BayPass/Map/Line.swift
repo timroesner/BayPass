@@ -13,7 +13,6 @@ struct Line {
     var code: Int
     var destination: String
     var stops: [Station]
-    var transitMode
 
-    func getStops() -> [Station] {}
+    func getStops() {}
 }
