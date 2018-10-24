@@ -14,8 +14,8 @@ struct BikeDock {
     var bikesAvailible: Int = 0
 
     init(location: CLLocation, bikesAvailible: Int) {
-        this.location = location
-        this.bikesAvailible = bikesAvailible
+        self.location = location
+        self.bikesAvailible = bikesAvailible
     }
 
     func calculatePrice(start _: CLLocation, end _: CLLocation) -> Double {
