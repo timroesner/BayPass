@@ -13,7 +13,10 @@ struct Line {
     var code: Int
     var destination: String
     var stops: [Station]
-    var transitMode
+    var transitMode: TransitMode
 
-    func getStops() -> [Station] {}
+    func getStops() -> [Station] {
+        // TODO: Implement here
+        return [Station(name: " ", code: 0, transitModes: [TransitMode.bart], lines: [self])]
+    }
 }

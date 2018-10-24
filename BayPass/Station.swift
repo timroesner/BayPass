@@ -6,16 +6,30 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 struct Station {
     var name: String
     var code: Int
-    var transitModes: [TransitMode]
+    var transitModes: [TransitMode] = [TransitMode.bart]
     var lines: [Line]
-    var location: CLLLocation
+    var location = CLLocation()
 
-    func getDepartureTimes() -> [Int] {}
+    init(name: String, code: Int, transitModes: [TransitMode], lines: [Line]) {
+        self.name = name
+        self.code = code
+        self.transitModes = transitModes
+        self.lines = lines
+    }
 
-    func getPrimaryTransitMode() -> TransitMode {}
+    func getDepartureTimes() -> [Int] {
+        // TODO: Implement here
+        return [0]
+    }
+
+    func getPrimaryTransitMode() -> TransitMode {
+        // TODO: Implement here
+        return TransitMode.bart
+    }
 }

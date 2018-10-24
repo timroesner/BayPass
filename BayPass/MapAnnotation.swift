@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 struct MapAnnotation {
@@ -13,7 +14,11 @@ struct MapAnnotation {
     var location: CLLocation
     var icon: UIImage
 
-    func createFromScooter(Scooter _) {}
+    func createFromScooter(scooter _: Scooter) {
+        // TODO: Implement here
+    }
 
-    func createFrom
+    func createFrom() {
+        // TODO: Implement here
+    }
 }
