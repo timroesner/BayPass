@@ -7,12 +7,22 @@
 //
 
 import CoreLocation
+import MapKit
 import UIKit
 
-struct MapAnnotation {
-    var title: String
-    var location: CLLocation
-    var icon: UIImage
+class MapAnnotation: NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D
+
+    var title: String? = ""
+    var location: CLLocation?
+    var icon: UIImage?
+
+    var myCoordinate: CLLocationCoordinate2D?
+
+    init(myCoordinate: CLLocationCoordinate2D, coordinate: CLLocationCoordinate2D) {
+        self.myCoordinate = myCoordinate
+        self.coordinate = coordinate
+    }
 
     func createFromScooter(scooter _: Scooter) {
         // TODO: Implement here
