@@ -8,9 +8,9 @@
 
 @testable import BayPass
 import XCTest
+import MapKit
 
 class ExtensionsTests: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -34,5 +34,11 @@ class ExtensionsTests: XCTestCase {
     func testLocalizedString() {
         assert("Hello".localized() == "Hello")
     }
-
+    
+    func testPolyline() {
+        let coordinates = [CLLocationCoordinate2D(latitude: 133.81, longitude: 22.61), CLLocationCoordinate2D(latitude: 122.81, longitude: 36.61)]
+        let expected = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        let actual = MKPolyline(coordinates: coordinates)
+        assert(expected.pointCount == actual.pointCount)
+    }
 }
