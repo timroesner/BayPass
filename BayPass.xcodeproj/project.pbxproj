@@ -22,6 +22,7 @@
 		2262C31621829E4A000586EE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31521829E4A000586EE /* Collection.swift */; };
 		2262C31821829F79000586EE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31721829F79000586EE /* String.swift */; };
 		2262C31A2182A165000586EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2262C3192182A165000586EE /* Localizable.strings */; };
+		2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31B2182A3D1000586EE /* MKPolyline.swift */; };
 		3F2A3909C8E024CD3AE14311 /* Pods_BayPassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */; };
 		99F786221FF0E8DAF44AE47F /* Pods_BayPassUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BF9D28DD79B0405EBB5C4F /* Pods_BayPassUITests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		2262C31521829E4A000586EE /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		2262C31721829F79000586EE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2262C3192182A165000586EE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		2262C31B2182A3D1000586EE /* MKPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPolyline.swift; sourceTree = "<group>"; };
 		4D4F7368CE1FD8AB6E3F8FE1 /* Pods-BayPassTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.release.xcconfig"; sourceTree = "<group>"; };
 		6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
 		6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 				2262C31121829BE3000586EE /* UIColor.swift */,
 				2262C31521829E4A000586EE /* Collection.swift */,
 				2262C31721829F79000586EE /* String.swift */,
+				2262C31B2182A3D1000586EE /* MKPolyline.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 			files = (
 				2212D7252179957800ADFE3D /* ClipperViewController.swift in Sources */,
 				2262C31221829BE3000586EE /* UIColor.swift in Sources */,
+				2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */,
 				22049DA0214C9DF0007FF904 /* MapViewController.swift in Sources */,
 				22049D9E214C9DF0007FF904 /* AppDelegate.swift in Sources */,
 				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
