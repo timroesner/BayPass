@@ -25,6 +25,12 @@ class ExtensionsTests: XCTestCase {
         assert(expecetd == hex)
     }
     
+    func testUIColorBase255() {
+        let expecetd = UIColor(red: 156.0/255.0, green: 0, blue: 1, alpha: 1)
+        let base255 = UIColor(red: 156, green: 0, blue: 255)
+        assert(expecetd == base255)
+    }
+    
     func testSafeIndex() {
         let array = ["index 0", "index 1"]
         assert(array[safe: 0] == "index 0")
