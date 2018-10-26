@@ -6,8 +6,8 @@
   Copyright © 2018 Tim Roesner. All rights reserved.
 */
 
-"Map" = "Map"
-"Ticket" = "Ticket"
-"Clipper" = "Clipper"
+"Map" = "Map";
+"Ticket" = "Ticket";
+"Clipper" = "Clipper";
 
 
