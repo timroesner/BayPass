@@ -31,7 +31,6 @@ struct Station {
 
     func getPrimaryTransitMode() -> TransitMode {
         // TODO: Implement here
-        fatalError("Not implemented yet")
-        return TransitMode.calTrain
+        return transitModes
     }
 }
