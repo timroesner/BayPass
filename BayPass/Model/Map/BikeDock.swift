@@ -20,6 +20,7 @@ struct BikeDock {
 
     func calculatePrice(start _: CLLocation, end _: CLLocation) -> Double {
         // TODO: Implement here
+        fatalError("Not implemented yet")
         return 0
     }
 }

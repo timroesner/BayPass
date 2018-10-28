@@ -14,7 +14,15 @@ struct Line {
     var destination: String = ""
     var stops: [Station]
 
+    init(name: String, code: Int, destination: String, stops: [Station]) {
+        self.name = name
+        self.code = code
+        self.destination = destination
+        self.stops = stops
+    }
+
     func getStops() {
         // TODO: Implement here
+        fatalError("Not implemented yet")
     }
 }

@@ -12,23 +12,25 @@ import UIKit
 
 class MapAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
-
-    var title: String? = ""
-    var location: CLLocation?
-    var icon: UIImage?
+    var location: CLLocation = CLLocation()
+    var icon: UIImage = UIImage()
+    var color: UIColor
 
     var myCoordinate: CLLocationCoordinate2D?
-
-    init(myCoordinate: CLLocationCoordinate2D, coordinate: CLLocationCoordinate2D) {
-        self.myCoordinate = myCoordinate
+    init(coordinate: CLLocationCoordinate2D, location: CLLocation, icon: UIImage, color: UIColor) {
         self.coordinate = coordinate
+        self.location = location
+        self.icon = icon
+        self.color = color
     }
 
     func createFromScooter(scooter _: Scooter) {
         // TODO: Implement here
+        fatalError("Not implemented yet")
     }
 
     func createFrom() {
         // TODO: Implement here
+        fatalError("Not implemented yet")
     }
 }

@@ -12,7 +12,13 @@ struct Agency {
     var name: String = ""
     var routes: [Line]
 
+    init(name: String, routes: [Line]) {
+        self.name = name
+        self.routes = routes
+    }
+
     func getRoutes() -> [Line] {
+        fatalError("Not implemented yet")
         return routes
     }
 }

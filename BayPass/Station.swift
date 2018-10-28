@@ -10,9 +10,9 @@ import CoreLocation
 import UIKit
 
 struct Station {
-    var name: String
-    var code: Int
-    var transitModes: [TransitMode] = [TransitMode.bart]
+    var name: String = ""
+    var code: Int = 0
+    var transitModes: [TransitMode]
     var lines: [Line]
     var location = CLLocation()
 
@@ -28,8 +28,8 @@ struct Station {
         return [0]
     }
 
-    func getPrimaryTransitMode() -> TransitMode {
+    func getPrimaryTransitMode() -> [TransitMode] {
         // TODO: Implement here
-        return TransitMode.bart
+        return transitModes
     }
 }

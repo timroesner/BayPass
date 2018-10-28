@@ -17,8 +17,19 @@ struct Ticket {
     var NFCCode: String = ""
     var locations: [CLLocation] = [CLLocation()]
 
+    init(name: String, duration: TimeInterval, price: Double, validOnAgency: Agency, NFCCode: String,
+         locations: [CLLocation]) {
+        self.name = name
+        self.duration = duration
+        self.price = price
+        self.validOnAgency = validOnAgency
+        self.NFCCode = NFCCode
+        self.locations = locations
+    }
+
     func isValid() -> Bool {
         // TODO: Implement here
+        fatalError("Not implemented yet")
         return false
     }
 }

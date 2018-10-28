@@ -14,4 +14,11 @@ struct Scooter {
     var location: CLLocation = CLLocation()
     var battery: String = ""
     var company: ScooterCompany = ScooterCompany(name: "")
+
+    init(code: String, location: CLLocation, battery: String, company: ScooterCompany) {
+        self.code = code
+        self.location = location
+        self.battery = battery
+        self.company = company
+    }
 }
