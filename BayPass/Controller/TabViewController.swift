@@ -13,13 +13,13 @@ class TabViewController: UITabBarController {
         super.viewDidLoad()
 
         let mapVC = MapViewController()
-        mapVC.tabBarItem = UITabBarItem(title: "Map", image: #imageLiteral(resourceName: "MapIcon"), tag: 0)
+        mapVC.tabBarItem = UITabBarItem(title: "Map".localized(), image: #imageLiteral(resourceName: "MapIcon"), tag: 0)
 
         let ticketVC = TicketViewController()
-        ticketVC.tabBarItem = UITabBarItem(title: "Ticket", image: #imageLiteral(resourceName: "TicketIcon"), tag: 0)
+        ticketVC.tabBarItem = UITabBarItem(title: "Ticket".localized(), image: #imageLiteral(resourceName: "TicketIcon"), tag: 0)
 
         let clipperVC = ClipperViewController()
-        clipperVC.tabBarItem = UITabBarItem(title: "Clipper", image: #imageLiteral(resourceName: "ClipperIcon"), tag: 0)
+        clipperVC.tabBarItem = UITabBarItem(title: "Clipper".localized(), image: #imageLiteral(resourceName: "ClipperIcon"), tag: 0)
 
         let viewControllerList = [mapVC, ticketVC, clipperVC]
         viewControllers = viewControllerList

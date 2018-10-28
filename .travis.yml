@@ -1,7 +1,7 @@
 language: swift
 osx_image: xcode10
 xcode_workspace: BayPass.xcworkspace
-xcode_scheme: CI
+xcode_scheme: BayPass
 xcode_sdk: iphonesimulator
 
 before_install:
