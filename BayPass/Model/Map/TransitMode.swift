@@ -10,7 +10,7 @@ import Foundation
 
 enum TransitMode {
     case bus
-    case lightRight
+    case lightRail
     case bart
     case calTrain
 }

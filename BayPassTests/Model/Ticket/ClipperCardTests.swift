@@ -7,20 +7,15 @@
 //
 
 @testable import BayPass
-import CoreLocation
 import XCTest
 
 class ClipperCardTests: XCTestCase {
     func test_ClipperCard_BuildsThePath() {
         let num: Int = 3
         let cash: Double = 2.3
-        let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-        let passes: [Pass] = [Pass(name: "name", duration: DateInterval(), price: 2.3, validOnAgency: Agency(name: "Some", routes: [Line(name: "some", code: 2, destination: "dest", stops: [Station(name: "some", code: 2, transitModes: [TransitMode.bart], lines: ["some"], location: loc)])]))]
+        let passes: [Pass] = [Pass(name: "name", duration: DateInterval(), price: 2.3, validOnAgency: Agency())]
 
-        let subject = ClipperCard(number: num, cashValue: cash, passes: passes)
-
-        XCTAssertEqual(subject.number, 3)
-        XCTAssertEqual(subject.cashValue, 2.3)
+        XCTAssertEqual(subject.name, "Test")
     }
 
     override func setUp() {

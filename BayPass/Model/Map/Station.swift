@@ -12,10 +12,10 @@ struct Station {
     var name: String = ""
     var code: Int = 0
     var transitModes: [TransitMode] = [TransitMode.bart]
-    var lines: [String] = [""]
+    var lines: [Line]
     var location: CLLocation = CLLocation()
 
-    init(name: String, code: Int, transitModes: [TransitMode], lines: [String], location: CLLocation) {
+    init(name: String, code: Int, transitModes: [TransitMode], lines: [Line], location: CLLocation) {
         self.name = name
         self.code = code
         self.transitModes = transitModes
