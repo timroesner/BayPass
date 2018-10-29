@@ -16,15 +16,19 @@ struct ScooterCompany {
         self.name = name
     }
 
-    func calculatePrice(minutes _: Int) -> Double {
+    func calculatePrice(fromMinutes: Int) -> Double {
         // TODO: Implement here
-        fatalError("Not implemented yet")
-        return 0
+        fatalError("calculatePrice() is not implemented yet")
     }
 
-    func getScootersInArea(loc _: CLLocation) -> [Scooter] {
+    // MARK: The methods below will most likely differ between companies
+    func getScootersAroundLocation(loc _: CLLocation) -> [Scooter] {
         // TODO: Implement here
-        fatalError("Not implemented yet")
-        return []
+        fatalError("getScooters() is not implemented yet")
+    }
+    
+    func getDurationInMinutes(fromMeters: Double) {
+        // TODO: Implement here
+        fatalError("getDuration() is not implemented yet")
     }
 }
