@@ -15,8 +15,7 @@ class MapAnnotation: NSObject, MKAnnotation {
     var location: CLLocation = CLLocation()
     var icon: UIImage = UIImage()
     var color: UIColor
-
-    var myCoordinate: CLLocationCoordinate2D?
+    
     init(coordinate: CLLocationCoordinate2D, location: CLLocation, icon: UIImage, color: UIColor) {
         self.coordinate = coordinate
         self.location = location
