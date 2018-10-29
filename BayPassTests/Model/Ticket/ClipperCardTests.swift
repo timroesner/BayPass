@@ -27,7 +27,7 @@ class ClipperCardTests: XCTestCase {
         
         let subject = ClipperCard(number: num, cashValue: cash, passes: passes)
         
-        XCTAssertEqual(subject.number, 3)
-        XCTAssertEqual(subject.cashValue, 2.3)
+        XCTAssertEqual(subject.number, num)
+        XCTAssertEqual(subject.cashValue, cash)
     }
 }

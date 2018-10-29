@@ -27,8 +27,9 @@ class LineTests: XCTestCase {
         let stopsTest = [Station(name: "r", code: 3, transitModes: [TransitMode.bart], lines: ["some"], location: loc)]
         
         let subject = Line(name: name, code: code, destination: dest, stops: stopsTest)
-        XCTAssertEqual(subject.code, 2)
-        XCTAssertEqual(subject.name, "Test")
-        XCTAssertEqual(subject.destination, "ran")
+        XCTAssertEqual(subject.code, code)
+        XCTAssertEqual(subject.name, name)
+        XCTAssertEqual(subject.destination, dest)
+        assert(subject.getStops() == stopsTest)
     }
 }

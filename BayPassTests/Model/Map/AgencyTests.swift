@@ -27,5 +27,6 @@ class AgencyTests: XCTestCase {
         let subject = Agency(name: name, routes: routesT)
         
         XCTAssertEqual(subject.name, name)
+        assert(subject.getRoutes() == routesT)
     }
 }
