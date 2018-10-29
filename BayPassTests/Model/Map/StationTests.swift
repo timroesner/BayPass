@@ -11,21 +11,6 @@ import CoreLocation
 import XCTest
 
 class StationTests: XCTestCase {
-    func test_Station_BuildsThePath() {
-        var name = "Test"
-        var code = 2
-        var transitModes = [TransitMode.bart]
-        var loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-        var lines = ["line"]
-        var subject = Station(name: name, code: code, transitModes: transitModes, lines: lines, location: loc)
-
-        XCTAssertEqual(subject.name, "Test")
-        XCTAssertEqual(subject.code, 2)
-        XCTAssertEqual(subject.transitModes, transitModes)
-        XCTAssertEqual(subject.location, loc)
-        XCTAssertEqual(subject.lines, lines)
-    }
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -34,15 +19,18 @@ class StationTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_Station_BuildsThePath() {
+        let name = "Test"
+        let code = 2
+        let transitModes = [TransitMode.bart]
+        let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
+        let lines = ["line"]
+        let subject = Station(name: name, code: code, transitModes: transitModes, lines: lines, location: loc)
+        
+        XCTAssertEqual(subject.name, "Test")
+        XCTAssertEqual(subject.code, 2)
+        XCTAssertEqual(subject.transitModes, transitModes)
+        XCTAssertEqual(subject.location, loc)
+        XCTAssertEqual(subject.lines, lines)
     }
 }
