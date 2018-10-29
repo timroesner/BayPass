@@ -10,12 +10,12 @@ import CoreLocation
 import UIKit
 
 struct Ticket {
-    var name: String = ""
-    var duration: TimeInterval = TimeInterval()
-    var price: Double = 0
+    var name: String
+    var duration: TimeInterval
+    var price: Double
     var validOnAgency: Agency
-    var NFCCode: String = ""
-    var locations: [CLLocation] = [CLLocation()]
+    var NFCCode: String
+    var locations: [CLLocation]
 
     init(name: String, duration: TimeInterval, price: Double, validOnAgency: Agency, NFCCode: String,
          locations: [CLLocation]) {
@@ -29,7 +29,6 @@ struct Ticket {
 
     func isValid() -> Bool {
         // TODO: Implement here
-        fatalError("Not implemented yet")
-        return false
+        fatalError("isValid() is not implemented yet")
     }
 }

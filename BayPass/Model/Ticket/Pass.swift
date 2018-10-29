@@ -10,9 +10,9 @@ import CoreLocation
 import UIKit
 
 struct Pass {
-    var name: String = ""
-    var duration: DateInterval = DateInterval()
-    var price: Double = 0
+    var name: String
+    var duration: DateInterval
+    var price: Double
     var validOnAgency: Agency
 
     init(name: String, duration: DateInterval, price: Double, validOnAgency: Agency) {
@@ -24,7 +24,6 @@ struct Pass {
 
     func isValid() -> Bool {
         // TODO: Implement here
-        fatalError("Not implemented yet")
-        return false
+        fatalError("isValid() is not implemented yet")
     }
 }

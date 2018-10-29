@@ -11,7 +11,15 @@ import CoreLocation
 import XCTest
 
 class AgencyTests: XCTestCase {
-    func test_Agency_BuildsThePath() {}
+    func test_Agency_BuildsThePath() {
+        var name = "Test"
+        var loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
+        var routesT = [Line(name: "ran", code: 2, destination: "dest", stops: [Station(name: "ran", code: 3, transitModes: [TransitMode.bart], lines: ["line"], location: loc)])]
+
+        var subject = Agency(name: name, routes: routesT)
+
+        XCTAssertEqual(subject.name, name)
+    }
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

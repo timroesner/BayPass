@@ -9,9 +9,9 @@
 import UIKit
 
 struct Line {
-    var name: String = ""
-    var code: Int = 0
-    var destination: String = ""
+    var name: String
+    var code: Int
+    var destination: String
     var stops: [Station]
 
     init(name: String, code: Int, destination: String, stops: [Station]) {
@@ -23,6 +23,6 @@ struct Line {
 
     func getStops() {
         // TODO: Implement here
-        fatalError("Not implemented yet")
+        fatalError("getStops() is not implemented yet")
     }
 }

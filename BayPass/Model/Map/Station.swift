@@ -9,13 +9,13 @@
 import CoreLocation
 import UIKit
 struct Station {
-    var name: String = ""
-    var code: Int = 0
-    var transitModes: [TransitMode] = [TransitMode.bart]
-    var lines: [Line]
-    var location: CLLocation = CLLocation()
+    var name: String
+    var code: Int
+    var transitModes: [TransitMode]
+    var lines: [String]
+    var location: CLLocation
 
-    init(name: String, code: Int, transitModes: [TransitMode], lines: [Line], location: CLLocation) {
+    init(name: String, code: Int, transitModes: [TransitMode], lines: [String], location: CLLocation) {
         self.name = name
         self.code = code
         self.transitModes = transitModes
@@ -25,12 +25,11 @@ struct Station {
 
     func getDepartureTimes() -> [Int] {
         // TODO: Implement here
-        fatalError("Not implemented yet")
-        return []
+        fatalError("getDepartureTimes() is not implemented yet")
     }
 
     func getPrimaryTransitMode() -> [TransitMode] {
         // TODO: Implement here
-        return transitModes
+        fatalError("gerPrimaryTransitMode is not implemented yet")
     }
 }

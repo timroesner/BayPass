@@ -9,9 +9,9 @@
 import UIKit
 
 struct ClipperCard {
-    var number: Int = 0
-    var cashValue: Double = 0
-    var passes: [Pass] = [Pass]()
+    var number: Int
+    var cashValue: Double
+    var passes: [Pass]
 
     init(number: Int, cashValue: Double, passes: [Pass]) {
         self.number = number
@@ -21,11 +21,11 @@ struct ClipperCard {
 
     func addCash(amount _: Double) {
         // TODO: Implement here
-        fatalError("Not implemented yet")
+        fatalError("addCash() is not implemented yet")
     }
 
     func addPass(new _: Pass) {
         // TODO: Implement here
-        fatalError("Not implemented yet")
+        fatalError("addPass() is not implemented yet")
     }
 }

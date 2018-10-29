@@ -9,7 +9,7 @@
 import UIKit
 
 struct Agency {
-    var name: String = ""
+    var name: String
     var routes: [Line]
 
     init(name: String, routes: [Line]) {
@@ -18,7 +18,6 @@ struct Agency {
     }
 
     func getRoutes() -> [Line] {
-        fatalError("Not implemented yet")
-        return routes
+        return self.routes
     }
 }

@@ -10,8 +10,8 @@ import CoreLocation
 import UIKit
 
 struct BikeDock {
-    var location: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-    var bikesAvailible: Int = 0
+    var location: CLLocation
+    var bikesAvailible: Int
 
     init(location: CLLocation, bikesAvailible: Int) {
         self.location = location
@@ -20,7 +20,6 @@ struct BikeDock {
 
     func calculatePrice(start _: CLLocation, end _: CLLocation) -> Double {
         // TODO: Implement here
-        fatalError("Not implemented yet")
-        return 0
+        fatalError("calculatePirce is not implemented yet")
     }
 }
