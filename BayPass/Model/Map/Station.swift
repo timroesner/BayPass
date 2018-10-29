@@ -29,7 +29,7 @@ struct Station {
         return []
     }
 
-    func getPrimaryTransitMode() -> TransitMode {
+    func getPrimaryTransitMode() -> [TransitMode] {
         // TODO: Implement here
         return transitModes
     }
