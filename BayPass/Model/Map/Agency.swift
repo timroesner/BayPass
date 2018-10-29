@@ -18,7 +18,6 @@ struct Agency {
     }
 
     func getRoutes() -> [Line] {
-        fatalError("Not implemented yet")
         return routes
     }
 }
