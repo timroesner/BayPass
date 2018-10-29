@@ -29,7 +29,6 @@
 		6A3F2CB621816B46006DA755 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F2CB521816B46006DA755 /* Routes.swift */; };
 		6AAFCD1121853C59004021E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049D9D214C9DF0007FF904 /* AppDelegate.swift */; };
 		6AAFCD1421853C59004021E8 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */; };
-		6AAFCD1621853C59004021E8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212D7262179985400ADFE3D /* TabViewController.swift */; };
 		6AAFCD1A21854723004021E8 /* ScooterCompanyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAFCD1921854723004021E8 /* ScooterCompanyTests.swift */; };
 		6AB6ECFE21867F1700A81302 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ECFB21867F1700A81302 /* MapViewController.swift */; };
 		6AB6ECFF21867F1700A81302 /* ClipperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */; };
@@ -557,7 +556,6 @@
 				6AAFCD1121853C59004021E8 /* AppDelegate.swift in Sources */,
 				6A009196217EAF1A0087A32B /* ClipperCard.swift in Sources */,
 				6ABF9839218250B1006878E4 /* TransitMode.swift in Sources */,
-				6AAFCD1621853C59004021E8 /* TabViewController.swift in Sources */,
 				6ABF983A218250B1006878E4 /* Agency.swift in Sources */,
 				6ABF983C218250B1006878E4 /* Station.swift in Sources */,
 			);
