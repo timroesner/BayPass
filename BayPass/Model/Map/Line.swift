@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Line {
+struct Line: Equatable {
     var name: String
     var code: Int
     var destination: String
@@ -21,8 +21,7 @@ struct Line {
         self.stops = stops
     }
 
-    func getStops() {
-        // TODO: Implement here
-        fatalError("getStops() is not implemented yet")
+    func getStops() -> [Station] {
+        return stops
     }
 }
