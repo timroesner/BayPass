@@ -6,8 +6,8 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
+import Foundation
 import MapKit
 
 struct RouteSegment {
@@ -19,7 +19,7 @@ struct RouteSegment {
     var headsign: String = ""
     var price: Double = 0.0
     var waypoints = [Station]()
-    
+
     init(distanceInMeters: Double, departureTime: Date, arrivalTime: Date, polyline: MKPolyline, travelMode: TravelMode) {
         self.distanceInMeters = distanceInMeters
         self.departureTime = departureTime
@@ -27,7 +27,7 @@ struct RouteSegment {
         self.polyline = polyline
         self.travelMode = travelMode
     }
-    
+
     init(distanceInMeters: Double, departureTime: Date, arrivalTime: Date, polyline: MKPolyline, travelMode: TravelMode, headsign: String, price: Double, waypoints: [Station]) {
         self.distanceInMeters = distanceInMeters
         self.departureTime = departureTime

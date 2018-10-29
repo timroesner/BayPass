@@ -18,6 +18,6 @@ struct Agency {
     }
 
     func getRoutes() -> [Line] {
-        return self.routes
+        return routes
     }
 }

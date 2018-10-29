@@ -40,7 +40,7 @@
 		6AB6ED06218680AB00A81302 /* StationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ED05218680AB00A81302 /* StationTests.swift */; };
 		6AB6ED0A218680C300A81302 /* BikeDockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ED09218680C300A81302 /* BikeDockTests.swift */; };
 		6AB6ED0E2186818600A81302 /* ScooterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ED0D2186818600A81302 /* ScooterTests.swift */; };
-		6AB6ED102186819900A81302 /* RoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ED0F2186819900A81302 /* RoutesTests.swift */; };
+		6AB6ED102186819900A81302 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ED0F2186819900A81302 /* RouteTests.swift */; };
 		6AB6ED132186821800A81302 /* ClipperCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ED122186821800A81302 /* ClipperCardTests.swift */; };
 		6AB6ED152186822300A81302 /* PassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ED142186822300A81302 /* PassTests.swift */; };
 		6AB6ED172186822D00A81302 /* TicketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ED162186822D00A81302 /* TicketTests.swift */; };
@@ -109,7 +109,7 @@
 		6AB6ED05218680AB00A81302 /* StationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTests.swift; sourceTree = "<group>"; };
 		6AB6ED09218680C300A81302 /* BikeDockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDockTests.swift; sourceTree = "<group>"; };
 		6AB6ED0D2186818600A81302 /* ScooterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScooterTests.swift; sourceTree = "<group>"; };
-		6AB6ED0F2186819900A81302 /* RoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesTests.swift; sourceTree = "<group>"; };
+		6AB6ED0F2186819900A81302 /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		6AB6ED122186821800A81302 /* ClipperCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperCardTests.swift; sourceTree = "<group>"; };
 		6AB6ED142186822300A81302 /* PassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassTests.swift; sourceTree = "<group>"; };
 		6AB6ED162186822D00A81302 /* TicketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketTests.swift; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 				6AB6ED09218680C300A81302 /* BikeDockTests.swift */,
 				6AB6ED0D2186818600A81302 /* ScooterTests.swift */,
 				6AAFCD1921854723004021E8 /* ScooterCompanyTests.swift */,
-				6AB6ED0F2186819900A81302 /* RoutesTests.swift */,
+				6AB6ED0F2186819900A81302 /* RouteTests.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -584,7 +584,7 @@
 				6AB6ED152186822300A81302 /* PassTests.swift in Sources */,
 				6AB6ED06218680AB00A81302 /* StationTests.swift in Sources */,
 				6AAFCD1A21854723004021E8 /* ScooterCompanyTests.swift in Sources */,
-				6AB6ED102186819900A81302 /* RoutesTests.swift in Sources */,
+				6AB6ED102186819900A81302 /* RouteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

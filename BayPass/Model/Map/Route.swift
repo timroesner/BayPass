@@ -6,14 +6,14 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
-import UIKit
 import CoreLocation
+import UIKit
 
 struct Route {
     var departureTime: Date
     var arrivalTime: Date
     var segments: [RouteSegment]
-    
+
     init(departureTime: Date, arrivalTime: Date, segments: [RouteSegment]) {
         self.departureTime = departureTime
         self.arrivalTime = arrivalTime

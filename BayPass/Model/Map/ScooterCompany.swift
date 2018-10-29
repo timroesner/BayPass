@@ -17,18 +17,21 @@ struct ScooterCompany {
     }
 
     func calculatePrice(fromMinutes: Int) -> Double {
-        // TODO: Implement here
+        // Using parameter so the formatter doesn't add _
+        _ = fromMinutes
         fatalError("calculatePrice() is not implemented yet")
     }
 
     // MARK: The methods below will most likely differ between companies
+
     func getScootersAroundLocation(loc _: CLLocation) -> [Scooter] {
         // TODO: Implement here
         fatalError("getScooters() is not implemented yet")
     }
-    
+
     func getDurationInMinutes(fromMeters: Double) {
-        // TODO: Implement here
+        // Using parameter so the formatter doesn't add _
+        _ = fromMeters
         fatalError("getDuration() is not implemented yet")
     }
 }
