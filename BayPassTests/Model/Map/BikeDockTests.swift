@@ -23,7 +23,7 @@ class BikeDockTests: XCTestCase {
         let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
         let bikeAvail: Int = 2
         
-        let subject = BikeDock(location: loc, bikesAvailible: bikeAvail)
+        let subject = BikeDock(name: "Ford GoBike City Hall", location: loc, bikesAvailible: bikeAvail)
         
         XCTAssertEqual(subject.location, loc)
         XCTAssertEqual(subject.bikesAvailible, 2)
