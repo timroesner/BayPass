@@ -47,13 +47,13 @@ struct Station: Equatable {
     func getIcon() -> UIImage {
         switch getPrimaryTransitMode() {
         case .calTrain:
-            return UIImage(named: "CalTrain") ?? UIImage()
+            return #imageLiteral(resourceName: "CalTrain")
         case .bart:
-            return UIImage(named: "BART") ?? UIImage()
+            return #imageLiteral(resourceName: "BART")
         case .lightRail:
-            return UIImage(named: "Tram") ?? UIImage()
+            return #imageLiteral(resourceName: "Tram")
         case .bus:
-            return UIImage(named: "Bus") ?? UIImage()
+            return #imageLiteral(resourceName: "Bus")
         }
     }
 }
