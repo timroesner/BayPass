@@ -19,9 +19,13 @@ class ScooterCompanyTests: XCTestCase {
     }
 
     func test_ScooterCompany_BuildsThePath() {
-        let name: String = "Test"
-        let subject = ScooterCompany(name: name)
+        let name = "Bird"
+        let icon = #imageLiteral(resourceName: "MapIcon")
+        let color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let company = ScooterCompany(name: name, icon: icon, color: color)
         
-        XCTAssertEqual(subject.name, "Test")
+        assert(company.name == name)
+        assert(company.icon == icon)
+        assert(company.color == color)
     }
 }
