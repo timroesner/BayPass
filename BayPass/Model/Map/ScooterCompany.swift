@@ -10,10 +10,14 @@ import CoreLocation
 import UIKit
 
 struct ScooterCompany {
-    var name: String = ""
+    var name: String
+    var icon: UIImage
+    var color: UIColor
 
-    init(name: String) {
+    init(name: String, icon: UIImage, color: UIColor) {
         self.name = name
+        self.icon = icon
+        self.color = color
     }
 
     func calculatePrice(fromMinutes: Int) -> Double {
