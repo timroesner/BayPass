@@ -20,14 +20,14 @@ class ScooterTests: XCTestCase {
     }
 
     func test_Scooter_BuildsThePath() {
-        let code = "ran"
+        let code = "X3HJ7L"
         let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
         let batt = "23%"
-        let company = ScooterCompany(name: "Bird")
+        let company = ScooterCompany(name: "Bird", icon: #imageLiteral(resourceName: "MapIcon"), color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         
         let subject = Scooter(code: code, location: loc, battery: batt, company: company)
         
-        XCTAssertEqual(subject.code, "ran")
+        XCTAssertEqual(subject.code, code)
         XCTAssertEqual(subject.location, loc)
         XCTAssertEqual(subject.battery, batt)
     }
