@@ -10,13 +10,13 @@ import CoreLocation
 import Foundation
 import MapKit
 
-struct RouteSegment {
+struct RouteSegment: Equatable {
     var distanceInMeters: Double
     var departureTime: Date
     var arrivalTime: Date
     var polyline: MKPolyline
     var travelMode: TravelMode
-    var headsign: String = ""
+    var line: Line?
     var price: Double = 0.0
     var waypoints = [Station]()
 
@@ -28,13 +28,13 @@ struct RouteSegment {
         self.travelMode = travelMode
     }
 
-    init(distanceInMeters: Double, departureTime: Date, arrivalTime: Date, polyline: MKPolyline, travelMode: TravelMode, headsign: String, price: Double, waypoints: [Station]) {
+    init(distanceInMeters: Double, departureTime: Date, arrivalTime: Date, polyline: MKPolyline, travelMode: TravelMode, line: Line, price: Double, waypoints: [Station]) {
         self.distanceInMeters = distanceInMeters
         self.departureTime = departureTime
         self.arrivalTime = arrivalTime
         self.polyline = polyline
         self.travelMode = travelMode
-        self.headsign = headsign
+        self.line = line
         self.price = price
         self.waypoints = waypoints
     }
