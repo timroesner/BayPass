@@ -1,11 +1,6 @@
 language: swift
 osx_image: xcode10
-xcode_workspace: BayPass.xcworkspace
-xcode_scheme: BayPass
-xcode_sdk: iphonesimulator
-
-before_install:
-- pod update
-
-notifications:
-    slack: dattworkspace:dOHdcFiG3BrlqZC0zbzXmZiX
+install:
+  - bundle install
+script:
+  - fastlane test coverage
