@@ -8,6 +8,7 @@ platform :ios do
   desc "Runs all the tests"
   lane :test do
     setup_travis
+    cocoapods
     scan(
       scheme: "BayPass",
       code_coverage: true
