@@ -1,6 +1,15 @@
 language: swift
 osx_image: xcode10
-install:
-  - bundle install
-script:
-  - fastlane ios test
+xcode_workspace: BayPass.xcworkspace
+xcode_scheme: BayPass
+xcode_sdk: iphonesimulator
+
+before_install:
+- pod update
+- gem install xcov
+
+after_script:
+- xcov -w BayPass.xcworkspace -s BayPass -o xcov_output -m 80
+
+notifications:
+    slack: dattworkspace:dOHdcFiG3BrlqZC0zbzXmZiX
