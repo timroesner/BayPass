@@ -17,8 +17,8 @@ platform :ios do
       workspace: "BayPass.xcworkspace",
       scheme: "BayPass",
       output_directory: "xcov_output",
-      minimum_coverage_percentage: "80",
-      slackslack_url: "dattworkspace:dOHdcFiG3BrlqZC0zbzXmZiX"
+      minimum_coverage_percentage: 80.0,
+      slack_url: "https://hooks.slack.com/services/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"
     )
   end
 
