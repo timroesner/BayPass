@@ -12,10 +12,6 @@ platform :ios do
       scheme: "BayPass",
       code_coverage: true
     )
-  end
-
-  desc "Test Coverage"
-  lane :coverage do
     xcov(
       workspace: "BayPass.xcworkspace",
       scheme: "BayPass",

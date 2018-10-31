@@ -3,4 +3,4 @@ osx_image: xcode10
 install:
   - bundle install
 script:
-  - fastlane test coverage
+  - fastlane ios test
