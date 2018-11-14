@@ -12,6 +12,7 @@
 		22049DA8214C9DF2007FF904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22049DA6214C9DF2007FF904 /* LaunchScreen.storyboard */; };
 		22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBD214C9DF3007FF904 /* TabBarUITests.swift */; };
 		2212D7272179985400ADFE3D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212D7262179985400ADFE3D /* TabViewController.swift */; };
+		2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3E9219C198A00053294 /* CAGradientLayer.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
 		2262C31621829E4A000586EE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31521829E4A000586EE /* Collection.swift */; };
@@ -83,6 +84,7 @@
 		22049DBD214C9DF3007FF904 /* TabBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUITests.swift; sourceTree = "<group>"; };
 		22049DBF214C9DF3007FF904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2212D7262179985400ADFE3D /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		2227C3E9219C198A00053294 /* CAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
 		2262C31121829BE3000586EE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2262C31321829CE9000586EE /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		2262C31521829E4A000586EE /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -182,7 +184,6 @@
 			children = (
 				22049D9D214C9DF0007FF904 /* AppDelegate.swift */,
 				2262C31021829BC6000586EE /* Extensions */,
-				6A3F2CB821816FE5006DA755 /* View */,
 				2212D7282179AD8800ADFE3D /* Controller */,
 				6A3F2CB721816FD4006DA755 /* Model */,
 				22049DA4214C9DF2007FF904 /* Assets.xcassets */,
@@ -230,6 +231,7 @@
 				2262C31521829E4A000586EE /* Collection.swift */,
 				2262C31721829F79000586EE /* String.swift */,
 				2262C31B2182A3D1000586EE /* MKPolyline.swift */,
+				2227C3E9219C198A00053294 /* CAGradientLayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,13 +284,6 @@
 				6A009194217EAF090087A32B /* Ticket */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		6A3F2CB821816FE5006DA755 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		6AB6ED0B2186816100A81302 /* Model */ = {
@@ -561,6 +556,7 @@
 				6A009190217EACCD0087A32B /* Scooter.swift in Sources */,
 				6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */,
 				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
+				2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */,
 				2262C31621829E4A000586EE /* Collection.swift in Sources */,
 				2262C31821829F79000586EE /* String.swift in Sources */,
 				22C331BB2186B88000836173 /* TravelMode.swift in Sources */,
