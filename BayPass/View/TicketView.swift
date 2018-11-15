@@ -14,11 +14,12 @@ class TicketView: UIView {
     let nameLbl = UILabel()
     let imageView = UIImageView()
 
-    public init(agency: String, icon: UIImage) {
+    public init(agency: String, icon: UIImage, cornerRadius: CGFloat) {
         super.init(frame: CGRect.zero)
 
-        gradient = CAGradientLayer(topColor: UIColor(named: "light\(agency)") ?? UIColor(), bottomColor: UIColor(named: "dark\(agency)") ?? UIColor())
-        gradient.cornerRadius = 12
+        let agencyNoSpaces = agency.replacingOccurrences(of: " ", with: "")
+        gradient = CAGradientLayer(topColor: UIColor(named: "light\(agencyNoSpaces)") ?? UIColor(hex: 0x000), bottomColor: UIColor(named: "dark\(agencyNoSpaces)") ?? UIColor(hex: 0x000))
+        gradient.cornerRadius = cornerRadius
         layer.addSublayer(gradient)
 
         imageView.tintColor = .white
