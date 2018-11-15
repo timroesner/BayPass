@@ -40,18 +40,39 @@ class TicketView: UIView {
         var offset = 0
 
         switch frame.width {
-        case 95:
+        // 85 x 125
+        case 50 ... 85:
             nameLbl.font = UIFont.systemFont(ofSize: 14, weight: .bold)
             size = 30
             offset = -4
-        case 135:
+        // 95 x 60
+        case 86 ... 95:
+            nameLbl.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+            size = 50
+            offset = -4
+        // 135 x 200
+        case 96 ... 135:
             nameLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             size = 80
-            offset = -4
-        default:
+            offset = -6
+        // 160 x 85
+        case 136 ... 160:
+            nameLbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+            size = 45
+            offset = -6
+        // 250 x 140
+        case 161 ... 250:
+            nameLbl.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+            size = 70
+            offset = -8
+        // 335 x 190
+        case 251 ... 375:
             nameLbl.font = UIFont.systemFont(ofSize: 46, weight: .bold)
             size = 100
             offset = -8
+        default:
+            print("Unexpected size of TicketView")
+            return
         }
 
         imageView.snp.makeConstraints({ (make) -> Void in
