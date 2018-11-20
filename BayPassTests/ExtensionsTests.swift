@@ -47,4 +47,11 @@ class ExtensionsTests: XCTestCase {
         let actual = MKPolyline(coordinates: coordinates)
         assert(expected.pointCount == actual.pointCount)
     }
+    
+    func testGradient() {
+        let gradient = CAGradientLayer(topColor: .white, bottomColor: .black)
+        assert(gradient.startPoint == CGPoint(x: 0, y: 0))
+        assert(gradient.endPoint == CGPoint(x: 1, y: 1))
+        assert(gradient.colors?.count == 2)
+    }
 }

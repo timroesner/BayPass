@@ -12,6 +12,9 @@
 		22049DA8214C9DF2007FF904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22049DA6214C9DF2007FF904 /* LaunchScreen.storyboard */; };
 		22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBD214C9DF3007FF904 /* TabBarUITests.swift */; };
 		2212D7272179985400ADFE3D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212D7262179985400ADFE3D /* TabViewController.swift */; };
+		2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3E9219C198A00053294 /* CAGradientLayer.swift */; };
+		2227C3ED219C1A8D00053294 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3EC219C1A8D00053294 /* TicketView.swift */; };
+		2227C3F0219CBE0C00053294 /* TicketViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3EF219CBE0C00053294 /* TicketViewTests.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
 		2262C31621829E4A000586EE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31521829E4A000586EE /* Collection.swift */; };
@@ -83,6 +86,9 @@
 		22049DBD214C9DF3007FF904 /* TabBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUITests.swift; sourceTree = "<group>"; };
 		22049DBF214C9DF3007FF904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2212D7262179985400ADFE3D /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		2227C3E9219C198A00053294 /* CAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
+		2227C3EC219C1A8D00053294 /* TicketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
+		2227C3EF219CBE0C00053294 /* TicketViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewTests.swift; sourceTree = "<group>"; };
 		2262C31121829BE3000586EE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2262C31321829CE9000586EE /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		2262C31521829E4A000586EE /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -182,7 +188,7 @@
 			children = (
 				22049D9D214C9DF0007FF904 /* AppDelegate.swift */,
 				2262C31021829BC6000586EE /* Extensions */,
-				6A3F2CB821816FE5006DA755 /* View */,
+				2227C3EB219C1A7700053294 /* View */,
 				2212D7282179AD8800ADFE3D /* Controller */,
 				6A3F2CB721816FD4006DA755 /* Model */,
 				22049DA4214C9DF2007FF904 /* Assets.xcassets */,
@@ -196,6 +202,7 @@
 		22049DB1214C9DF2007FF904 /* BayPassTests */ = {
 			isa = PBXGroup;
 			children = (
+				2227C3EE219CBDE600053294 /* View */,
 				6AB6ED0B2186816100A81302 /* Model */,
 				2262C31321829CE9000586EE /* ExtensionsTests.swift */,
 				22049DB4214C9DF2007FF904 /* Info.plist */,
@@ -223,6 +230,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		2227C3EB219C1A7700053294 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2227C3EC219C1A8D00053294 /* TicketView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2227C3EE219CBDE600053294 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2227C3EF219CBE0C00053294 /* TicketViewTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2262C31021829BC6000586EE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +253,7 @@
 				2262C31521829E4A000586EE /* Collection.swift */,
 				2262C31721829F79000586EE /* String.swift */,
 				2262C31B2182A3D1000586EE /* MKPolyline.swift */,
+				2227C3E9219C198A00053294 /* CAGradientLayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,13 +306,6 @@
 				6A009194217EAF090087A32B /* Ticket */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		6A3F2CB821816FE5006DA755 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		6AB6ED0B2186816100A81302 /* Model */ = {
@@ -347,6 +364,7 @@
 				22049D96214C9DF0007FF904 /* Sources */,
 				22049D97214C9DF0007FF904 /* Frameworks */,
 				22049D98214C9DF0007FF904 /* Resources */,
+				69ACA15811A9556F80A997EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -503,6 +521,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		69ACA15811A9556F80A997EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B9A2D893FD1E3C201701D762 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -557,10 +597,12 @@
 				6AB6ECFF21867F1700A81302 /* ClipperViewController.swift in Sources */,
 				6AB6ECFE21867F1700A81302 /* MapViewController.swift in Sources */,
 				6A3F2CB621816B46006DA755 /* Route.swift in Sources */,
+				2227C3ED219C1A8D00053294 /* TicketView.swift in Sources */,
 				6ABF983B218250B1006878E4 /* Line.swift in Sources */,
 				6A009190217EACCD0087A32B /* Scooter.swift in Sources */,
 				6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */,
 				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
+				2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */,
 				2262C31621829E4A000586EE /* Collection.swift in Sources */,
 				2262C31821829F79000586EE /* String.swift in Sources */,
 				22C331BB2186B88000836173 /* TravelMode.swift in Sources */,
@@ -586,6 +628,7 @@
 				6AB6ED172186822D00A81302 /* TicketTests.swift in Sources */,
 				2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */,
 				6AB6ED152186822300A81302 /* PassTests.swift in Sources */,
+				2227C3F0219CBE0C00053294 /* TicketViewTests.swift in Sources */,
 				6AB6ED06218680AB00A81302 /* StationTests.swift in Sources */,
 				6AAFCD1A21854723004021E8 /* ScooterCompanyTests.swift in Sources */,
 				6AB6ED102186819900A81302 /* RouteTests.swift in Sources */,
@@ -678,7 +721,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -733,7 +776,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

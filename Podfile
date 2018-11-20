@@ -7,7 +7,8 @@ target 'BayPass' do
 
   # Pods for BayPass
   pod 'SwiftFormat/CLI', '0.35.6'
-
+  pod 'SnapKit', '~> 4.0.0'
+  
   target 'BayPassTests' do
     inherit! :search_paths
     # Pods for testing
