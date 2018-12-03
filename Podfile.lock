@@ -1,20 +1,24 @@
 PODS:
+  - Alamofire (4.7.3)
   - SnapKit (4.0.1)
   - SwiftFormat/CLI (0.35.6)
 
 DEPENDENCIES:
+  - Alamofire
   - SnapKit (~> 4.0.0)
   - SwiftFormat/CLI (= 0.35.6)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - SnapKit
     - SwiftFormat
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftFormat: 92cd208b201c0a44dd65657280df42c37950261b
 
-PODFILE CHECKSUM: b26822253886684d1f14d12c8c043831611824e8
+PODFILE CHECKSUM: 87076145859432baa8e9c14ae1528e0e6431c86d
 
 COCOAPODS: 1.5.3
