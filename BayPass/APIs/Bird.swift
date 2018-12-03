@@ -54,7 +54,7 @@ class Bird {
             "radius": radius,
         ]
         let headers = [
-            "Authorization": "Bird \(Credentials().birdToken)",
+            "Authorization": "Bird \("birdToken".credentials())",
             "Device-id": UUID().uuidString,
             "App-Version": "3.0.5",
             "Location": "{\"latitude\": \(latitude), \"longitude\": \(longitude)}",
