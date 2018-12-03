@@ -9,7 +9,7 @@
 import CoreLocation
 import UIKit
 
-struct ScooterCompany {
+struct ScooterCompany: Equatable {
     var name: String
     var icon: UIImage
     var color: UIColor
