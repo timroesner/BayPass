@@ -14,9 +14,5 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         addLabel(title: "Map")
-
-        Bird().getScooters(fromLocation: CLLocation(latitude: 48.858635, longitude: 2.298493), radius: 1000) { result in
-            print(result)
-        }
     }
 }
