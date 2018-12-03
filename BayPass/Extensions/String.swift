@@ -14,7 +14,7 @@ extension String {
     }
 
     func credentials() -> String {
-        if let _ = ProcessInfo.processInfo.environment["TRAVIS"] {
+        if !ProcessInfo.processInfo.environment.isEmpty {
             return ProcessInfo.processInfo.environment[self]!
         } else {
             return Credentials().dict[self] ?? "Token not found"
