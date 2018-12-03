@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 class MapViewController: UIViewController {
@@ -14,14 +15,8 @@ class MapViewController: UIViewController {
         view.backgroundColor = .white
         addLabel(title: "Map")
 
-        let ticketView = TicketView(agency: "ACE", icon: #imageLiteral(resourceName: "Bus"), cornerRadius: 12)
-        view.addSubview(ticketView)
-
-        ticketView.snp.makeConstraints({ (make) -> Void in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.leading.equalToSuperview().offset(16)
-            make.width.equalTo(350)
-            make.height.equalTo(200)
-        })
+        Bird().getScooters(fromLocation: CLLocation(latitude: 48.858635, longitude: 2.298493), radius: 1000) { result in
+            print(result)
+        }
     }
 }
