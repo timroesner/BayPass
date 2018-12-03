@@ -1,0 +1,25 @@
+default_platform :ios
+
+platform :ios do
+  before_all do
+    cocoapods
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    setup_travis
+    cocoapods
+    scan(
+      scheme: "BayPass",
+      code_coverage: true
+    )
+    xcov(
+      workspace: "BayPass.xcworkspace",
+      scheme: "BayPass",
+      output_directory: "xcov_output",
+      minimum_coverage_percentage: 80.0,
+      slack_url: "https://hooks.slack.com/services/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"
+    )
+  end
+
+end
