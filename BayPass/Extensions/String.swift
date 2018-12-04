@@ -12,12 +12,4 @@ extension String {
     func localized() -> String {
         return NSLocalizedString(self, comment: "")
     }
-
-    func credentials() -> String {
-        if !ProcessInfo.processInfo.environment.isEmpty {
-            return ProcessInfo.processInfo.environment[self]!
-        } else {
-            return Credentials().dict[self] ?? "Token not found"
-        }
-    }
 }
