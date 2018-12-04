@@ -27,6 +27,7 @@ xcuserdata/
 
 ## Keys
 Credentials.swift
+env-vars.sh
 
 ## Obj-C/Swift specific
 *.hmap
