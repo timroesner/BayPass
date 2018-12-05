@@ -13,5 +13,10 @@ class TicketViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         addLabel(title: "Ticket")
+        
+        
+        
+        
+        
     }
 }
