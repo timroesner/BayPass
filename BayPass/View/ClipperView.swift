@@ -10,7 +10,8 @@ import SnapKit
 import UIKit
 
 class ClipperView: UIView {
-    var gradient = CAGradientLayer()
+    var gradient1 = CAGradientLayer()
+    var gradient2 = CAGradientLayer()
     let nameLbl = UILabel()
     var cashValueLbl = UILabel()
     let cardNumberLbl = UILabel()
@@ -20,16 +21,24 @@ class ClipperView: UIView {
         super.init(frame: CGRect.zero)
         
         let agencyNoSpaces = agency.replacingOccurrences(of: " ", with: "")
-        gradient = CAGradientLayer(topColor: UIColor(named: "light\(agencyNoSpaces)") ?? UIColor(hex: 0x000), bottomColor: UIColor(named: "dark\(agencyNoSpaces)") ?? UIColor(hex: 0x000))
-        gradient.cornerRadius = cornerRadius
-        layer.addSublayer(gradient)
+        gradient1 = CAGradientLayer(leftColor: UIColor(named: "light\(agencyNoSpaces)") ?? UIColor(hex: 0x15224A),
+                                   rightColor: UIColor(named: "dark\(agencyNoSpaces)") ?? UIColor(hex: 0x00648D))
+        gradient1.cornerRadius = cornerRadius
+        gradient1.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        layer.addSublayer(gradient1)
+        
+        gradient2 = CAGradientLayer(leftColor: UIColor(named: "light\(agencyNoSpaces)") ?? UIColor(hex: 0x162D58),
+                                    rightColor: UIColor(named: "dark\(agencyNoSpaces)") ?? UIColor(hex: 0x005580))
+        gradient2.cornerRadius = cornerRadius
+        gradient2.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+        layer.addSublayer(gradient2)
         
         nameLbl.text = agency
         nameLbl.textColor = .white
         nameLbl.numberOfLines = 0
         addSubview(nameLbl)
         
-        cashValueLbl.text = ""
+        cashValueLbl.text = "$12.45"
         cashValueLbl.textColor = .white
         cashValueLbl.numberOfLines = 1
         addSubview(cashValueLbl)
@@ -46,56 +55,22 @@ class ClipperView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        gradient.frame = bounds
         
-        var size = 0
-        var offset = 0
+        gradient1.frame = CGRect(x: 0.0, y: 0.0, width: 210, height: 200)
+        gradient2.frame = CGRect(x: 210, y: 0.0, width: 140, height: 200)
         
-        switch frame.width {
-        // 85 x 125
-        case 50 ... 85:
-            nameLbl.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-            size = 30
-            offset = -4
-        // 95 x 60
-        case 86 ... 95:
-            nameLbl.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-            size = 50
-            offset = -4
-        // 135 x 200
-        case 96 ... 135:
-            nameLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-            size = 80
-            offset = -6
-        // 160 x 85
-        case 136 ... 160:
-            nameLbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-            size = 45
-            offset = -6
-        // 250 x 140
-        case 161 ... 250:
-            nameLbl.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-            size = 70
-            offset = -8
-        // 335 x 190
-        case 251 ... 375:
-            nameLbl.font = UIFont.systemFont(ofSize: 46, weight: .bold)
-            size = 100
-            offset = -8
-        default:
-            print("Unexpected size of TicketView")
-            return
-        }
+        nameLbl.font = UIFont.systemFont(ofSize: 46, weight: .bold)
+        cashValueLbl.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        cardNumberLbl.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         
-        imageView.snp.makeConstraints({ (make) -> Void in
-            make.width.height.equalTo(size)
-            make.bottom.right.equalToSuperview().offset(offset)
+        cashValueLbl.snp.makeConstraints({ (make) -> Void in
+            make.top.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-18)
         })
         
-        nameLbl.snp.makeConstraints({ (make) -> Void in
-            make.leading.equalToSuperview().offset(-2 * offset)
-            make.top.equalToSuperview().offset(-1.5 * Double(offset))
-            make.trailing.equalToSuperview().offset(2 * offset)
+        cardNumberLbl.snp.makeConstraints({ (make) -> Void in
+            make.bottom.equalToSuperview().offset(-16)
+            make.right.equalToSuperview().offset(-18)
         })
     }
     

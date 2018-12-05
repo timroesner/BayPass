@@ -23,5 +23,7 @@ class MapViewController: UIViewController {
             make.width.equalTo(350)
             make.height.equalTo(200)
         })
+        
     }
+    
 }
