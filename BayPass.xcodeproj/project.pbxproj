@@ -545,7 +545,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f ${SRCROOT}/env-vars.sh ]\nthen\nsource ${SRCROOT}/env-vars.sh\nfi\n${SRCROOT}/create-credentials.rb\n";
+			shellScript = "echo 'started script'\nif [ -f ${SRCROOT}/env-vars.sh ]\nthen\nsource ${SRCROOT}/env-vars.sh\nfi\necho 'if succeded'\n${SRCROOT}/create-credentials.rb\necho 'ruby succeded'\n";
 			showEnvVarsInLog = 0;
 		};
 		3CCE354F2A3225BA94F4DFAB /* [CP] Check Pods Manifest.lock */ = {
