@@ -15,7 +15,7 @@ class ClipperViewController: UIViewController {
         addLabel(title: "Clipper")
         
         
-        let clipperView = ClipperView(agency: "Clipper", icon: #imageLiteral(resourceName: "CalTrain"), cornerRadius: 12, cardNumber: "**** 6817")
+        let clipperView = ClipperView(agency: "Clipper", icon: #imageLiteral(resourceName: "ClipperLogoVertical"), cornerRadius: 12, cardNumber: "**** 6817")
         view.addSubview(clipperView)
         
         clipperView.snp.makeConstraints({ (make) -> Void in

@@ -59,9 +59,20 @@ class ClipperView: UIView {
         gradient1.frame = CGRect(x: 0.0, y: 0.0, width: 210, height: 200)
         gradient2.frame = CGRect(x: 210, y: 0.0, width: 140, height: 200)
         
-        nameLbl.font = UIFont.systemFont(ofSize: 46, weight: .bold)
+        //nameLbl.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         cashValueLbl.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         cardNumberLbl.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        
+        imageView.frame = CGRect(x: 44, y: 30, width: 120, height: 146)
+        /*imageView.snp.makeConstraints({ (make) -> Void in
+            make.bottom.equalToSuperview().offset(-30)
+            make.left.equalToSuperview().offset(80)
+        })*/
+        
+        /*nameLbl.snp.makeConstraints({ (make) -> Void in
+            make.bottom.equalToSuperview().offset(-30)
+            make.left.equalToSuperview().offset(44)
+        })*/
         
         cashValueLbl.snp.makeConstraints({ (make) -> Void in
             make.top.equalToSuperview().offset(16)
