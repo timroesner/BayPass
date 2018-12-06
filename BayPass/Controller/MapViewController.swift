@@ -11,6 +11,12 @@ import MapKit
 import SnapKit
 import UIKit
 
+struct GTFSOperators: Decodable {
+    let Id: String
+    let Name: String
+    let LastGenerated: String // Don't need this
+}
+
 class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
