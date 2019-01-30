@@ -17,6 +17,7 @@ struct GTFSOperators: Decodable {
     let LastGenerated: String // Don't need this
 }
 
+//--------- Station ------------
 /*
  id": "12TH",
  "Name": "12th St. Oakland City Center BART Station",
@@ -63,6 +64,40 @@ struct Stations: Decodable {
     }
 }
 
+//--------- BART Line ------------
+/*
+ {
+ "Id": "Yellow",
+ "Name": "Antioch - SFIA/Millbrae",
+ "TransportMode": "rail",
+ "PublicCode": "Yellow",
+ "SiriLineRef": "Yellow",
+ "Montiored": true,
+ "OperatorRef": "BA"
+ }
+ */
+
+struct LineInfo {
+    var Id: String
+    var Name: String
+    var TransportMode: String
+    var PublicCode: String
+    var SiriLineRef: String
+    var Montiored: Bool
+    var OperatorRef: String
+    
+    init(_ dictionary: [String: Any]) {
+        self.Id = dictionary["Id"] as? String ?? ""
+        self.Name = dictionary["Name"] as? String ?? ""
+        self.TransportMode = dictionary["TransportMode"] as? String ?? ""
+        self.PublicCode = dictionary["PublicCode"] as? String ?? ""
+        self.SiriLineRef = dictionary["SiriLineRef"] as? String ?? ""
+        self.Montiored = dictionary["Montiored"] as? Bool ?? false
+        self.OperatorRef = dictionary["OperatorRef"] as? String ?? ""
+    }
+}
+
+
 class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +113,11 @@ class MapViewController: UIViewController {
             make.width.equalTo(350)
             make.height.equalTo(200)
         })
-        loadJSONForStation()
+        //loadJSONForStation()
+        loadJSONForLine()
     }
 
+    
     // Print JSON
     func loadJSON() {
         // alamofire use instead
@@ -105,7 +142,7 @@ class MapViewController: UIViewController {
         }.resume()
     }
 
-    // Station
+    // Print Stations
     func loadJSONForStation() {
         // alamofire use instead
         let jsonUrlString = "https://api.511.org/transit/stops?api_key=11f56fe7-a97a-40db-9d94-130584c8bac6&operator_id=BA"
@@ -128,4 +165,43 @@ class MapViewController: UIViewController {
             }
         }.resume()
     }
+    
+    // Print BART Lines
+    func loadJSONForLine(){
+        let jsonUrlString = "https://api.511.org/transit/lines?api_key=11f56fe7-a97a-40db-9d94-130584c8bac6&operator&operator_id=BA"
+        guard let url = URL(string: jsonUrlString) else {return}
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let dataResponse = data,
+                error == nil else {
+                    print(error?.localizedDescription ?? "Response Error")
+                    return }
+            do{
+                
+                let jsonResponse = try JSONSerialization.jsonObject(with:
+                    dataResponse, options: [])
+                print(jsonResponse)
+                
+                guard let jsonArray = jsonResponse as? [[String: Any]] else {
+                    return
+                }
+                
+                var lines = [LineInfo]()
+                for dic in jsonArray{
+                    lines.append(LineInfo(dic))
+                }
+                for line in lines{
+                    print(line.Name)
+                    print("\n")
+                }
+                
+            } catch let parsingError {
+                print("Error", parsingError)
+            }
+        }.resume()
+        
+        
+        
+    }
+    
 }
