@@ -17,6 +17,7 @@ struct GTFSOperators: Decodable {
     let LastGenerated: String // Don't need this
 }
 
+//--------- Station ------------
 /*
  id": "12TH",
  "Name": "12th St. Oakland City Center BART Station",
@@ -63,6 +64,40 @@ struct Stations: Decodable {
     }
 }
 
+//--------- BART Line ------------
+/*
+ {
+ "Id": "Yellow",
+ "Name": "Antioch - SFIA/Millbrae",
+ "TransportMode": "rail",
+ "PublicCode": "Yellow",
+ "SiriLineRef": "Yellow",
+ "Montiored": true,
+ "OperatorRef": "BA"
+ }
+ */
+
+struct LineInfo {
+    var Id: String
+    var Name: String
+    var TransportMode: String
+    var PublicCode: String
+    var SiriLineRef: String
+    var Montiored: Bool
+    var OperatorRef: String
+    
+    init(_ dictionary: [String: Any]) {
+        self.Id = dictionary["Id"] as? String ?? ""
+        self.Name = dictionary["Name"] as? String ?? ""
+        self.TransportMode = dictionary["TransportMode"] as? String ?? ""
+        self.PublicCode = dictionary["PublicCode"] as? String ?? ""
+        self.SiriLineRef = dictionary["SiriLineRef"] as? String ?? ""
+        self.Montiored = dictionary["Montiored"] as? Bool ?? false
+        self.OperatorRef = dictionary["OperatorRef"] as? String ?? ""
+    }
+}
+
+
 class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,30 +112,7 @@ class MapViewController: UIViewController {
             make.leading.equalToSuperview().offset(16)
             make.width.equalTo(350)
             make.height.equalTo(200)
-        })
+        })        
     }
-
-    // Station
-    func loadJSONForStation() {
-        // alamofire use instead
-        let jsonUrlString = "https://api.511.org/transit/stops?api_key=11f56fe7-a97a-40db-9d94-130584c8bac6&operator_id=BA"
-        guard let url = URL(string: jsonUrlString) else { return }
-
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            print("test2")
-
-            guard let data = data else { return }
-            do {
-                let stations = try JSONDecoder().decode(Stations.self, from: data) // parsing filter out based on id and name
-                print("\(stations.stations)\n")
-
-                for st in stations.stations {
-                    print("\(st)\n")
-                }
-
-            } catch let jsonErr {
-                print("Error serializing json:", jsonErr)
-            }
-        }.resume()
-    }
+    
 }
