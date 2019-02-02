@@ -547,8 +547,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f ${SRCROOT}/env-vars.sh ]\nthen\nsource ${SRCROOT}/env-vars.sh\nfi\n${SRCROOT}/create-credentials.rb\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if [ -f ${SRCROOT}/env-vars.sh ]\nthen\nsource ${SRCROOT}/env-vars.sh\nfi\n\"${SRCROOT}/create-credentials.rb\"\n";
 		};
 		3CCE354F2A3225BA94F4DFAB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -6,10 +6,6 @@ xcode_sdk: iphonesimulator
 
 before_install:
 - pod update
-install:
-  - bundle install
-script:
-  - fastlane ios test
   
 notifications:
      slack: dattworkspace:dOHdcFiG3BrlqZC0zbzXmZiX
