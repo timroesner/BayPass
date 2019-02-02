@@ -537,6 +537,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/create-credentials.rb",
 			);
 			name = "Import environment variables";
 			outputFileListPaths = (
