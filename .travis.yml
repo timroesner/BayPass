@@ -6,6 +6,8 @@ xcode_sdk: iphonesimulator
 
 before_install:
 - pod update
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
   
 notifications:
      slack: dattworkspace:dOHdcFiG3BrlqZC0zbzXmZiX
