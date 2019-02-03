@@ -13,7 +13,11 @@ import UIKit
 struct GTFSOperators: Decodable {
     let Id: String
     let Name: String
-    let LastGenerated: String // Don't need this
+
+    init(id: String, name: String) {
+        Id = id
+        Name = name
+    }
 }
 
 //--------- Station ------------
