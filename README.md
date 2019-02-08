@@ -17,7 +17,7 @@ This repo contains all the code to our senior project, which was completed in th
 ## How we work
 We are an agile team and have 1 and 2 week sprints that you can find under [projects](https://github.com/timroesner/BayPass/projects). We estimate each task's complexity and review each others code before merging. Additionally we use the following tools for better collaboration:  
 - [Xcode](https://developer.apple.com/xcode/)
-- [CocoaPods](cocoapods.org)
+- [CocoaPods](https://cocoapods.org)
 - [fastlane](http://fastlane.tools/)
 - [Sketch](https://sketchapp.com)
 - [Slack](slack.com)
@@ -26,7 +26,7 @@ We are an agile team and have 1 and 2 week sprints that you can find under [proj
 
   
 ## Architecture
-We practice MVVM for our code strcuture, and use [Travis](https://travis-ci.org) for our CI enviorment, which builds each PR and runs tests to see if the branch is passing. We also use coverage reports from codecov.io to see the test coverage of the diff in a PR and the overall test coverage. 
+We practice MVVM for our code strcuture, and use [Travis](https://travis-ci.org) for our CI enviorment, which builds each PR and runs tests to see if the branch is passing. We also use coverage reports from [codecov.io](https://codecov.io) to see the test coverage of the diff in a PR and the overall test coverage. 
 
 
 ## Setup
@@ -37,5 +37,10 @@ export BART_TOKEN = YOUR_TOKEN
 ```
 
 ## UI 
-<img width="215" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52455989-bd2b2e80-2b07-11e9-8f9f-733204af8554.png"><img width="215" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52455990-be5c5b80-2b07-11e9-8735-1984ca2e1565.png"><img width="215" alt="screen shot 2019-02-07 at 6 41 51 pm" src="https://user-images.githubusercontent.com/13894518/52456086-185d2100-2b08-11e9-93bb-8f32c7474a87.png"><img width="215" alt="screen shot 2019-02-07 at 6 51 33 pm" src="https://user-images.githubusercontent.com/13894518/52456393-66beef80-2b09-11e9-9f78-4b501ff08c4b.png"><img width="215" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52456137-4b9fb000-2b08-11e9-96c6-352993a63d79.png"><img width="215" alt="screen shot 2019-02-07 at 6 44 29 pm" src="https://user-images.githubusercontent.com/13894518/52456167-696d1500-2b08-11e9-8300-22dd3279ad26.png"><img width="215" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52456177-712cb980-2b08-11e9-9c40-b0934753df72.png"><img width="215" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52456195-8570b680-2b08-11e9-8fca-d312b1ca6563.png"><img width="215" alt="screen shot 2019-02-07 at 6 45 49 pm" src="https://user-images.githubusercontent.com/13894518/52456210-98838680-2b08-11e9-9d12-837ee5ebd778.png"><img width="215" alt="screen shot 2019-02-07 at 6 46 24 pm" src="https://user-images.githubusercontent.com/13894518/52456231-ad601a00-2b08-11e9-8aee-90e41309dda2.png"><img width="215" alt="screen shot 2019-02-07 at 6 46 53 pm" src="https://user-images.githubusercontent.com/13894518/52456259-bea92680-2b08-11e9-97eb-1e51e649cced.png"><img width="215" alt="screen shot 2019-02-07 at 6 48 06 pm" src="https://user-images.githubusercontent.com/13894518/52456310-ea2c1100-2b08-11e9-9549-db4bdfd7e717.png">
+### Map
+<img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52455989-bd2b2e80-2b07-11e9-8f9f-733204af8554.png"><img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52455990-be5c5b80-2b07-11e9-8735-1984ca2e1565.png"><img width="217" alt="screen shot 2019-02-07 at 6 41 51 pm" src="https://user-images.githubusercontent.com/13894518/52456086-185d2100-2b08-11e9-93bb-8f32c7474a87.png"><img width="217" alt="screen shot 2019-02-07 at 6 51 33 pm" src="https://user-images.githubusercontent.com/13894518/52456393-66beef80-2b09-11e9-9f78-4b501ff08c4b.png">
+### Tickets
+<img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52456137-4b9fb000-2b08-11e9-96c6-352993a63d79.png"><img width="217" alt="screen shot 2019-02-07 at 6 44 29 pm" src="https://user-images.githubusercontent.com/13894518/52456167-696d1500-2b08-11e9-8300-22dd3279ad26.png"><img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52456177-712cb980-2b08-11e9-9c40-b0934753df72.png"><img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52456195-8570b680-2b08-11e9-8fca-d312b1ca6563.png">
+### Clipper
+<img width="217" alt="screen shot 2019-02-07 at 6 45 49 pm" src="https://user-images.githubusercontent.com/13894518/52456210-98838680-2b08-11e9-9d12-837ee5ebd778.png"><img width="217" alt="screen shot 2019-02-07 at 6 46 24 pm" src="https://user-images.githubusercontent.com/13894518/52456231-ad601a00-2b08-11e9-8aee-90e41309dda2.png"><img width="217" alt="screen shot 2019-02-07 at 6 46 53 pm" src="https://user-images.githubusercontent.com/13894518/52456259-bea92680-2b08-11e9-97eb-1e51e649cced.png"><img width="217" alt="screen shot 2019-02-07 at 6 48 06 pm" src="https://user-images.githubusercontent.com/13894518/52456310-ea2c1100-2b08-11e9-9549-db4bdfd7e717.png">
 
