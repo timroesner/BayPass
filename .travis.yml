@@ -10,3 +10,8 @@ after_success:
 
 notifications:
      slack: dattworkspace:dOHdcFiG3BrlqZC0zbzXmZiX
+
+# safelist
+branches:
+  only:
+  - master
