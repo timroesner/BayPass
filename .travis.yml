@@ -9,3 +9,8 @@ before_install:
   
 notifications:
      slack: dattworkspace:dOHdcFiG3BrlqZC0zbzXmZiX
+
+# safelist
+branches:
+  only:
+  - master
