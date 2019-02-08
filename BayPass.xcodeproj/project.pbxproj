@@ -15,6 +15,7 @@
 		2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3E9219C198A00053294 /* CAGradientLayer.swift */; };
 		2227C3ED219C1A8D00053294 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3EC219C1A8D00053294 /* TicketView.swift */; };
 		2227C3F0219CBE0C00053294 /* TicketViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3EF219CBE0C00053294 /* TicketViewTests.swift */; };
+		2235A97321B8F672009EDAC7 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227796CB21B6251F00BAF6BA /* Credentials.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
 		2262C31621829E4A000586EE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31521829E4A000586EE /* Collection.swift */; };
@@ -23,7 +24,6 @@
 		2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31B2182A3D1000586EE /* MKPolyline.swift */; };
 		2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31D2187ED24000586EE /* RouteSegmentTests.swift */; };
 		2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31F2187FD68000586EE /* MapAnnotationTests.swift */; };
-		227796CC21B6251F00BAF6BA /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227796CB21B6251F00BAF6BA /* Credentials.swift */; };
 		227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE6B21B4C78E00D3169E /* Bird.swift */; };
 		227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE7021B4F48D00D3169E /* BirdTests.swift */; };
 		22C331B92186B80800836173 /* RouteSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331B82186B80800836173 /* RouteSegment.swift */; };
@@ -537,16 +537,17 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/create-credentials.rb",
 			);
 			name = "Import environment variables";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(SRCROOT)/BayPass/APIs/Credentials.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ -f ${SRCROOT}/env-vars.sh ]\nthen\nsource ${SRCROOT}/env-vars.sh\nfi\n${SRCROOT}/create-credentials.rb\n";
-			showEnvVarsInLog = 0;
 		};
 		3CCE354F2A3225BA94F4DFAB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -633,6 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2235A97321B8F672009EDAC7 /* Credentials.swift in Sources */,
 				2262C31221829BE3000586EE /* UIColor.swift in Sources */,
 				2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */,
 				6A009193217EAD820087A32B /* ScooterCompany.swift in Sources */,
@@ -654,7 +656,6 @@
 				2262C31621829E4A000586EE /* Collection.swift in Sources */,
 				2262C31821829F79000586EE /* String.swift in Sources */,
 				22C331BB2186B88000836173 /* TravelMode.swift in Sources */,
-				227796CC21B6251F00BAF6BA /* Credentials.swift in Sources */,
 				6AAFCD1121853C59004021E8 /* AppDelegate.swift in Sources */,
 				6A009196217EAF1A0087A32B /* ClipperCard.swift in Sources */,
 				6ABF9839218250B1006878E4 /* TransitMode.swift in Sources */,
