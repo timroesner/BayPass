@@ -4,10 +4,7 @@
 [![Build Status](https://travis-ci.com/timroesner/BayPass.svg?token=WiAQGuCxgiespq3vmWc1&branch=master)](https://travis-ci.com/timroesner/BayPass)   [![codecov](https://codecov.io/gh/timroesner/BayPass/branch/master/graph/badge.svg?token=hasFyKFOq8)](https://codecov.io/gh/timroesner/BayPass)
 
 ## Summary
-Metropolitan areas, like the Bay Area, are prone to traffic congestion due to a high number of cars during peak periods and space limitations. Some improvement have been made in recent years through ride sharing apps, however these apps also attract people how would previously have taken public transit, as those services are easier to use and operate door-to-door.
-The goal of this project is to make public transit simple to use and thus improve the congestion in the Bay Area.  
-We are solving the first mile issue through integration of electric kick scooter services that help riders to get from and to stations. We will also make trip planning easier with integration of all agencies across the Bay Area and live updates about arrival times, station closures, and cancellations. Additionally we will also be integrating ride sharing to bridge gaps in the system maps.  Lastly we will make ticketing easier and offer a mobile solution to purchase these. We will leverage the NFC capabilities of today’s smartphones to act as the mobile ticket, reducing cost for agencies. But also improving usability for riders as matching tickets can be automatically detected when the phone is near the reader, without need to unlock the phone. Additionally passes and transit cards can be removed remotely from the device in case of theft or loss.
-The ticketing feature and integration of the scooter services will set us apart from similar apps available in the Bay Area today.  
+This repo contains all the code to our senior project, which was completed in the spring semester of 2019. We decided to build an iOS App in Swift that solves some of the issues transit riders in the Bay Area have been experiencing. For example getting to and from transit stations, purchasing tickets on their phone, reloading Clipper cash and adding passes, and integrating electric scooters with transit options.  
   
 
 ## Team Members
