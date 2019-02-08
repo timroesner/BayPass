@@ -1,12 +1,13 @@
 language: swift
-osx_image: xcode10
-xcode_workspace: BayPass.xcworkspace
-xcode_scheme: BayPass
-xcode_sdk: iphonesimulator
+osx_image: xcode10.1
 
 before_install:
 - pod update
-  
+script:
+- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace BayPass.xcworkspace -scheme BayPass -sdk iphonesimulator12.1 -destination "OS=12.1,name=iPhone X" | xcpretty
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J 'BayPass'
+
 notifications:
      slack: dattworkspace:dOHdcFiG3BrlqZC0zbzXmZiX
 
