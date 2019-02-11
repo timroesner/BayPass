@@ -1,10 +1,10 @@
 PODS:
   - SnapKit (4.0.1)
-  - SwiftFormat/CLI (0.35.6)
+  - SwiftFormat/CLI (0.39.0)
 
 DEPENDENCIES:
   - SnapKit (~> 4.0.0)
-  - SwiftFormat/CLI (= 0.35.6)
+  - SwiftFormat/CLI
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -13,8 +13,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwiftFormat: 92cd208b201c0a44dd65657280df42c37950261b
+  SwiftFormat: a27a799eeaf246313c3b388ad6d5ae33c78eb6f3
 
-PODFILE CHECKSUM: b26822253886684d1f14d12c8c043831611824e8
+PODFILE CHECKSUM: 4e36f694228e8f3c450ace6e6be348215e55ef84
 
 COCOAPODS: 1.5.3

@@ -56,33 +56,51 @@ class ClipperView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        gradient1.frame = CGRect(x: 0.0, y: 0.0, width: 210, height: 200)
-        gradient2.frame = CGRect(x: 210, y: 0.0, width: 140, height: 200)
+        gradient1.frame = CGRect(x: 0.0, y: 0.0, width: frame.width * 0.6, height: frame.height)
+        gradient2.frame = CGRect(x: frame.width * 0.6, y: 0.0, width: frame.width * 0.4, height: frame.height)
         
-        //nameLbl.font = UIFont.systemFont(ofSize: 36, weight: .bold)
-        cashValueLbl.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-        cardNumberLbl.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        
-        imageView.frame = CGRect(x: 44, y: 30, width: 120, height: 146)
-        /*imageView.snp.makeConstraints({ (make) -> Void in
-            make.bottom.equalToSuperview().offset(-30)
-            make.left.equalToSuperview().offset(80)
-        })*/
-        
-        /*nameLbl.snp.makeConstraints({ (make) -> Void in
-            make.bottom.equalToSuperview().offset(-30)
-            make.left.equalToSuperview().offset(44)
-        })*/
+        imageView.frame = CGRect(x: frame.width * 0.13, y: frame.height * 0.135, width: frame.width * 0.34, height: frame.height * 0.73)
         
         cashValueLbl.snp.makeConstraints({ (make) -> Void in
-            make.top.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(-18)
+            make.top.equalToSuperview().offset(frame.height * 0.08)
+            make.right.equalToSuperview().offset(-frame.width * 0.05)
         })
         
         cardNumberLbl.snp.makeConstraints({ (make) -> Void in
-            make.bottom.equalToSuperview().offset(-16)
-            make.right.equalToSuperview().offset(-18)
+            make.bottom.equalToSuperview().offset(-frame.height * 0.08)
+            make.right.equalToSuperview().offset(-frame.width * 0.05)
         })
+        
+        switch frame.width {
+        // 85 x 125
+        case 50 ... 85:
+            cashValueLbl.font = UIFont.systemFont(ofSize: 9, weight: .bold)
+            cardNumberLbl.font = UIFont.systemFont(ofSize: 6, weight: .regular)
+        // 95 x 60
+        case 86 ... 95:
+            cashValueLbl.font = UIFont.systemFont(ofSize: 9, weight: .bold)
+            cardNumberLbl.font = UIFont.systemFont(ofSize: 6, weight: .regular)
+        // 135 x 200
+        case 96 ... 135:
+            cashValueLbl.font = UIFont.systemFont(ofSize: 9, weight: .bold)
+            cardNumberLbl.font = UIFont.systemFont(ofSize: 6, weight: .regular)
+        // 160 x 85
+        case 136 ... 160:
+            cashValueLbl.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            cardNumberLbl.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        // 250 x 140
+        case 161 ... 250:
+            cashValueLbl.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+            cardNumberLbl.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        // 335 x 190
+        case 251 ... 375:
+            cashValueLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+            cardNumberLbl.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        default:
+            print("Unexpected size of TicketView")
+            return
+        }
+ 
     }
     
     func setBalanceLbl(cashValue: String) {
