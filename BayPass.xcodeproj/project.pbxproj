@@ -851,7 +851,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BT7DC73YL;
+				DEVELOPMENT_TEAM = 6B69SG794P;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -870,7 +870,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7BT7DC73YL;
+				DEVELOPMENT_TEAM = 6B69SG794P;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
