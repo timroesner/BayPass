@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 class MapViewController: UIViewController {
@@ -14,6 +15,7 @@ class MapViewController: UIViewController {
         view.backgroundColor = .white
         addLabel(title: "Map")
 
+        // Remove before merging
         let ticketView = TicketView(agency: "ACE", icon: #imageLiteral(resourceName: "Bus"), cornerRadius: 12)
         view.addSubview(ticketView)
 
