@@ -14,7 +14,7 @@ class ClipperViewController: UIViewController {
         view.backgroundColor = .white
         addLabel(title: "Clipper")
 
-        let clipperView = ClipperView(agency: "Clipper", icon: #imageLiteral(resourceName: "ClipperLogoVertical"), cornerRadius: 12, cardNumber: "**** 6817")
+        let clipperView = ClipperView(cardNumber: "•••• 6817", cashValue: 12.54)
         view.addSubview(clipperView)
 
         clipperView.snp.makeConstraints({ (make) -> Void in

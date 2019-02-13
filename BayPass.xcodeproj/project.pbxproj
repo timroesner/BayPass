@@ -59,6 +59,7 @@
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
 		99F786221FF0E8DAF44AE47F /* Pods_BayPassUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BF9D28DD79B0405EBB5C4F /* Pods_BayPassUITests.framework */; };
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
+		ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		BC737C8C1C489644ABDDFE78 /* Pods_BayPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CE3C0E191A1E9A66EDDE84 /* Pods-BayPassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassUITests/Pods-BayPassUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EC14F1B521B64E28009F69CF /* ClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperView.swift; sourceTree = "<group>"; };
+		ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperViewTests.swift; sourceTree = "<group>"; };
 		F3C991BFA884D85FF2F805DF /* Pods-BayPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				2227C3EF219CBE0C00053294 /* TicketViewTests.swift */,
+				ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				6AB6ED042186809F00A81302 /* LineTests.swift in Sources */,
 				6AB6ED132186821800A81302 /* ClipperCardTests.swift in Sources */,
 				6AB6ED0E2186818600A81302 /* ScooterTests.swift in Sources */,
+				ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */,
 				6AB6ED0A218680C300A81302 /* BikeDockTests.swift in Sources */,
 				22F097552206868E009881F8 /* BartTests.swift in Sources */,
 				2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */,
