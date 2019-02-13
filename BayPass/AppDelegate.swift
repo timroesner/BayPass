@@ -15,10 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         window?.makeKeyAndVisible()
+        
         let vc = TabViewController()
-
-        window?.rootViewController = vc
-
+        let nc = NavigationController(rootViewController: vc)
+        
+//        window?.rootViewController = vc
+        window?.rootViewController = nc
+        
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
         }
