@@ -13,17 +13,15 @@ class ClipperViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         addLabel(title: "Clipper")
-        
-        
+
         let clipperView = ClipperView(agency: "Clipper", icon: #imageLiteral(resourceName: "ClipperLogoVertical"), cornerRadius: 12, cardNumber: "**** 6817")
         view.addSubview(clipperView)
-        
+
         clipperView.snp.makeConstraints({ (make) -> Void in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
             make.leading.equalToSuperview().offset(16)
             make.width.equalTo(350)
             make.height.equalTo(200)
         })
-        
     }
 }

@@ -15,7 +15,7 @@ extension CAGradientLayer {
         startPoint = CGPoint(x: 0, y: 0)
         endPoint = CGPoint(x: 1, y: 1)
     }
-    
+
     convenience init(leftColor: UIColor, rightColor: UIColor) {
         self.init()
         colors = [leftColor.cgColor, rightColor.cgColor]
