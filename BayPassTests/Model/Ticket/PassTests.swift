@@ -11,24 +11,40 @@ import CoreLocation
 import XCTest
 
 class PassTests: XCTestCase {
+    
+    var agency: Agency?
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
+        let station = Station(name: "SFO", code: 2, transitModes: [TransitMode.bart], lines: ["Green"], location: loc)
+        let line = Line(name: "Green", code: 2, destination: "Milbrae", stops: [station])
+        agency = Agency(name: "BART", routes: [line])
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        agency = nil
     }
     
     func test_Pass_BuildsThePath() {
         let name = "some"
         let dur = DateInterval()
         let cost = 2.3
-        let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-        let agency = Agency(name: "Some", routes: [Line(name: "some", code: 2, destination: "dest", stops: [Station(name: "some", code: 2, transitModes: [TransitMode.bart], lines: ["some"], location: loc)])])
-        let subject = Pass(name: name, duration: dur, price: cost, validOnAgency: agency)
+        let testPass = Pass(name: name, duration: dur, price: cost, validOnAgency: agency!)
         
-        XCTAssertEqual(subject.name, "some")
-        XCTAssertEqual(subject.duration, dur)
-        XCTAssertEqual(subject.price, 2.3)
+        XCTAssertEqual(testPass.name, "some")
+        XCTAssertEqual(testPass.duration, dur)
+        XCTAssertEqual(testPass.price, 2.3)
+    }
+    
+    func testIsValidTrue() {
+        let duration = DateInterval(start: Date(), duration: 60)
+        let testPass = Pass(name: "BART", duration: duration, price: 12.35, validOnAgency: agency!)
+        assert(testPass.isValid())
+    }
+    
+    func testIsValidFalse() {
+        let duration = DateInterval(start: Date(timeIntervalSince1970: 60), duration: 45)
+        let testPass = Pass(name: "BART", duration: duration, price: 12.35, validOnAgency: agency!)
+        assert(testPass.isValid() == false)
     }
 }

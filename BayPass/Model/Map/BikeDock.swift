@@ -24,8 +24,23 @@ struct BikeDock {
         self.bikesAvailible = bikesAvailible
     }
 
-    func calculatePrice(start _: CLLocation, end _: CLLocation) -> Double {
-        // TODO: Implement here
-        fatalError("calculatePirce is not implemented yet")
+    func getDurationInMinutes(fromMeters: Double, eBike: Bool) -> Int {
+        var speed: Double // in meters / second
+        if eBike {
+            speed = 5.55556
+        } else {
+            speed = 4.305556
+        }
+        let minutes = (fromMeters / speed) / 60
+        return Int(round(minutes))
+    }
+
+    func calculatePrice(fromMinutes: Double) -> Double {
+        if fromMinutes <= 30 {
+            return 3
+        } else {
+            let overtime = ((fromMinutes - 30) / 15).rounded(.up)
+            return 3 + (overtime * 3)
+        }
     }
 }

@@ -11,16 +11,27 @@ import UIKit
 
 struct Ticket {
     var name: String
-    var duration: TimeInterval
+    var duration: DateInterval?
+    var count: Int = 0
     var price: Double
     var validOnAgency: Agency
     var NFCCode: String
     var locations: [CLLocation]
 
-    init(name: String, duration: TimeInterval, price: Double, validOnAgency: Agency, NFCCode: String,
+    init(name: String, duration: DateInterval, price: Double, validOnAgency: Agency, NFCCode: String,
          locations: [CLLocation]) {
         self.name = name
         self.duration = duration
+        self.price = price
+        self.validOnAgency = validOnAgency
+        self.NFCCode = NFCCode
+        self.locations = locations 
+    }
+
+    init(name: String, count: Int, price: Double, validOnAgency: Agency, NFCCode: String,
+         locations: [CLLocation]) {
+        self.name = name
+        self.count = count
         self.price = price
         self.validOnAgency = validOnAgency
         self.NFCCode = NFCCode
@@ -28,7 +39,9 @@ struct Ticket {
     }
 
     func isValid() -> Bool {
-        // TODO: Implement here
-        fatalError("isValid() is not implemented yet")
+        if let duration = self.duration {
+            return duration.end >= Date()
+        }
+        return count > 0
     }
 }

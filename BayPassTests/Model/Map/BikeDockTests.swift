@@ -28,4 +28,20 @@ class BikeDockTests: XCTestCase {
         XCTAssertEqual(subject.location, loc)
         XCTAssertEqual(subject.bikesAvailible, 2)
     }
+    
+    func testGetMinutes() {
+        let testDock = BikeDock(name: "Ford Go", location: CLLocation(latitude: 32.3, longitude: 121.24), bikesAvailible: 3)
+        XCTAssertEqual(testDock.getDurationInMinutes(fromMeters: 0, eBike: false), 0)
+        XCTAssertEqual(testDock.getDurationInMinutes(fromMeters: 1000, eBike: true), 3)
+        XCTAssertEqual(testDock.getDurationInMinutes(fromMeters: 1000, eBike: false), 4)
+    }
+    
+    func testCalculatePrice() {
+        let testDock = BikeDock(name: "Ford Go", location: CLLocation(latitude: 32.3, longitude: 121.24), bikesAvailible: 3)
+        XCTAssertEqual(testDock.calculatePrice(fromMinutes: 0), 3)
+        XCTAssertEqual(testDock.calculatePrice(fromMinutes: 30), 3)
+        XCTAssertEqual(testDock.calculatePrice(fromMinutes: 45), 6)
+        XCTAssertEqual(testDock.calculatePrice(fromMinutes: 46), 9)
+        XCTAssertEqual(testDock.calculatePrice(fromMinutes: 60), 9)
+    }
 }

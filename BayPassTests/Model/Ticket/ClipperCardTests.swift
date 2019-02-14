@@ -11,8 +11,14 @@ import CoreLocation
 import XCTest
 
 class ClipperCardTests: XCTestCase {
+    var pass: Pass?
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
+        let station = Station(name: "SFO", code: 2, transitModes: [TransitMode.bart], lines: ["Green"], location: loc)
+        let line = Line(name: "Green", code: 2, destination: "Milbrae", stops: [station])
+        let agency = Agency(name: "BART", routes: [line])
+        pass = Pass(name: "BART", duration: DateInterval(), price: 2.3, validOnAgency: agency)
     }
 
     override func tearDown() {
@@ -22,12 +28,23 @@ class ClipperCardTests: XCTestCase {
     func test_ClipperCard_BuildsThePath() {
         let num: Int = 3
         let cash: Double = 2.3
-        let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-        let passes: [Pass] = [Pass(name: "name", duration: DateInterval(), price: 2.3, validOnAgency: Agency(name: "Some", routes: [Line(name: "some", code: 2, destination: "dest", stops: [Station(name: "some", code: 2, transitModes: [TransitMode.bart], lines: ["some"], location: loc)])]))]
-        
-        let subject = ClipperCard(number: num, cashValue: cash, passes: passes)
+        let subject = ClipperCard(number: num, cashValue: cash, passes: [pass!])
         
         XCTAssertEqual(subject.number, num)
         XCTAssertEqual(subject.cashValue, cash)
+        XCTAssertEqual(subject.passes.count, 1)
+    }
+    
+    func testAddCash() {
+        var testCard = ClipperCard(number: 234529573913, cashValue: 0.75, passes: [])
+        testCard.addCash(amount: 5.00)
+        assert(testCard.cashValue == 5.75)
+    }
+    
+    func testAddPass() {
+        var testCard = ClipperCard(number: 234529573913, cashValue: 0.75, passes: [])
+        testCard.addPass(new: pass!)
+        assert(testCard.passes.last?.name == "BART")
+        assert(testCard.passes.last?.price == 2.3)
     }
 }
