@@ -19,13 +19,11 @@ struct ClipperCard {
         self.passes = passes
     }
 
-    func addCash(amount _: Double) {
-        // TODO: Implement here
-        fatalError("addCash() is not implemented yet")
+    mutating func addCash(amount: Double) {
+        cashValue += amount
     }
 
-    func addPass(new _: Pass) {
-        // TODO: Implement here
-        fatalError("addPass() is not implemented yet")
+    mutating func addPass(new: Pass) {
+        passes.append(new)
     }
 }
