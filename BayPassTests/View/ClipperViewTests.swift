@@ -20,13 +20,13 @@ class ClipperViewTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test77x135() {
+    func test135x77() {
         let clipperView = ClipperView(cardNumber: 123456789, cashValue: 12.54)
         let view = UIView()
         view.addSubview(clipperView)
         clipperView.snp.makeConstraints({ (make) -> Void in
-            make.width.equalTo(85)
-            make.height.equalTo(125)
+            make.width.equalTo(135)
+            make.height.equalTo(77)
         })
         clipperView.layoutIfNeeded()
         let gradientColor1 = clipperView.gradient1.colors as? [CGColor]
@@ -42,13 +42,13 @@ class ClipperViewTests: XCTestCase {
         assert(clipperView.cardNumberLbl.text == "•••• 6789")
     }
     
-    func test142x250() {
+    func test250x142() {
         let clipperView = ClipperView(cardNumber: 987654321, cashValue: 120.78)
         let view = UIView()
         view.addSubview(clipperView)
         clipperView.snp.makeConstraints({ (make) -> Void in
-            make.width.equalTo(200)
-            make.height.equalTo(115)
+            make.width.equalTo(250)
+            make.height.equalTo(142)
         })
         clipperView.layoutIfNeeded()
         let gradientColor1 = clipperView.gradient1.colors as? [CGColor]
@@ -64,7 +64,7 @@ class ClipperViewTests: XCTestCase {
         assert(clipperView.cardNumberLbl.text == "•••• 4321")
     }
     
-    func test214x375() {
+    func test375x214() {
         let clipperView = ClipperView(cardNumber: 121212121, cashValue: 0.0)
         let view = UIView()
         view.addSubview(clipperView)
@@ -82,8 +82,21 @@ class ClipperViewTests: XCTestCase {
         assert(clipperView.gradient2.cornerRadius == 12)
         assert(clipperView.cashValueLbl.font == UIFont.systemFont(ofSize: 24, weight: .bold))
         assert(clipperView.cardNumberLbl.font == UIFont.systemFont(ofSize: 14, weight: .regular))
-        assert(clipperView.cashValueLbl.text == "$0.0")
+        assert(clipperView.cashValueLbl.text == "$0.00")
         assert(clipperView.cardNumberLbl.text == "•••• 2121")
+    }
+    
+    func testChangingCashValue() {
+        let clipperView = ClipperView(cardNumber: 121212121, cashValue: 0.0)
+        let view = UIView()
+        view.addSubview(clipperView)
+        clipperView.snp.makeConstraints({ (make) -> Void in
+            make.width.equalTo(375)
+            make.height.equalTo(214)
+        })
+        clipperView.layoutIfNeeded()
+        clipperView.setBalanceLbl(cashValue: 15.0)
+        XCTAssertEqual(clipperView.cashValueLbl.text, "$15.00")
     }
     
 }
