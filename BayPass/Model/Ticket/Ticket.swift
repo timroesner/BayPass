@@ -25,7 +25,7 @@ struct Ticket {
         self.price = price
         self.validOnAgency = validOnAgency
         self.NFCCode = NFCCode
-        self.locations = locations
+        self.locations = locations 
     }
 
     init(name: String, count: Int, price: Double, validOnAgency: Agency, NFCCode: String,
