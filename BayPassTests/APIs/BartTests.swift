@@ -27,7 +27,7 @@ class BartTests: XCTestCase {
             expectation.fulfill()
         })
         waitForExpectations(timeout: 5, handler: nil)
-        assert(result == 12.35)
+        XCTAssertEqual(result, 12.35)
     }
 
 }
