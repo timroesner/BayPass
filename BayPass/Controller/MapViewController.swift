@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import SnapKit
 import UIKit
 
 class MapViewController: UIViewController {
@@ -14,16 +15,5 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         addLabel(title: "Map")
-
-        // Remove before merging
-        let ticketView = TicketView(agency: "ACE", icon: #imageLiteral(resourceName: "Bus"), cornerRadius: 12)
-        view.addSubview(ticketView)
-
-        ticketView.snp.makeConstraints({ (make) -> Void in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.leading.equalToSuperview().offset(16)
-            make.width.equalTo(260)
-            make.height.equalTo(150)
-        })
     }
 }

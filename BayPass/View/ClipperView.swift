@@ -19,20 +19,17 @@ class ClipperView: UIView {
     public init(cardNumber: Int, cashValue: Double) {
         super.init(frame: CGRect.zero)
 
-        let agencyNoSpaces = "Clipper".replacingOccurrences(of: " ", with: "")
-        gradient1 = CAGradientLayer(leftColor: UIColor(named: "light\(agencyNoSpaces)") ?? UIColor(hex: 0x15224A),
-                                    rightColor: UIColor(named: "dark\(agencyNoSpaces)") ?? UIColor(hex: 0x00648D))
+        gradient1 = CAGradientLayer(leftColor: UIColor(hex: 0x15224A), rightColor: UIColor(hex: 0x00648D))
         gradient1.cornerRadius = 12
         gradient1.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         layer.addSublayer(gradient1)
 
-        gradient2 = CAGradientLayer(leftColor: UIColor(named: "light\(agencyNoSpaces)") ?? UIColor(hex: 0x162D58),
-                                    rightColor: UIColor(named: "dark\(agencyNoSpaces)") ?? UIColor(hex: 0x005580))
+        gradient2 = CAGradientLayer(leftColor: UIColor(hex: 0x162D58), rightColor: UIColor(hex: 0x005580))
         gradient2.cornerRadius = 12
         gradient2.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
         layer.addSublayer(gradient2)
 
-        cashValueLbl.text = "$\(cashValue)"
+        setBalanceLbl(cashValue: cashValue)
         cashValueLbl.textColor = .white
         cashValueLbl.numberOfLines = 1
         addSubview(cashValueLbl)
@@ -53,7 +50,11 @@ class ClipperView: UIView {
         gradient1.frame = CGRect(x: 0.0, y: 0.0, width: frame.width * 0.6, height: frame.height)
         gradient2.frame = CGRect(x: frame.width * 0.6, y: 0.0, width: frame.width * 0.4, height: frame.height)
 
-        imageView.frame = CGRect(x: frame.width * 0.13, y: frame.height * 0.135, width: frame.width * 0.34, height: frame.height * 0.73)
+        imageView.snp.makeConstraints({ (make) -> Void in
+            make.top.bottom.equalToSuperview().inset(30)
+            make.centerX.equalTo(gradient1.frame.width / 2)
+            make.width.equalTo(imageView.snp.height).multipliedBy(0.82)
+        })
 
         cashValueLbl.snp.makeConstraints({ (make) -> Void in
             make.top.equalToSuperview().offset(frame.height * 0.08)
@@ -66,26 +67,26 @@ class ClipperView: UIView {
         })
 
         switch frame.width {
-        // 77 x 135
+        // 135 x 77
         case 25 ... 135:
             cashValueLbl.font = UIFont.systemFont(ofSize: 9, weight: .bold)
             cardNumberLbl.font = UIFont.systemFont(ofSize: 6, weight: .regular)
-        // 142 x 250
+        // 250 x 142
         case 136 ... 250:
             cashValueLbl.font = UIFont.systemFont(ofSize: 14, weight: .bold)
             cardNumberLbl.font = UIFont.systemFont(ofSize: 10, weight: .regular)
-        // 214 x 375
-        case 251 ... 375:
+        // 375 x 214
+        case 251 ... 415:
             cashValueLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             cardNumberLbl.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         default:
-            print("Unexpected size of TicketView")
+            print("Unexpected size of ClipperView")
             return
         }
     }
 
-    func setBalanceLbl(cashValue: String) {
-        cashValueLbl.text = cashValue
+    func setBalanceLbl(cashValue: Double) {
+        cashValueLbl.text = String(format: "$%.2f", cashValue)
     }
 
     @available(*, unavailable)
