@@ -16,7 +16,7 @@ class ClipperView: UIView {
     let cardNumberLbl = UILabel()
     let imageView = UIImageView()
 
-    public init(cardNumber: String, cashValue: Double) {
+    public init(cardNumber: Int, cashValue: Double) {
         super.init(frame: CGRect.zero)
 
         let agencyNoSpaces = "Clipper".replacingOccurrences(of: " ", with: "")
@@ -37,7 +37,7 @@ class ClipperView: UIView {
         cashValueLbl.numberOfLines = 1
         addSubview(cashValueLbl)
 
-        cardNumberLbl.text = cardNumber
+        cardNumberLbl.text = "•••• " + String(cardNumber).suffix(4)
         cardNumberLbl.textColor = .white
         cardNumberLbl.numberOfLines = 0
         addSubview(cardNumberLbl)
@@ -66,12 +66,15 @@ class ClipperView: UIView {
         })
 
         switch frame.width {
+        // 77 x 135
         case 25 ... 135:
             cashValueLbl.font = UIFont.systemFont(ofSize: 9, weight: .bold)
             cardNumberLbl.font = UIFont.systemFont(ofSize: 6, weight: .regular)
+        // 142 x 250
         case 136 ... 250:
             cashValueLbl.font = UIFont.systemFont(ofSize: 14, weight: .bold)
             cardNumberLbl.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        // 214 x 375
         case 251 ... 375:
             cashValueLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             cardNumberLbl.font = UIFont.systemFont(ofSize: 14, weight: .regular)

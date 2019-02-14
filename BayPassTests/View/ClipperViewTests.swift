@@ -20,6 +20,70 @@ class ClipperViewTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func test77x135() {
+        let clipperView = ClipperView(cardNumber: 123456789, cashValue: 12.54)
+        let view = UIView()
+        view.addSubview(clipperView)
+        clipperView.snp.makeConstraints({ (make) -> Void in
+            make.width.equalTo(85)
+            make.height.equalTo(125)
+        })
+        clipperView.layoutIfNeeded()
+        let gradientColor1 = clipperView.gradient1.colors as? [CGColor]
+        let gradientColor2 = clipperView.gradient2.colors as? [CGColor]
+        
+        assert(gradientColor1 == [UIColor(hex: 0x15224A).cgColor, UIColor(hex: 0x00648D).cgColor])
+        assert(gradientColor2 == [UIColor(hex: 0x162D58).cgColor, UIColor(hex: 0x005580).cgColor])
+        assert(clipperView.gradient1.cornerRadius == 12)
+        assert(clipperView.gradient2.cornerRadius == 12)
+        assert(clipperView.cashValueLbl.font == UIFont.systemFont(ofSize: 9, weight: .bold))
+        assert(clipperView.cardNumberLbl.font == UIFont.systemFont(ofSize: 6, weight: .regular))
+        assert(clipperView.cashValueLbl.text == "$12.54")
+        assert(clipperView.cardNumberLbl.text == "•••• 6789")
+    }
     
+    func test142x250() {
+        let clipperView = ClipperView(cardNumber: 987654321, cashValue: 120.78)
+        let view = UIView()
+        view.addSubview(clipperView)
+        clipperView.snp.makeConstraints({ (make) -> Void in
+            make.width.equalTo(200)
+            make.height.equalTo(115)
+        })
+        clipperView.layoutIfNeeded()
+        let gradientColor1 = clipperView.gradient1.colors as? [CGColor]
+        let gradientColor2 = clipperView.gradient2.colors as? [CGColor]
+        
+        assert(gradientColor1 == [UIColor(hex: 0x15224A).cgColor, UIColor(hex: 0x00648D).cgColor])
+        assert(gradientColor2 == [UIColor(hex: 0x162D58).cgColor, UIColor(hex: 0x005580).cgColor])
+        assert(clipperView.gradient1.cornerRadius == 12)
+        assert(clipperView.gradient2.cornerRadius == 12)
+        assert(clipperView.cashValueLbl.font == UIFont.systemFont(ofSize: 14, weight: .bold))
+        assert(clipperView.cardNumberLbl.font == UIFont.systemFont(ofSize: 10, weight: .regular))
+        assert(clipperView.cashValueLbl.text == "$120.78")
+        assert(clipperView.cardNumberLbl.text == "•••• 4321")
+    }
+    
+    func test214x375() {
+        let clipperView = ClipperView(cardNumber: 121212121, cashValue: 0.0)
+        let view = UIView()
+        view.addSubview(clipperView)
+        clipperView.snp.makeConstraints({ (make) -> Void in
+            make.width.equalTo(375)
+            make.height.equalTo(214)
+        })
+        clipperView.layoutIfNeeded()
+        let gradientColor1 = clipperView.gradient1.colors as? [CGColor]
+        let gradientColor2 = clipperView.gradient2.colors as? [CGColor]
+        
+        assert(gradientColor1 == [UIColor(hex: 0x15224A).cgColor, UIColor(hex: 0x00648D).cgColor])
+        assert(gradientColor2 == [UIColor(hex: 0x162D58).cgColor, UIColor(hex: 0x005580).cgColor])
+        assert(clipperView.gradient1.cornerRadius == 12)
+        assert(clipperView.gradient2.cornerRadius == 12)
+        assert(clipperView.cashValueLbl.font == UIFont.systemFont(ofSize: 24, weight: .bold))
+        assert(clipperView.cardNumberLbl.font == UIFont.systemFont(ofSize: 14, weight: .regular))
+        assert(clipperView.cashValueLbl.text == "$0.0")
+        assert(clipperView.cardNumberLbl.text == "•••• 2121")
+    }
     
 }
