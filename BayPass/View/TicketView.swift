@@ -66,7 +66,7 @@ class TicketView: UIView {
             size = 70
             offset = -8
         // 335 x 190
-        case 251 ... 375:
+        case 251 ... 415:
             nameLbl.font = UIFont.systemFont(ofSize: 46, weight: .bold)
             size = 100
             offset = -8
