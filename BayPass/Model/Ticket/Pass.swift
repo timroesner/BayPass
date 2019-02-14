@@ -23,7 +23,6 @@ struct Pass {
     }
 
     func isValid() -> Bool {
-        // TODO: Implement here
-        fatalError("isValid() is not implemented yet")
+        return duration.end >= Date()
     }
 }
