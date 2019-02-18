@@ -12,6 +12,7 @@ class ClipperViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        addLabel(title: "Clipper")
+        self.title = "Clipper"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

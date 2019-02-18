@@ -17,10 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let vc = TabViewController()
-        let nc = NavigationController(rootViewController: vc)
         
-//        window?.rootViewController = vc
-        window?.rootViewController = nc
+        window?.rootViewController = vc
         
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
