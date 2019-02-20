@@ -15,6 +15,10 @@
 		2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3E9219C198A00053294 /* CAGradientLayer.swift */; };
 		2227C3ED219C1A8D00053294 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3EC219C1A8D00053294 /* TicketView.swift */; };
 		2227C3F0219CBE0C00053294 /* TicketViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3EF219CBE0C00053294 /* TicketViewTests.swift */; };
+		222A926D221A6D0200FD1367 /* GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222A926C221A6D0200FD1367 /* GoogleMaps.swift */; };
+		222A926F221A721D00FD1367 /* GoogleMapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222A926E221A721D00FD1367 /* GoogleMapsTests.swift */; };
+		222A9274221A734000FD1367 /* GoogleDirections.json in Resources */ = {isa = PBXBuildFile; fileRef = 222A9273221A734000FD1367 /* GoogleDirections.json */; };
+		222A9276221A7DE900FD1367 /* GMPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222A9275221A7DE900FD1367 /* GMPolyline.swift */; };
 		2235A97321B8F672009EDAC7 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227796CB21B6251F00BAF6BA /* Credentials.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
@@ -96,6 +100,10 @@
 		2227C3E9219C198A00053294 /* CAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
 		2227C3EC219C1A8D00053294 /* TicketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		2227C3EF219CBE0C00053294 /* TicketViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewTests.swift; sourceTree = "<group>"; };
+		222A926C221A6D0200FD1367 /* GoogleMaps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMaps.swift; sourceTree = "<group>"; };
+		222A926E221A721D00FD1367 /* GoogleMapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsTests.swift; sourceTree = "<group>"; };
+		222A9273221A734000FD1367 /* GoogleDirections.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GoogleDirections.json; path = "JSON - Samples/GoogleDirections.json"; sourceTree = SOURCE_ROOT; };
+		222A9275221A7DE900FD1367 /* GMPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMPolyline.swift; sourceTree = "<group>"; };
 		2262C31121829BE3000586EE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2262C31321829CE9000586EE /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		2262C31521829E4A000586EE /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -264,6 +272,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		222A9272221A730000FD1367 /* testJson */ = {
+			isa = PBXGroup;
+			children = (
+				222A9273221A734000FD1367 /* GoogleDirections.json */,
+			);
+			path = testJson;
+			sourceTree = "<group>";
+		};
 		2262C31021829BC6000586EE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +288,7 @@
 				2262C31721829F79000586EE /* String.swift */,
 				2262C31B2182A3D1000586EE /* MKPolyline.swift */,
 				2227C3E9219C198A00053294 /* CAGradientLayer.swift */,
+				222A9275221A7DE900FD1367 /* GMPolyline.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,6 +299,7 @@
 				227796CB21B6251F00BAF6BA /* Credentials.swift */,
 				227BBE6B21B4C78E00D3169E /* Bird.swift */,
 				22F09752220683FC009881F8 /* BART.swift */,
+				222A926C221A6D0200FD1367 /* GoogleMaps.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -289,8 +307,10 @@
 		227BBE6F21B4F45100D3169E /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				222A9272221A730000FD1367 /* testJson */,
 				227BBE7021B4F48D00D3169E /* BirdTests.swift */,
 				22F097542206868E009881F8 /* BartTests.swift */,
+				222A926E221A721D00FD1367 /* GoogleMapsTests.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -510,6 +530,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				222A9274221A734000FD1367 /* GoogleDirections.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +676,7 @@
 				22F09753220683FC009881F8 /* BART.swift in Sources */,
 				6A009198217EAF800087A32B /* Pass.swift in Sources */,
 				6A00919A217EAFFE0087A32B /* Ticket.swift in Sources */,
+				222A926D221A6D0200FD1367 /* GoogleMaps.swift in Sources */,
 				6AB6ED0021867F1700A81302 /* TicketViewController.swift in Sources */,
 				6AB6ECFF21867F1700A81302 /* ClipperViewController.swift in Sources */,
 				6AB6ECFE21867F1700A81302 /* MapViewController.swift in Sources */,
@@ -673,6 +695,7 @@
 				6AAFCD1121853C59004021E8 /* AppDelegate.swift in Sources */,
 				6A009196217EAF1A0087A32B /* ClipperCard.swift in Sources */,
 				6ABF9839218250B1006878E4 /* TransitMode.swift in Sources */,
+				222A9276221A7DE900FD1367 /* GMPolyline.swift in Sources */,
 				6ABF983A218250B1006878E4 /* Agency.swift in Sources */,
 				6ABF983C218250B1006878E4 /* Station.swift in Sources */,
 			);
@@ -683,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */,
+				222A926F221A721D00FD1367 /* GoogleMapsTests.swift in Sources */,
 				6AB6ED022186808E00A81302 /* AgencyTests.swift in Sources */,
 				6AB6ED042186809F00A81302 /* LineTests.swift in Sources */,
 				6AB6ED132186821800A81302 /* ClipperCardTests.swift in Sources */,
