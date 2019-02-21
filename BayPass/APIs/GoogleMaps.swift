@@ -80,10 +80,12 @@ class GoogleMaps {
 
         // Transit
         if let transitDetails = json["transit_details"] as? [String: Any] {
+            
             guard let arrivalJson = transitDetails["arrival_time"] as? [String: Any],
-                let departureJson = transitDetails["departure_time"] as? [String: Any],
                 let arrivalInterval = arrivalJson["value"] as? Int,
-                let departureInterval = departureJson["value"] as? Int
+                let departureJson = transitDetails["departure_time"] as? [String: Any],
+                let departureInterval = departureJson["value"] as? Int,
+                let lineJson = transitDetails["line"] as? [String: Any]
             else {
                 return nil
             }
@@ -91,30 +93,24 @@ class GoogleMaps {
             let departureDate = Date(timeIntervalSince1970: Double(departureInterval))
             let arrivalDate = Date(timeIntervalSince1970: Double(arrivalInterval))
 
-            // TODO: Use prefetched Line
-            let line = Line(name: "Test", code: 323, destination: "De Anza", stops: [])
+            let lineCode = Int(lineJson["short_name"] as? String ?? "") ?? 0
 
-            // FIXME:
+            // TODO: This section relies on getting the fare prices from firebase and the line from the API first
+            let line = Line(name: "Test", code: lineCode, destination: "De Anza", stops: [])
             let waypoints = [Station]()
             let price = 2.50
 
             return RouteSegment(distanceInMeters: distance, departureTime: departureDate, arrivalTime: arrivalDate, polyline: polyline, travelMode: .transit, line: line, price: price, waypoints: waypoints)
-        } else {
+        }
+
+        // Walking
+        else {
             guard let durationJson = json["duration"] as? [String: Any],
                 var duration = durationJson["value"] as? Int
             else {
                 return nil
             }
             duration = Int(duration / 60)
-
-//            var mode: TravelMode
-//            if distance < 1000 {
-//                mode = .walking
-//            } else if distance < 8000 {
-//                mode = .scooter
-//            } else {
-//                mode = .bike
-//            }
 
             return RouteSegment(distanceInMeters: distance, durationInMinutes: duration, polyline: polyline, travelMode: .walking)
         }
