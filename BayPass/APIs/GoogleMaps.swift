@@ -80,7 +80,6 @@ class GoogleMaps {
 
         // Transit
         if let transitDetails = json["transit_details"] as? [String: Any] {
-            
             guard let arrivalJson = transitDetails["arrival_time"] as? [String: Any],
                 let arrivalInterval = arrivalJson["value"] as? Int,
                 let departureJson = transitDetails["departure_time"] as? [String: Any],
