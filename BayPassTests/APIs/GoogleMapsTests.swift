@@ -69,4 +69,16 @@ class GoogleMapsTests: XCTestCase {
         XCTAssertEqual(thirdSegment?.polyline.coordinate.latitude, 37.32897023480877)
         XCTAssertEqual(thirdSegment?.polyline.coordinate.longitude, -122.013855)
     }
+    
+    func testRouteParserEmptyJson() {
+        let testJson: [String:Any] = [:]
+        let testRoute = GoogleMaps().parseRoute(from: testJson)
+        XCTAssertTrue(testRoute == nil)
+    }
+    
+    func testSegmentParserEmptyJson() {
+        let testJson: [String:Any] = [:]
+        let testSegment = GoogleMaps().parseSegment(from: testJson)
+        XCTAssertTrue(testSegment == nil)
+    }
 }
