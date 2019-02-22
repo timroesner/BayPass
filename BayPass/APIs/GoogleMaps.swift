@@ -23,10 +23,6 @@ class GoogleMaps {
 
         var results = [Route]()
         Alamofire.request("https://maps.googleapis.com/maps/api/directions/json", method: .get, parameters: params).responseJSON { response in
-            if let error = response.error {
-                print(error.localizedDescription)
-                return
-            }
             if let json = response.result.value as? [String: Any],
                 let routesJson = json["routes"] as? [[String: Any]] {
                 for routeJson in routesJson {
