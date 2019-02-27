@@ -28,7 +28,8 @@ class TabBarUITests: XCTestCase {
     // Once we start implementing we need to test different which screen is displayed
     // The navigation bar title might be an option
     func testTabBar() {
-        let tabBarsQuery = XCUIApplication().tabBars
+        let app = XCUIApplication()
+        let tabBarsQuery = app.tabBars
         
         // Map
         tabBarsQuery.buttons["Map"].tap()
@@ -37,8 +38,8 @@ class TabBarUITests: XCTestCase {
         
         // Ticket
         tabBarsQuery.buttons["Ticket"].tap()
-        let ticketLabel = XCUIApplication().staticTexts["Ticket"]
-        XCTAssert(ticketLabel.exists)
+        let ticktsBar = app.navigationBars["Tickets"]
+        XCTAssert(ticktsBar.exists)
         
         // Clipper
         tabBarsQuery.buttons["Clipper"].tap()

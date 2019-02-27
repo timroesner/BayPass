@@ -1,5 +1,5 @@
 //
-//  ClipperAddCashViewController.swift
+//  TicketCheckoutViewController.swift
 //  BayPass
 //
 //  Created by 凌脩羽 on 2/17/19.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ClipperAddCashViewController: UIViewController {
+class TicketCheckoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "Add Cash Value"
+        title = "Ticket Checkout"
         navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
