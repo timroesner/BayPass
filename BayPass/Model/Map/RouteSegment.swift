@@ -11,27 +11,28 @@ import Foundation
 import MapKit
 
 struct RouteSegment: Equatable {
-    var distanceInMeters: Double
-    var departureTime: Date
-    var arrivalTime: Date
+    var distanceInMeters: Int
+    var departureTime: Date?
+    var arrivalTime: Date?
+    var durationInMinutes: Int
     var polyline: MKPolyline
     var travelMode: TravelMode
     var line: Line?
     var price: Double = 0.0
     var waypoints = [Station]()
 
-    init(distanceInMeters: Double, departureTime: Date, arrivalTime: Date, polyline: MKPolyline, travelMode: TravelMode) {
+    init(distanceInMeters: Int, durationInMinutes: Int, polyline: MKPolyline, travelMode: TravelMode) {
         self.distanceInMeters = distanceInMeters
-        self.departureTime = departureTime
-        self.arrivalTime = arrivalTime
+        self.durationInMinutes = durationInMinutes
         self.polyline = polyline
         self.travelMode = travelMode
     }
 
-    init(distanceInMeters: Double, departureTime: Date, arrivalTime: Date, polyline: MKPolyline, travelMode: TravelMode, line: Line, price: Double, waypoints: [Station]) {
+    init(distanceInMeters: Int, departureTime: Date, arrivalTime: Date, polyline: MKPolyline, travelMode: TravelMode, line: Line, price: Double, waypoints: [Station]) {
         self.distanceInMeters = distanceInMeters
         self.departureTime = departureTime
         self.arrivalTime = arrivalTime
+        durationInMinutes = Int(arrivalTime.timeIntervalSince(departureTime) / 60)
         self.polyline = polyline
         self.travelMode = travelMode
         self.line = line

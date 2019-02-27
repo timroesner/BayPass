@@ -29,4 +29,3 @@ ignore:
   - "BayPass/AppDelegate.swift"
   - "BayPassTests/"
   - "BayPassUITests/"
-  
