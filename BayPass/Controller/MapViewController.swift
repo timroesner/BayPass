@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import SnapKit
 import UIKit
 
 class MapViewController: UIViewController {

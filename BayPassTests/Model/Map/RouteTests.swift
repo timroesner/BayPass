@@ -23,7 +23,7 @@ class RouteTests: XCTestCase {
         let depTime = Date(timeIntervalSinceNow: 60)
         let arrTime = Date(timeIntervalSinceNow: 240)
         let polyline = MKPolyline(coordinates: [])
-        let firstSegment = RouteSegment(distanceInMeters: 500, departureTime: depTime, arrivalTime: arrTime, polyline: polyline, travelMode: .walking)
+        let firstSegment = RouteSegment(distanceInMeters: 500, durationInMinutes: 22, polyline: polyline, travelMode: .walking)
         let segments = [firstSegment]
         let route = Route(departureTime: depTime, arrivalTime: arrTime, segments: segments)
         

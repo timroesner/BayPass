@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import SnapKit
 import UIKit
 
 class ClipperViewController: UIViewController {

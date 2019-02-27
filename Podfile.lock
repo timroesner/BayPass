@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.8.1)
   - SnapKit (4.0.1)
-  - SwiftFormat/CLI (0.38.0)
+  - SwiftFormat/CLI (0.39.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -17,7 +17,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwiftFormat: 0762bc591b9f6e8efa99402e714a03ede5151656
+  SwiftFormat: cd7c8c5bbbd045050639d739e05d74e9a96f78df
 
 PODFILE CHECKSUM: bc7c7e754677a322e3eba7654a24853ad2057bf5
 
