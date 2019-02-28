@@ -6,7 +6,10 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
+@testable import BayPass
 import XCTest
+import MapKit
+import Contacts
 
 class DestinationSearchResultTableViewCellTests: XCTestCase {
 
@@ -18,16 +21,18 @@ class DestinationSearchResultTableViewCellTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSetup() {
+        let coordinates = CLLocationCoordinate2DMake(51.5083, -0.1384)
+        let address = [CNPostalAddressStreetKey: "1 Infinite Loop", CNPostalAddressCityKey: "Cupertino", CNPostalAddressStateKey: "CA", CNPostalAddressPostalCodeKey: "95014"]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: address)
+        let item = MKMapItem(placemark: placemark)
+        item.name = "Apple Campus"
+        
+        let cell = DestinationSearchResultTableViewCell()
+        cell.setup(with: item)
+        XCTAssertEqual(cell.titleLabel.text, "Apple Campus")
+        XCTAssertEqual(cell.subtitleLabel.text, "1 Infinite Loop Cupertino CA 95014 United States")
+        XCTAssertEqual(cell.iconView.image, UIImage(named: "MapMarker"))
     }
 
 }
