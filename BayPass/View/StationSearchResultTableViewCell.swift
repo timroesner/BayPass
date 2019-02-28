@@ -6,37 +6,36 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 class StationSearchResultTableViewCell: UITableViewCell {
-    
     private(set) var iconView = UIImageView()
     private(set) var title = UILabel()
     private(set) var lineView = UIView()
 
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         contentView.addSubview(iconView)
-        iconView.snp.makeConstraints { (make) in
+        iconView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(12)
             make.top.equalToSuperview().inset(9)
             make.bottom.equalToSuperview().inset(9)
             make.width.equalTo(iconView.snp.height)
         }
-        
+
         title.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         contentView.addSubview(title)
-        title.snp.makeConstraints { (make) in
+        title.snp.makeConstraints { make in
             make.left.equalTo(iconView.snp.right).offset(14)
             make.height.equalTo(21)
             make.top.equalToSuperview().inset(7)
             make.right.greaterThanOrEqualToSuperview().inset(8)
         }
-        
+
         contentView.addSubview(lineView)
-        lineView.snp.makeConstraints { (make) in
+        lineView.snp.makeConstraints { make in
             make.top.equalTo(title.snp.bottom).offset(4)
             make.left.equalTo(title.snp.left)
             make.right.greaterThanOrEqualToSuperview().inset(8)
@@ -44,24 +43,24 @@ class StationSearchResultTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().inset(9)
         }
     }
-    
+
     func setup(with station: Station) {
         title.text = station.name
         iconView.tintColor = UIColor(hex: 0x9B9B9B)
         iconView.image = station.getIcon()
         setLineView(with: station.lines)
     }
-    
+
     private func setLineView(with lines: [String]) {
         var lineLabels = [UILabel]()
-        
+
         for index in 0 ..< min(lines.count, 5) {
             let lineLabel = UILabel()
-            
+
             lineLabel.layer.cornerRadius = 4
             lineLabel.textAlignment = .center
             lineLabel.textColor = .white
-            
+
             if index == 4 {
                 lineLabel.font = UIFont.systemFont(ofSize: 14, weight: .black)
                 lineLabel.layer.backgroundColor = UIColor(hex: 0x9B9B9B).cgColor
@@ -72,9 +71,9 @@ class StationSearchResultTableViewCell: UITableViewCell {
                 lineLabel.layer.backgroundColor = UIColor.blue.cgColor
                 lineLabel.text = lines[index]
             }
-            
+
             lineView.addSubview(lineLabel)
-            lineLabel.snp.makeConstraints { (make) in
+            lineLabel.snp.makeConstraints { make in
                 make.top.equalToSuperview()
                 make.bottom.equalToSuperview()
                 if let previous = lineLabels.last {
@@ -87,9 +86,8 @@ class StationSearchResultTableViewCell: UITableViewCell {
             lineLabels.append(lineLabel)
         }
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("NSCoder not supported for StationSearchResultTableViewCell")
     }
-
 }
