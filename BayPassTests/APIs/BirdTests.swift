@@ -62,7 +62,19 @@ class BirdTests: XCTestCase {
     func testGetScooters() {
         let expectation = self.expectation(description: "async")
         var scooters = [Scooter]()
-        Bird().getScooters(fromLocation: CLLocation(latitude: 48.858635, longitude: 2.298493), radius: 1000, completion: {
+        
+        let now = Date()
+        let eightPM = Calendar.current.date(bySettingHour: 20, minute: 0, second: 0, of: now)!
+        let sixAM = Calendar.current.date(bySettingHour: 6, minute: 0, second: 0, of: now)!
+        
+        var location = CLLocation(latitude: 37.331348, longitude: -121.888877)
+        
+        // If bird shutdown in SJ use Paris
+        if now >= eightPM && now <= sixAM {
+          location = CLLocation(latitude: 48.858635, longitude: 2.298493)
+        }
+        
+        Bird().getScooters(fromLocation: location, radius: 1000, completion: {
             scooters = $0
             expectation.fulfill()
         })
