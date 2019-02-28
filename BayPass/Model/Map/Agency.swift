@@ -10,14 +10,12 @@ import UIKit
 
 struct Agency {
     var name: String
-    var routes: [Line]
+    var abbrv: String
+    var id: String
 
-    init(name: String, routes: [Line]) {
+    init(name: String, abbrv: String, id: String) {
         self.name = name
-        self.routes = routes
-    }
-
-    func getRoutes() -> [Line] {
-        return routes
+        self.abbrv = abbrv
+        self.id = id
     }
 }
