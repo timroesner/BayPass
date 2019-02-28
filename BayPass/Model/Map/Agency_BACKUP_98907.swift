@@ -10,6 +10,7 @@ import UIKit
 
 struct Agency {
     var name: String
+<<<<<<< HEAD
     var icon: UIImage
     var routes: [Line]
 
@@ -21,6 +22,14 @@ struct Agency {
 
     func getRoutes() -> [Line] {
         return routes
+=======
     var abbrv: String
     var id: String
+
+    init(name: String, abbrv: String, id: String) {
+        self.name = name
+        self.abbrv = abbrv
+        self.id = id
+>>>>>>> Here and model changes
+    }
 }

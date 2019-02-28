@@ -21,6 +21,5 @@ struct Agency {
 
     func getRoutes() -> [Line] {
         return routes
-    var abbrv: String
-    var id: String
+    }
 }
