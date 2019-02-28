@@ -11,7 +11,6 @@ import SnapKit
 import UIKit
 
 class MapViewController: UIViewController {
-    var goog = Here()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -26,15 +25,5 @@ class MapViewController: UIViewController {
             make.width.equalTo(350)
             make.height.equalTo(200)
         })
-
-//        goog.getStation(center: CLLocationCoordinate2D(latitude: 37.3524628, longitude: -121.9707281), radius: 400, max: 20) { (resp) in
-//            print(resp)
-//        }
-//        goog.getLine(stationId: 718610044) { (resp) in
-//            print(resp)
-//        }
-        goog.getAgency(stationId: 718_610_044, time: "2019-06-24T08%3A00%3A00") { response in
-            print(response)
-        }
     }
 }

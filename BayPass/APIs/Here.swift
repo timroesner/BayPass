@@ -27,13 +27,9 @@ class Here {
                 let resJson = json["Res"] as? [String: Any],
                 let stationsJson = resJson["Stations"] as? [String: Any],
                 let stnsJson = stationsJson["Stn"] as? [Dictionary<String, Any>] {
-//                print("stns\(stnsJson)")
                 for stnJson in stnsJson {
-//                    print("\(stnJson)\n")
-
                     if let newStation = self.parseStation(from: stnJson) {
                         results.append(newStation)
-                        print(newStation)
                     }
                 }
             }
@@ -114,9 +110,16 @@ class Here {
         let code = json["id"] as? Int
         let x = json["x"] as? Double
         let y = json["y"] as? Double
-        let location = CLLocation(latitude: x ?? 0, longitude: y ?? 0)
 
-        return Station(name: name ?? "", code: code ?? 0, transitModes: [TransitMode.bart], lines: [Line](), location: location)
+        let location = CLLocation(latitude: x ?? 0, longitude: y ?? 0)
+        let transports = json["Transports"] as? Dictionary<String, Any>
+        let transport = transports?["Transport"] as? [Dictionary<String, Any>]
+        let transportData = transport?[0] as? Dictionary<String, Any>
+
+        let modeNum = transportData?["mode"] as? Int
+        let transitMode = transitModeConvert(num: modeNum ?? 0)
+
+        return Station(name: name ?? "", code: code ?? 0, transitModes: [transitMode], lines: [Line](), location: location)
     }
 
     func transitModeConvert(num: Int) -> TransitMode {
