@@ -24,4 +24,9 @@ extension UIColor {
             blue: hex & 0xFF
         )
     }
+    
+    var lightGrey: UIColor {
+        return UIColor(white: 155.0 / 255.0, alpha: 1.0)
+    }
+
 }
