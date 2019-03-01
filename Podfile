@@ -15,9 +15,9 @@ target 'BayPass' do
     # Pods for testing
   end
 
-  target 'BayPassUITests' do
+end
+
+target 'BayPassUITests' do
     inherit! :search_paths
     # Pods for testing
   end
-
-end
