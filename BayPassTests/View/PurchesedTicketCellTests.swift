@@ -35,7 +35,5 @@ class PurchesedTicketCellTests: XCTestCase {
         XCTAssertEqual(cell.nameLbl.text, "Monthly Pass")
         XCTAssertEqual(cell.durationLbl.text, "Valid until 12/31/69")
     }
-    
-    
-    
+
 }
