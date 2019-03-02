@@ -13,11 +13,13 @@ struct Line {
     var agency: Agency
     var destination: String
     var color: UIColor
+    var transitMode: TransitMode
 
-    init(name: String, agency: Agency, destination: String, color: UIColor) {
+    init(name: String, agency: Agency, destination: String, color: UIColor, transitMode: TransitMode) {
         self.name = name
         self.agency = agency
         self.destination = destination
         self.color = color
+        self.transitMode = transitMode
     }
 }
