@@ -35,6 +35,7 @@ extension MapViewController: UIScrollViewDelegate {
     }
     
     func setupRoutesView(with routes: [Route]) {
+        self.routes = routes
         let scrollView = UIScrollView()
 
         scrollView.isPagingEnabled = true
@@ -51,22 +52,41 @@ extension MapViewController: UIScrollViewDelegate {
 
         var routeViews = [UIView]()
         for route in routes {
-            let canvas = UIView()
-            canvas.layer.backgroundColor = UIColor.white.cgColor
-            canvas.layer.cornerRadius = 14
-            scrollView.addSubview(canvas)
-            canvas.snp.makeConstraints { (make) in
+            let routeOverview = RouteOverView(with: route)
+            scrollView.addSubview(routeOverview)
+            routeOverview.snp.makeConstraints { (make) in
                 make.top.equalToSuperview().offset(4)
                 make.height.equalTo(122)
                 make.width.equalTo(view.frame.width-40)
                 if let previous = routeViews.last {
                     make.left.equalTo(previous.snp.right).offset(8)
+                } else {
+                    mapView.addOverlays(route.getPolylines())
+                    make.left.equalToSuperview()
                 }
             }
-            routeViews.append(canvas)
+            routeViews.append(routeOverview)
         }
         let width = (view.frame.width-32) * CGFloat(routes.count)
         scrollView.contentSize = CGSize(width: width, height: 130)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startIndex = Int(scrollView.contentOffset.x/(view.frame.width-40))
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let targetX = targetContentOffset.pointee.x
+        let index = Int(targetX/(view.frame.width-40))
+        didChangeToRoute(at: index)
+    }
+    
+    func didChangeToRoute(at index: Int) {
+        if index != startIndex {
+            let route = routes[index]
+            mapView.removeOverlays(routes[startIndex].getPolylines())
+            mapView.addOverlays(route.getPolylines())
+        }
     }
     
     @objc func cancelRouting() {
@@ -75,6 +95,8 @@ extension MapViewController: UIScrollViewDelegate {
                 view.removeFromSuperview()
             }
         }
+        mapView.removeOverlays(mapView.overlays)
+        centerOnUserLocation()
         setupSearchView()
         addChild(bottomSheet, in: view)
     }
