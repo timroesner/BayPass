@@ -11,7 +11,7 @@ import XCTest
 import SnapKit
 import CoreLocation
 
-class PurchesedTicketCellTests: XCTestCase {
+class PurchasedTicketCellTests: XCTestCase {
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -34,7 +34,7 @@ class PurchesedTicketCellTests: XCTestCase {
         let code = "234"
         let ticket = Ticket(name: name, duration: dur, price: cost, validOnAgency: agency, NFCCode: code, locations: locations)
         
-        let cell = PurchesedTicketCell()
+        let cell = PurchasedTicketCell()
         cell.setup(with: ticket)
         
         XCTAssertEqual(cell.nameLbl.text, "Monthly Pass")
