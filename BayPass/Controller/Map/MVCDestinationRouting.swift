@@ -65,7 +65,7 @@ extension MapViewController: UIScrollViewDelegate {
             }
             routeViews.append(canvas)
         }
-        let width = view.frame.width * CGFloat(routes.count)
+        let width = (view.frame.width-32) * CGFloat(routes.count)
         scrollView.contentSize = CGSize(width: width, height: 130)
     }
     
