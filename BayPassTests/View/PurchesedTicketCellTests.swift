@@ -29,7 +29,7 @@ class PurchesedTicketCellTests: XCTestCase {
         let locations = [loc]
         
         let name = "Monthly Pass"
-        let dur = DateInterval()
+        let dur = DateInterval(start: Date(timeIntervalSince1970: 60), duration: 30)
         let cost = 2.3
         let code = "234"
         let ticket = Ticket(name: name, duration: dur, price: cost, validOnAgency: agency, NFCCode: code, locations: locations)
@@ -38,9 +38,8 @@ class PurchesedTicketCellTests: XCTestCase {
         cell.setup(with: ticket)
         
         XCTAssertEqual(cell.nameLbl.text, "Monthly Pass")
-        XCTAssertEqual(cell.durationLbl.text, "Valid until 3/3/19")
+        XCTAssertEqual(cell.durationLbl.text, "Valid until December 31")
         XCTAssertEqual(cell.ticketView.nameLbl.text, "BART")
-        
     }
 
 }
