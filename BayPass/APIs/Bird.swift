@@ -56,7 +56,7 @@ class Bird {
         let headers = [
             "Authorization": "Bird \(Credentials().birdToken)",
             "Device-id": UUID().uuidString,
-            "App-Version": "3.0.5",
+            "App-Version": "4.24.1",
             "Location": "{\"latitude\": \(latitude), \"longitude\": \(longitude)}",
         ]
         Alamofire.request("https://api.bird.co/bird/nearby", method: .get, parameters: params, headers: headers).responseJSON { response in
