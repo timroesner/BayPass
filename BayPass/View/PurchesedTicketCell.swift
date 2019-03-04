@@ -62,10 +62,14 @@ class PurchesedTicketCell: UITableViewCell {
         nameLbl.text = ticket.name
         ticketView = TicketView(agency: ticket.validOnAgency.name, icon: ticket.validOnAgency.icon, cornerRadius: 8)
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        let stringOutput = dateFormatter.string(from: ticket.duration!.end)
-        durationLbl.text = "Valid until " + stringOutput
+        if let dur = ticket.duration {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            let stringOutput = dateFormatter.string(from: dur.end)
+            durationLbl.text = "Valid until " + stringOutput
+        }else{
+            durationLbl.text = ""
+        }
     }
 
     required init?(coder _: NSCoder) {
