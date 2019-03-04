@@ -1,0 +1,34 @@
+//
+//  MVCMapDelegate.swift
+//  BayPass
+//
+//  Created by Tim Roesner on 3/4/19.
+//  Copyright © 2019 Tim Roesner. All rights reserved.
+//
+
+import UIKit
+import MapKit
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+        polylineRenderer.lineWidth = 6
+        
+        if let polyline = overlay as? MKPolyline {
+            let travelMode = TravelMode(rawValue: polyline.title ?? "") ?? .walking
+            switch travelMode {
+            case .walking:
+                polylineRenderer.strokeColor = UIColor().lightGrey
+                polylineRenderer.lineDashPattern = [6,12]
+            case .transit:
+                polylineRenderer.strokeColor = .blue
+            case .bike:
+                polylineRenderer.strokeColor = .gray
+            case .scooter:
+                polylineRenderer.strokeColor = .black
+            }
+        }
+        return polylineRenderer
+    }
+}
