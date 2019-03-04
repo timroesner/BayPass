@@ -64,10 +64,10 @@ class PurchesedTicketCell: UITableViewCell {
 
         if let dur = ticket.duration {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .short
+            dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
             let stringOutput = dateFormatter.string(from: dur.end)
             durationLbl.text = "Valid until " + stringOutput
-        }else{
+        } else {
             durationLbl.text = ""
         }
     }
