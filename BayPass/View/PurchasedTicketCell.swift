@@ -9,7 +9,7 @@
 import SnapKit
 import UIKit
 
-class PurchesedTicketCell: UITableViewCell {
+class PurchasedTicketCell: UITableViewCell {
     var ticketView = TicketView(agency: "ACE", icon: UIImage(named: "CalTrain")!, cornerRadius: 8)
     // var ticketView: TicketView?
     let nameLbl = UILabel()
@@ -64,6 +64,7 @@ class PurchesedTicketCell: UITableViewCell {
 
         if let dur = ticket.duration {
             let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US")
             dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
             let stringOutput = dateFormatter.string(from: dur.end)
             durationLbl.text = "Valid until " + stringOutput
