@@ -64,8 +64,8 @@ class BirdTests: XCTestCase {
         var scooters = [Scooter]()
         
         let now = Date()
-        let ninePM = Calendar.current.date(bySettingHour: 21, minute: 0, second: 0, of: now)!
-        let sevenAM = Calendar.current.date(bySettingHour: 7, minute: 0, second: 0, of: now)!
+        let ninePM = Calendar(identifier: .gregorian).date(bySettingHour: 21, minute: 0, second: 0, of: now)!
+        let sevenAM = Calendar(identifier: .gregorian).date(bySettingHour: 7, minute: 0, second: 0, of: now)!
         
         var location = CLLocation(latitude: 48.865314, longitude: 2.343086)
         
