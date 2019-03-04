@@ -64,14 +64,14 @@ class BirdTests: XCTestCase {
         var scooters = [Scooter]()
         
         let now = Date()
-        let eightPM = Calendar.current.date(bySettingHour: 20, minute: 0, second: 0, of: now)!
-        let sixAM = Calendar.current.date(bySettingHour: 6, minute: 0, second: 0, of: now)!
+        let ninePM = Calendar.current.date(bySettingHour: 21, minute: 0, second: 0, of: now)!
+        let sevenAM = Calendar.current.date(bySettingHour: 7, minute: 0, second: 0, of: now)!
         
-        var location = CLLocation(latitude: 37.331348, longitude: -121.888877)
+        var location = CLLocation(latitude: 48.865314, longitude: 2.343086)
         
         // If bird shutdown in SJ use Paris
-        if now >= eightPM && now <= sixAM {
-          location = CLLocation(latitude: 48.858635, longitude: 2.298493)
+        if sevenAM < now && now < ninePM {
+            location = CLLocation(latitude: 37.331348, longitude: -121.888877)
         }
         
         Bird().getScooters(fromLocation: location, radius: 1000, completion: {
