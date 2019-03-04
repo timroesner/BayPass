@@ -9,21 +9,28 @@
 import UIKit
 import SnapKit
 import MapKit
+import CoreLocation
 
-class SearchViewController: UIViewController, UISearchBarDelegate {
+class SearchViewController: UIViewController {
     
-    private var searchBar = UISearchBar()
-    private var tableView = UITableView()
+    private(set) var searchBar = UISearchBar()
+    private(set) var tableView = UITableView()
     var delegate: SearchViewControllerDelegate?
     private var destinations = [MKMapItem]()
     private var stations = [Station]()
-    private(set) var searchResults = [Any]()
+    var searchResults = [Any]()
+    var parentMapVC: MapViewController?
+    
+    let stationCellId = "station"
+    let destinationCellId = "destination"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.register(DestinationSearchResultTableViewCell.self, forCellReuseIdentifier: destinationCellId)
         
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 21
@@ -38,32 +45,18 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchBar.placeholder = "Search"
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
-        
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints { (make) in
             make.top.equalTo(moveIndicator.snp.bottom).offset(-2)
             make.right.left.equalToSuperview().inset(8)
         }
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchDestinations(with: searchText)
-    }
-
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(true, animated: true)
-        delegate?.keyboardWillShow()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.resignFirstResponder()
-        delegate?.keyboardWillHide()
+        
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(searchBar.snp.bottom).offset(8)
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
     }
     
     func searchDestinations(with searchText: String) {
@@ -82,7 +75,32 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
             }
             
             self.destinations = response.mapItems
+            self.searchResults = []
+            self.searchResults.append(contentsOf: self.destinations)
+            self.searchResults.append(contentsOf: self.stations)
+            self.sortResults()
             self.tableView.reloadData()
+        }
+    }
+    
+    func sortResults() {
+        searchResults.sort { (first, second) -> Bool in
+            var firstLocation = CLLocation()
+            if let station = first as? Station {
+                firstLocation = station.location
+            } else if let destination = first as? MKMapItem {
+                firstLocation = destination.placemark.location ?? CLLocation()
+            }
+            
+            var secoondLocation = CLLocation()
+            if let station = second as? Station {
+                secoondLocation = station.location
+            } else if let destination = second as? MKMapItem {
+                secoondLocation = destination.placemark.location ?? CLLocation()
+            }
+            
+            let userLocation = parentMapVC?.mapView.userLocation.location ?? CLLocation()
+            return firstLocation.distance(from: userLocation) < secoondLocation.distance(from: userLocation)
         }
     }
 }
