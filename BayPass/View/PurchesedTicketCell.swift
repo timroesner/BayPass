@@ -58,14 +58,13 @@ class PurchesedTicketCell: UITableViewCell {
         })
     }
 
-    func setup(with pass: Pass, agency: String, icon: UIImage) {
-        nameLbl.text = pass.name
-        ticketView = TicketView(agency: agency, icon: icon, cornerRadius: 8)
+    func setup(with ticket: Ticket) {
+        nameLbl.text = ticket.name
+        ticketView = TicketView(agency: ticket.validOnAgency.name, icon: ticket.validOnAgency.icon, cornerRadius: 8)
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
-        let stringOutput = dateFormatter.string(from: pass.duration.end)
-
+        let stringOutput = dateFormatter.string(from: ticket.duration!.end)
         durationLbl.text = "Valid until " + stringOutput
     }
 

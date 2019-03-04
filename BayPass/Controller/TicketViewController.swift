@@ -10,11 +10,9 @@ import CoreLocation
 import UIKit
 
 class TicketViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         addLabel(title: "Ticket")
     }
- 
 }

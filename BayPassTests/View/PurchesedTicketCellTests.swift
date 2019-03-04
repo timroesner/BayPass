@@ -25,15 +25,22 @@ class PurchesedTicketCellTests: XCTestCase {
         let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
         let station = Station(name: "SFO", code: 2, transitModes: [TransitMode.bart], lines: ["Green"], location: loc)
         let line = Line(name: "Green", code: 2, destination: "Milbrae", stops: [station])
-        let duration = DateInterval(start: Date(timeIntervalSince1970: 60), duration: 45)
-        let bart = Agency(name: "BART", routes: [line])
-        let pass = Pass(name: "Monthly Pass", duration: duration, price: 12.25, validOnAgency: bart)
+        let agency = Agency(name: "BART", routes: [line], icon: UIImage(named: "CalTrain")!)
+        let locations = [loc]
+        
+        let name = "Monthly Pass"
+        let dur = DateInterval()
+        let cost = 2.3
+        let code = "234"
+        let ticket = Ticket(name: name, duration: dur, price: cost, validOnAgency: agency, NFCCode: code, locations: locations)
         
         let cell = PurchesedTicketCell()
-        cell.setup(with: pass, agency: "BART", icon: UIImage(named: "CalTrain")!)
+        cell.setup(with: ticket)
         
         XCTAssertEqual(cell.nameLbl.text, "Monthly Pass")
-        XCTAssertEqual(cell.durationLbl.text, "Valid until 12/31/69")
+        XCTAssertEqual(cell.durationLbl.text, "Valid until 3/3/19")
+        XCTAssertEqual(cell.ticketView.nameLbl.text, "BART")
+        
     }
 
 }
