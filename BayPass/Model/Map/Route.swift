@@ -8,6 +8,7 @@
 
 import CoreLocation
 import UIKit
+import MapKit
 
 struct Route {
     var departureTime: Date
@@ -18,5 +19,22 @@ struct Route {
         self.departureTime = departureTime
         self.arrivalTime = arrivalTime
         self.segments = segments
+    }
+    
+    func getPrice() -> String {
+        var total = 0.0
+        for segment in segments {
+            total += segment.price
+        }
+        return String(format: "$%.2f", total)
+    }
+    
+    func getPolylines() -> [MKPolyline] {
+        var result = [MKPolyline]()
+        for segment in segments {
+            segment.polyline.title = segment.travelMode.rawValue
+            result.append(segment.polyline)
+        }
+        return result
     }
 }
