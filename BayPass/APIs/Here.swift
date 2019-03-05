@@ -30,13 +30,14 @@ class Here {
                 for stnJson in stnsJson {
                     if let newStation = self.parseStation(from: stnJson) {
                         results.append(newStation)
+                        print(newStation)
                     }
                 }
             }
         }
     }
 
-    func getLine(stationId: Int, completion _: @escaping ([Line]) -> Void) {
+    func getLine(stationId: Int, completion: @escaping ([Line]) -> Void) {
         let param = [
             "app_id": "jTmFALvm9FfNyXRTRzOc",
             "app_code": "K0MCBAmf30FXqJpTUIWfLg",
@@ -53,16 +54,15 @@ class Here {
                 let lineJson = linesJson["LineInfo"] as? [Dictionary<String, Any>] {
                 for line in lineJson {
                     self.parseLine(from: line, stationID: stationId)
-//                    if let newLine = self.parseLine(from: line) {
-//
-//                    }
+                    print(line)
                 }
+                completion(results)
             }
         }
     }
 
     // TODO: Change time from String to timeStamp
-    func getAgency(stationId: Int, time: String, completion: @escaping ([Agency]) -> Void) {
+    func getAgency(stationId: Int, time: String, completion: @escaping (String) -> Void) {
         let param = [
             "app_id": "jTmFALvm9FfNyXRTRzOc",
             "app_code": "K0MCBAmf30FXqJpTUIWfLg",
@@ -72,7 +72,7 @@ class Here {
             "time": time,
         ] as [String: Any]
 
-        var results = [Agency]()
+        var results: String = ""
 
         Alamofire.request("https://transit.api.here.com/v3/multiboard/by_stn_ids.json?", method: .get, parameters: param).responseJSON { response in
             if let json = response.result.value as? [String: Any],
@@ -89,7 +89,7 @@ class Here {
         }
     }
 
-    func parseOperatorFromStationId(from json: Dictionary<String, Any>) -> Agency? {
+    func parseOperatorFromStationId(from json: Dictionary<String, Any>) -> String? {
         var name = ""
         var id = ""
         var abbrv = ""
@@ -101,13 +101,12 @@ class Here {
             id = op1["code"] as! String
             abbrv = op1["short_name"] as! String
         }
-
-        return Agency(name: name, abbrv: abbrv, id: id)
+        return abbrv
     }
 
     func parseStation(from json: Dictionary<String, Any>) -> Station? {
         let name = json["name"] as? String
-        let code = json["id"] as? Int
+        let code = json["id"] as? String
         let x = json["x"] as? Double
         let y = json["y"] as? Double
 
@@ -118,8 +117,34 @@ class Here {
 
         let modeNum = transportData?["mode"] as? Int
         let transitMode = transitModeConvert(num: modeNum ?? 0)
+        var lines: [Line] = [Line]()
 
-        return Station(name: name ?? "", code: code ?? 0, transitModes: [transitMode], lines: [Line](), location: location)
+        getLine(stationId: Int(code!) ?? 0, completion: { resp in
+            lines = resp
+        })
+        return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: [transitMode], lines: lines, location: location)
+    }
+
+    func parseLine(from json: Dictionary<String, Any>, stationID: Int) -> Line? {
+        let tranport = json["Transport"] as? Dictionary<String, Any>
+        let name = tranport?["name"] as? String
+        let destination = tranport?["dir"] as? String
+
+        let transitModeNum = tranport?["mode"] as? Int
+        let transitMode = transitModeConvert(num: transitModeNum ?? 0)
+
+        let at = tranport?["As"] as? Dictionary<String, Any>
+        let colorString = at?["color"] as? String
+        let color = UIColor(hexString: colorString ?? "")
+        print("\(name) \(destination) \(color) ")
+        var agencyAbbrv: String?
+        getAgency(stationId: stationID, time: "2019-06-24T08%3A00%3A00", completion: { agencyAb in
+            agencyAbbrv = agencyAb
+        })
+
+        let abrv = Agency(rawValue: agencyAbbrv ?? "")
+
+        return Line(name: name ?? "", agency: abrv ?? Agency(rawValue: "CT")!, destination: destination ?? "", color: color ?? UIColor.blue, transitMode: transitMode)
     }
 
     func transitModeConvert(num: Int) -> TransitMode {
@@ -133,16 +158,5 @@ class Here {
         default:
             return TransitMode.lightRail // also  8
         }
-    }
-
-    func parseLine(from json: Dictionary<String, Any>, stationID _: Int) {
-        let tranport = json["Transport"] as? Dictionary<String, Any>
-        let name = tranport?["name"] as? String
-        let destination = tranport?["dir"] as? String
-        let at = tranport?["As"] as? Dictionary<String, Any>
-        let colorString = at?["color"] as? String
-
-        let color = UIColor(hexString: colorString ?? "")
-        print("\(name) \(destination) \(color) ")
     }
 }
