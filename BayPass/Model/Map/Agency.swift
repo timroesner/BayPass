@@ -8,14 +8,13 @@
 
 import UIKit
 
-struct Agency {
-    var name: String
-    var abbrv: String
-    var id: String
-
-    init(name: String, abbrv: String, id: String) {
-        self.name = name
-        self.abbrv = abbrv
-        self.id = id
-    }
+enum Agency: String {
+    case AC // AC Transit
+    case SC // VTA
+    case BAR // Bart
+    case CT // Caltrain
+    case SFM // San Francisco Municipal Transportation Agency
+    case UC // Union City Transit
+//    case 99         // Altamont Corridor Express
+//    case 247        // SolsTrans
 }
