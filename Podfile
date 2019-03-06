@@ -15,6 +15,11 @@ target 'BayPass' do
     # Pods for testing
   end
 
+  target 'BayPassUITests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
 end
 
   
