@@ -13,7 +13,7 @@ class TicketViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Tickets"
-        
+
         // button to ticket checkout page
         let button = UIButton()
         button.frame = CGRect(x: 7, y: 750, width: 400, height: 50)
@@ -23,12 +23,12 @@ class TicketViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         view.addSubview(button)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+
     @objc func buttonAction(sender _: UIButton!) {
         navigationController?.pushViewController(TicketCheckoutViewController(), animated: true)
     }

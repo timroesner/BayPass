@@ -25,7 +25,7 @@ class ClipperViewController: UIViewController {
             make.height.equalTo(clipperView.snp.width).multipliedBy(0.6)
         })
         clipperView.layoutIfNeeded()
-        
+
         // button to add cash value page
         let button = UIButton()
         button.frame = CGRect(x: 7, y: 750, width: 400, height: 50)
@@ -35,12 +35,12 @@ class ClipperViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         view.addSubview(button)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+
     @objc func buttonAction(sender _: UIButton!) {
         navigationController?.pushViewController(ClipperAddCashViewController(), animated: true)
     }

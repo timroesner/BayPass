@@ -9,7 +9,6 @@
 import UIKit
 
 class ClipperAddCashViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
