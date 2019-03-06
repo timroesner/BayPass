@@ -17,11 +17,13 @@ class TabViewController: UITabBarController {
 
         let ticketVC = TicketViewController()
         ticketVC.tabBarItem = UITabBarItem(title: "Ticket".localized(), image: #imageLiteral(resourceName: "TicketIcon"), tag: 0)
-
+        let ticketNVC = UINavigationController(rootViewController: ticketVC)
+        
         let clipperVC = ClipperViewController()
         clipperVC.tabBarItem = UITabBarItem(title: "Clipper".localized(), image: #imageLiteral(resourceName: "ClipperIcon"), tag: 0)
-
-        let viewControllerList = [mapVC, ticketVC, clipperVC]
+        let clipperNVC = UINavigationController(rootViewController: clipperVC)
+        
+        let viewControllerList = [mapVC, ticketNVC, clipperNVC]
         viewControllers = viewControllerList
     }
 }
