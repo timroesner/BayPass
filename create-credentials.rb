@@ -7,6 +7,8 @@ struct Credentials {
    let birdToken = "#{ENV['BIRD_TOKEN']}"
    let bartToken = "#{ENV['BART_TOKEN']}"
    let googleDirections = "#{ENV['GOOGLE_DIRECTIONS']}"
+   let hereAppID = "#{ENV['HERE_APP_ID']}"
+   let hereAppCode = "#{ENV['HERE_APP_Code']}"
 }
 CREDS_FILE_STRING
 file = File.new("./BayPass/APIs/Credentials.swift", "w")
