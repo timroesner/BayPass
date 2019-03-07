@@ -22,18 +22,13 @@ class TabBarUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    // Normally I would put these into 3 different test, but since
-    // setUp takes significant time I am putting them together for speed
-    
-    // Once we start implementing we need to test different which screen is displayed
-    // The navigation bar title might be an option
     func testTabBar() {
         let tabBarsQuery = XCUIApplication().tabBars
         
         // Map
         tabBarsQuery.buttons["Map"].tap()
-        let mapLabel = XCUIApplication().staticTexts["Map"]
-        XCTAssert(mapLabel.exists)
+        let mapView = XCUIApplication().maps.firstMatch
+        XCTAssert(mapView.exists)
         
         // Ticket
         tabBarsQuery.buttons["Ticket"].tap()
