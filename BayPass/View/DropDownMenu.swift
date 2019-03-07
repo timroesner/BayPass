@@ -24,7 +24,7 @@ class DropDownMenu: UIButton, DropDownProtocol {
     func dropDownPressed(string: String) {
         selectedItem = string
         selectedItemLbl.text = string
-        dismissDropDown()
+        collapse()
     }
 
     func getSelectedItem() -> String {
@@ -85,40 +85,28 @@ class DropDownMenu: UIButton, DropDownProtocol {
 
     override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
         if isOpen == false {
-            isOpen = true
-
-            NSLayoutConstraint.deactivate([self.height])
-            NSLayoutConstraint.activate([self.height])
-
-            if dropView.tableView.numberOfRows(inSection: 0) <= 4 {
-                height.constant = dropView.tableView.contentSize.height
-                // dropView.tableView.isScrollEnabled = false
-            } else {
-                height.constant = 190
-                // dropView.tableView.isScrollEnabled = true
-            }
-
-            arrow.rotate(isOpen ? 0.0 : .pi)
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
-                self.dropView.layoutIfNeeded()
-                self.dropView.center.y += self.dropView.frame.height / 2
-            }, completion: nil)
+            expand()
         } else {
-            isOpen = false
-
-            NSLayoutConstraint.deactivate([self.height])
-            height.constant = 0
-            NSLayoutConstraint.activate([self.height])
-
-            arrow.rotate(isOpen ? 0.0 : .pi)
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
-                self.dropView.center.y -= self.dropView.frame.height / 2
-                self.dropView.layoutIfNeeded()
-            }, completion: nil)
+            collapse()
         }
     }
 
-    func dismissDropDown() {
+    func expand() {
+        isOpen = true
+        NSLayoutConstraint.deactivate([self.height])
+        NSLayoutConstraint.activate([self.height])
+
+        if dropView.tableView.numberOfRows(inSection: 0) <= 4 {
+            height.constant = dropView.tableView.contentSize.height
+        } else {
+            height.constant = 190
+        }
+
+        arrow.rotate(isOpen ? 0.0 : .pi)
+        expandAnimation()
+    }
+
+    func collapse() {
         isOpen = false
 
         arrow.rotate(isOpen ? 0.0 : .pi)
@@ -127,7 +115,19 @@ class DropDownMenu: UIButton, DropDownProtocol {
         height.constant = 0
         NSLayoutConstraint.activate([self.height])
 
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: { self.dropView.center.y -= self.dropView.frame.height / 2
+        collapseAnimation()
+    }
+
+    func expandAnimation() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.dropView.layoutIfNeeded()
+            self.dropView.center.y += self.dropView.frame.height / 2
+        }, completion: nil)
+    }
+
+    func collapseAnimation() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.dropView.center.y -= self.dropView.frame.height / 2
             self.dropView.layoutIfNeeded()
         }, completion: nil)
     }
@@ -175,6 +175,7 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        // let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
         cell.textLabel?.text = dropDownOptions[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         cell.backgroundColor = UIColor.white
