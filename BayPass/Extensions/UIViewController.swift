@@ -9,10 +9,10 @@
 import UIKit
 
 extension UIViewController {
-    func displayAlert(title: String, msg: String, dismissAfter: Bool){
+    func displayAlert(title: String, msg: String, dismissAfter: Bool) {
         let confirm = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        confirm.addAction(UIAlertAction(title: "Ok", style: .cancel, handler:  { (action: UIAlertAction) in
-            if(dismissAfter) {
+        confirm.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (_: UIAlertAction) in
+            if dismissAfter {
                 if let navController = self.navigationController {
                     navController.popViewController(animated: true)
                 } else {
@@ -20,7 +20,7 @@ extension UIViewController {
                 }
             }
         }))
-        
-        self.present(confirm, animated: true, completion: nil)
+
+        present(confirm, animated: true, completion: nil)
     }
 }

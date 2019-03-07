@@ -11,11 +11,11 @@ import Foundation
 extension Date {
     func duration(to date: Date) -> String {
         let dateComponentsFormatter = DateComponentsFormatter()
-        dateComponentsFormatter.allowedUnits = [.day,.hour,.minute]
+        dateComponentsFormatter.allowedUnits = [.day, .hour, .minute]
         dateComponentsFormatter.unitsStyle = .abbreviated
         return dateComponentsFormatter.string(from: self, to: date) ?? ""
     }
-    
+
     func timeShort() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none

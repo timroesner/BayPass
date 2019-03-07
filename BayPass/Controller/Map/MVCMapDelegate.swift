@@ -6,21 +6,20 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import UIKit
 import MapKit
+import UIKit
 
 extension MapViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    func mapView(_: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-        polylineRenderer.lineWidth = 6
-        
+        polylineRenderer.lineWidth = 5
+
         if let polyline = overlay as? MKPolyline {
             let travelMode = TravelMode(rawValue: polyline.title ?? "") ?? .walking
             switch travelMode {
             case .walking:
                 polylineRenderer.strokeColor = UIColor().lightGrey
-                polylineRenderer.lineDashPattern = [6,12]
+                polylineRenderer.lineDashPattern = [6, 12]
             case .transit:
                 if let colorString = polyline.subtitle {
                     polylineRenderer.strokeColor = UIColor(string: colorString)

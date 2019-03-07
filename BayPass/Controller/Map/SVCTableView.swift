@@ -6,27 +6,26 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import UIKit
 import MapKit
+import UIKit
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection _: Int) -> Int {
         if searchResults.isEmpty {
             tableView.backgroundView = EmptyView(text: "Nothing to see here")
         } else {
-            tableView.backgroundView =  nil
+            tableView.backgroundView = nil
         }
         return searchResults.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let resultObject = searchResults[indexPath.row]
-        
+
         if let station = resultObject as? Station {
-            //cell = tableView.dequeueReusableCell(withIdentifier: <#T##String#>, for: indexPath)
+            // cell = tableView.dequeueReusableCell(withIdentifier: <#T##String#>, for: indexPath)
         }
-        
+
         if let destination = resultObject as? MKMapItem {
             let cell = tableView.dequeueReusableCell(withIdentifier: destinationCellId, for: indexPath) as! DestinationSearchResultTableViewCell
             cell.setup(with: destination)
@@ -34,7 +33,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         delegate?.didSelectSearchResult(searchResults[indexPath.row])

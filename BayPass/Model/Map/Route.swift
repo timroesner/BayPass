@@ -7,8 +7,8 @@
 //
 
 import CoreLocation
-import UIKit
 import MapKit
+import UIKit
 
 struct Route {
     var departureTime: Date
@@ -20,7 +20,7 @@ struct Route {
         self.arrivalTime = arrivalTime
         self.segments = segments
     }
-    
+
     func getPrice() -> String {
         var total = 0.0
         for segment in segments {
@@ -28,7 +28,7 @@ struct Route {
         }
         return String(format: "$%.2f", total)
     }
-    
+
     func getPolylines() -> [MKPolyline] {
         var result = [MKPolyline]()
         for segment in segments {

@@ -10,21 +10,21 @@ import OverlayContainer
 import UIKit
 
 extension MapViewController: OverlayContainerViewControllerDelegate {
-    func numberOfNotches(in containerViewController: OverlayContainerViewController) -> Int {
+    func numberOfNotches(in _: OverlayContainerViewController) -> Int {
         return notchPercentages.count
     }
-    
-    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, heightForNotchAt index: Int, availableSpace: CGFloat) -> CGFloat {
+
+    func overlayContainerViewController(_: OverlayContainerViewController, heightForNotchAt index: Int, availableSpace: CGFloat) -> CGFloat {
         return availableSpace * notchPercentages[index]
     }
-    
-    func overlayContainerViewController(_ containerViewController: OverlayContainerViewController, didEndDraggingOverlay overlayViewController: UIViewController, transitionCoordinator: OverlayContainerTransitionCoordinator) {
+
+    func overlayContainerViewController(_: OverlayContainerViewController, didEndDraggingOverlay _: UIViewController, transitionCoordinator: OverlayContainerTransitionCoordinator) {
         if transitionCoordinator.targetNotchIndex == 0 {
             searchVC.searchBar.resignFirstResponder()
             searchVC.searchBar.setShowsCancelButton(false, animated: true)
         }
     }
-    
+
     func setupSearchView() {
         searchVC.resetSearch()
         bottomSheet.drivingScrollView = searchVC.tableView
