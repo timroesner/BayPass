@@ -41,4 +41,17 @@ struct Route {
         }
         return result
     }
+
+    func getBoundingMapRect() -> MKMapRect? {
+        let polylines = getPolylines()
+        if let initialRect = polylines.first?.boundingMapRect {
+            var boundingRect = initialRect
+
+            for polyline in polylines {
+                boundingRect = polyline.boundingMapRect.union(boundingRect)
+            }
+            return boundingRect
+        }
+        return nil
+    }
 }
