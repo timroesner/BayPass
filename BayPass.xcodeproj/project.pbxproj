@@ -48,6 +48,8 @@
 		22B53432222D1152007F4098 /* RouteOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53431222D1152007F4098 /* RouteOverView.swift */; };
 		22B53434222D135D007F4098 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53433222D135D007F4098 /* Date.swift */; };
 		22B53436222D1CB4007F4098 /* MVCMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53435222D1CB4007F4098 /* MVCMapDelegate.swift */; };
+		22B534382231D6DC007F4098 /* DestinationRoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B534372231D6DC007F4098 /* DestinationRoutingTests.swift */; };
+		22B5343A2231D6F8007F4098 /* DestinationRoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B534392231D6F8007F4098 /* DestinationRoutingTests.swift */; };
 		22C331B92186B80800836173 /* RouteSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331B82186B80800836173 /* RouteSegment.swift */; };
 		22C331BB2186B88000836173 /* TravelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331BA2186B88000836173 /* TravelMode.swift */; };
 		22F09753220683FC009881F8 /* BART.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F09752220683FC009881F8 /* BART.swift */; };
@@ -151,6 +153,8 @@
 		22B53431222D1152007F4098 /* RouteOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverView.swift; sourceTree = "<group>"; };
 		22B53433222D135D007F4098 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		22B53435222D1CB4007F4098 /* MVCMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCMapDelegate.swift; sourceTree = "<group>"; };
+		22B534372231D6DC007F4098 /* DestinationRoutingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DestinationRoutingTests.swift; path = BayPassUITests/DestinationRoutingTests.swift; sourceTree = SOURCE_ROOT; };
+		22B534392231D6F8007F4098 /* DestinationRoutingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationRoutingTests.swift; sourceTree = "<group>"; };
 		22C331B82186B80800836173 /* RouteSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegment.swift; sourceTree = "<group>"; };
 		22C331BA2186B88000836173 /* TravelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMode.swift; sourceTree = "<group>"; };
 		22F09752220683FC009881F8 /* BART.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BART.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				22049DBD214C9DF3007FF904 /* TabBarUITests.swift */,
+				22B534392231D6F8007F4098 /* DestinationRoutingTests.swift */,
 				22049DBF214C9DF3007FF904 /* Info.plist */,
 			);
 			path = BayPassUITests;
@@ -439,6 +444,7 @@
 		6AB6ED0C2186816800A81302 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				22B534372231D6DC007F4098 /* DestinationRoutingTests.swift */,
 				6AB6ED012186808E00A81302 /* AgencyTests.swift */,
 				6AB6ED032186809F00A81302 /* LineTests.swift */,
 				6AB6ED05218680AB00A81302 /* StationTests.swift */,
@@ -813,6 +819,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */,
+				22B5343A2231D6F8007F4098 /* DestinationRoutingTests.swift in Sources */,
+				22B534382231D6DC007F4098 /* DestinationRoutingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
