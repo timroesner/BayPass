@@ -43,11 +43,11 @@ class Here {
         }
     }
 
-    func getStationsNearby(center: CLLocationCoordinate2D, radius: Int, max: Int, completion: @escaping ([Station]) -> Void) {
+    func getStations(center: CLLocationCoordinate2D, radius: Int, max: Int, completion _: @escaping ([Station]) -> Void) {
         let param = [
             "center": "\(center.latitude),\(center.longitude)",
             "radius": radius,
-            "app_id": Credentials().hereAppID,
+            "app_id": Credentials().hereAppID, // TODO: Add to Credentials and generate new ids
             "app_code": Credentials().hereAppCode,
             "max": max,
         ] as [String: Any]
@@ -129,8 +129,9 @@ class Here {
                 let linesJson = resJson["LineInfos"] as? [String: Any],
                 let lineJson = linesJson["LineInfo"] as? [Dictionary<String, Any>] {
                 for line in lineJson {
-                    self.parseLine(from: line, stationID: stationId)
-                    print(line)
+                    if let line = self.parseLine(from: line, stationID: stationId) {
+                        results.append(line)
+                    }
                 }
                 completion(results)
             }
@@ -138,8 +139,8 @@ class Here {
     }
         
 
-    // TODO: Change time from String to timeStamp
     func getAgency(stationId: Int, time: String, completion: @escaping (String) -> Void) {
+        // TODO: Change time from String to timeStamp
         let param = [
             "app_id": Credentials().hereAppID,
             "app_code": Credentials().hereAppCode,
@@ -258,6 +259,8 @@ class Here {
         return Line(name: name ?? "", agency: abrv ?? Agency(rawValue: "AC")!, destination: destination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)
     }
 
+    // MARK: Parsing
+
     func parseOperatorFromStationId(from json: Dictionary<String, Any>) -> String? {
         var name = ""
         var id = ""
@@ -268,7 +271,7 @@ class Here {
             let op1 = op.first {
             name = op1["name"] as! String
             id = op1["code"] as! String
-            abbrv = op1["short_name"] as! String
+            abbrv = op1["short_name"] as! String // TODO:
         }
         return abbrv
     }
@@ -281,17 +284,27 @@ class Here {
 
         let location = CLLocation(latitude: x ?? 0, longitude: y ?? 0)
         let transports = json["Transports"] as? Dictionary<String, Any>
+
         let transport = transports?["Transport"] as? [Dictionary<String, Any>]
         let transportData = transport?[0] as? Dictionary<String, Any>
-
-        let modeNum = transportData?["mode"] as? Int
-        let transitMode = transitModeConvert(num: modeNum ?? 0)
         var lines: [Line] = [Line]()
+        var transitModes = [TransitMode]()
 
-        getLine(stationId: Int(code!) ?? 0, completion: { resp in
-            lines = resp
-        })
-        return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: [transitMode], lines: lines, location: location)
+        var codeNum = Int(code!)
+
+        for transport1 in transport! {
+            let lineName = transport1["name"] as? String
+            let lineDestination = transport1["dir"] as? String
+            let at = transport1["At"] as? Dictionary<String, Any>
+            let colorString = at?["color"] as? String
+            let color = UIColor(hexString: colorString ?? "") // TODO: Replace default with rgb 74, 144, 226
+            let modeNum = transportData?["mode"] as? Int
+            let transitMode = transitModeConvert(num: modeNum ?? 0)
+            transitModes.append(transitMode)
+            lines.append(Line(name: lineName ?? "", agency: Agency.ACE, destination: lineDestination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)) // TODO: Fix Agency
+        }
+
+        return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location)
     }
 
     func parseLine(from json: Dictionary<String, Any>, stationID: Int) -> Line? {
@@ -305,7 +318,6 @@ class Here {
         let at = tranport?["As"] as? Dictionary<String, Any>
         let colorString = at?["color"] as? String
         let color = UIColor(hexString: colorString ?? "")
-        print("\(name) \(destination) \(color) ")
         var agencyAbbrv: String?
         getAgency(stationId: stationID, time: "2019-06-24T08%3A00%3A00", completion: { agencyAb in
             agencyAbbrv = agencyAb
@@ -313,7 +325,7 @@ class Here {
 
         let abrv = Agency(rawValue: agencyAbbrv ?? "")
 
-        return Line(name: name ?? "", agency: abrv ?? Agency(rawValue: "CT")!, destination: destination ?? "", color: color ?? UIColor.blue, transitMode: transitMode)
+        return Line(name: name ?? "", agency: abrv ?? Agency(rawValue: "AC")!, destination: destination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)
     }
 
     func transitModeConvert(num: Int) -> TransitMode {
