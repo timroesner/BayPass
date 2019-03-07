@@ -33,6 +33,10 @@ struct Route {
         var result = [MKPolyline]()
         for segment in segments {
             segment.polyline.title = segment.travelMode.rawValue
+            if let line = segment.line {
+                // TODO: Replace with line color
+                segment.polyline.subtitle = UIColor(red: 74, green: 144, blue: 226).encode()
+            }
             result.append(segment.polyline)
         }
         return result

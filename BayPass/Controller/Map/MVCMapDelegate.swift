@@ -22,7 +22,9 @@ extension MapViewController: MKMapViewDelegate {
                 polylineRenderer.strokeColor = UIColor().lightGrey
                 polylineRenderer.lineDashPattern = [6,12]
             case .transit:
-                polylineRenderer.strokeColor = .blue
+                if let colorString = polyline.subtitle {
+                    polylineRenderer.strokeColor = UIColor(string: colorString)
+                }
             case .bike:
                 polylineRenderer.strokeColor = .gray
             case .scooter:

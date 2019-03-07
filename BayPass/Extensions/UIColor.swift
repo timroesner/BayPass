@@ -24,9 +24,31 @@ extension UIColor {
             blue: hex & 0xFF
         )
     }
-    
+
     var lightGrey: UIColor {
         return UIColor(white: 155.0 / 255.0, alpha: 1.0)
     }
 
+    func encode() -> String? {
+        let components = cgColor.components ?? []
+        guard components.count == 4 else {
+            return nil
+        }
+        return "\(components[0])#\(components[1])#\(components[2])#\(components[3])"
+    }
+
+    // Takes a string of the following format "red#green#blue#alpha"
+    // All components must be between 0.0 and 1.0
+    convenience init(string: String) {
+        let colorArrayString = string.split(separator: "#")
+        var colorArray = [CGFloat]()
+
+        for item in colorArrayString {
+            if let n = NumberFormatter().number(from: String(item)) {
+                colorArray.append(CGFloat(truncating: n))
+            }
+        }
+        assert(colorArray.count == 4, "Invalid string")
+        self.init(red: colorArray[0], green: colorArray[1], blue: colorArray[2], alpha: colorArray[3])
+    }
 }
