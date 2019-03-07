@@ -25,6 +25,14 @@ class ExtensionsTests: XCTestCase {
         assert(expecetd == hex)
     }
     
+    func testUIColorEncodingDecoding() {
+        let testColor = UIColor(red: 0.23, green: 0.45, blue: 0.77, alpha: 1.0)
+        let colorString = testColor.encode() ?? ""
+        
+        XCTAssertEqual("0.23#0.45#0.77#1.0", colorString)
+        XCTAssertEqual(testColor, UIColor(string: colorString))
+    }
+    
     func testUIColorBase255() {
         let expecetd = UIColor(red: 156.0/255.0, green: 0, blue: 1, alpha: 1)
         let base255 = UIColor(red: 156, green: 0, blue: 255)
