@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10DF627C28E33A8338F39522 /* Pods_BayPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC737C8C1C489644ABDDFE78 /* Pods_BayPass.framework */; };
 		22049DA5214C9DF2007FF904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22049DA4214C9DF2007FF904 /* Assets.xcassets */; };
 		22049DA8214C9DF2007FF904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22049DA6214C9DF2007FF904 /* LaunchScreen.storyboard */; };
 		22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBD214C9DF3007FF904 /* TabBarUITests.swift */; };
@@ -37,9 +38,13 @@
 		22C331BB2186B88000836173 /* TravelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331BA2186B88000836173 /* TravelMode.swift */; };
 		22F09753220683FC009881F8 /* BART.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F09752220683FC009881F8 /* BART.swift */; };
 		22F097552206868E009881F8 /* BartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F097542206868E009881F8 /* BartTests.swift */; };
+<<<<<<< HEAD
 		35A11F62ACECC78BEB80F2F0 /* Pods_BayPassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7D211AD7DF82004C80100E /* Pods_BayPassTests.framework */; };
 		4B5B4611FC230B54D7815E55 /* Pods_BayPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B78CDD54DD2E51A063FA8595 /* Pods_BayPass.framework */; };
 		5F53F8A88D4B8C33F2073D41 /* Pods_BayPass_BayPassUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B07D8F0F450F77E17D04FD /* Pods_BayPass_BayPassUITests.framework */; };
+=======
+		3F2A3909C8E024CD3AE14311 /* Pods_BayPassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */; };
+>>>>>>> parent of 244db92... change pod file 1
 		6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A00918D217EAB1D0087A32B /* BikeDock.swift */; };
 		6A009190217EACCD0087A32B /* Scooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A00918F217EACCD0087A32B /* Scooter.swift */; };
 		6A009193217EAD820087A32B /* ScooterCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A009192217EAD820087A32B /* ScooterCompany.swift */; };
@@ -69,6 +74,10 @@
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
+<<<<<<< HEAD
+=======
+		99F786221FF0E8DAF44AE47F /* Pods_BayPassUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BF9D28DD79B0405EBB5C4F /* Pods_BayPassUITests.framework */; };
+>>>>>>> parent of 244db92... change pod file 1
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
 		ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */; };
 /* End PBXBuildFile section */
@@ -91,7 +100,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		1F003E2577E3DC10BCB014C3 /* Pods-BayPassTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.release.xcconfig"; path = "Target Support Files/Pods-BayPassTests/Pods-BayPassTests.release.xcconfig"; sourceTree = "<group>"; };
+=======
+		10BF9D28DD79B0405EBB5C4F /* Pods_BayPassUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D31F2CAC184996691217676 /* Pods-BayPassUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassUITests/Pods-BayPassUITests.release.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> parent of 244db92... change pod file 1
 		22049D9A214C9DF0007FF904 /* BayPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BayPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22049D9D214C9DF0007FF904 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22049DA4214C9DF2007FF904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,10 +143,14 @@
 		22C331BA2186B88000836173 /* TravelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMode.swift; sourceTree = "<group>"; };
 		22F09752220683FC009881F8 /* BART.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BART.swift; sourceTree = "<group>"; };
 		22F097542206868E009881F8 /* BartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartTests.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		324A76315FD99891D8450282 /* Pods-BayPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.release.xcconfig"; path = "Target Support Files/Pods-BayPass/Pods-BayPass.release.xcconfig"; sourceTree = "<group>"; };
 		47B0F2780AF6260B69AE9C43 /* Pods-BayPass-BayPassUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass-BayPassUITests.release.xcconfig"; path = "Target Support Files/Pods-BayPass-BayPassUITests/Pods-BayPass-BayPassUITests.release.xcconfig"; sourceTree = "<group>"; };
 		53B07D8F0F450F77E17D04FD /* Pods_BayPass_BayPassUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPass_BayPassUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61690231BF996F662E952D6C /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
+=======
+		4D4F7368CE1FD8AB6E3F8FE1 /* Pods-BayPassTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.release.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> parent of 244db92... change pod file 1
 		6A00918D217EAB1D0087A32B /* BikeDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDock.swift; sourceTree = "<group>"; };
 		6A00918F217EACCD0087A32B /* Scooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scooter.swift; sourceTree = "<group>"; };
 		6A009192217EAD820087A32B /* ScooterCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScooterCompany.swift; sourceTree = "<group>"; };
@@ -158,15 +176,26 @@
 		6ABF9835218250B0006878E4 /* Agency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agency.swift; sourceTree = "<group>"; };
 		6ABF9836218250B0006878E4 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6ABF9837218250B1006878E4 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
+		6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F72F642230417D00A8BC0A /* BackButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonUITests.swift; sourceTree = "<group>"; };
 		70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCheckoutViewController.swift; sourceTree = "<group>"; };
 		70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperAddCashViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		90B9536CDAF2C3B6E944D5A1 /* Pods-BayPassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.debug.xcconfig"; path = "Target Support Files/Pods-BayPassTests/Pods-BayPassTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B78CDD54DD2E51A063FA8595 /* Pods_BayPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7D211AD7DF82004C80100E /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC14F1B521B64E28009F69CF /* ClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperView.swift; sourceTree = "<group>"; };
 		ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperViewTests.swift; sourceTree = "<group>"; };
 		F57AA635D4878CFFD1F9D640 /* Pods-BayPass-BayPassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass-BayPassUITests.debug.xcconfig"; path = "Target Support Files/Pods-BayPass-BayPassUITests/Pods-BayPass-BayPassUITests.debug.xcconfig"; sourceTree = "<group>"; };
+=======
+		A96336530BAD67EFB32EF7E0 /* Pods-BayPassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC737C8C1C489644ABDDFE78 /* Pods_BayPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4CE3C0E191A1E9A66EDDE84 /* Pods-BayPassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassUITests/Pods-BayPassUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC14F1B521B64E28009F69CF /* ClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperView.swift; sourceTree = "<group>"; };
+		ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperViewTests.swift; sourceTree = "<group>"; };
+		F3C991BFA884D85FF2F805DF /* Pods-BayPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.release.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> parent of 244db92... change pod file 1
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +203,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				4B5B4611FC230B54D7815E55 /* Pods_BayPass.framework in Frameworks */,
+=======
+				10DF627C28E33A8338F39522 /* Pods_BayPass.framework in Frameworks */,
+>>>>>>> parent of 244db92... change pod file 1
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +215,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				35A11F62ACECC78BEB80F2F0 /* Pods_BayPassTests.framework in Frameworks */,
+=======
+				3F2A3909C8E024CD3AE14311 /* Pods_BayPassTests.framework in Frameworks */,
+>>>>>>> parent of 244db92... change pod file 1
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +227,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				5F53F8A88D4B8C33F2073D41 /* Pods_BayPass_BayPassUITests.framework in Frameworks */,
+=======
+				99F786221FF0E8DAF44AE47F /* Pods_BayPassUITests.framework in Frameworks */,
+>>>>>>> parent of 244db92... change pod file 1
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,8 +245,13 @@
 				22049DB1214C9DF2007FF904 /* BayPassTests */,
 				22049DBC214C9DF3007FF904 /* BayPassUITests */,
 				22049D9B214C9DF0007FF904 /* Products */,
+<<<<<<< HEAD
 				513C979573EDD6ABB3FBD31F /* Pods */,
 				3C4052801C02B5A3F4480272 /* Frameworks */,
+=======
+				52C03E090F2FCB75E3C93ADB /* Pods */,
+				E1C9A42F6ABBA89034F445B2 /* Frameworks */,
+>>>>>>> parent of 244db92... change pod file 1
 			);
 			sourceTree = "<group>";
 		};
@@ -336,6 +382,7 @@
 			path = APIs;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		3C4052801C02B5A3F4480272 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +405,19 @@
 			);
 			name = Pods;
 			path = Pods;
+=======
+		52C03E090F2FCB75E3C93ADB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */,
+				F3C991BFA884D85FF2F805DF /* Pods-BayPass.release.xcconfig */,
+				A96336530BAD67EFB32EF7E0 /* Pods-BayPassTests.debug.xcconfig */,
+				4D4F7368CE1FD8AB6E3F8FE1 /* Pods-BayPassTests.release.xcconfig */,
+				C4CE3C0E191A1E9A66EDDE84 /* Pods-BayPassUITests.debug.xcconfig */,
+				1D31F2CAC184996691217676 /* Pods-BayPassUITests.release.xcconfig */,
+			);
+			name = Pods;
+>>>>>>> parent of 244db92... change pod file 1
 			sourceTree = "<group>";
 		};
 		6A009191217EAD580087A32B /* Map */ = {
@@ -432,6 +492,19 @@
 			path = Ticket;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		E1C9A42F6ABBA89034F445B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC737C8C1C489644ABDDFE78 /* Pods_BayPass.framework */,
+				6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */,
+				10BF9D28DD79B0405EBB5C4F /* Pods_BayPassUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+>>>>>>> parent of 244db92... change pod file 1
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -439,12 +512,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22049DC2214C9DF3007FF904 /* Build configuration list for PBXNativeTarget "BayPass" */;
 			buildPhases = (
+<<<<<<< HEAD
 				F50D110EC07B1CEBD5D8AF0D /* [CP] Check Pods Manifest.lock */,
+=======
+				B9A2D893FD1E3C201701D762 /* [CP] Check Pods Manifest.lock */,
+>>>>>>> parent of 244db92... change pod file 1
 				227796C821B6184700BAF6BA /* Import environment variables */,
 				22049D96214C9DF0007FF904 /* Sources */,
 				22049D97214C9DF0007FF904 /* Frameworks */,
 				22049D98214C9DF0007FF904 /* Resources */,
+<<<<<<< HEAD
 				A9C94EDEB869A0AE19D6A3D4 /* [CP] Embed Pods Frameworks */,
+=======
+				69ACA15811A9556F80A997EC /* [CP] Embed Pods Frameworks */,
+>>>>>>> parent of 244db92... change pod file 1
 			);
 			buildRules = (
 			);
@@ -459,7 +540,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22049DC5214C9DF3007FF904 /* Build configuration list for PBXNativeTarget "BayPassTests" */;
 			buildPhases = (
+<<<<<<< HEAD
 				50636BD54B55E058ACC23DB1 /* [CP] Check Pods Manifest.lock */,
+=======
+				BAD53253751CFEF91C36FD04 /* [CP] Check Pods Manifest.lock */,
+>>>>>>> parent of 244db92... change pod file 1
 				2212D6F2216DD1B800ADFE3D /* SwiftFormat */,
 				22049DAA214C9DF2007FF904 /* Sources */,
 				22049DAB214C9DF2007FF904 /* Frameworks */,
@@ -479,7 +564,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22049DC8214C9DF3007FF904 /* Build configuration list for PBXNativeTarget "BayPassUITests" */;
 			buildPhases = (
+<<<<<<< HEAD
 				51AD8F504CA85E490BD6595F /* [CP] Check Pods Manifest.lock */,
+=======
+				3CCE354F2A3225BA94F4DFAB /* [CP] Check Pods Manifest.lock */,
+>>>>>>> parent of 244db92... change pod file 1
 				22049DB5214C9DF3007FF904 /* Sources */,
 				22049DB6214C9DF3007FF904 /* Frameworks */,
 				22049DB7214C9DF3007FF904 /* Resources */,
@@ -594,12 +683,38 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/create-credentials.rb",
+<<<<<<< HEAD
 			);
 			name = "Import environment variables";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(SRCROOT)/BayPass/APIs/Credentials.swift",
+=======
+			);
+			name = "Import environment variables";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/BayPass/APIs/Credentials.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f ${SRCROOT}/env-vars.sh ]\nthen\nsource ${SRCROOT}/env-vars.sh\nfi\n${SRCROOT}/create-credentials.rb\n";
+		};
+		3CCE354F2A3225BA94F4DFAB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BayPassUITests-checkManifestLockResult.txt",
+>>>>>>> parent of 244db92... change pod file 1
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -629,7 +744,11 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BayPass-BayPassUITests/Pods-BayPass-BayPassUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+<<<<<<< HEAD
 		50636BD54B55E058ACC23DB1 /* [CP] Check Pods Manifest.lock */ = {
+=======
+		69ACA15811A9556F80A997EC /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> parent of 244db92... change pod file 1
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -637,6 +756,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+<<<<<<< HEAD
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
@@ -652,35 +772,7 @@
 			showEnvVarsInLog = 0;
 		};
 		51AD8F504CA85E490BD6595F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BayPass-BayPassUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A9C94EDEB869A0AE19D6A3D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
+=======
 				"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -695,6 +787,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9A2D893FD1E3C201701D762 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> parent of 244db92... change pod file 1
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+<<<<<<< HEAD
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+=======
+>>>>>>> parent of 244db92... change pod file 1
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+<<<<<<< HEAD
+				"$(DERIVED_FILE_DIR)/Pods-BayPass-BayPassUITests-checkManifestLockResult.txt",
+=======
+				"$(DERIVED_FILE_DIR)/Pods-BayPass-checkManifestLockResult.txt",
+>>>>>>> parent of 244db92... change pod file 1
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+<<<<<<< HEAD
+		A9C94EDEB869A0AE19D6A3D4 /* [CP] Embed Pods Frameworks */ = {
+=======
+		BAD53253751CFEF91C36FD04 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> parent of 244db92... change pod file 1
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BayPassTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F50D110EC07B1CEBD5D8AF0D /* [CP] Check Pods Manifest.lock */ = {
@@ -945,7 +1088,11 @@
 		};
 		22049DC3214C9DF3007FF904 /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 61690231BF996F662E952D6C /* Pods-BayPass.debug.xcconfig */;
+=======
+			baseConfigurationReference = 6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */;
+>>>>>>> parent of 244db92... change pod file 1
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -964,7 +1111,11 @@
 		};
 		22049DC4214C9DF3007FF904 /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 324A76315FD99891D8450282 /* Pods-BayPass.release.xcconfig */;
+=======
+			baseConfigurationReference = F3C991BFA884D85FF2F805DF /* Pods-BayPass.release.xcconfig */;
+>>>>>>> parent of 244db92... change pod file 1
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -983,7 +1134,11 @@
 		};
 		22049DC6214C9DF3007FF904 /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 90B9536CDAF2C3B6E944D5A1 /* Pods-BayPassTests.debug.xcconfig */;
+=======
+			baseConfigurationReference = A96336530BAD67EFB32EF7E0 /* Pods-BayPassTests.debug.xcconfig */;
+>>>>>>> parent of 244db92... change pod file 1
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1005,7 +1160,11 @@
 		};
 		22049DC7214C9DF3007FF904 /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 1F003E2577E3DC10BCB014C3 /* Pods-BayPassTests.release.xcconfig */;
+=======
+			baseConfigurationReference = 4D4F7368CE1FD8AB6E3F8FE1 /* Pods-BayPassTests.release.xcconfig */;
+>>>>>>> parent of 244db92... change pod file 1
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1027,7 +1186,11 @@
 		};
 		22049DC9214C9DF3007FF904 /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = F57AA635D4878CFFD1F9D640 /* Pods-BayPass-BayPassUITests.debug.xcconfig */;
+=======
+			baseConfigurationReference = C4CE3C0E191A1E9A66EDDE84 /* Pods-BayPassUITests.debug.xcconfig */;
+>>>>>>> parent of 244db92... change pod file 1
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1048,7 +1211,11 @@
 		};
 		22049DCA214C9DF3007FF904 /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
 			baseConfigurationReference = 47B0F2780AF6260B69AE9C43 /* Pods-BayPass-BayPassUITests.release.xcconfig */;
+=======
+			baseConfigurationReference = 1D31F2CAC184996691217676 /* Pods-BayPassUITests.release.xcconfig */;
+>>>>>>> parent of 244db92... change pod file 1
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

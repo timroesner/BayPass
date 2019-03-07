@@ -19,6 +19,10 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftFormat: cd7c8c5bbbd045050639d739e05d74e9a96f78df
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: 2878315a71dabf81b0db0fbd9fb8035feb70a68b
+=======
+PODFILE CHECKSUM: bc7c7e754677a322e3eba7654a24853ad2057bf5
+>>>>>>> parent of 244db92... change pod file 1
 
 COCOAPODS: 1.6.0

@@ -16,10 +16,16 @@ target 'BayPass' do
   end
 
   target 'BayPassUITests' do
+<<<<<<< HEAD
     inherit! :complete
     # Pods for testing
   end
 
 end
+=======
+    inherit! :search_paths
+    # Pods for testing
+  end
+>>>>>>> parent of 244db92... change pod file 1
 
-  
+end
