@@ -10,12 +10,23 @@ import UIKit
 
 
 enum Agency: String {
-    case AC // AC Transit
-    case SC // VTA
-    case BAR // Bart
-    case CT // Caltrain
-    case SFM // San Francisco Municipal Transportation Agency
-    case UC // Union City Transit
-//    case 99         // Altamont Corridor Express
-//    case 247        // SolsTrans
+    case ACTransit = "AC" // AC Transit
+    case VTA = "SC" // VTA
+    case BART = "BAR" // Bart
+    case CalTrain = "CT" // Caltrain
+    case Muni = "SF" // San Francisco Municipal Transportation Agency
+    case UnionCity = "UC" // Union City Transit
+    case ACE = "99" // Altamont Corridor Express
+    case SolTrans = "247" // SolsTrans
+
+    func getIcon() -> UIImage {
+        switch self {
+        case .BART:
+            return #imageLiteral(resourceName: "BART")
+        case .CalTrain:
+            return #imageLiteral(resourceName: "CalTrain")
+        default:
+            return #imageLiteral(resourceName: "CalTrain")
+        }
+    }
 }
