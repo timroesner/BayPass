@@ -63,14 +63,14 @@ class BirdTests: XCTestCase {
         let expectation = self.expectation(description: "async")
         var scooters = [Scooter]()
         
-        let now = Date()
-        let ninePM = Calendar(identifier: .gregorian).date(bySettingHour: 21, minute: 0, second: 0, of: now)!
-        let sevenAM = Calendar(identifier: .gregorian).date(bySettingHour: 7, minute: 0, second: 0, of: now)!
+        var sanJoseCal = Calendar(identifier: .gregorian)
+        sanJoseCal.timeZone = TimeZone(identifier: "America/Los_Angeles")!
+        let now = sanJoseCal.component(.hour, from: Date())
         
         var location = CLLocation(latitude: 48.865314, longitude: 2.343086)
         
-        // If bird shutdown in SJ use Paris
-        if sevenAM < now && now < ninePM {
+        // If bird operates in SJ use it
+        if 7 < now && now < 21 {
             location = CLLocation(latitude: 37.331348, longitude: -121.888877)
         }
         
@@ -79,7 +79,7 @@ class BirdTests: XCTestCase {
             expectation.fulfill()
         })
         waitForExpectations(timeout: 5, handler: nil)
-        assert(!scooters.isEmpty)
+        XCTAssert(!scooters.isEmpty)
     }
 
 }
