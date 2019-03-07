@@ -64,6 +64,7 @@ class PurchasedTicketCell: UITableViewCell {
 
         if let dur = ticket.duration {
             let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone(identifier: "America/Los_Angeles")
             dateFormatter.locale = Locale(identifier: "en_US")
             dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd")
             let stringOutput = dateFormatter.string(from: dur.end)

@@ -38,7 +38,7 @@ class PurchasedTicketCellTests: XCTestCase {
         cell.setup(with: ticket)
         
         XCTAssertEqual(cell.nameLbl.text, "Monthly Pass")
-        //XCTAssertEqual(cell.durationLbl.text, "Valid until December 31")
+        XCTAssertEqual(cell.durationLbl.text, "Valid until December 31")
         XCTAssertEqual(cell.ticketView.nameLbl.text, "BART")
     }
 
