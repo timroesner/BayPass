@@ -13,124 +13,47 @@ import MapKit
 class Here {
     // MARK: Get Requests for here
 
-    let group = DispatchGroup()
+    func dispatchAsyncForLines(stationId: Int) {
+        let group = DispatchGroup()
 
-    // Returns an agency for given Station ID
-    func getAgencyFromStationId(stationId: Int, completion: @escaping (Agency) -> Void) {
-        let param = [
-            "app_id": Credentials().hereAppID,
-            "app_code": Credentials().hereAppCode,
-            "lang": "en",
-            "stnIds": stationId,
-            "max": 2,
-            "time": "2019-06-24T08%3A00%3A00", // TODO: Remember to change
-        ] as [String: Any]
-        var results = Agency.zero
-        Alamofire.request("https://transit.api.here.com/v3/multiboard/by_stn_ids.json?", method: .get, parameters: param).responseJSON { response in
-            if let json = response.result.value as? [String: Any],
-                let resJson = json["Res"] as? [String: Any],
-                let multiNextDepartures = resJson["MultiNextDepartures"] as? [String: Any],
-                let multiNextDeparture = multiNextDepartures["MultiNextDeparture"] as? [[String: Any]] {
-                var count = multiNextDeparture.count - 1
-                for nextDeparture in multiNextDeparture {
-                    if let agency = self.parseOperatorFromStationId(from: nextDeparture) {
-                        results = Agency(rawValue: agency) ?? Agency.zero
-                        print("\(stationId) : \(Agency(rawValue: agency))")
-                        completion(results)
-                    }
-                }
+        var agency = Agency.ACE // Place holder
+
+        group.enter()
+        getLine(stationId: stationId) { resp in // TODO: Edit for agency
+            print(" get line \(resp)")
+            group.leave()
+        }
+
+        group.enter()
+        getAgency(stationId: stationId, time: "2019-06-24T08%3A00%3A00") { resp in
+            print("get agency \(resp)")
+            agency = Agency(rawValue: resp) ?? Agency.ACE
+            group.leave()
+        }
+
+        group.notify(queue: .main) {
+            self.getStations(center: CLLocationCoordinate2D(latitude: 37.5032238, longitude: -121.9434281), radius: 400, max: 20, agency: agency) { resp in
+                print("get Station \(resp)")
+                group.leave()
             }
         }
     }
 
-    func getStationsWithAgency(center: CLLocationCoordinate2D, radius: Int, max: Int, agencies: [Agency], completion: @escaping ([Station]) -> Void) {
+    func getStations(center: CLLocationCoordinate2D, radius: Int, max: Int, agency: Agency, completion _: @escaping ([Station]) -> Void) {
         let param = [
             "center": "\(center.latitude),\(center.longitude)",
             "radius": radius,
-            "app_id": Credentials().hereAppID,
+            "app_id": Credentials().hereAppID, // TODO: Add to Credentials and generate new ids
             "app_code": Credentials().hereAppCode,
             "max": max,
         ] as [String: Any]
 
         var results = [Station]()
-        var count = 0
 
         Alamofire.request("https://transit.api.here.com/v3/stations/by_geocoord.json?", method: .get, parameters: param).responseJSON { resp in
             if let json = resp.result.value as? [String: Any],
                 let resJson = json["Res"] as? [String: Any],
                 let stationsJson = resJson["Stations"] as? [String: Any],
-                let stnsJson = stationsJson["Stn"] as? [Dictionary<String, Any>] {
-                for stnJson in stnsJson {
-                    if let newStation = self.parseStation(from: stnJson, agency: agencies[count]) {
-                        results.append(newStation)
-                        print(newStation)
-                    }
-                    count += 1
-                }
-                completion(results)
-            }
-        }
-    }
-
-    func getStations(center: CLLocationCoordinate2D, radius: Int, max: Int, agency: Agency, completion: @escaping ([Station]) -> Void) {
-        let param = [
-            "center": "\(center.latitude),\(center.longitude)",
-            "radius": radius,
-            "app_id": Credentials().hereAppID,
-            "app_code": Credentials().hereAppCode,
-            "max": max,
-        ] as [String: Any]
-
-        var stations = [Station]()
-  
-        Alamofire.request("https://transit.api.here.com/v3/stations/by_geocoord.json?", method: .get, parameters: param).responseJSON { resp in
-            if let json = resp.result.value as? [String: Any],
-                let resJson = json["Res"] as? [String: Any],
-                let stationsJson = resJson["Stations"] as? [String: Any],
-                let stnsJson = stationsJson["Stn"] as? [[String: Any]] {
-                for stnJson in stnsJson {
-                    if let newStation = self.parseStation(from: stnJson) {
-                        stations.append(newStation)
-                    }
-                }
-
-                self.getAgencies(stationIds: stations.map { $0.code }, time: "2019-06-24T08%3A00%3A00") { agencyStationIDs in
-                    for index in 0 ..< stations.count {
-                        if let agency = agencyStationIDs[stations[index].code] {
-                            for lineIndex in 0 ..< stations[index].lines.count {
-                                stations[index].lines[lineIndex].agency = agency
-                            }
-                        }
-                    }
-                    completion(stations)
-                }
-            }
-        }
-    }
-
-    func getStationIds(center: CLLocationCoordinate2D, radius: Int, max: Int, completion: @escaping ([Int]) -> Void) {
-        let param = [
-            "center": "\(center.latitude),\(center.longitude)",
-            "radius": radius,
-            "app_id": Credentials().hereAppID,
-            "app_code": Credentials().hereAppCode,
-            "max": max,
-        ] as [String: Any]
-
-        var results = [Int]()
-
-        Alamofire.request("https://transit.api.here.com/v3/stations/by_geocoord.json?", method: .get, parameters: param).responseJSON { resp in
-            if let json = resp.result.value as? [String: Any],
-                let resJson = json["Res"] as? [String: Any],
-                let stationsJson = resJson["Stations"] as? [String: Any],
-                let stnsJson = stationsJson["Stn"] as? [[String: Any]] {
-                for stnJson in stnsJson {
-                    if let newStation = self.parseStationForId(from: stnJson) {
-                        results.append(newStation)
-//                        print(newStation)
-                    }
-                }
-                completion(results)
                 let stnsJson = stationsJson["Stn"] as? [Dictionary<String, Any>] {
                 for stnJson in stnsJson {
                     if let newStation = self.parseStation(from: stnJson, agency: agency) {
@@ -138,49 +61,13 @@ class Here {
                         print(newStation)
                     }
                 }
-                completion(results)
             }
         }
-    }
-
-    func getStationIds(center: CLLocationCoordinate2D, radius: Int, max: Int, completion: @escaping ([Int]) -> Void) {
-        let param = [
-            "center": "\(center.latitude),\(center.longitude)",
-            "radius": radius,
-            "app_id": Credentials().hereAppID,
-            "app_code": Credentials().hereAppCode,
-            "max": max,
-        ] as [String: Any]
-
-        var results = [Int]()
-
-        Alamofire.request("https://transit.api.here.com/v3/stations/by_geocoord.json?", method: .get, parameters: param).responseJSON { resp in
-            if let json = resp.result.value as? [String: Any],
-                let resJson = json["Res"] as? [String: Any],
-                let stationsJson = resJson["Stations"] as? [String: Any],
-                let stnsJson = stationsJson["Stn"] as? [Dictionary<String, Any>] {
-                for stnJson in stnsJson {
-                    if let newStation = self.parseStationForId(from: stnJson) {
-                        results.append(newStation)
-                        print(newStation)
-                    }
-                }
-                completion(results)
-            }
-        }
-    }
-
-    func parseStationForId(from json: Dictionary<String, Any>) -> Int? {
-        let stationIdString = json["id"] as? String
-        var stationId = Int(stationIdString!)
-
-        return stationId
-    }
     }
 
     func getLine(stationId: Int, completion: @escaping ([Line]) -> Void) {
         let param = [
-            "app_id": Credentials().hereAppID,
+            "app_id": Credentials().hereAppID, // TODO: Add to Credentials and generate new ids
             "app_code": Credentials().hereAppCode,
             "stnId": stationId,
             "graph": "1",
@@ -201,12 +88,11 @@ class Here {
             }
         }
     }
-        
 
     func getAgency(stationId: Int, time: String, completion: @escaping (String) -> Void) {
         // TODO: Change time from String to timeStamp
         let param = [
-            "app_id": Credentials().hereAppID,
+            "app_id": Credentials().hereAppID, // TODO: Add to Credentials and generate new ids
             "app_code": Credentials().hereAppCode,
             "lang": "en",
             "stnIds": stationId,
@@ -220,7 +106,7 @@ class Here {
             if let json = response.result.value as? [String: Any],
                 let resJson = json["Res"] as? [String: Any],
                 let multiNextDepartures = resJson["MultiNextDepartures"] as? [String: Any],
-                let multiNextDeparture = multiNextDepartures["MultiNextDeparture"] as? [[String: Any]] {
+                let multiNextDeparture = multiNextDepartures["MultiNextDeparture"] as? [Dictionary<String, Any>] {
                 for nextDeparture in multiNextDeparture {
                     if let agency = self.parseOperatorFromStationId(from: nextDeparture) {
                         results.append(agency)
@@ -234,11 +120,15 @@ class Here {
     // MARK: Parsing
 
     func parseOperatorFromStationId(from json: Dictionary<String, Any>) -> String? {
+        var name = ""
+        var id = ""
         var abbrv = ""
         let nextDepartures = json["NextDepartures"] as? Dictionary<String, Any>
         let operators = nextDepartures?["Operators"] as? Dictionary<String, Any>
         if let op = operators?["Op"] as? [[String: Any]],
             let op1 = op.first {
+            name = op1["name"] as! String
+            id = op1["code"] as! String
             abbrv = op1["short_name"] as! String // TODO:
         }
         return abbrv
@@ -273,6 +163,7 @@ class Here {
 
             lines.append(Line(name: lineName ?? "", agency: agency, destination: lineDestination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)) // TODO: Fix Agency
         }
+
         return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location)
     }
 
