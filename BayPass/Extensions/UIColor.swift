@@ -25,6 +25,8 @@ extension UIColor {
         )
     }
 
+    // https://stackoverflow.com/questions/31782316/how-to-create-a-hex-color-string-uicolor-initializer-in-swift?lq=1
+
     convenience init?(hexString: String) {
         var chars = Array(hexString.hasPrefix("#") ? hexString.dropFirst() : hexString[...])
         let red, green, blue, alpha: CGFloat
