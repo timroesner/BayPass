@@ -17,9 +17,13 @@ class DestinationRoutingTests: XCTestCase {
         continueAfterFailure = false
 
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        let app = XCUIApplication()
+        app.launch()
+        let locationAlert = app.alerts.firstMatch
+        if locationAlert.exists {
+            locationAlert.buttons["Allow"].tap()
+        }
+        //app.tap()
     }
 
     override func tearDown() {
@@ -42,16 +46,12 @@ class DestinationRoutingTests: XCTestCase {
     
     func testSearchDestination() {
         let app = XCUIApplication()
+        
         let searchSearchField = app.searchFields["Search"]
         searchSearchField.tap()
+        searchSearchField.typeText("Apple")
         
-        app.keys["A"].tap()
-        app.keys["p"].tap()
-        app.keys["p"].tap()
-        app.keys["l"].tap()
-        app.keys["e"].tap()
-        
-        let searchButton = app/*@START_MENU_TOKEN@*/.keyboards.buttons["Search"]/*[[".keyboards.buttons[\"Search\"]",".buttons[\"Search\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
+        let searchButton = app.buttons["Search"]
         searchButton.tap()
         
         let cell = app.tables.cells.firstMatch
