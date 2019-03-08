@@ -20,9 +20,9 @@ We are an agile team and have 1 and 2 week sprints that you can find under [proj
 - [CocoaPods](https://cocoapods.org)
 - [fastlane](http://fastlane.tools/)
 - [Sketch](https://sketchapp.com)
-- [Slack](slack.com)
-- [Google Drive](drive.google.com)
-- [Zeplin](zeplin.io)
+- [Slack](https://slack.com)
+- [Google Drive](https://drive.google.com)
+- [Zeplin](https://zeplin.io)
 
   
 ## Architecture
