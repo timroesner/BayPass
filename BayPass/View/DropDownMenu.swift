@@ -58,7 +58,7 @@ class DropDownMenu: UIButton, DropDownProtocol {
             make.left.equalToSuperview().offset(10)
         })
 
-        dropView = DropDownView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        dropView = DropDownView()
         dropView.delegate = self
         dropView.dropDownOptions = items
         dropView.tableView.isScrollEnabled = dropView.tableView.numberOfRows(inSection: 0) <= 4 ? false : true
@@ -109,12 +109,11 @@ class DropDownMenu: UIButton, DropDownProtocol {
     func collapse() {
         isOpen = false
 
-        arrow.rotate(isOpen ? 0.0 : .pi)
-
         NSLayoutConstraint.deactivate([self.height])
         height.constant = 0
         NSLayoutConstraint.activate([self.height])
 
+        arrow.rotate(isOpen ? 0.0 : .pi)
         collapseAnimation()
     }
 
@@ -142,7 +141,7 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
     var tableView = UITableView()
     var delegate: DropDownProtocol!
 
-    override init(frame _: CGRect) {
+    public init() {
         super.init(frame: CGRect.zero)
 
         tableView.backgroundColor = UIColor.white
