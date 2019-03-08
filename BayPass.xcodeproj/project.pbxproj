@@ -261,11 +261,11 @@
 		2212D7282179AD8800ADFE3D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */,
-				70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */,
-				70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */,
 				6AB6ECFB21867F1700A81302 /* MapViewController.swift */,
 				6AB6ECFD21867F1700A81302 /* TicketViewController.swift */,
+				70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */,
+				6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */,
+				70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */,
 				2212D7262179985400ADFE3D /* TabViewController.swift */,
 			);
 			path = Controller;
@@ -629,7 +629,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -642,7 +642,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B9A2D893FD1E3C201701D762 /* [CP] Check Pods Manifest.lock */ = {
