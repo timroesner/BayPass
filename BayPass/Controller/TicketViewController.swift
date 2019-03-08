@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 class TicketViewController: UIViewController {

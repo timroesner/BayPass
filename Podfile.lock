@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.8.1)
   - OverlayContainer (1.1.1)
   - SnapKit (4.0.1)
-  - SwiftFormat/CLI (0.39.1)
+  - SwiftFormat/CLI (0.39.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -21,7 +21,7 @@ SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   OverlayContainer: 5911b47b27f3fdf1fb989257c76e828dc11c0380
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwiftFormat: cd7c8c5bbbd045050639d739e05d74e9a96f78df
+  SwiftFormat: a27a799eeaf246313c3b388ad6d5ae33c78eb6f3
 
 PODFILE CHECKSUM: df429d3ded10cc41bd51722335c994e968287852
 

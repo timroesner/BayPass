@@ -63,15 +63,15 @@ class BirdTests: XCTestCase {
         let expectation = self.expectation(description: "async")
         var scooters = [Scooter]()
         
-        let now = Date()
-        let eightPM = Calendar.current.date(bySettingHour: 20, minute: 0, second: 0, of: now)!
-        let sixAM = Calendar.current.date(bySettingHour: 6, minute: 0, second: 0, of: now)!
+        var sanJoseCal = Calendar(identifier: .gregorian)
+        sanJoseCal.timeZone = TimeZone(identifier: "America/Los_Angeles")!
+        let now = sanJoseCal.component(.hour, from: Date())
         
-        var location = CLLocation(latitude: 37.331348, longitude: -121.888877)
+        var location = CLLocation(latitude: 48.865314, longitude: 2.343086)
         
-        // If bird shutdown in SJ use Paris
-        if now >= eightPM && now <= sixAM {
-          location = CLLocation(latitude: 48.858635, longitude: 2.298493)
+        // If bird operates in SJ use it
+        if 7 < now && now < 21 {
+            location = CLLocation(latitude: 37.331348, longitude: -121.888877)
         }
         
         Bird().getScooters(fromLocation: location, radius: 1000, completion: {
