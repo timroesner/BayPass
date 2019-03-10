@@ -10,7 +10,7 @@ import UIKit
 
 
 enum Agency: String {
-    case ACTransit = "AC" // AC Transit
+    case ACTransit = "AC " // AC Transit
     case VTA = "SC" // VTA
     case BART = "BAR" // Bart
     case CalTrain = "CT" // Caltrain
@@ -18,6 +18,7 @@ enum Agency: String {
     case UnionCity = "UC" // Union City Transit
     case ACE = "99" // Altamont Corridor Express
     case SolTrans = "247" // SolsTrans
+    case zero = "0"
 
     func getIcon() -> UIImage {
         switch self {
