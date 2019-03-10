@@ -21,12 +21,8 @@ class AgencyTests: XCTestCase {
 
     func test_Agency_BuildsThePath() {
         let name = "Test"
-        let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-        let routesT = [Line(name: "ran", code: 2, destination: "dest", stops: [Station(name: "ran", code: 3, transitModes: [TransitMode.bart], lines: ["line"], location: loc)])]
-        
-        let subject = Agency(name: name, routes: routesT)
-        
-        XCTAssertEqual(subject.name, name)
-        assert(subject.getRoutes() == routesT)
+        let subject = Agency(rawValue: "BA")
+
+        XCTAssertEqual(subject?.rawValue, Agency.BART.rawValue)
     }
 }
