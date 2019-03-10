@@ -6,7 +6,6 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import Alamofire
 @testable import BayPass
 import CoreLocation
 import UIKit
@@ -14,7 +13,6 @@ import XCTest
 
 class HereTests: XCTestCase {
     var testJson: [String: Any] = [:]
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
