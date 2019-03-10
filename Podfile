@@ -9,6 +9,7 @@ target 'BayPass' do
   pod 'SwiftFormat/CLI'
   pod 'SnapKit', '~> 4.0.0'
   pod 'Alamofire'
+  pod "PromiseKit", "~> 6.8"
   
   target 'BayPassTests' do
     inherit! :search_paths
