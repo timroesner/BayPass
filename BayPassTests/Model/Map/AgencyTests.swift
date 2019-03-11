@@ -20,7 +20,6 @@ class AgencyTests: XCTestCase {
     }
 
     func test_Agency_BuildsThePath() {
-        let name = "Test"
         let subject = Agency(rawValue: "BAR")
 
         XCTAssertEqual(subject, Agency.BART)
