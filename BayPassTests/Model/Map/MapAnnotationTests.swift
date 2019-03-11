@@ -50,7 +50,7 @@ class MapAnnotationTests: XCTestCase {
 
     func testStationInit() {
         let location = CLLocation(latitude: 34.8, longitude: -121.6)
-        let station = Station(name: "Mill", code: 3, transitModes: [TransitMode.bart], lines: [Line(name: "name", agency: Agency.BART, destination: "Some", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)], location: location)
+        let station = Station(name: "Mill", code: 3, transitModes: [TransitMode.bus], lines: [Line(name: "name", agency: Agency.BART, destination: "Some", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)], location: location)
         let annotation = MapAnnotation(fromStation: station)
 
         assert(annotation.title == station.name)
