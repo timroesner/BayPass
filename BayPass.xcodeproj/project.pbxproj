@@ -20,6 +20,8 @@
 		222A9274221A734000FD1367 /* GoogleDirections.json in Resources */ = {isa = PBXBuildFile; fileRef = 222A9273221A734000FD1367 /* GoogleDirections.json */; };
 		222A9276221A7DE900FD1367 /* GMPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222A9275221A7DE900FD1367 /* GMPolyline.swift */; };
 		2235A97321B8F672009EDAC7 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227796CB21B6251F00BAF6BA /* Credentials.swift */; };
+		223AF96E22265949009EA730 /* StationSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */; };
+		223AF97022278209009EA730 /* StationSearchResultTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AF96F22278209009EA730 /* StationSearchResultTableViewCellTests.swift */; };
 		223AF97222278965009EA730 /* DestinationSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */; };
 		223AF97422279289009EA730 /* DestinationSearchResultTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AF97322279289009EA730 /* DestinationSearchResultTableViewCellTests.swift */; };
 		224662E12228F7D200E86C66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662E02228F7D200E86C66 /* SearchViewController.swift */; };
@@ -35,8 +37,6 @@
 		224662F5222B4BE600E86C66 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F4222B4BE600E86C66 /* UIViewController.swift */; };
 		224662F7222B557600E86C66 /* SearchFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F6222B557600E86C66 /* SearchFloatView.swift */; };
 		224662F9222B5A0B00E86C66 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F8222B5A0B00E86C66 /* CustomTextField.swift */; };
-		223AF96E22265949009EA730 /* StationSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */; };
-		223AF97022278209009EA730 /* StationSearchResultTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AF96F22278209009EA730 /* StationSearchResultTableViewCellTests.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
 		2262C31621829E4A000586EE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31521829E4A000586EE /* Collection.swift */; };
