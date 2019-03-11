@@ -18,12 +18,13 @@ class DestinationRoutingTests: XCTestCase {
 
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         let app = XCUIApplication()
+        app.launchArguments = ["UITests"]
         app.launch()
         let locationAlert = app.alerts.firstMatch
         if locationAlert.exists {
             locationAlert.buttons["Allow"].tap()
         }
-        //app.tap()
+        app.tap()
     }
 
     override func tearDown() {
