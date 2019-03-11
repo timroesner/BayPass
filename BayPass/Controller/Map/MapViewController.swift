@@ -27,7 +27,6 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupLocation()
-        // setupRoutesView(with: [Route(departureTime: Date(), arrivalTime: Date(timeIntervalSinceNow: 3000), segments: []), Route(departureTime: Date(), arrivalTime: Date(timeIntervalSinceNow: 6000), segments: [])])
     }
 
     func setupViews() {
