@@ -10,11 +10,13 @@ import UIKit
 
 struct Agency {
     var name: String
+    var icon: UIImage
     var routes: [Line]
 
-    init(name: String, routes: [Line]) {
+    init(name: String, routes: [Line], icon: UIImage) {
         self.name = name
         self.routes = routes
+        self.icon = icon
     }
 
     func getRoutes() -> [Line] {
