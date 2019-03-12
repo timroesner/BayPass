@@ -16,14 +16,14 @@ class Here {
     let group = DispatchGroup()
 
     // Returns an agency for given Station ID
-    func getAgencyFromStationId(stationId: Int, completion: @escaping (Agency) -> Void) {
+    func getAgencyFromStationId(stationId: Int, time: String, completion: @escaping (Agency) -> Void) {
         let param = [
             "app_id": Credentials().hereAppID,
             "app_code": Credentials().hereAppCode,
             "lang": "en",
             "stnIds": stationId,
             "max": 2,
-            "time": "2019-06-24T08%3A00%3A00", // TODO: Remember to change
+            "time": time,
         ] as [String: Any]
         var results = Agency.zero
         Alamofire.request("https://transit.api.here.com/v3/multiboard/by_stn_ids.json?", method: .get, parameters: param).responseJSON { response in
@@ -31,11 +31,10 @@ class Here {
                 let resJson = json["Res"] as? [String: Any],
                 let multiNextDepartures = resJson["MultiNextDepartures"] as? [String: Any],
                 let multiNextDeparture = multiNextDepartures["MultiNextDeparture"] as? [[String: Any]] {
-                var count = multiNextDeparture.count - 1
                 for nextDeparture in multiNextDeparture {
                     if let agency = self.parseOperatorFromStationId(from: nextDeparture) {
-                        results = Agency(rawValue: agency) ?? Agency.zero
-                        print("\(stationId) : \(Agency(rawValue: agency))")
+                        results = agency
+//                        print("\(stationId) : \(Agency(rawValue: agency))")
                         completion(results)
                     }
                 }
@@ -106,7 +105,7 @@ class Here {
         }
     }
 
-    func getLine(stationId: Int, completion: @escaping ([Line]) -> Void) {
+    func getLine(stationId: Int, time _: String, completion: @escaping ([Line]) -> Void) {
         let param = [
             "app_id": Credentials().hereAppID,
             "app_code": Credentials().hereAppCode,
@@ -130,7 +129,7 @@ class Here {
         }
     }
 
-    func getAgency(stationId: Int, time: String, completion: @escaping (String) -> Void) {
+    func getAgency(stationId: Int, time: String, completion: @escaping (Agency) -> Void) {
         // TODO: Change time from String to timeStamp
         let param = [
             "app_id": Credentials().hereAppID,
@@ -141,7 +140,7 @@ class Here {
             "time": time,
         ] as [String: Any]
 
-        var results: String = ""
+        var results: Agency = Agency.zero
 
         Alamofire.request("https://transit.api.here.com/v3/multiboard/by_stn_ids.json?", method: .get, parameters: param).responseJSON { response in
             if let json = response.result.value as? [String: Any],
@@ -150,10 +149,11 @@ class Here {
                 let multiNextDeparture = multiNextDepartures["MultiNextDeparture"] as? [[String: Any]] {
                 for nextDeparture in multiNextDeparture {
                     if let agency = self.parseOperatorFromStationId(from: nextDeparture) {
-                        results.append(agency)
+                        results = agency
                     }
                 }
                 completion(results)
+//                print(results.rawValue)
             }
         }
     }
@@ -164,7 +164,7 @@ class Here {
         for station in stationIds {
             group.enter()
             getAgency(stationId: station, time: time) { resp in
-                results[station] = Agency(rawValue: resp) ?? Agency.zero
+                results[station] = resp ?? Agency.zero
                 self.group.leave()
             }
         }
@@ -178,12 +178,12 @@ class Here {
 
     func parseStationForId(from json: [String: Any]) -> Int? {
         let stationIdString = json["id"] as? String
-        var stationId = Int(stationIdString!)
+        let stationId = Int(stationIdString!)
 
         return stationId
     }
 
-    func parseOperatorFromStationId(from json: [String: Any]) -> String? {
+    func parseOperatorFromStationId(from json: [String: Any]) -> Agency? {
         var abbrv = ""
         let nextDepartures = json["NextDepartures"] as? [String: Any]
         let operators = nextDepartures?["Operators"] as? [String: Any]
@@ -191,7 +191,7 @@ class Here {
             let op1 = op.first {
             abbrv = op1["short_name"] as! String // TODO:
         }
-        return abbrv
+        return Agency(rawValue: abbrv)
     }
 
     func parseStation(from json: [String: Any]) -> Station? {
@@ -220,9 +220,6 @@ class Here {
             let transitMode = transitModeConvert(num: modeNum ?? 0)
             var ag = Agency.zero
             transitModes.append(transitMode)
-            getAgency(stationId: codeNum ?? 0, time: "2019-06-24T08%3A00%3A00") { resp in
-                ag = Agency(rawValue: resp) ?? Agency.zero
-            }
             lines.append(Line(name: lineName ?? "", agency: ag, destination: lineDestination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)) // TODO: Fix Agency
         }
         return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location)
@@ -239,19 +236,17 @@ class Here {
         let at = tranport?["As"] as? [String: Any]
         let colorString = at?["color"] as? String
         let color = UIColor(hexString: colorString ?? "")
-        var agencyAbbrv: String?
+        var agencyAbbrv: Agency?
 
         getAgency(stationId: stationID, time: "2019-06-24T08%3A00%3A00", completion: { agencyAb in
             agencyAbbrv = agencyAb
         })
 
-        let abrv = Agency(rawValue: agencyAbbrv ?? "")
-
-        return Line(name: name ?? "", agency: abrv ?? Agency(rawValue: "AC")!, destination: destination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)
+        return Line(name: name ?? "", agency: agencyAbbrv ?? Agency.zero, destination: destination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)
     }
 
     func transitModeConvert(num: Int) -> TransitMode {
-        switch num { // TODO: Fix this
+        switch num {
         case 5:
             return TransitMode.bus
         case 3:
