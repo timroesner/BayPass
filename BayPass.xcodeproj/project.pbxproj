@@ -71,6 +71,7 @@
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
+		6AC9EA0C223759500095138E /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9EA0B223759500095138E /* NSDate.swift */; };
 		99F786221FF0E8DAF44AE47F /* Pods_BayPassUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BF9D28DD79B0405EBB5C4F /* Pods_BayPassUITests.framework */; };
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
 		EC3B66A822278C8F004FFA23 /* PurchasedTicketCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */; };
@@ -163,6 +164,7 @@
 		6ABF9835218250B0006878E4 /* Agency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agency.swift; sourceTree = "<group>"; };
 		6ABF9836218250B0006878E4 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6ABF9837218250B1006878E4 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		6AC9EA0B223759500095138E /* NSDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
 		6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F72F642230417D00A8BC0A /* BackButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonUITests.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				2262C31B2182A3D1000586EE /* MKPolyline.swift */,
 				2227C3E9219C198A00053294 /* CAGradientLayer.swift */,
 				222A9275221A7DE900FD1367 /* GMPolyline.swift */,
+				6AC9EA0B223759500095138E /* NSDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				6ABF983B218250B1006878E4 /* Line.swift in Sources */,
 				6A009190217EACCD0087A32B /* Scooter.swift in Sources */,
 				6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */,
+				6AC9EA0C223759500095138E /* NSDate.swift in Sources */,
 				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
 				2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */,
 				2262C31621829E4A000586EE /* Collection.swift in Sources */,

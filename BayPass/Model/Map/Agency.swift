@@ -17,10 +17,7 @@ enum Agency: String {
     case Muni = "SF" // San Francisco Municipal Transportation Agency
     case UnionCity = "UC" // Union City Transit
     case ACE = "99" // Altamont Corridor Express
-    case SolTrans = "247" // SolsTrans
-<<<<<<< HEAD
-    case zero = "0"
-=======
+    case SolTrans = "247" // SolsTrans\
     case zero = "0" // Debugging
 
     var stringValue: String {
@@ -47,7 +44,6 @@ enum Agency: String {
             return ""
         }
     }
->>>>>>> changes for agency
 
     func getIcon() -> UIImage {
         switch self {
