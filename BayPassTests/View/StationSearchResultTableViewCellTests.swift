@@ -22,12 +22,19 @@ class StationSearchResultTableViewCellTests: XCTestCase {
 
     func testSetupDiridon() {
         let cell = StationSearchResultTableViewCell()
+<<<<<<< HEAD
         let station = Station(name: "San Jose Diridon", code: 112, transitModes: [.bus, .lightRail, .calTrain], lines: ["Cal", "922", "923", "17", "64"], location: CLLocation(latitude: 0.0, longitude: 0.0))
+=======
+        let line1 = Line(name: "Cal", agency: Agency.VTA, destination: "somewhere", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+        let line2 = Line(name: "Cal", agency: Agency.Muni, destination: "somewhere", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.lightRail)
+        let line3 = Line(name: "Cal", agency: Agency.CalTrain, destination: "somewhere", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.calTrain)
+        let station = Station(name: "San Jose Diridon", code: 112, transitModes: [.bus, .lightRail, .calTrain], lines: [line1, line2, line3], location: CLLocation(latitude: 0.0, longitude: 0.0))
+>>>>>>> changes for agency
         cell.setup(with: station)
         
         XCTAssertEqual(cell.title.text, "San Jose Diridon")
         XCTAssertEqual(cell.iconView.image, UIImage(named: "CalTrain"))
-        XCTAssertEqual(cell.lineView.subviews.count, 5)
+        XCTAssertEqual(cell.lineView.subviews.count, 3)
     }
     
     func testSetupSanFernando() {
