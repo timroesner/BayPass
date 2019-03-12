@@ -45,10 +45,14 @@ class StationSearchResultTableViewCell: UITableViewCell {
     }
 
     func setup(with station: Station) {
+        var lines: [String] = []
         title.text = station.name
         iconView.tintColor = UIColor(hex: 0x9B9B9B)
         iconView.image = station.getIcon()
-        setLineView(with: station.lines)
+        for line in station.lines {
+            lines.append(line.name)
+        }
+        setLineView(with: lines)
     }
 
     private func setLineView(with lines: [String]) {
