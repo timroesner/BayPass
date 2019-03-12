@@ -28,16 +28,19 @@ class BackButtonUITests: XCTestCase {
         let app = XCUIApplication()
         let tabBarsQuery = app.tabBars
         
-        //Ticket
+//        Ticket
         tabBarsQuery.buttons["Ticket"].tap()
-        app.buttons["ticket checkout"].tap()
+        app.buttons["Ticket Checkout"].tap()
+        let ticketBack = XCUIApplication().buttons["Tickets"]
+        XCTAssert(ticketBack.exists)
         app.navigationBars["Ticket Checkout"].buttons["Tickets"].tap()
         
         //Clipper
         tabBarsQuery.buttons["Clipper"].tap()
-        app.buttons["add cash value"].tap()
+        app.buttons["Add Cash Value"].tap()
+        let clipperBack = XCUIApplication().buttons["Clipper"]
+        XCTAssert(clipperBack.exists)
         app.navigationBars["Add Cash Value"].buttons["Clipper"].tap()
-        
     }
     
 }

@@ -35,7 +35,7 @@ class ClipperViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         view.addSubview(button)
-        
+
         // Make SnapKit contraints for button here
         button.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(self.view.snp.bottomMargin).inset(20)
