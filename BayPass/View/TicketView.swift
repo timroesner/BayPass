@@ -14,10 +14,10 @@ class TicketView: UIView {
     let nameLbl = UILabel()
     let imageView = UIImageView()
 
-    public init(agency: String, icon: UIImage, cornerRadius: CGFloat) {
+    public init(agency: Agency, icon: UIImage, cornerRadius: CGFloat) {
         super.init(frame: CGRect.zero)
 
-        let agencyNoSpaces = agency.replacingOccurrences(of: " ", with: "")
+        let agencyNoSpaces = agency.stringValue.replacingOccurrences(of: " ", with: "")
         gradient = CAGradientLayer(topColor: UIColor(named: "light\(agencyNoSpaces)") ?? UIColor(hex: 0x000), bottomColor: UIColor(named: "dark\(agencyNoSpaces)") ?? UIColor(hex: 0x000))
         gradient.cornerRadius = cornerRadius
         layer.addSublayer(gradient)
@@ -26,7 +26,7 @@ class TicketView: UIView {
         imageView.image = icon
         addSubview(imageView)
 
-        nameLbl.text = agency
+        nameLbl.text = agency.stringValue
         nameLbl.textColor = .white
         nameLbl.numberOfLines = 0
         addSubview(nameLbl)

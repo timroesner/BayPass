@@ -42,10 +42,10 @@ class HereTests: XCTestCase {
     func testGetAgencyFromStationId() {
         let ex = expectation(description: "Here for getting Agency")
         let stationId: Int = 718_310_131
-
+        let time = "2019-06-24T08%3A00%3A00"
         var result: Agency?
 
-        Here().getAgencyFromStationId(stationId: stationId) { resp in
+        Here().getAgencyFromStationId(stationId: stationId, time: time) { resp in
             result = resp
             ex.fulfill()
         }
@@ -74,9 +74,10 @@ class HereTests: XCTestCase {
     func testGetLine() {
         let ex = expectation(description: "Here for getting Line from a Station ID")
         let stationId: Int = 718_310_131
+        let time = "2019-06-24T08%3A00%3A00"
 
         var results: [Line]?
-        Here().getLine(stationId: stationId) { resp in
+        Here().getLine(stationId: stationId, time: time) { resp in
             results = resp
             ex.fulfill()
         }
