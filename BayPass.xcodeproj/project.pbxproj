@@ -635,7 +635,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -648,7 +648,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B9A2D893FD1E3C201701D762 /* [CP] Check Pods Manifest.lock */ = {
