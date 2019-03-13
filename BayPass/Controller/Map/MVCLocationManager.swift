@@ -21,7 +21,7 @@ extension MapViewController: CLLocationManagerDelegate {
         if let userLocation = locationManager.location?.coordinate {
             let region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
             mapView.setRegion(region, animated: true)
-            Bird().getScooters(fromLocation: userLocation, radius: 5000.0) { (scooters) in
+            Bird().getScooters(fromLocation: userLocation, radius: 5000.0) { scooters in
                 let annotations = scooters.map({ MapAnnotation(fromScooter: $0) })
                 self.mapView.addAnnotations(annotations)
             }
