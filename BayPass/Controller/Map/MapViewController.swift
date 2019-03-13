@@ -16,7 +16,7 @@ class MapViewController: UIViewController {
     private(set) var mapView = MKMapView()
     let bottomSheet = OverlayContainerViewController(style: .rigid)
     let searchVC = SearchViewController()
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
     var notchPercentages = [CGFloat]()
 
     // Route Search properties
