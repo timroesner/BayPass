@@ -48,6 +48,8 @@
 		6A00919A217EAFFE0087A32B /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A009199217EAFFE0087A32B /* Ticket.swift */; };
 		6A18FDBB2235AFB7002047B9 /* HereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A18FDBA2235AFB7002047B9 /* HereTests.swift */; };
 		6A3F2CB621816B46006DA755 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F2CB521816B46006DA755 /* Route.swift */; };
+		6A6B67672238A7C20069C226 /* Here.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A6B67662238A7C20069C226 /* Here.json */; };
+		6A6B67692238AB550069C226 /* HereAgency.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A6B67682238AB550069C226 /* HereAgency.json */; };
 		6A9261D62227663F009B61DF /* Here.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9261D52227663F009B61DF /* Here.swift */; };
 		6AAFCD1121853C59004021E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049D9D214C9DF0007FF904 /* AppDelegate.swift */; };
 		6AAFCD1421853C59004021E8 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */; };
@@ -146,6 +148,8 @@
 		6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = BayPass/Model/Map/MapAnnotation.swift; sourceTree = SOURCE_ROOT; };
 		6A18FDBA2235AFB7002047B9 /* HereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HereTests.swift; sourceTree = "<group>"; };
 		6A3F2CB521816B46006DA755 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		6A6B67662238A7C20069C226 /* Here.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Here.json; path = ../../../../../../Downloads/Here.json; sourceTree = "<group>"; };
+		6A6B67682238AB550069C226 /* HereAgency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = HereAgency.json; path = ../../../../../../Downloads/HereAgency.json; sourceTree = "<group>"; };
 		6A9261D52227663F009B61DF /* Here.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Here.swift; sourceTree = "<group>"; };
 		6AAFCD1921854723004021E8 /* ScooterCompanyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScooterCompanyTests.swift; sourceTree = "<group>"; };
 		6AB6ECFB21867F1700A81302 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				222A9273221A734000FD1367 /* GoogleDirections.json */,
+				6A6B67662238A7C20069C226 /* Here.json */,
+				6A6B67682238AB550069C226 /* HereAgency.json */,
 			);
 			path = testJson;
 			sourceTree = "<group>";
@@ -567,7 +573,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6B67692238AB550069C226 /* HereAgency.json in Resources */,
 				222A9274221A734000FD1367 /* GoogleDirections.json in Resources */,
+				6A6B67672238A7C20069C226 /* Here.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
