@@ -10,8 +10,8 @@ import SnapKit
 import UIKit
 
 class PurchasedTicketCell: UITableViewCell {
-    var ticketView = TicketView(agency: "ACE", icon: UIImage(named: "CalTrain")!, cornerRadius: 8)
-    // var ticketView: TicketView?
+    var ticketView = TicketView(agency: "ACE", icon: UIImage(named: "Bus")!, cornerRadius: 8)
+    // var ticketView: TicketView
     let nameLbl = UILabel()
     let durationLbl = UILabel()
     let showLbl = UILabel()
@@ -61,7 +61,14 @@ class PurchasedTicketCell: UITableViewCell {
     func setup(with ticket: Ticket) {
         nameLbl.text = ticket.name
         ticketView = TicketView(agency: ticket.validOnAgency.name, icon: ticket.validOnAgency.icon, cornerRadius: 8)
-
+        addSubview(ticketView)
+        ticketView.snp.makeConstraints({ (make) -> Void in
+            make.height.equalTo(60)
+            make.width.equalTo(95)
+            make.top.equalToSuperview().offset(16)
+            make.left.equalToSuperview().offset(16)
+        })
+        
         if let dur = ticket.duration {
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = TimeZone(identifier: "America/Los_Angeles")
