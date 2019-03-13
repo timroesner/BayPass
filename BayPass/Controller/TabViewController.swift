@@ -27,14 +27,3 @@ class TabViewController: UITabBarController {
         viewControllers = viewControllerList
     }
 }
-
-extension UIViewController {
-    func addLabel(title: String) {
-        let label = UILabel()
-        label.text = title
-        label.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label)
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
-}
