@@ -13,7 +13,7 @@ enum Agency: String {
     case VTA = "SC" // VTA
     case BART = "BAR" // Bart
     case CalTrain = "CT" // Caltrain
-    case GoldenGateTransit
+    case GoldenGateTransit = "GGT"
     case Muni = "SF" // San Francisco Municipal Transportation Agency
     case UnionCity = "UC" // Union City Transit
     case ACE = "99" // Altamont Corridor Express
