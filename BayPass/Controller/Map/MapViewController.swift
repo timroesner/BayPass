@@ -32,6 +32,7 @@ class MapViewController: UIViewController {
     func setupViews() {
         mapView.showsUserLocation = true
         mapView.delegate = self
+        mapView.register(MarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         centerOnUserLocation()
         view.addSubview(mapView)
         mapView.snp.makeConstraints { make in

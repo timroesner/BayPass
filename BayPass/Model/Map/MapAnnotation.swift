@@ -12,6 +12,7 @@ import UIKit
 
 class MapAnnotation: NSObject, MKAnnotation {
     var title: String?
+    var subtitle: String?
     var coordinate: CLLocationCoordinate2D
     var icon: UIImage
     var color: UIColor
@@ -25,6 +26,7 @@ class MapAnnotation: NSObject, MKAnnotation {
 
     init(fromScooter: Scooter) {
         title = "\(fromScooter.company.name) Scooter"
+        subtitle = "\(fromScooter.battery)%"
         coordinate = fromScooter.location.coordinate
         icon = fromScooter.company.icon
         color = fromScooter.company.color
@@ -42,5 +44,15 @@ class MapAnnotation: NSObject, MKAnnotation {
         coordinate = fromBikeDock.location.coordinate
         icon = fromBikeDock.icon
         color = fromBikeDock.color
+    }
+}
+
+class MarkerView: MKMarkerAnnotationView {
+    override var annotation: MKAnnotation? {
+        willSet {
+            guard let annotation = newValue as? MapAnnotation else { return }
+            markerTintColor = annotation.color
+            glyphImage = annotation.icon
+        }
     }
 }
