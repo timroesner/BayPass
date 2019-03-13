@@ -24,4 +24,16 @@ class AgencyTests: XCTestCase {
 
         XCTAssertEqual(subject, Agency.BART)
     }
+
+    func testStringValue() {
+        let subject = Agency.ACTransit
+
+        XCTAssertEqual(subject.stringValue, "AC Transit")
+    }
+
+    func testGetIcone() {
+        let subject = Agency.ACTransit
+
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
 }
