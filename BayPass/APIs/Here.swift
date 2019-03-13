@@ -254,7 +254,7 @@ class Here {
         let color = UIColor(hexString: colorString ?? "")
         var agencyAbbrv: Agency?
 
-        getAgency(stationId: stationID, time: time, completion: { agencyAb in // TODO: CHANGE TIME
+        getAgency(stationId: stationID, time: time, completion: { agencyAb in
             agencyAbbrv = agencyAb
         })
 
@@ -263,12 +263,12 @@ class Here {
 
     func transitModeConvert(num: Int) -> TransitMode {
         switch num {
-        case 5:
-            return TransitMode.bus
         case 3:
             return TransitMode.calTrain
+        case 5:
+            return TransitMode.bus
         case 8:
-            return TransitMode.bart
+            return TransitMode.bart // TODO: Try to figure out
         default:
             return TransitMode.lightRail // also  8
         }
