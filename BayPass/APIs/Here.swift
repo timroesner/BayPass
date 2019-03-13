@@ -11,9 +11,7 @@ import Foundation
 import MapKit
 
 class Here {
-    // MARK: Get Requests for here
-
-    let group = DispatchGroup()
+    // MARK: Get Requests for Here
 
     // Returns an agency for given Station ID
     func getAgencyFromStationId(stationId: Int, time: String, completion: @escaping (Agency) -> Void) {
@@ -22,7 +20,7 @@ class Here {
             "app_code": Credentials().hereAppCode,
             "lang": "en",
             "stnIds": stationId,
-            "max": 2,
+            "max": 1,
             "time": time,
         ] as [String: Any]
         var results = Agency.zero
@@ -38,6 +36,9 @@ class Here {
                         completion(results)
                     }
                 }
+            } else {
+                completion(.zero)
+                print("Failed in getting Agency from StationId")
             }
         }
     }
@@ -64,7 +65,7 @@ class Here {
                     }
                 }
 
-                self.getAgencies(stationIds: stations.map { $0.code }, time: "2019-06-24T08%3A00%3A00") { agencyStationIDs in
+                self.getAgencies(stationIds: stations.map { $0.code }, time: "2019-03-24T08%3A00%3A00") { agencyStationIDs in // TODO: Fix
                     for index in 0 ..< stations.count {
                         if let agency = agencyStationIDs[stations[index].code] {
                             for lineIndex in 0 ..< stations[index].lines.count {
@@ -73,7 +74,11 @@ class Here {
                         }
                     }
                     completion(stations)
+                    print(stations)
                 }
+            } else {
+                print("Failed in getting Stations Near By")
+                completion([])
             }
         }
     }
@@ -101,6 +106,9 @@ class Here {
                     }
                 }
                 completion(results)
+            } else {
+                print("Failed in getting Station Ids")
+                completion([0])
             }
         }
     }
@@ -125,12 +133,14 @@ class Here {
                     }
                 }
                 completion(results)
+            } else {
+                print("Failed in getting Lines")
+                completion([])
             }
         }
     }
 
     func getAgency(stationId: Int, time: String, completion: @escaping (Agency) -> Void) {
-        // TODO: Change time from String to timeStamp
         let param = [
             "app_id": Credentials().hereAppID,
             "app_code": Credentials().hereAppCode,
@@ -154,18 +164,24 @@ class Here {
                 }
                 completion(results)
 //                print(results.rawValue)
+            } else {
+                print("Failed in getting Agency")
+                completion(.zero)
             }
         }
     }
 
     func getAgencies(stationIds: [Int], time: String, completion: @escaping ([Int: Agency]) -> Void) {
         var results = [Int: Agency]()
+        let group = DispatchGroup()
 
+        print("Requesting: \(stationIds)")
         for station in stationIds {
             group.enter()
             getAgency(stationId: station, time: time) { resp in
-                results[station] = resp ?? Agency.zero
-                self.group.leave()
+                results[station] = resp
+                print("Got result for station: \(station): \(resp)")
+                group.leave()
             }
         }
 
@@ -189,7 +205,7 @@ class Here {
         let operators = nextDepartures?["Operators"] as? [String: Any]
         if let op = operators?["Op"] as? [[String: Any]],
             let op1 = op.first {
-            abbrv = op1["short_name"] as! String // TODO:
+            abbrv = op1["short_name"] as! String
         }
         return Agency(rawValue: abbrv)
     }
@@ -220,7 +236,7 @@ class Here {
             let transitMode = transitModeConvert(num: modeNum ?? 0)
             var ag = Agency.zero
             transitModes.append(transitMode)
-            lines.append(Line(name: lineName ?? "", agency: ag, destination: lineDestination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)) // TODO: Fix Agency
+            lines.append(Line(name: lineName ?? "", agency: ag, destination: lineDestination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode))
         }
         return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location)
     }
@@ -238,7 +254,7 @@ class Here {
         let color = UIColor(hexString: colorString ?? "")
         var agencyAbbrv: Agency?
 
-        getAgency(stationId: stationID, time: "2019-06-24T08%3A00%3A00", completion: { agencyAb in
+        getAgency(stationId: stationID, time: "2019-03-24T08%3A00%3A00", completion: { agencyAb in // TODO: CHANGE TIME
             agencyAbbrv = agencyAb
         })
 
