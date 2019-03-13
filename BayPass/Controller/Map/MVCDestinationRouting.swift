@@ -12,9 +12,15 @@ import UIKit
 
 extension MapViewController: UIScrollViewDelegate {
     func displayRoute(to destination: MKMapItem) {
-        guard let userLocation = locationManager.location?.coordinate else {
-            displayAlert(title: "User Location unknown", msg: "Please allow BayPass to access your current location, to plan a route to this destination.", dismissAfter: false)
-            return
+        var userLocation: CLLocationCoordinate2D
+        if ProcessInfo.processInfo.arguments.contains("UITests") {
+            userLocation = CLLocationCoordinate2D(latitude: 37.331348, longitude: -121.888877)
+        } else {
+            guard let realUserLocation = locationManager.location?.coordinate else {
+                displayAlert(title: "User Location unknown", msg: "Please allow BayPass to access your current location, to plan a route to this destination.", dismissAfter: false)
+                return
+            }
+            userLocation = realUserLocation
         }
 
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
