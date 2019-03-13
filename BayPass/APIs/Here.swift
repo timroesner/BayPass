@@ -139,7 +139,6 @@ class Here {
             }
         }
     }
-        
 
     func getAgency(stationId: Int, time: String, completion: @escaping (Agency) -> Void) {
         let param = [
