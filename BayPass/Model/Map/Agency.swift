@@ -50,10 +50,24 @@ enum Agency: String {
 
     func getIcon() -> UIImage {
         switch self {
+        case .ACTransit:
+            return #imageLiteral(resourceName: "Bus")
         case .BART:
             return #imageLiteral(resourceName: "BART")
         case .CalTrain:
             return #imageLiteral(resourceName: "CalTrain")
+        case .GoldenGateTransit:
+            return #imageLiteral(resourceName: "Bus")
+        case .Muni:
+            return #imageLiteral(resourceName: "Bus")
+        case .UnionCity:
+            return #imageLiteral(resourceName: "Bus")
+        case .ACE:
+            return #imageLiteral(resourceName: "CalTrain")
+        case .SamsTrans:
+            return #imageLiteral(resourceName: "Bus")
+        case .SolTrans:
+            return #imageLiteral(resourceName: "Bus")
         default:
             return #imageLiteral(resourceName: "CalTrain")
         }
