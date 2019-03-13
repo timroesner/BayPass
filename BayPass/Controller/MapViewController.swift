@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
         view.backgroundColor = .white
         addLabel(title: "Map")
 
-        let ticketView = TicketView(agency: "ACE", icon: #imageLiteral(resourceName: "Bus"), cornerRadius: 12)
+        let ticketView = TicketView(agency: Agency.ACE, icon: #imageLiteral(resourceName: "Bus"), cornerRadius: 12)
         view.addSubview(ticketView)
 
         ticketView.snp.makeConstraints({ (make) -> Void in
