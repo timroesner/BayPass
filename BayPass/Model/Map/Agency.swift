@@ -18,6 +18,7 @@ enum Agency: String {
     case UnionCity = "UC" // Union City Transit
     case ACE = "99" // Altamont Corridor Express
     case SolTrans = "247" // SolsTrans
+    case SamsTrans = "sam" // SamsTrans
     case zero = "0" // Debugging
 
     var stringValue: String {
@@ -38,6 +39,8 @@ enum Agency: String {
             return "Union City Transit"
         case .ACE:
             return "ACE"
+        case .SamsTrans:
+            return "SamsTrans"
         case .SolTrans:
             return "SolsTrans"
         default:

@@ -113,7 +113,7 @@ class Here {
         }
     }
 
-    func getLine(stationId: Int, time _: String, completion: @escaping ([Line]) -> Void) {
+    func getLine(stationId: Int, time: String, completion: @escaping ([Line]) -> Void) {
         let param = [
             "app_id": Credentials().hereAppID,
             "app_code": Credentials().hereAppCode,
@@ -128,7 +128,7 @@ class Here {
                 let linesJson = resJson["LineInfos"] as? [String: Any],
                 let lineJson = linesJson["LineInfo"] as? [[String: Any]] {
                 for line in lineJson {
-                    if let line = self.parseLine(from: line, stationID: stationId) {
+                    if let line = self.parseLine(from: line, stationID: stationId, time: time) {
                         results.append(line)
                     }
                 }
@@ -241,7 +241,7 @@ class Here {
         return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location)
     }
 
-    func parseLine(from json: [String: Any], stationID: Int) -> Line? {
+    func parseLine(from json: [String: Any], stationID: Int, time: String) -> Line? {
         let tranport = json["Transport"] as? [String: Any]
         let name = tranport?["name"] as? String
         let destination = tranport?["dir"] as? String
@@ -254,7 +254,7 @@ class Here {
         let color = UIColor(hexString: colorString ?? "")
         var agencyAbbrv: Agency?
 
-        getAgency(stationId: stationID, time: "2019-03-24T08%3A00%3A00", completion: { agencyAb in // TODO: CHANGE TIME
+        getAgency(stationId: stationID, time: time, completion: { agencyAb in // TODO: CHANGE TIME
             agencyAbbrv = agencyAb
         })
 
