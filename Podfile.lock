@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (4.8.1)
+  - PromiseKit (6.8.3):
+    - PromiseKit/CorePromise (= 6.8.3)
+    - PromiseKit/Foundation (= 6.8.3)
+    - PromiseKit/UIKit (= 6.8.3)
+  - PromiseKit/CorePromise (6.8.3)
+  - PromiseKit/Foundation (6.8.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.3):
+    - PromiseKit/CorePromise
+  - SnapKit (4.0.1)
+  - SwiftFormat/CLI (0.39.5)
+
+DEPENDENCIES:
+  - Alamofire
+  - PromiseKit (~> 6.8)
+  - SnapKit (~> 4.0.0)
+  - SwiftFormat/CLI
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - PromiseKit
+    - SnapKit
+    - SwiftFormat
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SwiftFormat: 082b6ee68dbf8ba1bee9e8cd508ddb094f535fbb
+
+PODFILE CHECKSUM: c122e1a022329265814f4b095352637670a58c47
+
+COCOAPODS: 1.5.3
