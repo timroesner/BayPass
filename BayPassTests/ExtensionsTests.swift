@@ -49,6 +49,11 @@ class ExtensionsTests: XCTestCase {
         assert("Hello".localized() == "Hello")
     }
     
+    func testAlert() {
+        let vc = ClipperViewController()
+        vc.displayAlert(title: "Test", msg: "message", dismissAfter: true)
+    }
+    
     func testPolyline() {
         let coordinates = [CLLocationCoordinate2D(latitude: 133.81, longitude: 22.61), CLLocationCoordinate2D(latitude: 122.81, longitude: 36.61)]
         let expected = MKPolyline(coordinates: coordinates, count: coordinates.count)
