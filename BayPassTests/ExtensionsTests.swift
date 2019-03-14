@@ -33,6 +33,10 @@ class ExtensionsTests: XCTestCase {
         XCTAssertEqual(testColor, UIColor(string: colorString))
     }
     
+    func testIllegalColorEncoding() {
+        XCTAssertTrue(UIColor(white: 0.5, alpha: 1.0).encode() == nil)
+    }
+    
     func testUIColorBase255() {
         let expecetd = UIColor(red: 156.0/255.0, green: 0, blue: 1, alpha: 1)
         let base255 = UIColor(red: 156, green: 0, blue: 255)
@@ -50,8 +54,16 @@ class ExtensionsTests: XCTestCase {
     }
     
     func testAlert() {
-        let vc = ClipperViewController()
+        let vc = UIViewController()
         vc.displayAlert(title: "Test", msg: "message", dismissAfter: true)
+    }
+    
+    func testDismissOrPop() {
+        let vc = UIViewController()
+        vc.dismissOrPop(animated: true)
+        
+        let navVC = UINavigationController()
+        navVC.dismissOrPop(animated: true)
     }
     
     func testPolyline() {

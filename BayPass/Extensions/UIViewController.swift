@@ -13,14 +13,18 @@ extension UIViewController {
         let confirm = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         confirm.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (_: UIAlertAction) in
             if dismissAfter {
-                if let navController = self.navigationController {
-                    navController.popViewController(animated: true)
-                } else {
-                    self.dismiss(animated: true, completion: nil)
-                }
+                self.dismissOrPop(animated: true)
             }
         }))
 
         present(confirm, animated: true, completion: nil)
+    }
+
+    func dismissOrPop(animated: Bool) {
+        if let navController = self.navigationController {
+            navController.popViewController(animated: animated)
+        } else {
+            dismiss(animated: animated, completion: nil)
+        }
     }
 }

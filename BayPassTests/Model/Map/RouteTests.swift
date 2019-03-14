@@ -31,4 +31,11 @@ class RouteTests: XCTestCase {
         assert(route.arrivalTime == arrTime)
         assert(route.segments == segments)
     }
+    
+    func testEmptyBoundingRect() {
+        let depTime = Date(timeIntervalSinceNow: 60)
+        let arrTime = Date(timeIntervalSinceNow: 240)
+        let testRoute = Route(departureTime: depTime, arrivalTime: arrTime, segments: [])
+        XCTAssertTrue(testRoute.getBoundingMapRect() == nil)
+    }
 }
