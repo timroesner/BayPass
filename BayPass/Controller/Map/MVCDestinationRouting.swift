@@ -109,6 +109,7 @@ extension MapViewController: UIScrollViewDelegate {
             }
         }
         mapView.removeOverlays(mapView.overlays)
+        mapView.removeAnnotations(mapView.annotations)
         centerOnUserLocation()
         setupSearchView()
         addChild(bottomSheet, in: view)
