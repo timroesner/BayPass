@@ -55,6 +55,7 @@ class DestinationSearchResultTableViewCell: UITableViewCell {
     }
 
     required init?(coder _: NSCoder) {
-        fatalError("NSCoder has not been implemented for DestinationSearchResultTableViewCell")
+        print("NSCoder not supported in DestinationSearchResultTableViewCell")
+        return nil
     }
 }

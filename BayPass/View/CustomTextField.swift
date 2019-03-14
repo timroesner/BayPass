@@ -49,6 +49,7 @@ class CustomTextField: UIView {
     }
 
     required init?(coder _: NSCoder) {
-        fatalError("NSCoder has not been implemented for CustomTextField")
+        print("NSCoder not supported in CustomTextField")
+        return nil
     }
 }

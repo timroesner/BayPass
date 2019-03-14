@@ -33,6 +33,10 @@ class ExtensionsTests: XCTestCase {
         XCTAssertEqual(testColor, UIColor(string: colorString))
     }
     
+    func testIllegalColorEncoding() {
+        XCTAssertNil(UIColor(white: 0.5, alpha: 1.0).encode())
+    }
+    
     func testUIColorBase255() {
         let expecetd = UIColor(red: 156.0/255.0, green: 0, blue: 1, alpha: 1)
         let base255 = UIColor(red: 156, green: 0, blue: 255)
@@ -42,7 +46,7 @@ class ExtensionsTests: XCTestCase {
     func testSafeIndex() {
         let array = ["index 0", "index 1"]
         assert(array[safe: 0] == "index 0")
-        assert(array[safe: 2] == nil)
+        XCTAssertNil(array[safe: 2])
     }
     
     func testLocalizedString() {
@@ -50,8 +54,16 @@ class ExtensionsTests: XCTestCase {
     }
     
     func testAlert() {
-        let vc = ClipperViewController()
+        let vc = UIViewController()
         vc.displayAlert(title: "Test", msg: "message", dismissAfter: true)
+    }
+    
+    func testDismissOrPop() {
+        let vc = UIViewController()
+        vc.dismissOrPop(animated: true)
+        
+        let navVC = UINavigationController()
+        navVC.dismissOrPop(animated: true)
     }
     
     func testPolyline() {

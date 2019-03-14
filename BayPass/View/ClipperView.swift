@@ -89,8 +89,8 @@ class ClipperView: UIView {
         cashValueLbl.text = String(format: "$%.2f", cashValue)
     }
 
-    @available(*, unavailable)
     required init?(coder _: NSCoder) {
-        fatalError("NSCoder not supported in TicketView")
+        print("NSCoder not supported in ClipperView")
+        return nil
     }
 }
