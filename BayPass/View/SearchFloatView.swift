@@ -70,6 +70,7 @@ class SearchFloatView: UIView, UITextFieldDelegate {
     }
 
     required init?(coder _: NSCoder) {
-        fatalError("NSCoder has not been implemented for SearchFloatView")
+        print("NSCoder not supported in SearchFloatView")
+        return nil
     }
 }

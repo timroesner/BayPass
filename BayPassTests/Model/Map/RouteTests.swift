@@ -36,6 +36,6 @@ class RouteTests: XCTestCase {
         let depTime = Date(timeIntervalSinceNow: 60)
         let arrTime = Date(timeIntervalSinceNow: 240)
         let testRoute = Route(departureTime: depTime, arrivalTime: arrTime, segments: [])
-        XCTAssertTrue(testRoute.getBoundingMapRect() == nil)
+        XCTAssertNil(testRoute.getBoundingMapRect())
     }
 }

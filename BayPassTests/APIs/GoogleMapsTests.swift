@@ -73,12 +73,12 @@ class GoogleMapsTests: XCTestCase {
     func testRouteParserEmptyJson() {
         let testJson: [String:Any] = [:]
         let testRoute = GoogleMaps().parseRoute(from: testJson)
-        XCTAssertTrue(testRoute == nil)
+        XCTAssertNil(testRoute)
     }
     
     func testSegmentParserEmptyJson() {
         let testJson: [String:Any] = [:]
         let testSegment = GoogleMaps().parseSegment(from: testJson)
-        XCTAssertTrue(testSegment == nil)
+        XCTAssertNil(testSegment)
     }
 }

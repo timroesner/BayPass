@@ -146,6 +146,7 @@ class RouteOverView: UIView {
     }
 
     required init?(coder _: NSCoder) {
-        fatalError("NSCoder has not been implemented for RouteOverView")
+        print("NSCoder not supported in RouteOverView")
+        return nil
     }
 }
