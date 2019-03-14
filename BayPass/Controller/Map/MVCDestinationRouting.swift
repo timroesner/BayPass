@@ -72,8 +72,21 @@ extension MapViewController: UIScrollViewDelegate {
             }
             routeViews.append(routeOverview)
         }
-        let width = (view.frame.width - 32) * CGFloat(routes.count)
-        scrollView.contentSize = CGSize(width: width, height: 130)
+        if routes.isEmpty {
+            let emptyView = EmptyView(text: "Could not find any transit routes")
+            emptyView.layer.cornerRadius = 14
+            emptyView.layer.backgroundColor = UIColor.white.cgColor
+            scrollView.addSubview(emptyView)
+            emptyView.snp.makeConstraints { make in
+                make.top.equalToSuperview().offset(4)
+                make.height.equalTo(122)
+                make.width.equalTo(view.frame.width - 40)
+                make.left.equalToSuperview()
+            }
+        } else {
+            let width = (view.frame.width - 32) * CGFloat(routes.count)
+            scrollView.contentSize = CGSize(width: width, height: 130)
+        }
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
