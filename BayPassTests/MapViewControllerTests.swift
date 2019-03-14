@@ -20,7 +20,7 @@ fileprivate class MockLocationManager : CLLocationManager {
     }
 }
 
-class LocationManagerTests: XCTestCase {
+class MapViewControllerTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -38,6 +38,11 @@ class LocationManagerTests: XCTestCase {
         mapVC.centerOnUserLocation()
         XCTAssertEqual(mockLocationManager.mockLocation?.coordinate.latitude, mapVC.locationManager.location?.coordinate.latitude)
         XCTAssertEqual(mockLocationManager.mockLocation?.coordinate.longitude, mapVC.locationManager.location?.coordinate.longitude)
+    }
+    
+    func testEmptyRoutes() {
+        let mapVC = MapViewController()
+        mapVC.setupRoutesView(with: [])
     }
 
 }
