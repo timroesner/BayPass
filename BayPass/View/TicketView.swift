@@ -87,8 +87,8 @@ class TicketView: UIView {
         })
     }
 
-    @available(*, unavailable)
     required init?(coder _: NSCoder) {
-        fatalError("NSCoder not supported in TicketView")
+        print("NSCoder not supported in TicketView")
+        return nil
     }
 }

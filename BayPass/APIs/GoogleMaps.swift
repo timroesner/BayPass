@@ -88,10 +88,10 @@ class GoogleMaps {
             let departureDate = Date(timeIntervalSince1970: Double(departureInterval))
             let arrivalDate = Date(timeIntervalSince1970: Double(arrivalInterval))
 
-            let lineCode = Int(lineJson["short_name"] as? String ?? "") ?? 0
+            let lineName = lineJson["short_name"] as? String ?? ""
 
             // TODO: This section relies on getting the fare prices from firebase and the line from the API first
-            let line = Line(name: "Test", code: lineCode, destination: "De Anza", stops: [])
+            let line = Line(name: lineName, code: 232, destination: "De Anza", stops: [])
             let waypoints = [Station]()
             let price = 2.50
 

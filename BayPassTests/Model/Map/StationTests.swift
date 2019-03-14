@@ -34,6 +34,11 @@ class StationTests: XCTestCase {
         XCTAssertEqual(subject.lines, lines)
     }
     
+    func testBusIcon() {
+        let station = Station(name: "5th & Santa Clara", code: 14, transitModes: [.bus], lines: [], location: CLLocation(latitude: 34.4, longitude: -121.3))
+        assert(station.getIcon() == UIImage(named: "Bus"))
+    }
+    
     func testCalTrainIcon() {
         let station = Station(name: "Diridon", code: 12, transitModes: [.calTrain, .lightRail, .bus], lines: [], location: CLLocation(latitude: 34.3, longitude: -121.4))
         assert(station.getIcon() == UIImage(named: "CalTrain"))

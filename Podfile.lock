@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (4.8.1)
+  - OverlayContainer (1.1.1)
   - SnapKit (4.0.1)
   - SwiftFormat/CLI (0.39.0)
 
 DEPENDENCIES:
   - Alamofire
+  - OverlayContainer
   - SnapKit (~> 4.0.0)
   - SwiftFormat/CLI
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - OverlayContainer
     - SnapKit
     - SwiftFormat
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  OverlayContainer: 5911b47b27f3fdf1fb989257c76e828dc11c0380
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftFormat: a27a799eeaf246313c3b388ad6d5ae33c78eb6f3
 
-PODFILE CHECKSUM: 4b80073dfe27153b4037287f9f11badf84ac763c
+PODFILE CHECKSUM: 65ce7d126c2376b03bb4b38ffd28677def3ec6d2
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.5.3
