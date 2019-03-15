@@ -70,7 +70,11 @@
 		6A009196217EAF1A0087A32B /* ClipperCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A009195217EAF1A0087A32B /* ClipperCard.swift */; };
 		6A009198217EAF800087A32B /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A009197217EAF800087A32B /* Pass.swift */; };
 		6A00919A217EAFFE0087A32B /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A009199217EAFFE0087A32B /* Ticket.swift */; };
+		6A18FDBB2235AFB7002047B9 /* HereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A18FDBA2235AFB7002047B9 /* HereTests.swift */; };
 		6A3F2CB621816B46006DA755 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F2CB521816B46006DA755 /* Route.swift */; };
+		6A6B67672238A7C20069C226 /* Here.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A6B67662238A7C20069C226 /* Here.json */; };
+		6A6B67692238AB550069C226 /* HereAgency.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A6B67682238AB550069C226 /* HereAgency.json */; };
+		6A9261D62227663F009B61DF /* Here.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9261D52227663F009B61DF /* Here.swift */; };
 		6AAFCD1121853C59004021E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049D9D214C9DF0007FF904 /* AppDelegate.swift */; };
 		6AAFCD1421853C59004021E8 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */; };
 		6AAFCD1A21854723004021E8 /* ScooterCompanyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAFCD1921854723004021E8 /* ScooterCompanyTests.swift */; };
@@ -90,6 +94,7 @@
 		6ABF983A218250B1006878E4 /* Agency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9835218250B0006878E4 /* Agency.swift */; };
 		6ABF983B218250B1006878E4 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9836218250B0006878E4 /* Line.swift */; };
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
+		6AC9EA0C223759500095138E /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9EA0B223759500095138E /* NSDate.swift */; };
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
@@ -188,7 +193,11 @@
 		6A009197217EAF800087A32B /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		6A009199217EAFFE0087A32B /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = BayPass/Model/Map/MapAnnotation.swift; sourceTree = SOURCE_ROOT; };
+		6A18FDBA2235AFB7002047B9 /* HereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HereTests.swift; sourceTree = "<group>"; };
 		6A3F2CB521816B46006DA755 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		6A6B67662238A7C20069C226 /* Here.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Here.json; path = ../../../../../../Downloads/Here.json; sourceTree = "<group>"; };
+		6A6B67682238AB550069C226 /* HereAgency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = HereAgency.json; path = ../../../../../../Downloads/HereAgency.json; sourceTree = "<group>"; };
+		6A9261D52227663F009B61DF /* Here.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Here.swift; sourceTree = "<group>"; };
 		6AAFCD1921854723004021E8 /* ScooterCompanyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScooterCompanyTests.swift; sourceTree = "<group>"; };
 		6AB6ECFB21867F1700A81302 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipperViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +215,7 @@
 		6ABF9835218250B0006878E4 /* Agency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agency.swift; sourceTree = "<group>"; };
 		6ABF9836218250B0006878E4 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6ABF9837218250B1006878E4 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		6AC9EA0B223759500095138E /* NSDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
 		6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F72F642230417D00A8BC0A /* BackButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonUITests.swift; sourceTree = "<group>"; };
@@ -359,6 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				222A9273221A734000FD1367 /* GoogleDirections.json */,
+				6A6B67662238A7C20069C226 /* Here.json */,
+				6A6B67682238AB550069C226 /* HereAgency.json */,
 			);
 			path = testJson;
 			sourceTree = "<group>";
@@ -392,6 +404,7 @@
 				2227C3E9219C198A00053294 /* CAGradientLayer.swift */,
 				222A9275221A7DE900FD1367 /* GMPolyline.swift */,
 				226697E2223A2750005B82EC /* Notification.Name.swift */,
+				6AC9EA0B223759500095138E /* NSDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -404,6 +417,7 @@
 				2212935B223B0C080098D52F /* Lime.swift */,
 				22F09752220683FC009881F8 /* BART.swift */,
 				222A926C221A6D0200FD1367 /* GoogleMaps.swift */,
+				6A9261D52227663F009B61DF /* Here.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -416,6 +430,7 @@
 				2212935D223B0F380098D52F /* LimeTests.swift */,
 				22F097542206868E009881F8 /* BartTests.swift */,
 				222A926E221A721D00FD1367 /* GoogleMapsTests.swift */,
+				6A18FDBA2235AFB7002047B9 /* HereTests.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -636,7 +651,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6B67692238AB550069C226 /* HereAgency.json in Resources */,
 				222A9274221A734000FD1367 /* GoogleDirections.json in Resources */,
+				6A6B67672238A7C20069C226 /* Here.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,13 +672,9 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
 			name = SwiftFormat;
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,14 +686,10 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"$(SRCROOT)/create-credentials.rb",
 			);
 			name = "Import environment variables";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(SRCROOT)/BayPass/APIs/Credentials.swift",
 			);
@@ -711,8 +720,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -720,8 +727,6 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OverlayContainer.framework",
@@ -788,6 +793,7 @@
 				22F09753220683FC009881F8 /* BART.swift in Sources */,
 				6A009198217EAF800087A32B /* Pass.swift in Sources */,
 				6A00919A217EAFFE0087A32B /* Ticket.swift in Sources */,
+				6A9261D62227663F009B61DF /* Here.swift in Sources */,
 				222A926D221A6D0200FD1367 /* GoogleMaps.swift in Sources */,
 				224662ED2229142100E86C66 /* SVCSearchBar.swift in Sources */,
 				224662E12228F7D200E86C66 /* SearchViewController.swift in Sources */,
@@ -806,6 +812,7 @@
 				6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */,
 				224662E52229011F00E86C66 /* SVCDelegate.swift in Sources */,
 				224662F12229204200E86C66 /* EmptyView.swift in Sources */,
+				6AC9EA0C223759500095138E /* NSDate.swift in Sources */,
 				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
 				224662E92229059500E86C66 /* SVCTableView.swift in Sources */,
 				2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */,
@@ -848,6 +855,7 @@
 				ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */,
 				6AB6ED0A218680C300A81302 /* BikeDockTests.swift in Sources */,
 				22F097552206868E009881F8 /* BartTests.swift in Sources */,
+				6A18FDBB2235AFB7002047B9 /* HereTests.swift in Sources */,
 				2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */,
 				223AF97422279289009EA730 /* DestinationSearchResultTableViewCellTests.swift in Sources */,
 				223AF97022278209009EA730 /* StationSearchResultTableViewCellTests.swift in Sources */,
