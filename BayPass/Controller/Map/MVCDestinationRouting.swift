@@ -38,6 +38,8 @@ extension MapViewController: UIScrollViewDelegate {
         GoogleMaps().getRoutes(from: userLocation, to: destination.placemark.coordinate) { routes in
             self.setupRoutesView(with: routes)
         }
+        showLimeScootersOnMap(at: userLocation)
+        showLimeScootersOnMap(at: destination.placemark.coordinate)
     }
 
     func setupRoutesView(with routes: [Route]) {
@@ -110,6 +112,7 @@ extension MapViewController: UIScrollViewDelegate {
         }
         mapView.removeOverlays(mapView.overlays)
         mapView.removeAnnotations(mapView.annotations)
+        routes.removeAll()
         centerOnUserLocation()
         setupSearchView()
         addChild(bottomSheet, in: view)

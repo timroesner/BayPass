@@ -32,9 +32,16 @@ extension MapViewController: MKMapViewDelegate {
         }
         return polylineRenderer
     }
+
+    func showBirdScootersOnMap(at location: CLLocationCoordinate2D, radius: Double) {
+        Bird().getScooters(fromLocation: location, radius: radius) { scooters in
+            let annotations = scooters.map({ MapAnnotation(fromScooter: $0) })
+            self.mapView.addAnnotations(annotations)
+        }
+    }
     
-    func showScootersOnMap(at location: CLLocationCoordinate2D, radius: Double) {
-        Bird().getScooters(fromLocation: location, radius: radius) { (scooters) in
+    func showLimeScootersOnMap(at location: CLLocationCoordinate2D) {
+        Lime().getScooters(fromLocation: location) { (scooters) in
             let annotations = scooters.map({ MapAnnotation(fromScooter: $0) })
             self.mapView.addAnnotations(annotations)
         }
