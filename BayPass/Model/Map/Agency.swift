@@ -5,21 +5,79 @@
 //  Created by Ayesha Khan on 10/20/18.
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
-
 import UIKit
 
-struct Agency {
-    var name: String
-    var icon: UIImage
-    var routes: [Line]
+enum Agency: String {
+    case ACTransit = "AC " // AC Transit
+    case VTA = "SC" // VTA
+    case BART = "BAR" // Bart
+    case CalTrain = "CT" // Caltrain
+    case GoldenGateTransit = "GGT"
+    case Muni = "SF" // San Francisco Municipal Transportation Agency
+    case UnionCity = "UC" // Union City Transit
+    case ACE = "99" // Altamont Corridor Express
+    case SolTrans = "247" // SolsTrans
+    case SamsTrans = "sam" // SamsTrans
+    case zero = "0" // Debugging
 
-    init(name: String, routes: [Line], icon: UIImage) {
-        self.name = name
-        self.routes = routes
-        self.icon = icon
+    var stringValue: String {
+        switch self {
+        case .ACTransit:
+            return "AC Transit"
+        case .VTA:
+            return "VTA"
+        case .BART:
+            return "BART"
+        case .CalTrain:
+            return "CalTrain"
+        case .GoldenGateTransit:
+            return "Golden Gate Transit"
+        case .Muni:
+            return "Muni"
+        case .UnionCity:
+            return "Union City Transit"
+        case .ACE:
+            return "ACE"
+        case .SamsTrans:
+            return "SamsTrans"
+        case .SolTrans:
+            return "SolsTrans"
+        default:
+            return ""
+        }
     }
 
-    func getRoutes() -> [Line] {
-        return routes
+    func isEqualToString(stringValue: String) -> Agency {
+        switch stringValue {
+        case "VTA":
+            return .VTA
+        default:
+            return .zero
+        }
+    }
+
+    func getIcon() -> UIImage {
+        switch self {
+        case .ACTransit:
+            return #imageLiteral(resourceName: "Bus")
+        case .BART:
+            return #imageLiteral(resourceName: "BART")
+        case .CalTrain:
+            return #imageLiteral(resourceName: "CalTrain")
+        case .GoldenGateTransit:
+            return #imageLiteral(resourceName: "Bus")
+        case .Muni:
+            return #imageLiteral(resourceName: "Bus")
+        case .UnionCity:
+            return #imageLiteral(resourceName: "Bus")
+        case .ACE:
+            return #imageLiteral(resourceName: "CalTrain")
+        case .SamsTrans:
+            return #imageLiteral(resourceName: "Bus")
+        case .SolTrans:
+            return #imageLiteral(resourceName: "Bus")
+        default:
+            return #imageLiteral(resourceName: "CalTrain")
+        }
     }
 }
