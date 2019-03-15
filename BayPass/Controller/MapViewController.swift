@@ -16,5 +16,15 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         addLabel(title: "Map")
+
+        let ticketView = TicketView(agency: Agency.ACE, icon: #imageLiteral(resourceName: "Bus"), cornerRadius: 12)
+        view.addSubview(ticketView)
+
+        ticketView.snp.makeConstraints({ (make) -> Void in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.leading.equalToSuperview().offset(16)
+            make.width.equalTo(350)
+            make.height.equalTo(200)
+        })
     }
 }

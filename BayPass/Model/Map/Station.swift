@@ -9,17 +9,17 @@
 import CoreLocation
 import UIKit
 
-struct Station: Equatable {
+struct Station {
     var name: String
     var code: Int
     var transitModes: [TransitMode]
-    var lines: [String]
+    var lines: [Line]
     var location: CLLocation
 
     // Only used for the MapAnnotation
     var color = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
 
-    init(name: String, code: Int, transitModes: [TransitMode], lines: [String], location: CLLocation) {
+    init(name: String, code: Int, transitModes: [TransitMode], lines: [Line], location: CLLocation) {
         self.name = name
         self.code = code
         self.transitModes = transitModes
