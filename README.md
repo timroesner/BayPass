@@ -35,11 +35,12 @@ After cloning this repository you will first need to run `pod install` to downlo
 export BIRD_TOKEN = YOUR_TOKEN
 export BART_TOKEN = YOUR_TOKEN
 export GOOGLE_DIRECTIONS = YOUR_TOKEN
+export MULTICYCLES = YOUR_TOKEN
 ```
 
 ## UI 
 ### Map
-<img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52455989-bd2b2e80-2b07-11e9-8f9f-733204af8554.png"><img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52455990-be5c5b80-2b07-11e9-8735-1984ca2e1565.png"><img width="217" alt="screen shot 2019-02-07 at 6 41 51 pm" src="https://user-images.githubusercontent.com/13894518/52456086-185d2100-2b08-11e9-93bb-8f32c7474a87.png"><img width="217" alt="screen shot 2019-02-07 at 6 51 33 pm" src="https://user-images.githubusercontent.com/13894518/52456393-66beef80-2b09-11e9-9f78-4b501ff08c4b.png">
+<img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/54299830-ee6ca380-4578-11e9-8093-0f5c93beabc0.jpeg"><img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52455990-be5c5b80-2b07-11e9-8735-1984ca2e1565.png"><img width="217" alt="screen shot 2019-02-07 at 6 41 51 pm" src="https://user-images.githubusercontent.com/13894518/52456086-185d2100-2b08-11e9-93bb-8f32c7474a87.png"><img width="217" alt="screen shot 2019-02-07 at 6 51 33 pm" src="https://user-images.githubusercontent.com/13894518/52456393-66beef80-2b09-11e9-9f78-4b501ff08c4b.png">
 ### Tickets
 <img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52456137-4b9fb000-2b08-11e9-96c6-352993a63d79.png"><img width="217" alt="screen shot 2019-02-07 at 6 44 29 pm" src="https://user-images.githubusercontent.com/13894518/52456167-696d1500-2b08-11e9-8300-22dd3279ad26.png"><img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52456177-712cb980-2b08-11e9-9c40-b0934753df72.png"><img width="217" alt="screen shot 2019-02-07 at 6 45 17 pm" src="https://user-images.githubusercontent.com/13894518/52456195-8570b680-2b08-11e9-8fca-d312b1ca6563.png">
 ### Clipper

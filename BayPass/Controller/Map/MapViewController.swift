@@ -25,6 +25,9 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(centerOnUserLocation), name: .willEnterForeground, object: nil)
+
         setupViews()
         setupLocation()
     }
@@ -32,6 +35,7 @@ class MapViewController: UIViewController {
     func setupViews() {
         mapView.showsUserLocation = true
         mapView.delegate = self
+        mapView.register(MarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         centerOnUserLocation()
         view.addSubview(mapView)
         mapView.snp.makeConstraints { make in

@@ -25,6 +25,7 @@ extension MapViewController: UIScrollViewDelegate {
 
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
         removeChild(bottomSheet)
+        mapView.removeAnnotations(mapView.annotations)
 
         let searchFloat = SearchFloatView(from: "Current Location", to: destination.name ?? "No Name")
         view.addSubview(searchFloat)
@@ -37,6 +38,8 @@ extension MapViewController: UIScrollViewDelegate {
         GoogleMaps().getRoutes(from: userLocation, to: destination.placemark.coordinate) { routes in
             self.setupRoutesView(with: routes)
         }
+        showLimeScootersOnMap(at: userLocation)
+        showLimeScootersOnMap(at: destination.placemark.coordinate)
     }
 
     func setupRoutesView(with routes: [Route]) {
@@ -121,6 +124,8 @@ extension MapViewController: UIScrollViewDelegate {
             }
         }
         mapView.removeOverlays(mapView.overlays)
+        mapView.removeAnnotations(mapView.annotations)
+        routes.removeAll()
         centerOnUserLocation()
         setupSearchView()
         addChild(bottomSheet, in: view)

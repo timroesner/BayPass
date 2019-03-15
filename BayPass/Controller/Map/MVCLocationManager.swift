@@ -17,10 +17,14 @@ extension MapViewController: CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
 
-    func centerOnUserLocation() {
+    @objc func centerOnUserLocation() {
         if let userLocation = locationManager.location?.coordinate {
-            let region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-            mapView.setRegion(region, animated: true)
+            if routes.isEmpty {
+                let region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+                mapView.setRegion(region, animated: true)
+                showBirdScootersOnMap(at: userLocation, radius: 50)
+                showLimeScootersOnMap(at: userLocation)
+            }
         }
     }
 }
