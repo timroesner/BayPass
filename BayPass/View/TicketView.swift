@@ -75,16 +75,16 @@ class TicketView: UIView {
             return
         }
 
-        imageView.snp.makeConstraints({ (make) -> Void in
+        imageView.snp.makeConstraints { (make) -> Void in
             make.width.height.equalTo(size)
             make.bottom.right.equalToSuperview().offset(offset)
-        })
+        }
 
-        nameLbl.snp.makeConstraints({ (make) -> Void in
+        nameLbl.snp.makeConstraints { (make) -> Void in
             make.leading.equalToSuperview().offset(-2 * offset)
             make.top.equalToSuperview().offset(-1.5 * Double(offset))
             make.trailing.equalToSuperview().offset(2 * offset)
-        })
+        }
     }
 
     required init?(coder _: NSCoder) {

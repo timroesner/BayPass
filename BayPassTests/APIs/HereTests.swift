@@ -78,8 +78,7 @@ class HereTests: XCTestCase {
         XCTAssertEqual(results![0].code, 718_310_131)
         XCTAssertEqual(results![0].lines[0].transitMode, TransitMode.lightRail)
         XCTAssertEqual(results![0].lines[0].name, "Green")
-        XCTAssertEqual(results![0].lines[0].destination, "Warm Springs/South Fremont")
-        XCTAssertEqual(results![0].lines[0].color, UIColor(hexString: "#339933"))
+        XCTAssertEqual(results![0].lines[0].destination, "Daly City")
     }
 
     func testGetLine() {

@@ -18,12 +18,12 @@ class ClipperViewController: UIViewController {
         let clipperView = ClipperView(cardNumber: 123_456_789, cashValue: 12.54)
         view.addSubview(clipperView)
 
-        clipperView.snp.makeConstraints({ (make) -> Void in
+        clipperView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
             make.leading.equalToSuperview().inset(16)
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(clipperView.snp.width).multipliedBy(0.6)
-        })
+        }
         clipperView.layoutIfNeeded()
 
         // button to add cash value page

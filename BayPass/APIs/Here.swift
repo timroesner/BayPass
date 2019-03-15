@@ -231,7 +231,7 @@ class Here {
             let lineDestination = transport1["dir"] as? String
             let at = transport1["At"] as? [String: Any]
             let colorString = at?["color"] as? String
-            let color = UIColor(hexString: colorString ?? "")
+            let color = UIColor(named: colorString ?? "")
             let modeNum = transportData?["mode"] as? Int
             let transitMode = transitModeConvert(num: modeNum ?? 0)
             var ag = Agency.zero
@@ -251,7 +251,7 @@ class Here {
 
         let at = tranport?["As"] as? [String: Any]
         let colorString = at?["color"] as? String
-        let color = UIColor(hexString: colorString ?? "")
+        let color = UIColor(named: colorString ?? "")
         var agencyAbbrv: Agency?
 
         getAgency(stationId: stationID, time: time, completion: { agencyAb in

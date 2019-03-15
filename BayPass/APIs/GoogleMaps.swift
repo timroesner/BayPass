@@ -76,6 +76,8 @@ class GoogleMaps {
 
         // Transit
         if let transitDetails = json["transit_details"] as? [String: Any] {
+            var ag: Agency = Agency.zero
+
             guard let arrivalJson = transitDetails["arrival_time"] as? [String: Any],
                 let arrivalInterval = arrivalJson["value"] as? Int,
                 let departureJson = transitDetails["departure_time"] as? [String: Any],
@@ -88,10 +90,14 @@ class GoogleMaps {
             let departureDate = Date(timeIntervalSince1970: Double(departureInterval))
             let arrivalDate = Date(timeIntervalSince1970: Double(arrivalInterval))
 
-            let lineName = lineJson["short_name"] as? String ?? ""
+            let lineName = lineJson["name"] as? String ?? ""
+            if let agencies = lineJson["agencies"] as? [String: Any] {
+                let agencyName = agencies["name"] as? String?
+                ag = Agency(rawValue: agencyName as! String) ?? Agency.zero
+            }
 
             // TODO: This section relies on getting the fare prices from firebase and the line from the API first
-            let line = Line(name: "Test", agency: Agency.zero, destination: "De Anza", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+            let line = Line(name: lineName, agency: ag ?? Agency.zero, destination: "De Anza", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
             let waypoints = [Station]()
             let price = 2.50
 
