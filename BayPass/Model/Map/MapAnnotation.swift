@@ -27,7 +27,7 @@ class MapAnnotation: NSObject, MKAnnotation {
     init(fromScooter: Scooter) {
         title = "\(fromScooter.company.name) Scooter"
         if fromScooter.battery != "" {
-           subtitle = "\(fromScooter.battery)%"
+            subtitle = "\(fromScooter.battery)%"
         }
         coordinate = fromScooter.location.coordinate
         icon = fromScooter.company.icon

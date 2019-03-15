@@ -39,9 +39,9 @@ extension MapViewController: MKMapViewDelegate {
             self.mapView.addAnnotations(annotations)
         }
     }
-    
+
     func showLimeScootersOnMap(at location: CLLocationCoordinate2D) {
-        Lime().getScooters(fromLocation: location) { (scooters) in
+        Lime().getScooters(fromLocation: location) { scooters in
             let annotations = scooters.map({ MapAnnotation(fromScooter: $0) })
             self.mapView.addAnnotations(annotations)
         }
