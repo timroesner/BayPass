@@ -8,20 +8,18 @@
 
 import UIKit
 
-struct Line: Equatable {
+struct Line {
     var name: String
-    var code: Int
+    var agency: Agency
     var destination: String
-    var stops: [Station]
+    var color: UIColor
+    var transitMode: TransitMode
 
-    init(name: String, code: Int, destination: String, stops: [Station]) {
+    init(name: String, agency: Agency, destination: String, color: UIColor, transitMode: TransitMode) {
         self.name = name
-        self.code = code
+        self.agency = agency
         self.destination = destination
-        self.stops = stops
-    }
-
-    func getStops() -> [Station] {
-        return stops
+        self.color = color
+        self.transitMode = transitMode
     }
 }

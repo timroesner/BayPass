@@ -91,15 +91,12 @@ class GoogleMaps {
             let lineName = lineJson["short_name"] as? String ?? ""
 
             // TODO: This section relies on getting the fare prices from firebase and the line from the API first
-            let line = Line(name: lineName, code: 232, destination: "De Anza", stops: [])
+            let line = Line(name: "Test", agency: Agency.zero, destination: "De Anza", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
             let waypoints = [Station]()
             let price = 2.50
 
             return RouteSegment(distanceInMeters: distance, departureTime: departureDate, arrivalTime: arrivalDate, polyline: polyline, travelMode: .transit, line: line, price: price, waypoints: waypoints)
-        }
-
-        // Walking
-        else {
+        } else {
             guard let durationJson = json["duration"] as? [String: Any],
                 var duration = durationJson["value"] as? Int
             else {
