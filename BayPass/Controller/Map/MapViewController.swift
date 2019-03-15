@@ -25,9 +25,9 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(centerOnUserLocation), name: .willEnterForeground, object: nil)
-        
+
         setupViews()
         setupLocation()
     }
