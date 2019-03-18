@@ -10,6 +10,8 @@ target 'BayPass' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'Alamofire'
   pod 'OverlayContainer'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   
   target 'BayPassTests' do
     inherit! :search_paths
