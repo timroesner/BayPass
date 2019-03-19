@@ -90,6 +90,7 @@
 		6ABF983B218250B1006878E4 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9836218250B0006878E4 /* Line.swift */; };
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
 		70B86430223FA27000EEA029 /* GoogleFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B8642F223FA27000EEA029 /* GoogleFirestore.swift */; };
+		70B864382240BE3800EEA029 /* FirestoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B864372240BE3800EEA029 /* FirestoreTests.swift */; };
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
@@ -208,6 +209,7 @@
 		6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
 		6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B8642F223FA27000EEA029 /* GoogleFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleFirestore.swift; sourceTree = "<group>"; };
+		70B864372240BE3800EEA029 /* FirestoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreTests.swift; sourceTree = "<group>"; };
 		70F72F642230417D00A8BC0A /* BackButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonUITests.swift; sourceTree = "<group>"; };
 		70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCheckoutViewController.swift; sourceTree = "<group>"; };
 		70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperAddCashViewController.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				2212935D223B0F380098D52F /* LimeTests.swift */,
 				22F097542206868E009881F8 /* BartTests.swift */,
 				222A926E221A721D00FD1367 /* GoogleMapsTests.swift */,
+				70B864372240BE3800EEA029 /* FirestoreTests.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */,
 				223AF97422279289009EA730 /* DestinationSearchResultTableViewCellTests.swift in Sources */,
 				223AF97022278209009EA730 /* StationSearchResultTableViewCellTests.swift in Sources */,
+				70B864382240BE3800EEA029 /* FirestoreTests.swift in Sources */,
 				6AB6ED172186822D00A81302 /* TicketTests.swift in Sources */,
 				2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */,
 				6AB6ED152186822300A81302 /* PassTests.swift in Sources */,

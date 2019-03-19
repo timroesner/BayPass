@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+       
+        GoogleFirestore.shared.configure()
+        
         window = UIWindow()
         window?.makeKeyAndVisible()
         let vc = TabViewController()

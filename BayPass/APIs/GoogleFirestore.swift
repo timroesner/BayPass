@@ -8,8 +8,32 @@
 
 import Alamofire
 import Foundation
+import Firebase
 import FirebaseFirestore
 
 class GoogleFirestore{
-
+    private init() {}
+    static let shared = GoogleFirestore()
+    
+    
+    
+    func configure() {
+        FirebaseApp.configure()
+    }
+    
+    func create() {}
+    
+    func read() {
+        let agencies = Firestore.firestore().collection("Agencies")
+        agencies.addSnapshotListener{ (snapshot, _) in
+            guard let snapshot = snapshot else {return}
+            for document in snapshot.documents {
+                print(document.data())
+            }
+        }
+    }
+    
+    func update() {}
+    
+    func delete() {}
 }
