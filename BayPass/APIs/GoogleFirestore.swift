@@ -21,13 +21,17 @@ class GoogleFirestore{
         FirebaseApp.configure()
     }
     
+    private func reference(to collectionReference: String) -> CollectionReference {
+        return Firestore.firestore().collection(collectionReference)
+    }
+    
     func create() {}
     
     func read() {
-        let agencies = Firestore.firestore().collection("Agencies")
-        agencies.addSnapshotListener{ (snapshot, _) in
+        reference(to: "Agencies").addSnapshotListener{ (snapshot, _) in
             guard let snapshot = snapshot else {return}
             for document in snapshot.documents {
+                print(document.documentID)
                 print(document.data())
             }
         }
