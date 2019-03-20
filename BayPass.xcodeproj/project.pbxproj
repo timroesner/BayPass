@@ -47,9 +47,8 @@
 		2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31B2182A3D1000586EE /* MKPolyline.swift */; };
 		2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31D2187ED24000586EE /* RouteSegmentTests.swift */; };
 		2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31F2187FD68000586EE /* MapAnnotationTests.swift */; };
-		226697DD2238B0E7005B82EC /* LocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697DC2238B0E7005B82EC /* LocationManagerTests.swift */; };
-		226697DF22396F24005B82EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226697DE22396F24005B82EC /* Assets.xcassets */; };
 		226697DD2238B0E7005B82EC /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */; };
+		226697DF22396F24005B82EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226697DE22396F24005B82EC /* Assets.xcassets */; };
 		226697E12239D9C1005B82EC /* CoderInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697E02239D9C1005B82EC /* CoderInitTests.swift */; };
 		226697E3223A2750005B82EC /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697E2223A2750005B82EC /* Notification.Name.swift */; };
 		227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE6B21B4C78E00D3169E /* Bird.swift */; };
@@ -95,6 +94,8 @@
 		6ABF983B218250B1006878E4 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9836218250B0006878E4 /* Line.swift */; };
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
 		6AC9EA0C223759500095138E /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9EA0B223759500095138E /* NSDate.swift */; };
+		6AFF633B2242C47400266B7E /* Here.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF63392242C47400266B7E /* Here.json */; };
+		6AFF633C2242C47400266B7E /* HereAgency.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF633A2242C47400266B7E /* HereAgency.json */; };
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
@@ -167,9 +168,8 @@
 		2262C31B2182A3D1000586EE /* MKPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPolyline.swift; sourceTree = "<group>"; };
 		2262C31D2187ED24000586EE /* RouteSegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentTests.swift; sourceTree = "<group>"; };
 		2262C31F2187FD68000586EE /* MapAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationTests.swift; sourceTree = "<group>"; };
-		226697DC2238B0E7005B82EC /* LocationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTests.swift; sourceTree = "<group>"; };
-		226697DE22396F24005B82EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
+		226697DE22396F24005B82EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		226697E02239D9C1005B82EC /* CoderInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderInitTests.swift; sourceTree = "<group>"; };
 		226697E2223A2750005B82EC /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		227796CB21B6251F00BAF6BA /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -217,6 +217,8 @@
 		6ABF9837218250B1006878E4 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		6AC9EA0B223759500095138E /* NSDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
+		6AFF63392242C47400266B7E /* Here.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Here.json; sourceTree = "<group>"; };
+		6AFF633A2242C47400266B7E /* HereAgency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HereAgency.json; sourceTree = "<group>"; };
 		6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F72F642230417D00A8BC0A /* BackButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonUITests.swift; sourceTree = "<group>"; };
 		70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCheckoutViewController.swift; sourceTree = "<group>"; };
@@ -368,6 +370,8 @@
 		222A9272221A730000FD1367 /* testJson */ = {
 			isa = PBXGroup;
 			children = (
+				6AFF63392242C47400266B7E /* Here.json */,
+				6AFF633A2242C47400266B7E /* HereAgency.json */,
 				222A9273221A734000FD1367 /* GoogleDirections.json */,
 				6A6B67662238A7C20069C226 /* Here.json */,
 				6A6B67682238AB550069C226 /* HereAgency.json */,
@@ -652,6 +656,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A6B67692238AB550069C226 /* HereAgency.json in Resources */,
+				6AFF633C2242C47400266B7E /* HereAgency.json in Resources */,
+				6AFF633B2242C47400266B7E /* Here.json in Resources */,
 				222A9274221A734000FD1367 /* GoogleDirections.json in Resources */,
 				6A6B67672238A7C20069C226 /* Here.json in Resources */,
 			);
