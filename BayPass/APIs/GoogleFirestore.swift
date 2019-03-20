@@ -13,9 +13,8 @@ import FirebaseFirestore
 
 class GoogleFirestore{
     private init() {}
+    
     static let shared = GoogleFirestore()
-    
-    
     
     func configure() {
         FirebaseApp.configure()
@@ -28,6 +27,8 @@ class GoogleFirestore{
     func create() {}
     
     func read() {
+        
+        //read data in all agencies
         reference(to: "Agencies").addSnapshotListener{ (snapshot, _) in
             guard let snapshot = snapshot else {return}
             for document in snapshot.documents {

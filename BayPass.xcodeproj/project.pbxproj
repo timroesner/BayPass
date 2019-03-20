@@ -91,6 +91,8 @@
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
 		70B86430223FA27000EEA029 /* GoogleFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B8642F223FA27000EEA029 /* GoogleFirestore.swift */; };
 		70B864382240BE3800EEA029 /* FirestoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B864372240BE3800EEA029 /* FirestoreTests.swift */; };
+		70B8643E2241D2AE00EEA029 /* env-vars.sh in Resources */ = {isa = PBXBuildFile; fileRef = 70B8643D2241D2AD00EEA029 /* env-vars.sh */; };
+		70B864402241D2B200EEA029 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70B8643F2241D2B200EEA029 /* GoogleService-Info.plist */; };
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
@@ -210,6 +212,8 @@
 		6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B8642F223FA27000EEA029 /* GoogleFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleFirestore.swift; sourceTree = "<group>"; };
 		70B864372240BE3800EEA029 /* FirestoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreTests.swift; sourceTree = "<group>"; };
+		70B8643D2241D2AD00EEA029 /* env-vars.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "env-vars.sh"; sourceTree = "<group>"; };
+		70B8643F2241D2B200EEA029 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70F72F642230417D00A8BC0A /* BackButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonUITests.swift; sourceTree = "<group>"; };
 		70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCheckoutViewController.swift; sourceTree = "<group>"; };
 		70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperAddCashViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				22049D9D214C9DF0007FF904 /* AppDelegate.swift */,
+				70B8643F2241D2B200EEA029 /* GoogleService-Info.plist */,
+				70B8643D2241D2AD00EEA029 /* env-vars.sh */,
 				227BBE6A21B4C78000D3169E /* APIs */,
 				2262C31021829BC6000586EE /* Extensions */,
 				2227C3EB219C1A7700053294 /* View */,
@@ -632,6 +638,8 @@
 			files = (
 				22049DA8214C9DF2007FF904 /* LaunchScreen.storyboard in Resources */,
 				226697DF22396F24005B82EC /* Assets.xcassets in Resources */,
+				70B864402241D2B200EEA029 /* GoogleService-Info.plist in Resources */,
+				70B8643E2241D2AE00EEA029 /* env-vars.sh in Resources */,
 				2262C31A2182A165000586EE /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
