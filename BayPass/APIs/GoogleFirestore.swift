@@ -7,38 +7,37 @@
 //
 
 import Alamofire
-import Foundation
 import Firebase
 import FirebaseFirestore
+import Foundation
 
-class GoogleFirestore{
+class GoogleFirestore {
     private init() {}
-    
+
     static let shared = GoogleFirestore()
-    
+
     func configure() {
         FirebaseApp.configure()
     }
-    
-    private func reference(to collectionReference: String) -> CollectionReference {
+
+    func reference(to collectionReference: String) -> CollectionReference {
         return Firestore.firestore().collection(collectionReference)
     }
-    
+
     func create() {}
-    
+
     func read() {
-        
-        //read data in all agencies
-        reference(to: "Agencies").addSnapshotListener{ (snapshot, _) in
-            guard let snapshot = snapshot else {return}
+        // read data in all agencies
+        reference(to: "Agencies").addSnapshotListener { snapshot, _ in
+            guard let snapshot = snapshot else { return }
             for document in snapshot.documents {
                 print(document.documentID)
                 print(document.data())
             }
         }
     }
-    
+
     func update() {}
-    
+
     func delete() {}
 }

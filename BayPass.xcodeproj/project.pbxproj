@@ -89,10 +89,9 @@
 		6ABF983A218250B1006878E4 /* Agency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9835218250B0006878E4 /* Agency.swift */; };
 		6ABF983B218250B1006878E4 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9836218250B0006878E4 /* Line.swift */; };
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
+		702CBA7522429C9200D5F1F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 702CBA7422429C9200D5F1F7 /* GoogleService-Info.plist */; };
 		70B86430223FA27000EEA029 /* GoogleFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B8642F223FA27000EEA029 /* GoogleFirestore.swift */; };
 		70B864382240BE3800EEA029 /* FirestoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B864372240BE3800EEA029 /* FirestoreTests.swift */; };
-		70B8643E2241D2AE00EEA029 /* env-vars.sh in Resources */ = {isa = PBXBuildFile; fileRef = 70B8643D2241D2AD00EEA029 /* env-vars.sh */; };
-		70B864402241D2B200EEA029 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70B8643F2241D2B200EEA029 /* GoogleService-Info.plist */; };
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
@@ -210,10 +209,9 @@
 		6ABF9837218250B1006878E4 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
 		6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		702CBA7422429C9200D5F1F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70B8642F223FA27000EEA029 /* GoogleFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleFirestore.swift; sourceTree = "<group>"; };
 		70B864372240BE3800EEA029 /* FirestoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreTests.swift; sourceTree = "<group>"; };
-		70B8643D2241D2AD00EEA029 /* env-vars.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "env-vars.sh"; sourceTree = "<group>"; };
-		70B8643F2241D2B200EEA029 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70F72F642230417D00A8BC0A /* BackButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonUITests.swift; sourceTree = "<group>"; };
 		70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCheckoutViewController.swift; sourceTree = "<group>"; };
 		70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperAddCashViewController.swift; sourceTree = "<group>"; };
@@ -281,8 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				22049D9D214C9DF0007FF904 /* AppDelegate.swift */,
-				70B8643F2241D2B200EEA029 /* GoogleService-Info.plist */,
-				70B8643D2241D2AD00EEA029 /* env-vars.sh */,
+				702CBA7422429C9200D5F1F7 /* GoogleService-Info.plist */,
 				227BBE6A21B4C78000D3169E /* APIs */,
 				2262C31021829BC6000586EE /* Extensions */,
 				2227C3EB219C1A7700053294 /* View */,
@@ -558,6 +555,7 @@
 				22049DAA214C9DF2007FF904 /* Sources */,
 				22049DAB214C9DF2007FF904 /* Frameworks */,
 				22049DAC214C9DF2007FF904 /* Resources */,
+				B3D0533E614670EB5AD1D1DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -638,8 +636,7 @@
 			files = (
 				22049DA8214C9DF2007FF904 /* LaunchScreen.storyboard in Resources */,
 				226697DF22396F24005B82EC /* Assets.xcassets in Resources */,
-				70B864402241D2B200EEA029 /* GoogleService-Info.plist in Resources */,
-				70B8643E2241D2AE00EEA029 /* env-vars.sh in Resources */,
+				702CBA7522429C9200D5F1F7 /* GoogleService-Info.plist in Resources */,
 				2262C31A2182A165000586EE /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -756,6 +753,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3D0533E614670EB5AD1D1DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BayPassTests/Pods-BayPassTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BayPassTests/Pods-BayPassTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B9A2D893FD1E3C201701D762 /* [CP] Check Pods Manifest.lock */ = {

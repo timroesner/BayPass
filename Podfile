@@ -15,6 +15,7 @@ target 'BayPass' do
   
   target 'BayPassTests' do
     inherit! :search_paths
+    pod 'Firebase'
     # Pods for testing
   end
 

@@ -27,7 +27,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         GoogleFirestore.shared.read()
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(centerOnUserLocation), name: .willEnterForeground, object: nil)
 
         setupViews()
