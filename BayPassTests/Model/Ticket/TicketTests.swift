@@ -16,9 +16,7 @@ class TicketTests: XCTestCase {
 
     override func setUp() {
         let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
-        let lineX = [Line(name: "Green", agency: Agency.BART, destination: "Milbrae", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)]
 
-        let station = Station(name: "SFO", code: 2, transitModes: [TransitMode.bart], lines: lineX, location: loc)
         agency = Agency(rawValue: "BAR")
         locations = [loc]
     }

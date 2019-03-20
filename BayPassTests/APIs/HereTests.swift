@@ -115,7 +115,6 @@ class HereTests: XCTestCase {
     }
 
     func testParseStation() {
-        let loc = CLLocation(latitude: -122.5353, longitude: 37.935921)
         let resJson = testJson["Res"] as! [String: Any]
         let stationsJson = resJson["Stations"] as! [String: Any]
         let stnsJson = stationsJson["Stn"] as! [[String: Any]]
