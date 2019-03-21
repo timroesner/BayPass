@@ -97,7 +97,7 @@ class GoogleMaps {
             }
 
             // TODO: This section relies on getting the fare prices from firebase and the line from the API first
-            let line = Line(name: lineName, agency: ag ?? Agency.zero, destination: "De Anza", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+            let line = Line(name: lineName, agency: ag, destination: "De Anza", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
             let waypoints = [Station]()
             let price = 2.50
 

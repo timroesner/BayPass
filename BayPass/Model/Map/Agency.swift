@@ -47,17 +47,10 @@ enum Agency: String {
         }
     }
 
-    func isEqualToString(stringValue: String) -> Agency {
-        switch stringValue {
-        case "VTA":
-            return .VTA
-        default:
-            return .zero
-        }
-    }
-
     func getIcon() -> UIImage {
         switch self {
+        case .ACE:
+            return #imageLiteral(resourceName: "CalTrain")
         case .ACTransit:
             return #imageLiteral(resourceName: "Bus")
         case .BART:
@@ -70,8 +63,6 @@ enum Agency: String {
             return #imageLiteral(resourceName: "Bus")
         case .UnionCity:
             return #imageLiteral(resourceName: "Bus")
-        case .ACE:
-            return #imageLiteral(resourceName: "CalTrain")
         case .SamsTrans:
             return #imageLiteral(resourceName: "Bus")
         case .SolTrans:

@@ -31,9 +31,63 @@ class AgencyTests: XCTestCase {
         XCTAssertEqual(subject.stringValue, "AC Transit")
     }
 
-    func testGetIcone() {
-        let subject = Agency.ACTransit
+    func testStringValueMuni() {
+        let subject = Agency.Muni
+        XCTAssertEqual(subject.stringValue, "Muni")
+    }
 
+    func testStringValueUnionCity() {
+        let subject = Agency.UnionCity
+        XCTAssertEqual(subject.stringValue, "Union City Transit")
+    }
+
+    func testStringValueSamsTrans() {
+        let subject = Agency.SamsTrans
+        XCTAssertEqual(subject.stringValue, "SamsTrans")
+    }
+
+    func testStringValueSolsTrans() {
+        let subject = Agency.SolTrans
+        XCTAssertEqual(subject.stringValue, "SolsTrans")
+    }
+
+    func testGetIconACE() {
+        let subject = Agency.ACE
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "CalTrain"))
+    }
+
+    func testGetIconACTransit() {
+        let subject = Agency.ACTransit
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+
+    func testGetIconCalTrain() {
+        let subject = Agency.CalTrain
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "CalTrain"))
+    }
+
+    func testGetIconGoldenGateTransit() {
+        let subject = Agency.GoldenGateTransit
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+
+    func testGetIconMuni() {
+        let subject = Agency.Muni
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+
+    func testGetIconUnionCity() {
+        let subject = Agency.UnionCity
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+
+    func testGetIconSamsTrans() {
+        let subject = Agency.SamsTrans
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+
+    func testGetIconSolTrans() {
+        let subject = Agency.SolTrans
         XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
     }
 }
