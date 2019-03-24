@@ -25,13 +25,16 @@ class DropDownMenuUITests: XCTestCase {
     func testDropDownMenuHeight() {
         
         let app = XCUIApplication()
+        
         app.tabBars.buttons["Ticket"].tap()
         app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element(boundBy: 0).tap()
         
         let tablesQuery = app.tables
+        
         let paypalStaticText = tablesQuery.children(matching: .cell).element(boundBy: 2).staticTexts["Paypal"]
         paypalStaticText.swipeUp()
         tablesQuery.children(matching: .cell).element(boundBy: 3).staticTexts["Venmo"].swipeDown()
+        
         paypalStaticText.tap()
         
     }
