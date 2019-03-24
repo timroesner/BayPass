@@ -69,11 +69,12 @@
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
+		EC064CDB22475195006C0737 /* DropDownMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */; };
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
+		EC3B66A822278C8F004FFA23 /* PurchasedTicketCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */; };
 		EC8CF4B3222F56BF0018E935 /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */; };
 		ECB6E64A2230488500BF5446 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6E6492230488500BF5446 /* UIImageView.swift */; };
 		ECB6E64C223071B200BF5446 /* DropDownMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6E64B223071B200BF5446 /* DropDownMenuTests.swift */; };
-		EC3B66A822278C8F004FFA23 /* PurchasedTicketCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */; };
 		ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */; };
 		ECCE1D52221D0053002F58AA /* PurchasedTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE1D51221D0053002F58AA /* PurchasedTicketCell.swift */; };
 /* End PBXBuildFile section */
@@ -169,11 +170,12 @@
 		A96336530BAD67EFB32EF7E0 /* Pods-BayPassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC737C8C1C489644ABDDFE78 /* Pods_BayPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CE3C0E191A1E9A66EDDE84 /* Pods-BayPassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassUITests/Pods-BayPassUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuUITests.swift; sourceTree = "<group>"; };
 		EC14F1B521B64E28009F69CF /* ClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperView.swift; sourceTree = "<group>"; };
+		EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCellTests.swift; sourceTree = "<group>"; };
 		EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
 		ECB6E6492230488500BF5446 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		ECB6E64B223071B200BF5446 /* DropDownMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuTests.swift; sourceTree = "<group>"; };
-		EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCellTests.swift; sourceTree = "<group>"; };
 		ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperViewTests.swift; sourceTree = "<group>"; };
 		ECCE1D51221D0053002F58AA /* PurchasedTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCell.swift; sourceTree = "<group>"; };
 		F3C991BFA884D85FF2F805DF /* Pods-BayPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.release.xcconfig"; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				22049DBD214C9DF3007FF904 /* TabBarUITests.swift */,
+				EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */,
 				70F72F642230417D00A8BC0A /* BackButtonUITests.swift */,
 				22049DBF214C9DF3007FF904 /* Info.plist */,
 			);
@@ -644,7 +647,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -657,7 +660,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B9A2D893FD1E3C201701D762 /* [CP] Check Pods Manifest.lock */ = {
@@ -777,6 +780,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC064CDB22475195006C0737 /* DropDownMenuUITests.swift in Sources */,
 				70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */,
 				22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */,
 			);
@@ -1013,7 +1017,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B69SG794P;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BayPassUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1034,7 +1038,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B69SG794P;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BayPassUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
