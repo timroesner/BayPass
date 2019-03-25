@@ -25,7 +25,6 @@ class DropDownMenuUITests: XCTestCase {
     func testDropDownMenuHeight() {
         
         let app = XCUIApplication()
-        
         app.tabBars.buttons["Ticket"].tap()
         app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element(boundBy: 0).tap()
         
