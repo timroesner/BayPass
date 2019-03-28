@@ -93,8 +93,12 @@
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
+		EC064CDB22475195006C0737 /* DropDownMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */; };
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
 		EC3B66A822278C8F004FFA23 /* PurchasedTicketCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */; };
+		EC8CF4B3222F56BF0018E935 /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */; };
+		ECB6E64A2230488500BF5446 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6E6492230488500BF5446 /* UIImageView.swift */; };
+		ECB6E64C223071B200BF5446 /* DropDownMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6E64B223071B200BF5446 /* DropDownMenuTests.swift */; };
 		ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */; };
 		ECCE1D52221D0053002F58AA /* PurchasedTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE1D51221D0053002F58AA /* PurchasedTicketCell.swift */; };
 /* End PBXBuildFile section */
@@ -214,8 +218,12 @@
 		A96336530BAD67EFB32EF7E0 /* Pods-BayPassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC737C8C1C489644ABDDFE78 /* Pods_BayPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CE3C0E191A1E9A66EDDE84 /* Pods-BayPassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassUITests/Pods-BayPassUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuUITests.swift; sourceTree = "<group>"; };
 		EC14F1B521B64E28009F69CF /* ClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperView.swift; sourceTree = "<group>"; };
 		EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCellTests.swift; sourceTree = "<group>"; };
+		EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
+		ECB6E6492230488500BF5446 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		ECB6E64B223071B200BF5446 /* DropDownMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuTests.swift; sourceTree = "<group>"; };
 		ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperViewTests.swift; sourceTree = "<group>"; };
 		ECCE1D51221D0053002F58AA /* PurchasedTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCell.swift; sourceTree = "<group>"; };
 		F3C991BFA884D85FF2F805DF /* Pods-BayPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.release.xcconfig"; sourceTree = "<group>"; };
@@ -305,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				22049DBD214C9DF3007FF904 /* TabBarUITests.swift */,
+				EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */,
 				22B534392231D6F8007F4098 /* DestinationRoutingTests.swift */,
 				70F72F642230417D00A8BC0A /* BackButtonUITests.swift */,
 				22049DBF214C9DF3007FF904 /* Info.plist */,
@@ -336,6 +345,7 @@
 				22B53431222D1152007F4098 /* RouteOverView.swift */,
 				224662E22228FC9B00E86C66 /* MoveIndicator.swift */,
 				223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */,
+				EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */,
 				224662F02229204200E86C66 /* EmptyView.swift */,
 				223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */,
 			);
@@ -346,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				2227C3EF219CBE0C00053294 /* TicketViewTests.swift */,
+				ECB6E64B223071B200BF5446 /* DropDownMenuTests.swift */,
 				EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */,
 				ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */,
 				223AF97322279289009EA730 /* DestinationSearchResultTableViewCellTests.swift */,
@@ -384,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				2262C31121829BE3000586EE /* UIColor.swift */,
+				ECB6E6492230488500BF5446 /* UIImageView.swift */,
 				22B53433222D135D007F4098 /* Date.swift */,
 				224662F4222B4BE600E86C66 /* UIViewController.swift */,
 				2262C31521829E4A000586EE /* Collection.swift */,
@@ -789,6 +801,7 @@
 				6A009198217EAF800087A32B /* Pass.swift in Sources */,
 				6A00919A217EAFFE0087A32B /* Ticket.swift in Sources */,
 				222A926D221A6D0200FD1367 /* GoogleMaps.swift in Sources */,
+				ECB6E64A2230488500BF5446 /* UIImageView.swift in Sources */,
 				224662ED2229142100E86C66 /* SVCSearchBar.swift in Sources */,
 				224662E12228F7D200E86C66 /* SearchViewController.swift in Sources */,
 				22B53434222D135D007F4098 /* Date.swift in Sources */,
@@ -807,6 +820,7 @@
 				224662E52229011F00E86C66 /* SVCDelegate.swift in Sources */,
 				224662F12229204200E86C66 /* EmptyView.swift in Sources */,
 				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
+				EC8CF4B3222F56BF0018E935 /* DropDownMenu.swift in Sources */,
 				224662E92229059500E86C66 /* SVCTableView.swift in Sources */,
 				2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */,
 				2262C31621829E4A000586EE /* Collection.swift in Sources */,
@@ -852,6 +866,7 @@
 				223AF97422279289009EA730 /* DestinationSearchResultTableViewCellTests.swift in Sources */,
 				223AF97022278209009EA730 /* StationSearchResultTableViewCellTests.swift in Sources */,
 				6AB6ED172186822D00A81302 /* TicketTests.swift in Sources */,
+				ECB6E64C223071B200BF5446 /* DropDownMenuTests.swift in Sources */,
 				2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */,
 				6AB6ED152186822300A81302 /* PassTests.swift in Sources */,
 				227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */,
@@ -867,6 +882,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC064CDB22475195006C0737 /* DropDownMenuUITests.swift in Sources */,
 				70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */,
 				22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */,
 				22B5343A2231D6F8007F4098 /* DestinationRoutingTests.swift in Sources */,
