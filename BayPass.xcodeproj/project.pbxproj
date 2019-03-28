@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		10DF627C28E33A8338F39522 /* Pods_BayPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC737C8C1C489644ABDDFE78 /* Pods_BayPass.framework */; };
 		14E6B9D8AC4F6EB59D85DB4C /* libPods-BayPassUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62B2E1F74981CC584A06A053 /* libPods-BayPassUITests.a */; };
-		22049DA5214C9DF2007FF904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22049DA4214C9DF2007FF904 /* Assets.xcassets */; };
 		22049DA8214C9DF2007FF904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22049DA6214C9DF2007FF904 /* LaunchScreen.storyboard */; };
 		22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049DBD214C9DF3007FF904 /* TabBarUITests.swift */; };
+		2212935C223B0C080098D52F /* Lime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212935B223B0C080098D52F /* Lime.swift */; };
+		2212935E223B0F380098D52F /* LimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212935D223B0F380098D52F /* LimeTests.swift */; };
 		2212D7272179985400ADFE3D /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2212D7262179985400ADFE3D /* TabViewController.swift */; };
 		2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3E9219C198A00053294 /* CAGradientLayer.swift */; };
 		2227C3ED219C1A8D00053294 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227C3EC219C1A8D00053294 /* TicketView.swift */; };
@@ -25,6 +26,19 @@
 		223AF97022278209009EA730 /* StationSearchResultTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AF96F22278209009EA730 /* StationSearchResultTableViewCellTests.swift */; };
 		223AF97222278965009EA730 /* DestinationSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */; };
 		223AF97422279289009EA730 /* DestinationSearchResultTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AF97322279289009EA730 /* DestinationSearchResultTableViewCellTests.swift */; };
+		224662E12228F7D200E86C66 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662E02228F7D200E86C66 /* SearchViewController.swift */; };
+		224662E32228FC9B00E86C66 /* MoveIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662E22228FC9B00E86C66 /* MoveIndicator.swift */; };
+		224662E52229011F00E86C66 /* SVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662E42229011F00E86C66 /* SVCDelegate.swift */; };
+		224662E72229031300E86C66 /* MVCSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662E62229031300E86C66 /* MVCSearchDelegate.swift */; };
+		224662E92229059500E86C66 /* SVCTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662E82229059500E86C66 /* SVCTableView.swift */; };
+		224662EB2229136100E86C66 /* MVCLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662EA2229136100E86C66 /* MVCLocationManager.swift */; };
+		224662ED2229142100E86C66 /* SVCSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662EC2229142100E86C66 /* SVCSearchBar.swift */; };
+		224662EF22291EC600E86C66 /* MVCOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662EE22291EC600E86C66 /* MVCOverlay.swift */; };
+		224662F12229204200E86C66 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F02229204200E86C66 /* EmptyView.swift */; };
+		224662F3222B4B3200E86C66 /* MVCDestinationRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F2222B4B3200E86C66 /* MVCDestinationRouting.swift */; };
+		224662F5222B4BE600E86C66 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F4222B4BE600E86C66 /* UIViewController.swift */; };
+		224662F7222B557600E86C66 /* SearchFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F6222B557600E86C66 /* SearchFloatView.swift */; };
+		224662F9222B5A0B00E86C66 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F8222B5A0B00E86C66 /* CustomTextField.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
 		2262C31621829E4A000586EE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31521829E4A000586EE /* Collection.swift */; };
@@ -33,8 +47,18 @@
 		2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31B2182A3D1000586EE /* MKPolyline.swift */; };
 		2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31D2187ED24000586EE /* RouteSegmentTests.swift */; };
 		2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31F2187FD68000586EE /* MapAnnotationTests.swift */; };
+		226697DD2238B0E7005B82EC /* LocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697DC2238B0E7005B82EC /* LocationManagerTests.swift */; };
+		226697DF22396F24005B82EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226697DE22396F24005B82EC /* Assets.xcassets */; };
+		226697DD2238B0E7005B82EC /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */; };
+		226697E12239D9C1005B82EC /* CoderInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697E02239D9C1005B82EC /* CoderInitTests.swift */; };
+		226697E3223A2750005B82EC /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697E2223A2750005B82EC /* Notification.Name.swift */; };
 		227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE6B21B4C78E00D3169E /* Bird.swift */; };
 		227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE7021B4F48D00D3169E /* BirdTests.swift */; };
+		22B53432222D1152007F4098 /* RouteOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53431222D1152007F4098 /* RouteOverView.swift */; };
+		22B53434222D135D007F4098 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53433222D135D007F4098 /* Date.swift */; };
+		22B53436222D1CB4007F4098 /* MVCMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53435222D1CB4007F4098 /* MVCMapDelegate.swift */; };
+		22B534382231D6DC007F4098 /* DestinationRoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B534372231D6DC007F4098 /* DestinationRoutingTests.swift */; };
+		22B5343A2231D6F8007F4098 /* DestinationRoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B534392231D6F8007F4098 /* DestinationRoutingTests.swift */; };
 		22C331B92186B80800836173 /* RouteSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331B82186B80800836173 /* RouteSegment.swift */; };
 		22C331BB2186B88000836173 /* TravelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331BA2186B88000836173 /* TravelMode.swift */; };
 		22F09753220683FC009881F8 /* BART.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F09752220683FC009881F8 /* BART.swift */; };
@@ -69,8 +93,12 @@
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
+		EC064CDB22475195006C0737 /* DropDownMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */; };
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
 		EC3B66A822278C8F004FFA23 /* PurchasedTicketCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */; };
+		EC8CF4B3222F56BF0018E935 /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */; };
+		ECB6E64A2230488500BF5446 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6E6492230488500BF5446 /* UIImageView.swift */; };
+		ECB6E64C223071B200BF5446 /* DropDownMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB6E64B223071B200BF5446 /* DropDownMenuTests.swift */; };
 		ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */; };
 		ECCE1D52221D0053002F58AA /* PurchasedTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE1D51221D0053002F58AA /* PurchasedTicketCell.swift */; };
 /* End PBXBuildFile section */
@@ -96,7 +124,6 @@
 		1D31F2CAC184996691217676 /* Pods-BayPassUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassUITests/Pods-BayPassUITests.release.xcconfig"; sourceTree = "<group>"; };
 		22049D9A214C9DF0007FF904 /* BayPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BayPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22049D9D214C9DF0007FF904 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22049DA4214C9DF2007FF904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22049DA7214C9DF2007FF904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22049DA9214C9DF2007FF904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22049DAE214C9DF2007FF904 /* BayPassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BayPassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +131,8 @@
 		22049DB9214C9DF3007FF904 /* BayPassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BayPassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22049DBD214C9DF3007FF904 /* TabBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUITests.swift; sourceTree = "<group>"; };
 		22049DBF214C9DF3007FF904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2212935B223B0C080098D52F /* Lime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lime.swift; sourceTree = "<group>"; };
+		2212935D223B0F380098D52F /* LimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimeTests.swift; sourceTree = "<group>"; };
 		2212D7262179985400ADFE3D /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		2227C3E9219C198A00053294 /* CAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
 		2227C3EC219C1A8D00053294 /* TicketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
@@ -116,6 +145,19 @@
 		223AF96F22278209009EA730 /* StationSearchResultTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchResultTableViewCellTests.swift; sourceTree = "<group>"; };
 		223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		223AF97322279289009EA730 /* DestinationSearchResultTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSearchResultTableViewCellTests.swift; sourceTree = "<group>"; };
+		224662E02228F7D200E86C66 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		224662E22228FC9B00E86C66 /* MoveIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveIndicator.swift; sourceTree = "<group>"; };
+		224662E42229011F00E86C66 /* SVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCDelegate.swift; sourceTree = "<group>"; };
+		224662E62229031300E86C66 /* MVCSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCSearchDelegate.swift; sourceTree = "<group>"; };
+		224662E82229059500E86C66 /* SVCTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCTableView.swift; sourceTree = "<group>"; };
+		224662EA2229136100E86C66 /* MVCLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCLocationManager.swift; sourceTree = "<group>"; };
+		224662EC2229142100E86C66 /* SVCSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVCSearchBar.swift; sourceTree = "<group>"; };
+		224662EE22291EC600E86C66 /* MVCOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCOverlay.swift; sourceTree = "<group>"; };
+		224662F02229204200E86C66 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		224662F2222B4B3200E86C66 /* MVCDestinationRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCDestinationRouting.swift; sourceTree = "<group>"; };
+		224662F4222B4BE600E86C66 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		224662F6222B557600E86C66 /* SearchFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFloatView.swift; sourceTree = "<group>"; };
+		224662F8222B5A0B00E86C66 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2262C31121829BE3000586EE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2262C31321829CE9000586EE /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		2262C31521829E4A000586EE /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -124,9 +166,19 @@
 		2262C31B2182A3D1000586EE /* MKPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPolyline.swift; sourceTree = "<group>"; };
 		2262C31D2187ED24000586EE /* RouteSegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentTests.swift; sourceTree = "<group>"; };
 		2262C31F2187FD68000586EE /* MapAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationTests.swift; sourceTree = "<group>"; };
+		226697DC2238B0E7005B82EC /* LocationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTests.swift; sourceTree = "<group>"; };
+		226697DE22396F24005B82EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
+		226697E02239D9C1005B82EC /* CoderInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderInitTests.swift; sourceTree = "<group>"; };
+		226697E2223A2750005B82EC /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		227796CB21B6251F00BAF6BA /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		227BBE6B21B4C78E00D3169E /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 		227BBE7021B4F48D00D3169E /* BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdTests.swift; sourceTree = "<group>"; };
+		22B53431222D1152007F4098 /* RouteOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverView.swift; sourceTree = "<group>"; };
+		22B53433222D135D007F4098 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		22B53435222D1CB4007F4098 /* MVCMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCMapDelegate.swift; sourceTree = "<group>"; };
+		22B534372231D6DC007F4098 /* DestinationRoutingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DestinationRoutingTests.swift; path = BayPassUITests/DestinationRoutingTests.swift; sourceTree = SOURCE_ROOT; };
+		22B534392231D6F8007F4098 /* DestinationRoutingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationRoutingTests.swift; sourceTree = "<group>"; };
 		22C331B82186B80800836173 /* RouteSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegment.swift; sourceTree = "<group>"; };
 		22C331BA2186B88000836173 /* TravelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMode.swift; sourceTree = "<group>"; };
 		22F09752220683FC009881F8 /* BART.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BART.swift; sourceTree = "<group>"; };
@@ -166,8 +218,12 @@
 		A96336530BAD67EFB32EF7E0 /* Pods-BayPassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC737C8C1C489644ABDDFE78 /* Pods_BayPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CE3C0E191A1E9A66EDDE84 /* Pods-BayPassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassUITests/Pods-BayPassUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuUITests.swift; sourceTree = "<group>"; };
 		EC14F1B521B64E28009F69CF /* ClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperView.swift; sourceTree = "<group>"; };
 		EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCellTests.swift; sourceTree = "<group>"; };
+		EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
+		ECB6E6492230488500BF5446 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		ECB6E64B223071B200BF5446 /* DropDownMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuTests.swift; sourceTree = "<group>"; };
 		ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperViewTests.swift; sourceTree = "<group>"; };
 		ECCE1D51221D0053002F58AA /* PurchasedTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCell.swift; sourceTree = "<group>"; };
 		F3C991BFA884D85FF2F805DF /* Pods-BayPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.release.xcconfig"; sourceTree = "<group>"; };
@@ -232,9 +288,9 @@
 				2227C3EB219C1A7700053294 /* View */,
 				2212D7282179AD8800ADFE3D /* Controller */,
 				6A3F2CB721816FD4006DA755 /* Model */,
-				22049DA4214C9DF2007FF904 /* Assets.xcassets */,
 				22049DA6214C9DF2007FF904 /* LaunchScreen.storyboard */,
 				22049DA9214C9DF2007FF904 /* Info.plist */,
+				226697DE22396F24005B82EC /* Assets.xcassets */,
 				2262C3192182A165000586EE /* Localizable.strings */,
 			);
 			path = BayPass;
@@ -247,6 +303,7 @@
 				2227C3EE219CBDE600053294 /* View */,
 				6AB6ED0B2186816100A81302 /* Model */,
 				2262C31321829CE9000586EE /* ExtensionsTests.swift */,
+				226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */,
 				22049DB4214C9DF2007FF904 /* Info.plist */,
 			);
 			path = BayPassTests;
@@ -256,6 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				22049DBD214C9DF3007FF904 /* TabBarUITests.swift */,
+				EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */,
+				22B534392231D6F8007F4098 /* DestinationRoutingTests.swift */,
 				70F72F642230417D00A8BC0A /* BackButtonUITests.swift */,
 				22049DBF214C9DF3007FF904 /* Info.plist */,
 			);
@@ -265,7 +324,7 @@
 		2212D7282179AD8800ADFE3D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6AB6ECFB21867F1700A81302 /* MapViewController.swift */,
+				223AF9752228D83A009EA730 /* Map */,
 				6AB6ECFD21867F1700A81302 /* TicketViewController.swift */,
 				70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */,
 				6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */,
@@ -279,9 +338,15 @@
 			isa = PBXGroup;
 			children = (
 				2227C3EC219C1A8D00053294 /* TicketView.swift */,
+				224662F6222B557600E86C66 /* SearchFloatView.swift */,
+				224662F8222B5A0B00E86C66 /* CustomTextField.swift */,
 				ECCE1D51221D0053002F58AA /* PurchasedTicketCell.swift */,
 				EC14F1B521B64E28009F69CF /* ClipperView.swift */,
+				22B53431222D1152007F4098 /* RouteOverView.swift */,
+				224662E22228FC9B00E86C66 /* MoveIndicator.swift */,
 				223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */,
+				EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */,
+				224662F02229204200E86C66 /* EmptyView.swift */,
 				223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */,
 			);
 			path = View;
@@ -291,10 +356,12 @@
 			isa = PBXGroup;
 			children = (
 				2227C3EF219CBE0C00053294 /* TicketViewTests.swift */,
+				ECB6E64B223071B200BF5446 /* DropDownMenuTests.swift */,
 				EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */,
 				ECC4B9602214C1D900BB8FFC /* ClipperViewTests.swift */,
 				223AF97322279289009EA730 /* DestinationSearchResultTableViewCellTests.swift */,
 				223AF96F22278209009EA730 /* StationSearchResultTableViewCellTests.swift */,
+				226697E02239D9C1005B82EC /* CoderInitTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -307,15 +374,36 @@
 			path = testJson;
 			sourceTree = "<group>";
 		};
+		223AF9752228D83A009EA730 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				6AB6ECFB21867F1700A81302 /* MapViewController.swift */,
+				224662EE22291EC600E86C66 /* MVCOverlay.swift */,
+				224662EA2229136100E86C66 /* MVCLocationManager.swift */,
+				224662E62229031300E86C66 /* MVCSearchDelegate.swift */,
+				224662F2222B4B3200E86C66 /* MVCDestinationRouting.swift */,
+				22B53435222D1CB4007F4098 /* MVCMapDelegate.swift */,
+				224662E02228F7D200E86C66 /* SearchViewController.swift */,
+				224662EC2229142100E86C66 /* SVCSearchBar.swift */,
+				224662E82229059500E86C66 /* SVCTableView.swift */,
+				224662E42229011F00E86C66 /* SVCDelegate.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		2262C31021829BC6000586EE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				2262C31121829BE3000586EE /* UIColor.swift */,
+				ECB6E6492230488500BF5446 /* UIImageView.swift */,
+				22B53433222D135D007F4098 /* Date.swift */,
+				224662F4222B4BE600E86C66 /* UIViewController.swift */,
 				2262C31521829E4A000586EE /* Collection.swift */,
 				2262C31721829F79000586EE /* String.swift */,
 				2262C31B2182A3D1000586EE /* MKPolyline.swift */,
 				2227C3E9219C198A00053294 /* CAGradientLayer.swift */,
 				222A9275221A7DE900FD1367 /* GMPolyline.swift */,
+				226697E2223A2750005B82EC /* Notification.Name.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,6 +413,7 @@
 			children = (
 				227796CB21B6251F00BAF6BA /* Credentials.swift */,
 				227BBE6B21B4C78E00D3169E /* Bird.swift */,
+				2212935B223B0C080098D52F /* Lime.swift */,
 				22F09752220683FC009881F8 /* BART.swift */,
 				222A926C221A6D0200FD1367 /* GoogleMaps.swift */,
 			);
@@ -336,6 +425,7 @@
 			children = (
 				222A9272221A730000FD1367 /* testJson */,
 				227BBE7021B4F48D00D3169E /* BirdTests.swift */,
+				2212935D223B0F380098D52F /* LimeTests.swift */,
 				22F097542206868E009881F8 /* BartTests.swift */,
 				222A926E221A721D00FD1367 /* GoogleMapsTests.swift */,
 			);
@@ -404,6 +494,7 @@
 		6AB6ED0C2186816800A81302 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				22B534372231D6DC007F4098 /* DestinationRoutingTests.swift */,
 				6AB6ED012186808E00A81302 /* AgencyTests.swift */,
 				6AB6ED032186809F00A81302 /* LineTests.swift */,
 				6AB6ED05218680AB00A81302 /* StationTests.swift */,
@@ -548,8 +639,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22049DA8214C9DF2007FF904 /* LaunchScreen.storyboard in Resources */,
+				226697DF22396F24005B82EC /* Assets.xcassets in Resources */,
 				2262C31A2182A165000586EE /* Localizable.strings in Resources */,
-				22049DA5214C9DF2007FF904 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +728,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/OverlayContainer/OverlayContainer.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -644,6 +736,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OverlayContainer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -694,16 +787,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224662E72229031300E86C66 /* MVCSearchDelegate.swift in Sources */,
+				224662F5222B4BE600E86C66 /* UIViewController.swift in Sources */,
 				2235A97321B8F672009EDAC7 /* Credentials.swift in Sources */,
 				2262C31221829BE3000586EE /* UIColor.swift in Sources */,
 				2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */,
 				6A009193217EAD820087A32B /* ScooterCompany.swift in Sources */,
 				22C331B92186B80800836173 /* RouteSegment.swift in Sources */,
+				224662E32228FC9B00E86C66 /* MoveIndicator.swift in Sources */,
+				224662EB2229136100E86C66 /* MVCLocationManager.swift in Sources */,
 				6AAFCD1421853C59004021E8 /* MapAnnotation.swift in Sources */,
 				22F09753220683FC009881F8 /* BART.swift in Sources */,
 				6A009198217EAF800087A32B /* Pass.swift in Sources */,
 				6A00919A217EAFFE0087A32B /* Ticket.swift in Sources */,
 				222A926D221A6D0200FD1367 /* GoogleMaps.swift in Sources */,
+				ECB6E64A2230488500BF5446 /* UIImageView.swift in Sources */,
+				224662ED2229142100E86C66 /* SVCSearchBar.swift in Sources */,
+				224662E12228F7D200E86C66 /* SearchViewController.swift in Sources */,
+				22B53434222D135D007F4098 /* Date.swift in Sources */,
 				6AB6ED0021867F1700A81302 /* TicketViewController.swift in Sources */,
 				6AB6ECFF21867F1700A81302 /* ClipperViewController.swift in Sources */,
 				6AB6ECFE21867F1700A81302 /* MapViewController.swift in Sources */,
@@ -716,20 +817,32 @@
 				6ABF983B218250B1006878E4 /* Line.swift in Sources */,
 				6A009190217EACCD0087A32B /* Scooter.swift in Sources */,
 				6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */,
+				224662E52229011F00E86C66 /* SVCDelegate.swift in Sources */,
+				224662F12229204200E86C66 /* EmptyView.swift in Sources */,
 				2212D7272179985400ADFE3D /* TabViewController.swift in Sources */,
+				EC8CF4B3222F56BF0018E935 /* DropDownMenu.swift in Sources */,
+				224662E92229059500E86C66 /* SVCTableView.swift in Sources */,
 				2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */,
 				2262C31621829E4A000586EE /* Collection.swift in Sources */,
 				2262C31821829F79000586EE /* String.swift in Sources */,
 				22C331BB2186B88000836173 /* TravelMode.swift in Sources */,
 				6AAFCD1121853C59004021E8 /* AppDelegate.swift in Sources */,
+				224662F3222B4B3200E86C66 /* MVCDestinationRouting.swift in Sources */,
 				223AF96E22265949009EA730 /* StationSearchResultTableViewCell.swift in Sources */,
 				6A009196217EAF1A0087A32B /* ClipperCard.swift in Sources */,
 				70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */,
+				2212935C223B0C080098D52F /* Lime.swift in Sources */,
 				6ABF9839218250B1006878E4 /* TransitMode.swift in Sources */,
+				224662EF22291EC600E86C66 /* MVCOverlay.swift in Sources */,
+				224662F7222B557600E86C66 /* SearchFloatView.swift in Sources */,
+				226697E3223A2750005B82EC /* Notification.Name.swift in Sources */,
 				222A9276221A7DE900FD1367 /* GMPolyline.swift in Sources */,
 				6ABF983A218250B1006878E4 /* Agency.swift in Sources */,
+				22B53432222D1152007F4098 /* RouteOverView.swift in Sources */,
 				6ABF983C218250B1006878E4 /* Station.swift in Sources */,
 				223AF97222278965009EA730 /* DestinationSearchResultTableViewCell.swift in Sources */,
+				22B53436222D1CB4007F4098 /* MVCMapDelegate.swift in Sources */,
+				224662F9222B5A0B00E86C66 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +854,8 @@
 				222A926F221A721D00FD1367 /* GoogleMapsTests.swift in Sources */,
 				6AB6ED022186808E00A81302 /* AgencyTests.swift in Sources */,
 				6AB6ED042186809F00A81302 /* LineTests.swift in Sources */,
+				226697DD2238B0E7005B82EC /* MapViewControllerTests.swift in Sources */,
+				226697E12239D9C1005B82EC /* CoderInitTests.swift in Sources */,
 				6AB6ED132186821800A81302 /* ClipperCardTests.swift in Sources */,
 				6AB6ED0E2186818600A81302 /* ScooterTests.swift in Sources */,
 				EC3B66A822278C8F004FFA23 /* PurchasedTicketCellTests.swift in Sources */,
@@ -751,10 +866,12 @@
 				223AF97422279289009EA730 /* DestinationSearchResultTableViewCellTests.swift in Sources */,
 				223AF97022278209009EA730 /* StationSearchResultTableViewCellTests.swift in Sources */,
 				6AB6ED172186822D00A81302 /* TicketTests.swift in Sources */,
+				ECB6E64C223071B200BF5446 /* DropDownMenuTests.swift in Sources */,
 				2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */,
 				6AB6ED152186822300A81302 /* PassTests.swift in Sources */,
 				227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */,
 				2227C3F0219CBE0C00053294 /* TicketViewTests.swift in Sources */,
+				2212935E223B0F380098D52F /* LimeTests.swift in Sources */,
 				6AB6ED06218680AB00A81302 /* StationTests.swift in Sources */,
 				6AAFCD1A21854723004021E8 /* ScooterCompanyTests.swift in Sources */,
 				6AB6ED102186819900A81302 /* RouteTests.swift in Sources */,
@@ -765,8 +882,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC064CDB22475195006C0737 /* DropDownMenuUITests.swift in Sources */,
 				70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */,
 				22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */,
+				22B5343A2231D6F8007F4098 /* DestinationRoutingTests.swift in Sources */,
+				22B534382231D6DC007F4098 /* DestinationRoutingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -919,7 +1039,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B69SG794P;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -938,7 +1058,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B69SG794P;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -958,7 +1078,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B69SG794P;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPassTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -980,7 +1100,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B69SG794P;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPassTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1001,7 +1121,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B69SG794P;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPassUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1022,7 +1142,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B69SG794P;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPassUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

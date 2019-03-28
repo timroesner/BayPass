@@ -22,7 +22,7 @@ class DestinationSearchResultTableViewCellTests: XCTestCase {
     }
 
     func testSetup() {
-        let coordinates = CLLocationCoordinate2DMake(51.5083, -0.1384)
+        let coordinates = CLLocationCoordinate2DMake(37.3317, 122.0302)
         let address = [CNPostalAddressStreetKey: "1 Infinite Loop", CNPostalAddressCityKey: "Cupertino", CNPostalAddressStateKey: "CA", CNPostalAddressPostalCodeKey: "95014"]
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: address)
         let item = MKMapItem(placemark: placemark)

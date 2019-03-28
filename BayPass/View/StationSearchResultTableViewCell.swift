@@ -88,6 +88,7 @@ class StationSearchResultTableViewCell: UITableViewCell {
     }
 
     required init?(coder _: NSCoder) {
-        fatalError("NSCoder not supported for StationSearchResultTableViewCell")
+        print("NSCoder not supported in StationSearchResultTableViewCell")
+        return nil
     }
 }

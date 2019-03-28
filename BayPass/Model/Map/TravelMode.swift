@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TravelMode {
+enum TravelMode: String {
     case walking
     case scooter
     case bike

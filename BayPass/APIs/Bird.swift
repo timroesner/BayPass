@@ -42,11 +42,11 @@ class Bird {
         }
     }
 
-    func getScooters(fromLocation: CLLocation, radius: Double, completion: @escaping ([Scooter]) -> Void) {
+    func getScooters(fromLocation: CLLocationCoordinate2D, radius: Double, completion: @escaping ([Scooter]) -> Void) {
         var result = [Scooter]()
 
-        let latitude = fromLocation.coordinate.latitude
-        let longitude = fromLocation.coordinate.longitude
+        let latitude = fromLocation.latitude
+        let longitude = fromLocation.longitude
 
         let params = [
             "latitude": latitude,

@@ -21,4 +21,11 @@ struct Scooter {
         self.battery = battery
         self.company = company
     }
+
+    init(location: CLLocation, company: ScooterCompany) {
+        code = ""
+        self.location = location
+        battery = ""
+        self.company = company
+    }
 }

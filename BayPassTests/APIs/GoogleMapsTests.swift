@@ -57,7 +57,7 @@ class GoogleMapsTests: XCTestCase {
         XCTAssertEqual(secondSegment?.durationInMinutes, 39)
         XCTAssertEqual(secondSegment?.departureTime, Date(timeIntervalSince1970: 1539633480))
         XCTAssertEqual(secondSegment?.arrivalTime, Date(timeIntervalSince1970: 1539635820))
-        XCTAssertEqual(secondSegment?.line?.code, 323)
+        XCTAssertEqual(secondSegment?.line?.name, "323")
         XCTAssertEqual(secondSegment?.travelMode, .transit)
         XCTAssertEqual(secondSegment?.polyline.coordinate.latitude, 37.332450590606086)
         XCTAssertEqual(secondSegment?.polyline.coordinate.longitude, -121.95055500000004)
@@ -73,12 +73,12 @@ class GoogleMapsTests: XCTestCase {
     func testRouteParserEmptyJson() {
         let testJson: [String:Any] = [:]
         let testRoute = GoogleMaps().parseRoute(from: testJson)
-        XCTAssertTrue(testRoute == nil)
+        XCTAssertNil(testRoute)
     }
     
     func testSegmentParserEmptyJson() {
         let testJson: [String:Any] = [:]
         let testSegment = GoogleMaps().parseSegment(from: testJson)
-        XCTAssertTrue(testSegment == nil)
+        XCTAssertNil(testSegment)
     }
 }

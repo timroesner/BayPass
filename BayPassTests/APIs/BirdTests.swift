@@ -67,11 +67,11 @@ class BirdTests: XCTestCase {
         sanJoseCal.timeZone = TimeZone(identifier: "America/Los_Angeles")!
         let now = sanJoseCal.component(.hour, from: Date())
         
-        var location = CLLocation(latitude: 48.865314, longitude: 2.343086)
+        var location = CLLocationCoordinate2D(latitude: 48.865314, longitude: 2.343086)
         
         // If bird operates in SJ use it
         if 7 < now && now < 21 {
-            location = CLLocation(latitude: 37.331348, longitude: -121.888877)
+            location = CLLocationCoordinate2D(latitude: 37.331348, longitude: -121.888877)
         }
         
         Bird().getScooters(fromLocation: location, radius: 1000, completion: {
@@ -79,7 +79,7 @@ class BirdTests: XCTestCase {
             expectation.fulfill()
         })
         waitForExpectations(timeout: 5, handler: nil)
-        assert(!scooters.isEmpty)
+        XCTAssert(!scooters.isEmpty)
     }
 
 }
