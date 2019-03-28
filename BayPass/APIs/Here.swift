@@ -11,6 +11,10 @@ import Foundation
 import MapKit
 
 class Here {
+    static let shared = Here()
+
+    private init() {}
+
     // MARK: Get Requests for Here
 
     // Returns an agency for given Station ID
@@ -43,7 +47,8 @@ class Here {
         }
     }
 
-    func getStationsNearby(center: CLLocationCoordinate2D, radius: Int, max: Int, completion: @escaping ([Station]) -> Void) {
+    func getStationsNearby(center: CLLocationCoordinate2D, radius: Int, max: Int, time: String, completion: @escaping ([Station]) -> Void) {
+        print("Got here...")
         let param = [
             "center": "\(center.latitude),\(center.longitude)",
             "radius": radius,
@@ -53,7 +58,6 @@ class Here {
         ] as [String: Any]
 
         var stations = [Station]()
-
         Alamofire.request("https://transit.api.here.com/v3/stations/by_geocoord.json?", method: .get, parameters: param).responseJSON { resp in
             if let json = resp.result.value as? [String: Any],
                 let resJson = json["Res"] as? [String: Any],
@@ -65,7 +69,7 @@ class Here {
                     }
                 }
 
-                self.getAgencies(stationIds: stations.map { $0.code }, time: "2019-03-24T08%3A00%3A00") { agencyStationIDs in // TODO: Fix
+                self.getAgencies(stationIds: stations.map { $0.code }, time: time) { agencyStationIDs in // TODO: Fix
                     for index in 0 ..< stations.count {
                         if let agency = agencyStationIDs[stations[index].code] {
                             for lineIndex in 0 ..< stations[index].lines.count {
@@ -220,11 +224,9 @@ class Here {
         let transports = json["Transports"] as? [String: Any]
 
         let transport = transports?["Transport"] as? [[String: Any]]
-        let transportData = transport?[0] as? [String: Any]
+        let transportData = transport?[0]
         var lines: [Line] = [Line]()
         var transitModes = [TransitMode]()
-
-        var codeNum = Int(code!)
 
         for transport1 in transport! {
             let lineName = transport1["name"] as? String
@@ -234,7 +236,7 @@ class Here {
             let color = UIColor(named: colorString ?? "")
             let modeNum = transportData?["mode"] as? Int
             let transitMode = transitModeConvert(num: modeNum ?? 0)
-            var ag = Agency.zero
+            let ag = Agency.zero
             transitModes.append(transitMode)
             lines.append(Line(name: lineName ?? "", agency: ag, destination: lineDestination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode))
         }

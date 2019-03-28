@@ -15,7 +15,7 @@ import XCTest
 class HereTests: XCTestCase {
     var testJson: [String: Any] = [:]
     var testJsonForAgency: [String: Any] = [:]
-
+    let here = Here.shared
     override func setUp() {
         let path = Bundle(for: type(of: self)).path(forResource: "Here", ofType: "json")
         let data = try! Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
@@ -38,7 +38,7 @@ class HereTests: XCTestCase {
 
         var results: [Int]?
 
-        Here().getStationIds(center: center, radius: radius, max: max) { res in
+        here.getStationIds(center: center, radius: radius, max: max) { res in
             results = res
             ex.fulfill()
         }
@@ -52,7 +52,7 @@ class HereTests: XCTestCase {
         let time = "2019-06-24T08%3A00%3A00"
         var result: Agency?
 
-        Here().getAgencyFromStationId(stationId: stationId, time: time) { resp in
+        here.getAgencyFromStationId(stationId: stationId, time: time) { resp in
             result = resp
             ex.fulfill()
         }
@@ -64,10 +64,11 @@ class HereTests: XCTestCase {
         let ex = expectation(description: "Here for getting Station Ids")
         let center = CLLocationCoordinate2D(latitude: 37.5032238, longitude: -121.9434281)
         let radius = 1500
+        let time = "2019-03-24T08%3A00%3A00"
 
         var results: [Station]? = [Station]()
 
-        Here().getStationsNearby(center: center, radius: radius, max: 1) { resp in
+        here.getStationsNearby(center: center, radius: radius, max: 1, time: time) { resp in
             results = resp
             ex.fulfill()
         }
@@ -83,7 +84,7 @@ class HereTests: XCTestCase {
         let time = "2019-06-24T08%3A00%3A00"
 
         var results: [Line]?
-        Here().getLine(stationId: stationId, time: time) { resp in
+        here.getLine(stationId: stationId, time: time) { resp in
             results = resp
             ex.fulfill()
         }
@@ -99,7 +100,7 @@ class HereTests: XCTestCase {
         let stationsJson = resJson["Stations"] as! [String: Any]
         let stnsJson = stationsJson["Stn"] as! [[String: Any]]
 
-        let test = Here().parseStationForId(from: stnsJson[0])
+        let test = here.parseStationForId(from: stnsJson[0])
 
         XCTAssertEqual(test, 718_290_976)
     }
@@ -109,7 +110,7 @@ class HereTests: XCTestCase {
         let multiNextDepartures = resJson["MultiNextDepartures"] as! [String: Any]
         let multiNextDeparture = multiNextDepartures["MultiNextDeparture"] as! [[String: Any]]
 
-        let test = Here().parseOperatorFromStationId(from: multiNextDeparture[0])
+        let test = here.parseOperatorFromStationId(from: multiNextDeparture[0])
 
         XCTAssertEqual(test, Agency.SamsTrans)
     }
@@ -119,7 +120,7 @@ class HereTests: XCTestCase {
         let stationsJson = resJson["Stations"] as! [String: Any]
         let stnsJson = stationsJson["Stn"] as! [[String: Any]]
 
-        let test = Here().parseStation(from: stnsJson[0])
+        let test = here.parseStation(from: stnsJson[0])
 
         XCTAssertEqual(test?.code, 718_290_976)
         XCTAssertEqual(test?.name, "Magnolia Ave & Ward St")
@@ -134,9 +135,9 @@ class HereTests: XCTestCase {
         let num2 = 3
         let num3 = 8
 
-        XCTAssertEqual(Here().transitModeConvert(num: num), TransitMode.lightRail)
-        XCTAssertEqual(Here().transitModeConvert(num: num1), TransitMode.bus)
-        XCTAssertEqual(Here().transitModeConvert(num: num2), TransitMode.calTrain)
-        XCTAssertEqual(Here().transitModeConvert(num: num3), TransitMode.bart)
+        XCTAssertEqual(here.transitModeConvert(num: num), TransitMode.lightRail)
+        XCTAssertEqual(here.transitModeConvert(num: num1), TransitMode.bus)
+        XCTAssertEqual(here.transitModeConvert(num: num2), TransitMode.calTrain)
+        XCTAssertEqual(here.transitModeConvert(num: num3), TransitMode.bart)
     }
 }
