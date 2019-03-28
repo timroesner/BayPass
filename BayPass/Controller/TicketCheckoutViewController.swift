@@ -14,30 +14,36 @@ class TicketCheckoutViewController: UIViewController {
     
     
     var ticket = ""
+    //var title = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //title = "test"
         view.backgroundColor = .white
-        title = "Ticket Checkout"
         navigationController?.navigationBar.prefersLargeTitles = false
         
-        //ticket view
-        let ticketView = TicketView(agency: "CalTrain", icon: UIImage(named: "CalTrain")!, cornerRadius: 12)
-        view.addSubview(ticketView)
-        ticketView.snp.makeConstraints({ (make) -> Void in
+        //let ticketTypeDropDown = DropDownMenu(title: "ticket type", items: ["Apple Pay", "Credit/Debit", "Paypal"])
+    }
+    
+    func setUpTitle(newTitle: String){
+        title = newTitle
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    func setUpTicketView(newTicketView: TicketView){
+        view.addSubview(newTicketView)
+        newTicketView.snp.makeConstraints({ (make) -> Void in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
             make.leading.equalToSuperview().inset(16)
             make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(ticketView.snp.width).multipliedBy(0.6)
+            make.height.equalTo(newTicketView.snp.width).multipliedBy(0.6)
         })
-        ticketView.layoutIfNeeded()
-        
-        //let ticketTypeDropDown = DropDownMenu(title: "ticket type", items: ["Apple Pay", "Credit/Debit", "Paypal"])
-        
-        // pay button
+        newTicketView.layoutIfNeeded()
+    }
+    
+    func setUpButton(color: String){
         let button = UIButton()
-        button.backgroundColor = UIColor(red: 221, green: 84, blue: 65)
+        button.backgroundColor = UIColor(named: "dark\(color)") ?? UIColor(hex: 0x000)
         button.layer.cornerRadius = 10
         button.setTitle("Pay $xx.xx", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -51,5 +57,6 @@ class TicketCheckoutViewController: UIViewController {
             make.height.equalTo(self.view.snp.width).multipliedBy(0.15)
         }
     }
+    
 }
 
