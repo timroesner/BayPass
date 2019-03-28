@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TransitMode {
+enum TransitMode: String, Codable {
     case bus
     case lightRail
     case bart

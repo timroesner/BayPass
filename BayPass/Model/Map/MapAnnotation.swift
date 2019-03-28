@@ -16,12 +16,16 @@ class MapAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var icon: UIImage
     var color: UIColor
-
+    var latitude: CLLocationDegrees
+    var longitude: CLLocationDegrees
+    
     init(title: String, coordinate: CLLocationCoordinate2D, icon: UIImage, color: UIColor) {
         self.title = title
         self.coordinate = coordinate
         self.icon = icon
         self.color = color
+        self.latitude = coordinate.latitude
+        self.longitude = coordinate.longitude
     }
 
     init(fromScooter: Scooter) {
@@ -30,13 +34,18 @@ class MapAnnotation: NSObject, MKAnnotation {
             subtitle = "\(fromScooter.battery)%"
         }
         coordinate = fromScooter.location.coordinate
+        latitude = coordinate.latitude
+        longitude = coordinate.longitude
         icon = fromScooter.company.icon
         color = fromScooter.company.color
     }
 
     init(fromStation: Station) {
         title = fromStation.name
+//        coordinate = CLLocationCoordinate2DMake(latitude, longitude)
         coordinate = fromStation.location.coordinate
+        latitude = coordinate.latitude
+        longitude = coordinate.longitude
         icon = fromStation.getIcon()
         color = fromStation.color
     }
@@ -44,6 +53,8 @@ class MapAnnotation: NSObject, MKAnnotation {
     init(fromBikeDock: BikeDock) {
         title = fromBikeDock.name
         coordinate = fromBikeDock.location.coordinate
+        latitude = coordinate.latitude
+        longitude = coordinate.longitude
         icon = fromBikeDock.icon
         color = fromBikeDock.color
     }

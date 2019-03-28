@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Line: Equatable {
+struct Line {
     var name: String
     var code: Int
     var destination: String

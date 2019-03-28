@@ -15,27 +15,19 @@ struct Ticket {
     var count: Int = 0
     var price: Double
     var validOnAgency: Agency
-    var NFCCode: String
-    var locations: [CLLocation]
 
-    init(name: String, duration: DateInterval, price: Double, validOnAgency: Agency, NFCCode: String,
-         locations: [CLLocation]) {
+    init(name: String, duration: DateInterval, price: Double, validOnAgency: Agency) {
         self.name = name
         self.duration = duration
         self.price = price
         self.validOnAgency = validOnAgency
-        self.NFCCode = NFCCode
-        self.locations = locations
     }
 
-    init(name: String, count: Int, price: Double, validOnAgency: Agency, NFCCode: String,
-         locations: [CLLocation]) {
+    init(name: String, count: Int, price: Double, validOnAgency: Agency) {
         self.name = name
         self.count = count
         self.price = price
         self.validOnAgency = validOnAgency
-        self.NFCCode = NFCCode
-        self.locations = locations
     }
 
     func isValid() -> Bool {
