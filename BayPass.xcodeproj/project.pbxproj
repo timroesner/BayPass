@@ -47,9 +47,8 @@
 		2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31B2182A3D1000586EE /* MKPolyline.swift */; };
 		2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31D2187ED24000586EE /* RouteSegmentTests.swift */; };
 		2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31F2187FD68000586EE /* MapAnnotationTests.swift */; };
-		226697DD2238B0E7005B82EC /* LocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697DC2238B0E7005B82EC /* LocationManagerTests.swift */; };
-		226697DF22396F24005B82EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226697DE22396F24005B82EC /* Assets.xcassets */; };
 		226697DD2238B0E7005B82EC /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */; };
+		226697DF22396F24005B82EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226697DE22396F24005B82EC /* Assets.xcassets */; };
 		226697E12239D9C1005B82EC /* CoderInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697E02239D9C1005B82EC /* CoderInitTests.swift */; };
 		226697E3223A2750005B82EC /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226697E2223A2750005B82EC /* Notification.Name.swift */; };
 		227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE6B21B4C78E00D3169E /* Bird.swift */; };
@@ -57,7 +56,6 @@
 		22B53432222D1152007F4098 /* RouteOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53431222D1152007F4098 /* RouteOverView.swift */; };
 		22B53434222D135D007F4098 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53433222D135D007F4098 /* Date.swift */; };
 		22B53436222D1CB4007F4098 /* MVCMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53435222D1CB4007F4098 /* MVCMapDelegate.swift */; };
-		22B534382231D6DC007F4098 /* DestinationRoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B534372231D6DC007F4098 /* DestinationRoutingTests.swift */; };
 		22B5343A2231D6F8007F4098 /* DestinationRoutingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B534392231D6F8007F4098 /* DestinationRoutingTests.swift */; };
 		22C331B92186B80800836173 /* RouteSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331B82186B80800836173 /* RouteSegment.swift */; };
 		22C331BB2186B88000836173 /* TravelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331BA2186B88000836173 /* TravelMode.swift */; };
@@ -166,9 +164,8 @@
 		2262C31B2182A3D1000586EE /* MKPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPolyline.swift; sourceTree = "<group>"; };
 		2262C31D2187ED24000586EE /* RouteSegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentTests.swift; sourceTree = "<group>"; };
 		2262C31F2187FD68000586EE /* MapAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationTests.swift; sourceTree = "<group>"; };
-		226697DC2238B0E7005B82EC /* LocationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTests.swift; sourceTree = "<group>"; };
-		226697DE22396F24005B82EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
+		226697DE22396F24005B82EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		226697E02239D9C1005B82EC /* CoderInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderInitTests.swift; sourceTree = "<group>"; };
 		226697E2223A2750005B82EC /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		227796CB21B6251F00BAF6BA /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -597,18 +594,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Tim Roesner";
 				TargetAttributes = {
 					22049D99214C9DF0007FF904 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 					22049DAD214C9DF2007FF904 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = 22049D99214C9DF0007FF904;
 					};
 					22049DB8214C9DF3007FF904 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = 22049D99214C9DF0007FF904;
 					};
 				};
@@ -886,7 +886,6 @@
 				70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */,
 				22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */,
 				22B5343A2231D6F8007F4098 /* DestinationRoutingTests.swift in Sources */,
-				22B534382231D6DC007F4098 /* DestinationRoutingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,7 +1046,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1066,7 +1065,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1087,7 +1086,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPassTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BayPass.app/BayPass";
 			};
@@ -1109,7 +1108,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPassTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BayPass.app/BayPass";
 			};
@@ -1130,7 +1129,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPassUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BayPass;
 			};
@@ -1151,7 +1150,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.timroesner.BayPassUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = BayPass;
 			};
