@@ -26,25 +26,12 @@ class GoogleFirestore {
 
     func create() {}
 
-    func read() {
-        // read data in all agencies
-        reference(to: "Agencies").addSnapshotListener { snapshot, _ in
-            guard let snapshot = snapshot else { return }
-            for document in snapshot.documents {
-//                print(document.documentID)
-//                print(document.data())
-            }
-        }
-    }
-    
-    // video tutorial https://www.youtube.com/watch?v=24ef-Zwz2v8
-    // 1:21:06
     func getTicketList(agency: Agency, completion: @escaping (([Ticket], [Pass])) -> Void) {
         var tickets = [Ticket]()
         var passes = [Pass]()
         reference(to: "Agencies").document(agency.stringValue).addSnapshotListener {snapshot, _ in
             guard let snapshot = snapshot else {return}
-            var results = [Ticket]()
+
             for ticket in snapshot.data() as [String : AnyObject]? ?? [:] {
                 let ticketName = ticket.key
                 let ticketValue = ticket.value as? [String: Any] ?? [:]
@@ -55,22 +42,36 @@ class GoogleFirestore {
                 if let price = price {
                     if let count = count {
                         let newTicket = Ticket(name: ticketName, count: count, price: price, validOnAgency: agency)
+                        tickets.append(newTicket)
                     } else if let duration = duration {
                         let interval = DateInterval(start: Date(), duration: TimeInterval(duration*3600))
                         
                         let newPass = Pass(name: ticketName, duration: interval, price: price, validOnAgency: agency)
                         let newTicket = Ticket(name: ticketName, duration: interval, price: price, validOnAgency: agency)
+                        tickets.append(newTicket)
+                        passes.append(newPass)
                     }
                 } else {
                     if let priceArray = ticketValue["price"] as? [String: Double] {
                         for (priceName, priceValue) in priceArray {
                             let newName = ticketName + " (" + priceName + ")"
-                            print(newName)
+                            if let count = count {
+                                let newTicket = Ticket(name: newName, count: count, price: priceValue, validOnAgency: agency)
+                                tickets.append(newTicket)
+                            } else if let duration = duration {
+                                let interval = DateInterval(start: Date(), duration: TimeInterval(duration*3600))
+                                let newPass = Pass(name: newName, duration: interval, price: priceValue, validOnAgency: agency)
+                                let newTicket = Ticket(name: newName, duration: interval, price: priceValue, validOnAgency: agency)
+                                tickets.append(newTicket)
+                                passes.append(newPass)
+                            }
                         }
                     }
-                    
                 }
             }
+            print(tickets)
+            print(passes)
+            completion((tickets,passes))
         }
     }
     
