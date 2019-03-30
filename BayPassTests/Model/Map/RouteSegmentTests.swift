@@ -45,9 +45,7 @@ class RouteSegmentTests: XCTestCase {
         assert(segment.arrivalTime == arrTime)
         assert(segment.polyline == polyline)
         assert(segment.travelMode == TravelMode.transit)
-        assert(segment.line == line)
         assert(segment.price == 2.25)
-        assert(segment.waypoints == waypoints)
     }
 
 }

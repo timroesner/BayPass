@@ -29,23 +29,23 @@ class GoogleFirestore {
     func getTicketList(agency: Agency, completion: @escaping (([Ticket], [Pass])) -> Void) {
         var tickets = [Ticket]()
         var passes = [Pass]()
-        reference(to: "Agencies").document(agency.stringValue).addSnapshotListener {snapshot, _ in
-            guard let snapshot = snapshot else {return}
+        reference(to: "Agencies").document(agency.stringValue).addSnapshotListener { snapshot, _ in
+            guard let snapshot = snapshot else { return }
 
-            for ticket in snapshot.data() as [String : AnyObject]? ?? [:] {
+            for ticket in snapshot.data() as [String: AnyObject]? ?? [:] {
                 let ticketName = ticket.key
                 let ticketValue = ticket.value as? [String: Any] ?? [:]
                 let count = ticketValue["count"] as? Int
                 let duration = ticketValue["duration"] as? Int
                 let price = ticketValue["price"] as? Double
-                
+
                 if let price = price {
                     if let count = count {
                         let newTicket = Ticket(name: ticketName, count: count, price: price, validOnAgency: agency)
                         tickets.append(newTicket)
                     } else if let duration = duration {
-                        let interval = DateInterval(start: Date(), duration: TimeInterval(duration*3600))
-                        
+                        let interval = DateInterval(start: Date(), duration: TimeInterval(duration * 3600))
+
                         let newPass = Pass(name: ticketName, duration: interval, price: price, validOnAgency: agency)
                         let newTicket = Ticket(name: ticketName, duration: interval, price: price, validOnAgency: agency)
                         tickets.append(newTicket)
@@ -59,11 +59,9 @@ class GoogleFirestore {
                                 let newTicket = Ticket(name: newName, count: count, price: priceValue, validOnAgency: agency)
                                 tickets.append(newTicket)
                             } else if let duration = duration {
-                                let interval = DateInterval(start: Date(), duration: TimeInterval(duration*3600))
+                                let interval = DateInterval(start: Date(), duration: TimeInterval(duration * 3600))
                                 let newPass = Pass(name: newName, duration: interval, price: priceValue, validOnAgency: agency)
                                 let newTicket = Ticket(name: newName, duration: interval, price: priceValue, validOnAgency: agency)
-                                tickets.append(newTicket)
-                                passes.append(newPass)
                             }
                         }
                     }
@@ -71,19 +69,18 @@ class GoogleFirestore {
             }
             print(tickets)
             print(passes)
-            completion((tickets,passes))
+            completion((tickets, passes))
         }
     }
-    
+
     func update() {}
 
     func delete() {}
-    
+
     // add cards to database
-    func add(card: ClipperCard) {
+    func add(card _: ClipperCard) {
         let clipperRef = reference(to: "Clipper Card")
 //        let params = []
 //        clipperRef.addDocument(data: )
     }
-    
 }

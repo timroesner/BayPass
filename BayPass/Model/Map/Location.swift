@@ -7,8 +7,8 @@
 //
 // most code cited from https://medium.com/@kf99916/codable-nsmanagedobject-and-cllocation-in-swift-4-b32f042cb7d3
 
-import UIKit
 import CoreLocation
+import UIKit
 
 extension CLLocation: Encodable {
     enum CodingKeys: String, CodingKey {
@@ -21,6 +21,7 @@ extension CLLocation: Encodable {
         case course
         case timestamp
     }
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(coordinate.latitude, forKey: .latitude)
@@ -44,6 +45,7 @@ struct Location: Codable {
     let course: CLLocationDirection
     let timestamp: Date
 }
+
 extension CLLocation {
     convenience init(model: Location) {
         self.init(coordinate: CLLocationCoordinate2DMake(model.latitude, model.longitude), altitude: model.altitude, horizontalAccuracy: model.horizontalAccuracy, verticalAccuracy: model.verticalAccuracy, course: model.course, speed: model.speed, timestamp: model.timestamp)

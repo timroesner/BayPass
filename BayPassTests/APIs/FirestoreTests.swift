@@ -6,6 +6,7 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
+@testable import BayPass
 import XCTest
 import FirebaseFirestore
 
@@ -20,7 +21,14 @@ class FirestoreTests: XCTestCase {
     }
 
     func testGetTicketList() {
-        
+        let expectation = self.expectation(description: "async")
+        var tickets = [Ticket]()
+        var passes = [Pass]()
+        let agency = Agency.SamsTrans
+        GoogleFirestore.shared.getTicketList(agency: agency, completion: { (tickets, passes) -> Void in
+            expectation.fulfill()
+        })
+//        waitForExpectations(timeout: 5, handler: nil)
     }
 
 }

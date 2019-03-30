@@ -19,7 +19,7 @@ enum Agency: String {
     case SolTrans = "247" // SolsTrans
     case SamsTrans = "sam" // SamsTrans
     case zero = "0" // Debugging
-    
+
     var stringValue: String {
         switch self {
         case .ACTransit:
@@ -46,7 +46,7 @@ enum Agency: String {
             return ""
         }
     }
-    
+
     func getIcon() -> UIImage {
         switch self {
         case .ACE:

@@ -37,13 +37,13 @@ class TicketTests: XCTestCase {
     }
     
     func testIsValidTrue() {
-        let testTicket = Ticket(name: "VTA", count: 1, price: 2.50, validOnAgency: agency!, NFCCode: "1234", locations: locations)
+        let testTicket = Ticket(name: "VTA", count: 1, price: 2.50, validOnAgency: agency!)
         assert(testTicket.isValid())
     }
     
     func testIsValidFalse() {
         let duration = DateInterval(start: Date(timeIntervalSince1970: 60), duration: 45)
-        let testTicket = Ticket(name: "VTA", duration: duration, price: 2.50, validOnAgency: agency!, NFCCode: "1234", locations: locations)
+        let testTicket = Ticket(name: "VTA", duration: duration, price: 2.50, validOnAgency: agency!)
         assert(testTicket.isValid() == false)
     }
 }

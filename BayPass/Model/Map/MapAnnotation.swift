@@ -18,14 +18,14 @@ class MapAnnotation: NSObject, MKAnnotation {
     var color: UIColor
     var latitude: CLLocationDegrees
     var longitude: CLLocationDegrees
-    
+
     init(title: String, coordinate: CLLocationCoordinate2D, icon: UIImage, color: UIColor) {
         self.title = title
         self.coordinate = coordinate
         self.icon = icon
         self.color = color
-        self.latitude = coordinate.latitude
-        self.longitude = coordinate.longitude
+        latitude = coordinate.latitude
+        longitude = coordinate.longitude
     }
 
     init(fromScooter: Scooter) {

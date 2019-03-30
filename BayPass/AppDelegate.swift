@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GoogleFirestore.shared.configure()
         // test here
-        GoogleFirestore.shared.getTicketList(agency: .Muni) { (result) in
+        GoogleFirestore.shared.getTicketList(agency: .Muni) { _ in
         }
 
         window = UIWindow()
