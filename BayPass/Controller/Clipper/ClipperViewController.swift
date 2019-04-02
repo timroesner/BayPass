@@ -64,7 +64,7 @@ class ClipperViewController: UIViewController {
                 make.top.equalTo(label.snp.bottom).offset(4)
                 make.left.equalTo(label.snp.left)
                 make.right.equalToSuperview()
-                make.height.equalTo(125).priorityLow()
+                make.height.equalTo(125).priority(.low)
             }
 
             let addCashButton = BayPassButton(title: "Add Cash Value", color: UIColor().clipperBlue)
