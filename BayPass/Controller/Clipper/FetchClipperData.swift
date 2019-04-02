@@ -106,8 +106,8 @@ extension SignInViewController {
                 }
 
                 if isActive {
-                    let _ = type
-                    let _ = products
+                    _ = type
+                    _ = products
                     let newCard = ClipperCard(number: cardNumber, cashValue: cashValue, passes: [])
                     result.append(newCard)
                 }

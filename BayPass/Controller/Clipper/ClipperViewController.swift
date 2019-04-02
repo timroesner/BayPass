@@ -12,7 +12,6 @@ import UIKit
 let clipperManager = ClipperSingleton()
 
 class ClipperViewController: UIViewController {
-    
     var collectionView: UICollectionView?
     let cellIdentifier = "clipperPassCell"
 

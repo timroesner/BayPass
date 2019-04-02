@@ -84,7 +84,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             textField.text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
             passwordTextField.becomeFirstResponder()
         }
-        
+
         if let text = textField.text,
             let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
             if text.count < 3 || !text.contains("@") || !text.contains(".") {
@@ -110,10 +110,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             displayAlert(title: "Invalid", msg: "Double check that you filled all fields and they are valid", dismissAfter: false)
             return
         }
-        
+
         let progressHUD = ProgressHUD()
         view.addSubview(progressHUD)
-        
+
         fetchClipperData(email: email, password: password, completion: {
             progressHUD.stop()
             guard let newCard = $0?.first else {
