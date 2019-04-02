@@ -51,7 +51,7 @@ class LimeTests: XCTestCase {
         let expectation = self.expectation(description: "async")
         var scooters = [Scooter]()
         
-        let location = CLLocationCoordinate2D(latitude: 37.331348, longitude: -121.888877)
+        let location = CLLocationCoordinate2D(latitude: 37.338490, longitude: -121.885766)
         
         Lime().getScooters(fromLocation: location, completion: {
             scooters = $0
