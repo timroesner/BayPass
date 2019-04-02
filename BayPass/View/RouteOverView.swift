@@ -117,8 +117,6 @@ class RouteOverView: UIView {
                     case .bike:
                         icon.image = #imageLiteral(resourceName: "Bike")
                     case .transit:
-                        icon.tintColor = .white
-                        // TODO: replace with line icon
                         icon.image = segment.line?.agency.getIcon()
                     }
                     lineLabel.addSubview(icon)

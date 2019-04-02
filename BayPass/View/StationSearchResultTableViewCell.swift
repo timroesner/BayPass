@@ -47,7 +47,7 @@ class StationSearchResultTableViewCell: UITableViewCell {
     func setup(with station: Station) {
         var lines: [String] = []
         title.text = station.name
-        iconView.tintColor = UIColor(hex: 0x9B9B9B)
+        iconView.tintColor = station.color
         iconView.image = station.getIcon()
         for line in station.lines {
             lines.append(line.name)

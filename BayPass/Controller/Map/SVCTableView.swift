@@ -23,7 +23,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let resultObject = searchResults[indexPath.row]
 
         if let station = resultObject as? Station {
-            // cell = tableView.dequeueReusableCell(withIdentifier: <#T##String#>, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: stationCellId, for: indexPath) as! StationSearchResultTableViewCell
+            cell.setup(with: station)
+            return cell
         }
 
         if let destination = resultObject as? MKMapItem {

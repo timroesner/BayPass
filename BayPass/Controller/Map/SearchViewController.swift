@@ -19,6 +19,8 @@ class SearchViewController: UIViewController {
     private var stations = [Station]()
     var searchResults = [Any]()
     var parentMapVC: MapViewController?
+    let sys = System()
+    var allStationsDict = [String: Station]()
 
     let stationCellId = "station"
     let destinationCellId = "destination"
@@ -30,6 +32,11 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.register(DestinationSearchResultTableViewCell.self, forCellReuseIdentifier: destinationCellId)
+        tableView.register(StationSearchResultTableViewCell.self, forCellReuseIdentifier: stationCellId)
+        sys.getAllStations { resp -> Void in
+            self.allStationsDict = resp
+            print(self.allStationsDict.keys)
+        }
 
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 21
@@ -58,6 +65,20 @@ class SearchViewController: UIViewController {
         }
     }
 
+    func searchStations(with searchText: String) {
+        print(allStationsDict.keys)
+        if let (name, station) = allStationsDict.first(where: { (key, _) -> Bool in key.contains(searchText) }) {
+            print(name)
+            searchResults.append(station)
+            sortResults()
+            searchDestinations(with: searchText)
+            tableView.reloadData()
+        } else {
+            print("no match")
+            searchDestinations(with: searchText)
+        }
+    }
+
     func searchDestinations(with searchText: String) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchText
@@ -72,13 +93,11 @@ class SearchViewController: UIViewController {
                 print(error?.localizedDescription as Any)
                 return
             }
-
             self.destinations = response.mapItems
             self.searchResults = []
             self.searchResults.append(contentsOf: self.destinations)
-            self.searchResults.append(contentsOf: self.stations)
             self.sortResults()
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
         }
     }
 
