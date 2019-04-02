@@ -18,7 +18,7 @@ extension ClipperViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return (clipperManager.getClipperCard()?.passes.count ?? 0) + 1
+        return clipperManager.getValidPasses().count + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -27,7 +27,7 @@ extension ClipperViewController: UICollectionViewDelegate, UICollectionViewDataS
         if indexPath.row == 0 {
             cell.setupAdd()
         } else {
-            cell.setup(with: clipperManager.getClipperCard()!.passes[indexPath.row - 1])
+            cell.setup(with: clipperManager.getValidPasses()[indexPath.row - 1])
         }
         return cell
     }
@@ -38,8 +38,8 @@ extension ClipperViewController: UICollectionViewDelegate, UICollectionViewDataS
             navigationController?.pushViewController(ClipperAddCashViewController(), animated: true)
         } else {
             // present pass details with selected pass
-            let pass = clipperManager.getClipperCard()?.passes[indexPath.row - 1]
-            print(pass ?? "")
+            let pass = clipperManager.getValidPasses()[indexPath.row - 1]
+            print(pass)
             navigationController?.pushViewController(ClipperAddCashViewController(), animated: true)
         }
     }
