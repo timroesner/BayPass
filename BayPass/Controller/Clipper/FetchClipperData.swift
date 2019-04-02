@@ -90,7 +90,7 @@ extension SignInViewController {
 
                 for (index, div) in dividers.enumerated() {
                     let text = (try? div.text()) ?? ""
-                    let nextText = (try? dividers[safe: index + 1]?.text()) ?? ""
+                    let nextText = (try? dividers[safe: index + 1]?.text() ?? "") ?? ""
 
                     if text == "Serial Number:" {
                         cardNumber = Int(nextText) ?? 0

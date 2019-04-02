@@ -18,13 +18,13 @@ class ClipperSingleton {
     func setClipperCard(card: ClipperCard) {
         clipperCard = card
     }
-    
+
     func getValidPasses() -> [Pass] {
         var result = [Pass]()
         let now = Date()
-        
+
         for pass in clipperCard?.passes ?? [] {
-            if pass.duration.end >= now && pass.duration.start <= now {
+            if pass.duration.end >= now, pass.duration.start <= now {
                 result.append(pass)
             }
         }
