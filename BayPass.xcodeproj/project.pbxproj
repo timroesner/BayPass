@@ -71,6 +71,9 @@
 		22B83C5D224EAF3C00D1D64E /* FetchClipperDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B83C5C224EAF3C00D1D64E /* FetchClipperDataTests.swift */; };
 		22C331B92186B80800836173 /* RouteSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331B82186B80800836173 /* RouteSegment.swift */; };
 		22C331BB2186B88000836173 /* TravelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C331BA2186B88000836173 /* TravelMode.swift */; };
+		22DB0240225450B900B8D600 /* ClipperSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB023F225450B900B8D600 /* ClipperSignInTests.swift */; };
+		22DB02422254579F00B8D600 /* ClipperOnBoardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB02412254579F00B8D600 /* ClipperOnBoardingTests.swift */; };
+		22DB024422545DBC00B8D600 /* ClipperAddCashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB024322545DBC00B8D600 /* ClipperAddCashTests.swift */; };
 		22F09753220683FC009881F8 /* BART.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F09752220683FC009881F8 /* BART.swift */; };
 		22F097552206868E009881F8 /* BartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F097542206868E009881F8 /* BartTests.swift */; };
 		3F2A3909C8E024CD3AE14311 /* Pods_BayPassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */; };
@@ -202,6 +205,9 @@
 		22B83C5C224EAF3C00D1D64E /* FetchClipperDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchClipperDataTests.swift; sourceTree = "<group>"; };
 		22C331B82186B80800836173 /* RouteSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegment.swift; sourceTree = "<group>"; };
 		22C331BA2186B88000836173 /* TravelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMode.swift; sourceTree = "<group>"; };
+		22DB023F225450B900B8D600 /* ClipperSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperSignInTests.swift; sourceTree = "<group>"; };
+		22DB02412254579F00B8D600 /* ClipperOnBoardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperOnBoardingTests.swift; sourceTree = "<group>"; };
+		22DB024322545DBC00B8D600 /* ClipperAddCashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperAddCashTests.swift; sourceTree = "<group>"; };
 		22F09752220683FC009881F8 /* BART.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BART.swift; sourceTree = "<group>"; };
 		22F097542206868E009881F8 /* BartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartTests.swift; sourceTree = "<group>"; };
 		4D4F7368CE1FD8AB6E3F8FE1 /* Pods-BayPassTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -484,7 +490,10 @@
 			isa = PBXGroup;
 			children = (
 				22B3225722533CF100F2508A /* ClipperViewControllerTests.swift */,
+				22DB02412254579F00B8D600 /* ClipperOnBoardingTests.swift */,
+				22DB024322545DBC00B8D600 /* ClipperAddCashTests.swift */,
 				22B83C5C224EAF3C00D1D64E /* FetchClipperDataTests.swift */,
+				22DB023F225450B900B8D600 /* ClipperSignInTests.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -933,11 +942,13 @@
 				22B3225822533CF200F2508A /* ClipperViewControllerTests.swift in Sources */,
 				ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */,
 				6AB6ED0A218680C300A81302 /* BikeDockTests.swift in Sources */,
+				22DB02422254579F00B8D600 /* ClipperOnBoardingTests.swift in Sources */,
 				22F097552206868E009881F8 /* BartTests.swift in Sources */,
 				2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */,
 				223AF97422279289009EA730 /* DestinationSearchResultTableViewCellTests.swift in Sources */,
 				223AF97022278209009EA730 /* StationSearchResultTableViewCellTests.swift in Sources */,
 				6AB6ED172186822D00A81302 /* TicketTests.swift in Sources */,
+				22DB0240225450B900B8D600 /* ClipperSignInTests.swift in Sources */,
 				ECB6E64C223071B200BF5446 /* DropDownMenuTests.swift in Sources */,
 				2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */,
 				6AB6ED152186822300A81302 /* PassTests.swift in Sources */,
@@ -947,6 +958,7 @@
 				2212935E223B0F380098D52F /* LimeTests.swift in Sources */,
 				6AB6ED06218680AB00A81302 /* StationTests.swift in Sources */,
 				6AAFCD1A21854723004021E8 /* ScooterCompanyTests.swift in Sources */,
+				22DB024422545DBC00B8D600 /* ClipperAddCashTests.swift in Sources */,
 				6AB6ED102186819900A81302 /* RouteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

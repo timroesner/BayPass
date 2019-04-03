@@ -26,9 +26,16 @@ class ClipperViewControllerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testCollectionView() {
-        vc.collectionView?.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .bottom)
-        XCTAssertNotNil(vc.collectionView)
+    func testSelectAdd() {
+        vc.collectionView?.delegate?.collectionView?(vc.collectionView!, didSelectItemAt: IndexPath(row: 0, section: 0))
+        let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
+        XCTAssertFalse(presentedVC is ClipperViewController)
+    }
+    
+    func testSelectPass() {
+        vc.collectionView?.delegate?.collectionView?(vc.collectionView!, didSelectItemAt: IndexPath(row: 1, section: 0))
+        let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
+        XCTAssertFalse(presentedVC is ClipperViewController)
     }
 
 }
