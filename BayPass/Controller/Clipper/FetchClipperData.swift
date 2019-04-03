@@ -26,11 +26,8 @@ extension SignInViewController {
                         }
                     }
                 }
-            } catch let Exception.Error(_, message) {
-                print(message)
-                completion(nil)
             } catch {
-                print("error")
+                print("Error parsing HTML")
                 completion(nil)
             }
         })
@@ -67,11 +64,8 @@ extension SignInViewController {
                 } else {
                     completion(self.parseCard(from: doc))
                 }
-            } catch let Exception.Error(_, message) {
-                print(message)
-                completion(nil)
             } catch {
-                print("error")
+                print("Error parsing HTML")
                 completion(nil)
             }
         }
