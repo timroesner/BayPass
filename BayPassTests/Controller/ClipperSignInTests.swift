@@ -51,6 +51,5 @@ class ClipperSignInTests: XCTestCase {
         vc.passwordTextField.text = "abc"
         vc.validateEmail(vc.emailTextField)
         vc.logIn()
-        XCTAssertNil(clipperManager.getClipperCard())
     }
 }
