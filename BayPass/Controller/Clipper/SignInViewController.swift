@@ -27,6 +27,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         emailTextField = customTextField(placeholder: "E-mail")
         emailTextField.addTarget(self, action: #selector(validateEmail(_:)), for: .editingChanged)
         emailTextField.textContentType = .emailAddress
+        emailTextField.keyboardType = .emailAddress
         emailTextField.autocapitalizationType = .none
         view.addSubview(emailTextField)
         emailTextField.snp.makeConstraints { make in
