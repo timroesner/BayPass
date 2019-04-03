@@ -654,12 +654,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Tim Roesner";
 				TargetAttributes = {
 					22049D99214C9DF0007FF904 = {
 						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 0;
@@ -668,12 +668,12 @@
 					};
 					22049DAD214C9DF2007FF904 = {
 						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1000;
 						TestTargetID = 22049D99214C9DF0007FF904;
 					};
 					22049DB8214C9DF3007FF904 = {
 						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1000;
 						TestTargetID = 22049D99214C9DF0007FF904;
 					};
 				};
