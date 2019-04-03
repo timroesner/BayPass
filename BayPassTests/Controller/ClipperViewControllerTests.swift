@@ -37,5 +37,9 @@ class ClipperViewControllerTests: XCTestCase {
         let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
         XCTAssertFalse(presentedVC is ClipperViewController)
     }
+    
+    func testAddCash() {
+        vc.addCash()
+    }
 
 }
