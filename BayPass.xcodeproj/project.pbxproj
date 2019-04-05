@@ -87,6 +87,8 @@
 		6A0A9BE62256E5F60093CA57 /* StationOverViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A9BE52256E5F60093CA57 /* StationOverViewViewController.swift */; };
 		6A0A9BEA2256F6C60093CA57 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A9BE92256F6C60093CA57 /* Array.swift */; };
 		6A0A9BEE22571D500093CA57 /* StationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A9BED22571D500093CA57 /* StationPin.swift */; };
+		6A0A9BF0225734B50093CA57 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A9BEF225734B50093CA57 /* Coordinates.swift */; };
+		6A0A9BF222573DE10093CA57 /* StationPinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0A9BF122573DE10093CA57 /* StationPinTests.swift */; };
 		6A18FDBB2235AFB7002047B9 /* HereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A18FDBA2235AFB7002047B9 /* HereTests.swift */; };
 		6A221D6C224DB37A00A36175 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A221D6B224DB37A00A36175 /* System.swift */; };
 		6A3F2CB621816B46006DA755 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F2CB521816B46006DA755 /* Route.swift */; };
@@ -233,6 +235,8 @@
 		6A0A9BE52256E5F60093CA57 /* StationOverViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationOverViewViewController.swift; sourceTree = "<group>"; };
 		6A0A9BE92256F6C60093CA57 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		6A0A9BED22571D500093CA57 /* StationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPin.swift; sourceTree = "<group>"; };
+		6A0A9BEF225734B50093CA57 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		6A0A9BF122573DE10093CA57 /* StationPinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPinTests.swift; sourceTree = "<group>"; };
 		6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = BayPass/Model/Map/MapAnnotation.swift; sourceTree = SOURCE_ROOT; };
 		6A18FDBA2235AFB7002047B9 /* HereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HereTests.swift; sourceTree = "<group>"; };
 		6A221D6B224DB37A00A36175 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
@@ -397,7 +401,6 @@
 				6AA28D2A2252C058002079B3 /* StationTableViewCell.swift */,
 				224662E22228FC9B00E86C66 /* MoveIndicator.swift */,
 				223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */,
-				223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */,
 				22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */,
 				EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */,
 				224662F02229204200E86C66 /* EmptyView.swift */,
@@ -421,6 +424,7 @@
 				223AF96F22278209009EA730 /* StationSearchResultTableViewCellTests.swift */,
 				226697E02239D9C1005B82EC /* CoderInitTests.swift */,
 				22B3225A2253E76100F2508A /* ProgressHUDTests.swift */,
+				6A0A9BF122573DE10093CA57 /* StationPinTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -578,6 +582,7 @@
 			children = (
 				6A009191217EAD580087A32B /* Map */,
 				6A009194217EAF090087A32B /* Ticket */,
+				6A0A9BEF225734B50093CA57 /* Coordinates.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -943,6 +948,7 @@
 				6A0A9BEE22571D500093CA57 /* StationPin.swift in Sources */,
 				6ABF9839218250B1006878E4 /* TransitMode.swift in Sources */,
 				224662EF22291EC600E86C66 /* MVCOverlay.swift in Sources */,
+				6A0A9BF0225734B50093CA57 /* Coordinates.swift in Sources */,
 				224662F7222B557600E86C66 /* SearchFloatView.swift in Sources */,
 				226697E3223A2750005B82EC /* Notification.Name.swift in Sources */,
 				222A9276221A7DE900FD1367 /* GMPolyline.swift in Sources */,
@@ -990,6 +996,7 @@
 				2227C3F0219CBE0C00053294 /* TicketViewTests.swift in Sources */,
 				2212935E223B0F380098D52F /* LimeTests.swift in Sources */,
 				6AB6ED06218680AB00A81302 /* StationTests.swift in Sources */,
+				6A0A9BF222573DE10093CA57 /* StationPinTests.swift in Sources */,
 				6AAFCD1A21854723004021E8 /* ScooterCompanyTests.swift in Sources */,
 				22DB024422545DBC00B8D600 /* ClipperAddCashTests.swift in Sources */,
 				6AB6ED102186819900A81302 /* RouteTests.swift in Sources */,
