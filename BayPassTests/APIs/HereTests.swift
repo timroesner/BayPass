@@ -92,7 +92,7 @@ class HereTests: XCTestCase {
         wait(for: [ex], timeout: 5)
         XCTAssertEqual(results![0].name, "Green")
         XCTAssertEqual(results![0].destination, "Daly City")
-        XCTAssertEqual(results![0].transitMode, TransitMode.lightRail)
+        XCTAssertEqual(results![0].transitMode, TransitMode.bart)
     }
 
     func testParseStationForId() {
@@ -130,14 +130,14 @@ class HereTests: XCTestCase {
     }
 
     func testTransitModeConvert() {
-        let num = 4
+        let num = 7
         let num1 = 5
         let num2 = 3
         let num3 = 8
 
-        XCTAssertEqual(here.transitModeConvert(num: num), TransitMode.lightRail)
+        XCTAssertEqual(here.transitModeConvert(num: num), TransitMode.bart)
         XCTAssertEqual(here.transitModeConvert(num: num1), TransitMode.bus)
         XCTAssertEqual(here.transitModeConvert(num: num2), TransitMode.calTrain)
-        XCTAssertEqual(here.transitModeConvert(num: num3), TransitMode.bart)
+        XCTAssertEqual(here.transitModeConvert(num: num3), TransitMode.lightRail)
     }
 }

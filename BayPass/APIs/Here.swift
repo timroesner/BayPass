@@ -36,7 +36,6 @@ class Here {
                 for nextDeparture in multiNextDeparture {
                     if let agency = self.parseOperatorFromStationId(from: nextDeparture) {
                         results = agency
-//                        print("\(stationId) : \(Agency(rawValue: agency))")
                         completion(results)
                     }
                 }
@@ -48,7 +47,6 @@ class Here {
     }
 
     func getStationsNearby(center: CLLocationCoordinate2D, radius: Int, max: Int, time: String, completion: @escaping ([Station]) -> Void) {
-        // print("Got here...")
         let param = [
             "center": "\(center.latitude),\(center.longitude)",
             "radius": radius,
@@ -78,7 +76,6 @@ class Here {
                         }
                     }
                     completion(stations)
-                    // print(stations)
                 }
             } else {
                 print("Failed in getting Stations Near By")
@@ -106,7 +103,6 @@ class Here {
                 for stnJson in stnsJson {
                     if let newStation = self.parseStationForId(from: stnJson) {
                         results.append(newStation)
-//                        print(newStation)
                     }
                 }
                 completion(results)
@@ -167,7 +163,6 @@ class Here {
                     }
                 }
                 completion(results)
-//                print(results.rawValue)
             } else {
                 print("Failed in getting Agency")
                 completion(.zero)
@@ -179,12 +174,10 @@ class Here {
         var results = [Int: Agency]()
         let group = DispatchGroup()
 
-        // print("Requesting: \(stationIds)")
         for station in stationIds {
             group.enter()
             getAgency(stationId: station, time: time) { resp in
                 results[station] = resp
-                // print("Got result for station: \(station): \(resp)")
                 group.leave()
             }
         }

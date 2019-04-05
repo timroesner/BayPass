@@ -57,7 +57,7 @@ class GoogleMapsTests: XCTestCase {
         XCTAssertEqual(secondSegment?.durationInMinutes, 39)
         XCTAssertEqual(secondSegment?.departureTime, Date(timeIntervalSince1970: 1_539_633_480))
         XCTAssertEqual(secondSegment?.arrivalTime, Date(timeIntervalSince1970: 1_539_635_820))
-        XCTAssertEqual(secondSegment?.line?.name, "De Anza Col - Downtown San Jose")
+        XCTAssertEqual(secondSegment?.line?.name, "323")
         XCTAssertEqual(secondSegment?.travelMode, .transit)
         XCTAssertEqual(secondSegment?.polyline.coordinate.latitude, 37.332450590606086)
         XCTAssertEqual(secondSegment?.polyline.coordinate.longitude, -121.95055500000004)

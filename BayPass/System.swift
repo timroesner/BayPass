@@ -55,7 +55,6 @@ class System {
                     } else {
                         self.allStationsDict[station.name] = station
                     }
-                    print("🎓\(station.lines)🎓")
                     for line in station.lines {
                         self.allLines[line.name + "-" + line.agency.stringValue] = line
                     }
@@ -69,6 +68,6 @@ class System {
     }
 
     func findStations(with query: String) -> [Station] {
-        return allStations.filter({ $0.name.lowercased().contains(query.lowercased()) })
+        return allStations.filter { $0.name.lowercased().contains(query.lowercased()) }
     }
 }
