@@ -44,19 +44,19 @@ class DropDownMenu: UIButton, DropDownProtocol {
         titleLbl.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         titleLbl.text = title.uppercased()
         titleLbl.textColor = UIColor(red: 0.61, green: 0.61, blue: 0.61, alpha: 1.00)
-        titleLbl.snp.makeConstraints({ (make) -> Void in
+        titleLbl.snp.makeConstraints { (make) -> Void in
             make.top.equalToSuperview().offset(10)
             make.left.equalToSuperview().offset(10)
-        })
+        }
 
         addSubview(selectedItemLbl)
         selectedItemLbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         selectedItemLbl.text = selectedItem
         selectedItemLbl.textColor = UIColor.black
-        selectedItemLbl.snp.makeConstraints({ (make) -> Void in
+        selectedItemLbl.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(titleLbl.snp.bottom).offset(2)
             make.left.equalToSuperview().offset(10)
-        })
+        }
 
         dropView = DropDownView()
         dropView.delegate = self
@@ -66,11 +66,11 @@ class DropDownMenu: UIButton, DropDownProtocol {
 
         addSubview(arrow)
         arrow.tintColor = UIColor(red: 0.61, green: 0.61, blue: 0.61, alpha: 1.00)
-        arrow.snp.makeConstraints({ (make) -> Void in
+        arrow.snp.makeConstraints { (make) -> Void in
             make.width.height.equalTo(15)
             make.top.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-10)
-        })
+        }
     }
 
     override func didMoveToSuperview() {
