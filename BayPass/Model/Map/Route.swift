@@ -34,8 +34,7 @@ struct Route {
         for segment in segments {
             segment.polyline.title = segment.travelMode.rawValue
             if segment.line != nil {
-                // TODO: Replace with line color
-                segment.polyline.subtitle = UIColor(red: 74, green: 144, blue: 226).encode()
+                segment.polyline.subtitle = segment.line?.color.encode()
             }
             result.append(segment.polyline)
         }

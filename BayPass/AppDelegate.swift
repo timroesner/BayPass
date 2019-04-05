@@ -8,11 +8,11 @@
 
 import UIKit
 
+let transitSystem = System()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var sys = System()
-    var stations = [Station]()
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = TabViewController()
 
         window?.rootViewController = vc
+        transitSystem.getAllStations()
 
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100

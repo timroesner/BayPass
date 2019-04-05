@@ -19,12 +19,10 @@ class SearchViewController: UIViewController {
     private var stations = [Station]()
     var searchResults = [Any]()
     var parentMapVC: MapViewController?
-    let sys = System()
-    var allStationsDict = [String: Station]()
 
     let stationCellId = "station"
     let destinationCellId = "destination"
-
+    let subject = Station(name: "Test", code: 2, transitModes: [TransitMode.bart], lines: [Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)], location: CLLocation(latitude: 0.0, longitude: 0.0))
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,10 +31,6 @@ class SearchViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.register(DestinationSearchResultTableViewCell.self, forCellReuseIdentifier: destinationCellId)
         tableView.register(StationSearchResultTableViewCell.self, forCellReuseIdentifier: stationCellId)
-        sys.getAllStations { resp -> Void in
-            self.allStationsDict = resp
-            print(self.allStationsDict.keys)
-        }
 
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 21
@@ -66,17 +60,12 @@ class SearchViewController: UIViewController {
     }
 
     func searchStations(with searchText: String) {
-        print(allStationsDict.keys)
-        if let (name, station) = allStationsDict.first(where: { (key, _) -> Bool in key.contains(searchText) }) {
-            print(name)
-            searchResults.append(station)
-            sortResults()
-            searchDestinations(with: searchText)
-            tableView.reloadData()
-        } else {
-            print("no match")
-            searchDestinations(with: searchText)
-        }
+        stations = transitSystem.findStations(with: searchText)
+        searchResults = []
+        searchResults.append(contentsOf: destinations)
+        searchResults.append(contentsOf: stations)
+        sortResults()
+        tableView.reloadData()
     }
 
     func searchDestinations(with searchText: String) {
@@ -96,8 +85,9 @@ class SearchViewController: UIViewController {
             self.destinations = response.mapItems
             self.searchResults = []
             self.searchResults.append(contentsOf: self.destinations)
+            self.searchResults.append(contentsOf: self.stations)
             self.sortResults()
-//            self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
 
@@ -110,15 +100,15 @@ class SearchViewController: UIViewController {
                 firstLocation = destination.placemark.location ?? CLLocation()
             }
 
-            var secoondLocation = CLLocation()
+            var secondLocation = CLLocation()
             if let station = second as? Station {
-                secoondLocation = station.location
+                secondLocation = station.location
             } else if let destination = second as? MKMapItem {
-                secoondLocation = destination.placemark.location ?? CLLocation()
+                secondLocation = destination.placemark.location ?? CLLocation()
             }
 
             let userLocation = parentMapVC?.mapView.userLocation.location ?? CLLocation()
-            return firstLocation.distance(from: userLocation) < secoondLocation.distance(from: userLocation)
+            return firstLocation.distance(from: userLocation) < secondLocation.distance(from: userLocation)
         }
     }
 }

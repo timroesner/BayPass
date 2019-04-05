@@ -18,6 +18,7 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 
     @objc func centerOnUserLocation() {
+        print("🤣\(locationManager.location?.coordinate)")
         if let userLocation = locationManager.location?.coordinate {
             if routes.isEmpty {
                 let region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))

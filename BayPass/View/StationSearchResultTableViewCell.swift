@@ -45,17 +45,18 @@ class StationSearchResultTableViewCell: UITableViewCell {
     }
 
     func setup(with station: Station) {
-        var lines: [String] = []
+        var lines: [Line] = []
         title.text = station.name
-        iconView.tintColor = station.color
+        iconView.tintColor = UIColor(hex: 0x9B9B9B)
         iconView.image = station.getIcon()
         for line in station.lines {
-            lines.append(line.name)
+            lines.append(line)
         }
-        setLineView(with: lines)
+        let noNewName = lines.filterDuplicate { ($0.name) }
+        setLineView(with: noNewName)
     }
 
-    private func setLineView(with lines: [String]) {
+    private func setLineView(with lines: [Line]) {
         var lineLabels = [UILabel]()
 
         for index in 0 ..< min(lines.count, 5) {
@@ -71,9 +72,8 @@ class StationSearchResultTableViewCell: UITableViewCell {
                 lineLabel.text = "＋"
             } else {
                 lineLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-                // What to do about line colors?
-                lineLabel.layer.backgroundColor = UIColor.blue.cgColor
-                lineLabel.text = lines[index]
+                lineLabel.layer.backgroundColor = lines[index].color.cgColor
+                lineLabel.text = lines[index].name
             }
 
             lineView.addSubview(lineLabel)
@@ -94,5 +94,12 @@ class StationSearchResultTableViewCell: UITableViewCell {
     required init?(coder _: NSCoder) {
         print("NSCoder not supported in StationSearchResultTableViewCell")
         return nil
+    }
+}
+
+extension Array {
+    func filterDuplicate<T>(_ keyValue: (Element) -> T) -> [Element] {
+        var uniqueKeys = Set<String>()
+        return filter { uniqueKeys.insert("\(keyValue($0))").inserted }
     }
 }

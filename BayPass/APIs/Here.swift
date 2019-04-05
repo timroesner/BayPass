@@ -48,7 +48,7 @@ class Here {
     }
 
     func getStationsNearby(center: CLLocationCoordinate2D, radius: Int, max: Int, time: String, completion: @escaping ([Station]) -> Void) {
-        print("Got here...")
+        // print("Got here...")
         let param = [
             "center": "\(center.latitude),\(center.longitude)",
             "radius": radius,
@@ -69,7 +69,7 @@ class Here {
                     }
                 }
 
-                self.getAgencies(stationIds: stations.map { $0.code }, time: time) { agencyStationIDs in // TODO: Fix
+                self.getAgencies(stationIds: stations.map { $0.code }, time: time) { agencyStationIDs in
                     for index in 0 ..< stations.count {
                         if let agency = agencyStationIDs[stations[index].code] {
                             for lineIndex in 0 ..< stations[index].lines.count {
@@ -78,7 +78,7 @@ class Here {
                         }
                     }
                     completion(stations)
-                    print(stations)
+                    // print(stations)
                 }
             } else {
                 print("Failed in getting Stations Near By")
@@ -179,12 +179,12 @@ class Here {
         var results = [Int: Agency]()
         let group = DispatchGroup()
 
-        print("Requesting: \(stationIds)")
+        // print("Requesting: \(stationIds)")
         for station in stationIds {
             group.enter()
             getAgency(stationId: station, time: time) { resp in
                 results[station] = resp
-                print("Got result for station: \(station): \(resp)")
+                // print("Got result for station: \(station): \(resp)")
                 group.leave()
             }
         }
@@ -233,7 +233,7 @@ class Here {
             let lineDestination = transport1["dir"] as? String
             let at = transport1["At"] as? [String: Any]
             let colorString = at?["color"] as? String
-            let color = UIColor(named: colorString ?? "")
+            let color = UIColor(hex: Int(colorString?.dropFirst() ?? "", radix: 16) ?? 0x4A90E2)
             let modeNum = transportData?["mode"] as? Int
             let transitMode = transitModeConvert(num: modeNum ?? 0)
             let ag = Agency.zero
@@ -270,9 +270,11 @@ class Here {
         case 5:
             return TransitMode.bus
         case 8:
-            return TransitMode.bart // TODO: Try to figure out
+            return TransitMode.lightRail
+        case 7:
+            return TransitMode.bart
         default:
-            return TransitMode.lightRail // also  8
+            return TransitMode.bus
         }
     }
 }

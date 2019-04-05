@@ -22,4 +22,19 @@ struct Line {
         self.color = color
         self.transitMode = transitMode
     }
+
+    func getIcon() -> UIImage {
+        switch transitMode {
+        case .bart:
+            return #imageLiteral(resourceName: "BART")
+        case .bus:
+            return #imageLiteral(resourceName: "Bus")
+        case .calTrain:
+            return #imageLiteral(resourceName: "CalTrain")
+        case .lightRail:
+            return #imageLiteral(resourceName: "Tram")
+        default:
+            return #imageLiteral(resourceName: "Tram")
+        }
+    }
 }

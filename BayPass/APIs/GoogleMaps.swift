@@ -11,6 +11,8 @@ import Foundation
 import MapKit
 
 class GoogleMaps {
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
     func getRoutes(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D, departureTime: Date = Date(), completion: @escaping ([Route]) -> Void) {
         let params = [
             "origin": "\(from.latitude),\(from.longitude)",
@@ -61,6 +63,7 @@ class GoogleMaps {
     }
 
     func parseSegment(from json: [String: Any]) -> RouteSegment? {
+        var agencyName = Agency.zero.stringValue
         guard let distanceJson = json["distance"] as? [String: Any],
             let distance = distanceJson["value"] as? Int,
             let polylineJson = json["polyline"] as? [String: Any],
@@ -76,8 +79,6 @@ class GoogleMaps {
 
         // Transit
         if let transitDetails = json["transit_details"] as? [String: Any] {
-            var ag: Agency = Agency.zero
-
             guard let arrivalJson = transitDetails["arrival_time"] as? [String: Any],
                 let arrivalInterval = arrivalJson["value"] as? Int,
                 let departureJson = transitDetails["departure_time"] as? [String: Any],
@@ -90,15 +91,18 @@ class GoogleMaps {
             let departureDate = Date(timeIntervalSince1970: Double(departureInterval))
             let arrivalDate = Date(timeIntervalSince1970: Double(arrivalInterval))
 
-            let lineName = lineJson["name"] as? String ?? ""
-            if let agencies = lineJson["agencies"] as? [String: Any] {
-                let agencyName = agencies["name"] as? String?
-                ag = Agency(rawValue: agencyName as! String) ?? Agency.zero
+            let lineName = lineJson["short_name"] as? String ?? ""
+            let destinationName = lineJson["name"] as? String ?? ""
+
+            if let agencies = lineJson["agencies"] as? [[String: Any]] {
+                agencyName = agencies[0]["name"] as? String ?? ""
             }
 
-            // TODO: This section relies on getting the fare prices from firebase and the line from the API first
-            let line = Line(name: lineName, agency: ag, destination: "De Anza", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+            let line = transitSystem.allLines[lineName + "-" + agencyName] ?? Line(name: lineName, agency: Agency(rawValue: agencyName) ?? Agency.zero, destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+
             let waypoints = [Station]()
+
+            // Get price from tickets array
             let price = 2.50
 
             return RouteSegment(distanceInMeters: distance, departureTime: departureDate, arrivalTime: arrivalDate, polyline: polyline, travelMode: .transit, line: line, price: price, waypoints: waypoints)

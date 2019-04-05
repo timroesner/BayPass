@@ -73,7 +73,7 @@ class HereTests: XCTestCase {
             ex.fulfill()
         }
         wait(for: [ex], timeout: 5)
-        XCTAssertNotNil(results!) // TODO: FIX
+        XCTAssertNotNil(results!)
         XCTAssertEqual(results![0].name, "Warm Springs/South Fremont")
         XCTAssertEqual(results![0].code, 718_310_131)
     }

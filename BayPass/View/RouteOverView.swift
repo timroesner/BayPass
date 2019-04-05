@@ -72,8 +72,7 @@ class RouteOverView: UIView {
             lineLabel.layer.cornerRadius = 4
 
             if segment.travelMode == .transit {
-                // TODO: Replace with actual line color
-                lineLabel.layer.backgroundColor = segment.line?.color as! CGColor
+                lineLabel.layer.backgroundColor = segment.line?.color.cgColor
             } else {
                 lineLabel.layer.backgroundColor = UIColor(red: 216, green: 216, blue: 216).cgColor
             }
@@ -83,8 +82,7 @@ class RouteOverView: UIView {
                     let canvas = UIView()
                     let icon = UIImageView()
                     icon.tintColor = .white
-                    // TODO: Replace with actual line icon
-                    icon.image = segment.line?.agency.getIcon()
+                    icon.image = segment.line?.getIcon()
                     canvas.addSubview(icon)
                     icon.snp.makeConstraints { make in
                         make.left.equalToSuperview()
@@ -117,7 +115,8 @@ class RouteOverView: UIView {
                     case .bike:
                         icon.image = #imageLiteral(resourceName: "Bike")
                     case .transit:
-                        icon.image = segment.line?.agency.getIcon()
+                        icon.tintColor = .white
+                        icon.image = segment.line?.getIcon()
                     }
                     lineLabel.addSubview(icon)
                     icon.snp.makeConstraints { make in
