@@ -24,7 +24,10 @@ extension MapViewController: UIScrollViewDelegate {
         }
 
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
-        removeChild(bottomSheet)
+        bottomSheet.willMove(toParent: nil)
+        bottomSheet.view.removeFromSuperview()
+        bottomSheet.removeFromParent()
+
         mapView.removeAnnotations(mapView.annotations)
 
         let searchFloat = SearchFloatView(from: "Current Location", to: destination.name ?? "No Name")
@@ -128,6 +131,6 @@ extension MapViewController: UIScrollViewDelegate {
         routes.removeAll()
         centerOnUserLocation()
         setupSearchView()
-        addChild(bottomSheet, in: view)
+        addChild(bottomSheet)
     }
 }

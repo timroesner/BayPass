@@ -29,8 +29,6 @@ class MapViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(centerOnUserLocation), name: .willEnterForeground, object: nil)
         setupViews()
         setupLocation()
-        mapView.register(StationPinView.self,
-                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
 
     func setupViews() {
@@ -54,6 +52,6 @@ class MapViewController: UIViewController {
         searchVC.delegate = self
         searchVC.parentMapVC = self
         setupSearchView()
-        addChild(bottomSheet, in: view)
+        addChild(bottomSheet)
     }
 }

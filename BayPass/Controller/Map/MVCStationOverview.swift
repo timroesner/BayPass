@@ -23,15 +23,15 @@ extension MapViewController {
         }
 
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
-        removeChild(bottomSheet)
+        bottomSheet.willMove(toParent: nil)
+        bottomSheet.view.removeFromSuperview()
+        bottomSheet.removeFromParent()
         mapView.removeAnnotations(mapView.annotations)
 
         let coordinate = CLLocationCoordinate2D(latitude: station.location.coordinate.longitude, longitude: station.location.coordinate.latitude)
 
         let coordinatRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
-        let stationPin = StationPin(title: station.name, imageName: station.getIcon(), coordinate: coordinate)
         mapView.setRegion(mapView.regionThatFits(coordinatRegion), animated: true)
-        mapView.addAnnotation(stationPin)
         showLimeScootersOnMap(at: userLocation)
         showLimeScootersOnMap(at: station.location.coordinate)
     }
