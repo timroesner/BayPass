@@ -32,7 +32,5 @@ extension MapViewController {
 
         let coordinatRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         mapView.setRegion(mapView.regionThatFits(coordinatRegion), animated: true)
-        showLimeScootersOnMap(at: userLocation)
-        showLimeScootersOnMap(at: station.location.coordinate)
     }
 }

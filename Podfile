@@ -6,8 +6,8 @@ target 'BayPass' do
   use_frameworks!
 
   # Pods for BayPass
-  pod 'SwiftFormat/CLI', '~> 4.0.0'
-  pod 'SnapKit'
+  pod 'SwiftFormat/CLI'
+  pod 'SnapKit', '~> 4.0.0'
   pod 'Alamofire'
   pod 'OverlayContainer'
   pod 'SkyFloatingLabelTextField'
