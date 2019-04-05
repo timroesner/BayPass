@@ -13,8 +13,8 @@ class ClipperViewControllerTests: XCTestCase {
     let vc = ClipperViewController()
 
     override func setUp() {
-        let calTrain = Agency(name: "CalTrain", routes: [], icon: #imageLiteral(resourceName: "CalTrain"))
-        let testCard = ClipperCard(number: 9_999_999_999, cashValue: 0.0, passes: [Pass(name: "Monthly", duration: DateInterval(start: Date(), duration: 36000), price: 45.0, validOnAgency: calTrain)])
+        let calTrain = Agency(rawValue: "CT")
+        let testCard = ClipperCard(number: 9_999_999_999, cashValue: 0.0, passes: [Pass(name: "Monthly", duration: DateInterval(start: Date(), duration: 36000), price: 45.0, validOnAgency: calTrain ?? Agency.zero)])
         clipperManager.setClipperCard(card: testCard)
 
         UIApplication.shared.keyWindow!.rootViewController = vc
