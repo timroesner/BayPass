@@ -231,7 +231,7 @@ class Here {
             let transitMode = transitModeConvert(num: modeNum ?? 0)
             let ag = Agency.zero
             transitModes.append(transitMode)
-            lines.append(Line(name: lineName ?? "", agency: ag, destination: lineDestination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode))
+            lines.append(Line(name: lineName ?? "", agency: ag, destination: lineDestination ?? "", color: color, transitMode: transitMode))
         }
         return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location)
     }
