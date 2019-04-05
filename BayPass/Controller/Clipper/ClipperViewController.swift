@@ -9,8 +9,6 @@
 import SnapKit
 import UIKit
 
-let clipperManager = ClipperSingleton()
-
 class ClipperViewController: UIViewController {
     var collectionView: UICollectionView?
     let cellIdentifier = "clipperPassCell"
@@ -37,7 +35,7 @@ class ClipperViewController: UIViewController {
     }
 
     func setupRegularView() {
-        if let myClipperCard = clipperManager.getClipperCard() {
+        if let myClipperCard = ClipperManager.shared.getClipperCard() {
             for view in view.subviews {
                 view.removeFromSuperview()
             }

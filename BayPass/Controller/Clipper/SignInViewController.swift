@@ -121,7 +121,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 self.displayAlert(title: "Error", msg: "We could not fetch any cards for this account. Double check your credentials.", dismissAfter: false)
                 return
             }
-            clipperManager.setClipperCard(card: newCard)
+            ClipperManager.shared.setClipperCard(card: newCard)
             self.dismissOrPop(animated: true)
         })
     }

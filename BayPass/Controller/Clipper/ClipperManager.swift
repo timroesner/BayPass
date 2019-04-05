@@ -8,7 +8,9 @@
 
 import Foundation
 
-class ClipperSingleton {
+class ClipperManager {
+    
+    static let shared = ClipperManager()
     private var clipperCard: ClipperCard?
 
     func getClipperCard() -> ClipperCard? {
