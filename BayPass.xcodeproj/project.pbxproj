@@ -401,13 +401,10 @@
 				22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */,
 				EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */,
 				224662F02229204200E86C66 /* EmptyView.swift */,
-<<<<<<< HEAD
 				223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */,
 				6A0A9BE32256E2150093CA57 /* StationPinView.swift */,
 				6A0A9BED22571D500093CA57 /* StationPin.swift */,
-=======
 				22B32252225324A100F2508A /* ProgressHUD.swift */,
->>>>>>> e8ee2081a8f3cbe52df07b0cca726d15611c55a3
 			);
 			path = View;
 			sourceTree = "<group>";

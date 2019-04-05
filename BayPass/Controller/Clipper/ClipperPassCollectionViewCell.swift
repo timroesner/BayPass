@@ -14,7 +14,7 @@ class ClipperPassCollectionViewCell: UICollectionViewCell {
     }
 
     func setup(with pass: Pass) {
-        let ticketView = TicketView(agency: pass.validOnAgency.name, icon: pass.validOnAgency.icon, cornerRadius: 8)
+        let ticketView = TicketView(agency: pass.validOnAgency, icon: pass.validOnAgency.getIcon(), cornerRadius: 8)
         contentView.addSubview(ticketView)
         ticketView.snp.makeConstraints { make in
             make.center.equalToSuperview()
