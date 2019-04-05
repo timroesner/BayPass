@@ -29,6 +29,10 @@ extension UIColor {
         return UIColor(white: 155.0 / 255.0, alpha: 1.0)
     }
 
+    var clipperBlue: UIColor {
+        return UIColor(hex: 0x0C3F6A)
+    }
+
     func encode() -> String? {
         let components = cgColor.components ?? []
         guard components.count == 4 else {
