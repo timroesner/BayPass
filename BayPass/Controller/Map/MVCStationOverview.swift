@@ -9,20 +9,6 @@
 import MapKit
 import UIKit
 
-class StationPin: NSObject, MKAnnotation {
-    let title: String?
-    let imageName: UIImage?
-    let coordinate: CLLocationCoordinate2D
-
-    init(title: String, imageName: UIImage, coordinate: CLLocationCoordinate2D) {
-        self.title = title
-        self.imageName = imageName
-        self.coordinate = coordinate
-
-        super.init()
-    }
-}
-
 extension MapViewController {
     func displayStationInfo(to station: Station) {
         var userLocation: CLLocationCoordinate2D
