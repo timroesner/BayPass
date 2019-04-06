@@ -3,6 +3,7 @@ PODS:
   - OverlayContainer (1.1.1)
   - SkyFloatingLabelTextField (3.6.0)
   - SnapKit (4.0.1)
+  - Stripe (15.0.0)
   - SwiftFormat/CLI (0.39.3)
   - SwiftSoup (1.7.4)
 
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - OverlayContainer
   - SkyFloatingLabelTextField
   - SnapKit (~> 4.0.0)
+  - Stripe
   - SwiftFormat/CLI
   - SwiftSoup
 
@@ -20,6 +22,7 @@ SPEC REPOS:
     - OverlayContainer
     - SkyFloatingLabelTextField
     - SnapKit
+    - Stripe
     - SwiftFormat
     - SwiftSoup
 
@@ -28,9 +31,10 @@ SPEC CHECKSUMS:
   OverlayContainer: 5911b47b27f3fdf1fb989257c76e828dc11c0380
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  Stripe: 312b22a67af9fa55c246d26148b3f3a9636a0ff2
   SwiftFormat: 2e67b7f1dd387e2ff8fe05e0846229361abe1c13
   SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
 
-PODFILE CHECKSUM: 0908e07ba010d978f0e560550b66fc2dd68359ab
+PODFILE CHECKSUM: 61d013f6d9d76d3c4cacb3952ee63f1fdc21bf63
 
 COCOAPODS: 1.5.3
