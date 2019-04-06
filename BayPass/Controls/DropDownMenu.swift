@@ -6,15 +6,10 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import UIKit
 import SnapKit
-
-protocol DropDownProtocol {
-    func dropDownPressed(string: String)
-}
+import UIKit
 
 class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
-    
     var tableView = UITableView()
     var tableViewOpenConstraint: Constraint?
     var tableViewClosedConstraint: Constraint?
@@ -37,7 +32,7 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         super.init(frame: CGRect.zero)
 
         backgroundColor = UIColor.white
-        
+
         tableView.backgroundColor = UIColor.white
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,7 +46,7 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
 
         setupView()
     }
-    
+
     func setupView() {
         addSubview(titleLbl)
         titleLbl.font = UIFont.systemFont(ofSize: 12, weight: .bold)
@@ -61,7 +56,7 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
             make.left.right.equalToSuperview()
             make.height.equalTo(14)
         })
-        
+
         addSubview(selectedItemButton)
         selectedItemButton.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         selectedItemButton.text = selectedItem
@@ -70,11 +65,11 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         selectedItemButton.addGestureRecognizer(tapRecognizer)
         selectedItemButton.snp.makeConstraints({ (make) -> Void in
-            make.top.equalTo(titleLbl.snp.bottom).offset(2)
+            make.top.equalTo(titleLbl.snp.bottom).offset(3)
             make.left.equalToSuperview()
             make.height.equalTo(24)
         })
-        
+
         addSubview(arrow)
         arrow.tintColor = UIColor(red: 0.61, green: 0.61, blue: 0.61, alpha: 1.00)
         arrow.snp.makeConstraints({ (make) -> Void in
@@ -83,22 +78,22 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
             make.right.equalToSuperview()
             make.left.equalTo(selectedItemButton.snp.right).offset(8)
         })
-        
+
         let border = UILabel()
         border.backgroundColor = .lightGray
         addSubview(border)
-        border.snp.makeConstraints { (make) in
+        border.snp.makeConstraints { make in
             make.height.equalTo(1.5)
             make.left.right.equalToSuperview()
-            make.top.equalTo(selectedItemButton.snp.bottom).offset(4)
+            make.top.equalTo(selectedItemButton.snp.bottom).offset(7)
         }
-        
+
         addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(border.snp.bottom)
             make.right.equalToSuperview()
-            make.left.equalToSuperview().offset(-15)
             make.bottom.equalToSuperview()
+            make.left.equalToSuperview().offset(-15)
             tableViewOpenConstraint = make.height.lessThanOrEqualTo(190).constraint
             tableViewClosedConstraint = make.height.equalTo(0).constraint
         }
@@ -113,9 +108,11 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 
     func expandAnimation() {
-        self.tableViewOpenConstraint?.activate()
-        self.tableViewClosedConstraint?.deactivate()
-        self.layoutIfNeeded()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        tableViewOpenConstraint?.activate()
+        tableViewClosedConstraint?.deactivate()
+        layoutIfNeeded()
+        tableView.flashScrollIndicators()
     }
 
     func collapseAnimation() {
@@ -123,27 +120,28 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         tableViewClosedConstraint?.activate()
         layoutIfNeeded()
     }
-    
+
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return dropDownOptions.filter{$0 != selectedItem}.count
+        return dropDownOptions.filter { $0 != selectedItem }.count
     }
-    
+
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = dropDownOptions.filter{$0 != selectedItem}[indexPath.row]
+        cell.textLabel?.text = dropDownOptions.filter { $0 != selectedItem }[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         cell.backgroundColor = UIColor.white
         return cell
     }
-    
+
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedItem = dropDownOptions.filter{$0 != selectedItem}[indexPath.row]
+        selectedItem = dropDownOptions.filter { $0 != selectedItem }[indexPath.row]
         handleTap()
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
     required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        print("NSCoder not supported in DropDownMenu")
+        return nil
     }
 }
