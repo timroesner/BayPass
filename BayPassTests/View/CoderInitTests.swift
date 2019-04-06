@@ -86,5 +86,10 @@ class CoderInitTests: XCTestCase {
         let cell = ClipperPassCollectionViewCell(coder: archiver)
         XCTAssertNil(cell)
     }
+    
+    func testDropDown() {
+        let dropDown = DropDownMenu(coder: archiver)
+        XCTAssertNil(dropDown)
+    }
 
 }
