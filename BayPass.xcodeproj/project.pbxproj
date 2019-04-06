@@ -54,6 +54,7 @@
 		2266C740224DC513004C8D2E /* ClipperOnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266C73F224DC513004C8D2E /* ClipperOnBoarding.swift */; };
 		227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE6B21B4C78E00D3169E /* Bird.swift */; };
 		227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE7021B4F48D00D3169E /* BirdTests.swift */; };
+		22A4E58E22592D9600DF8AD9 /* PKPaymentRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4E58D22592D9600DF8AD9 /* PKPaymentRequestDelegate.swift */; };
 		22B32246224DCF8D00F2508A /* BayPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32245224DCF8D00F2508A /* BayPassButton.swift */; };
 		22B32248224DDDCF00F2508A /* CollectionViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */; };
 		22B3224A224DDE7900F2508A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32249224DDE7900F2508A /* SignInViewController.swift */; };
@@ -64,6 +65,8 @@
 		22B3225822533CF200F2508A /* ClipperViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3225722533CF100F2508A /* ClipperViewControllerTests.swift */; };
 		22B3225B2253E76100F2508A /* ProgressHUDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3225A2253E76100F2508A /* ProgressHUDTests.swift */; };
 		22B3225D2253E8DE00F2508A /* ClipperPassCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3225C2253E8DE00F2508A /* ClipperPassCellTests.swift */; };
+		22B40EFA2257FA9C009520C6 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B40EF92257FA9C009520C6 /* TextField.swift */; };
+		22B40EFC225815B5009520C6 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B40EFB225815B5009520C6 /* PaymentMethod.swift */; };
 		22B53432222D1152007F4098 /* RouteOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53431222D1152007F4098 /* RouteOverView.swift */; };
 		22B53434222D135D007F4098 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53433222D135D007F4098 /* Date.swift */; };
 		22B53436222D1CB4007F4098 /* MVCMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B53435222D1CB4007F4098 /* MVCMapDelegate.swift */; };
@@ -106,7 +109,6 @@
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
-		EC064CDB22475195006C0737 /* DropDownMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */; };
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
 		EC3B66A822278C8F004FFA23 /* PurchasedTicketCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */; };
 		EC8CF4B3222F56BF0018E935 /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */; };
@@ -187,6 +189,7 @@
 		227796CB21B6251F00BAF6BA /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		227BBE6B21B4C78E00D3169E /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 		227BBE7021B4F48D00D3169E /* BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdTests.swift; sourceTree = "<group>"; };
+		22A4E58D22592D9600DF8AD9 /* PKPaymentRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKPaymentRequestDelegate.swift; sourceTree = "<group>"; };
 		22B32245224DCF8D00F2508A /* BayPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayPassButton.swift; sourceTree = "<group>"; };
 		22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCVC.swift; sourceTree = "<group>"; };
 		22B32249224DDE7900F2508A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +200,9 @@
 		22B3225722533CF100F2508A /* ClipperViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperViewControllerTests.swift; sourceTree = "<group>"; };
 		22B3225A2253E76100F2508A /* ProgressHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressHUDTests.swift; path = BayPassTests/View/ProgressHUDTests.swift; sourceTree = SOURCE_ROOT; };
 		22B3225C2253E8DE00F2508A /* ClipperPassCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperPassCellTests.swift; sourceTree = "<group>"; };
+		22B40EF92257FA9C009520C6 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		22B40EFB225815B5009520C6 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		22B40EFD2258456C009520C6 /* BayPass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BayPass.entitlements; sourceTree = "<group>"; };
 		22B53431222D1152007F4098 /* RouteOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverView.swift; sourceTree = "<group>"; };
 		22B53433222D135D007F4098 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		22B53435222D1CB4007F4098 /* MVCMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCMapDelegate.swift; sourceTree = "<group>"; };
@@ -245,7 +251,6 @@
 		A96336530BAD67EFB32EF7E0 /* Pods-BayPassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC737C8C1C489644ABDDFE78 /* Pods_BayPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CE3C0E191A1E9A66EDDE84 /* Pods-BayPassUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassUITests/Pods-BayPassUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuUITests.swift; sourceTree = "<group>"; };
 		EC14F1B521B64E28009F69CF /* ClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperView.swift; sourceTree = "<group>"; };
 		EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCellTests.swift; sourceTree = "<group>"; };
 		EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
@@ -309,6 +314,7 @@
 		22049D9C214C9DF0007FF904 /* BayPass */ = {
 			isa = PBXGroup;
 			children = (
+				22B40EFD2258456C009520C6 /* BayPass.entitlements */,
 				22049D9D214C9DF0007FF904 /* AppDelegate.swift */,
 				227BBE6A21B4C78000D3169E /* APIs */,
 				2262C31021829BC6000586EE /* Extensions */,
@@ -342,7 +348,6 @@
 			isa = PBXGroup;
 			children = (
 				22049DBD214C9DF3007FF904 /* TabBarUITests.swift */,
-				EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */,
 				22B534392231D6F8007F4098 /* DestinationRoutingTests.swift */,
 				70F72F642230417D00A8BC0A /* BackButtonUITests.swift */,
 				22049DBF214C9DF3007FF904 /* Info.plist */,
@@ -375,7 +380,6 @@
 				223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */,
 				223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */,
 				22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */,
-				EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */,
 				224662F02229204200E86C66 /* EmptyView.swift */,
 				22B32252225324A100F2508A /* ProgressHUD.swift */,
 			);
@@ -436,6 +440,8 @@
 				2227C3E9219C198A00053294 /* CAGradientLayer.swift */,
 				222A9275221A7DE900FD1367 /* GMPolyline.swift */,
 				226697E2223A2750005B82EC /* Notification.Name.swift */,
+				22A4E58D22592D9600DF8AD9 /* PKPaymentRequestDelegate.swift */,
+				22B40EF92257FA9C009520C6 /* TextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -482,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				22B32245224DCF8D00F2508A /* BayPassButton.swift */,
+				EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -544,6 +551,7 @@
 			children = (
 				6A009191217EAD580087A32B /* Map */,
 				6A009194217EAF090087A32B /* Ticket */,
+				22B40EFB225815B5009520C6 /* PaymentMethod.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -668,6 +676,11 @@
 				TargetAttributes = {
 					22049D99214C9DF0007FF904 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+						};
 					};
 					22049DAD214C9DF2007FF904 = {
 						CreatedOnToolsVersion = 10.0;
@@ -797,6 +810,7 @@
 				"${BUILT_PRODUCTS_DIR}/OverlayContainer/OverlayContainer.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -807,6 +821,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OverlayContainer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -875,6 +890,7 @@
 				ECB6E64A2230488500BF5446 /* UIImageView.swift in Sources */,
 				224662ED2229142100E86C66 /* SVCSearchBar.swift in Sources */,
 				224662E12228F7D200E86C66 /* SearchViewController.swift in Sources */,
+				22B40EFA2257FA9C009520C6 /* TextField.swift in Sources */,
 				22B53434222D135D007F4098 /* Date.swift in Sources */,
 				6AB6ED0021867F1700A81302 /* TicketViewController.swift in Sources */,
 				22B32253225324A100F2508A /* ProgressHUD.swift in Sources */,
@@ -883,6 +899,7 @@
 				6A3F2CB621816B46006DA755 /* Route.swift in Sources */,
 				ECCE1D52221D0053002F58AA /* PurchasedTicketCell.swift in Sources */,
 				2227C3ED219C1A8D00053294 /* TicketView.swift in Sources */,
+				22A4E58E22592D9600DF8AD9 /* PKPaymentRequestDelegate.swift in Sources */,
 				EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */,
 				227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */,
 				22B3224E224EFEEA00F2508A /* ClipperManager.swift in Sources */,
@@ -913,6 +930,7 @@
 				224662EF22291EC600E86C66 /* MVCOverlay.swift in Sources */,
 				224662F7222B557600E86C66 /* SearchFloatView.swift in Sources */,
 				226697E3223A2750005B82EC /* Notification.Name.swift in Sources */,
+				22B40EFC225815B5009520C6 /* PaymentMethod.swift in Sources */,
 				222A9276221A7DE900FD1367 /* GMPolyline.swift in Sources */,
 				6ABF983A218250B1006878E4 /* Agency.swift in Sources */,
 				22B32248224DDDCF00F2508A /* CollectionViewCVC.swift in Sources */,
@@ -967,7 +985,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC064CDB22475195006C0737 /* DropDownMenuUITests.swift in Sources */,
 				70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */,
 				22049DBE214C9DF3007FF904 /* TabBarUITests.swift in Sources */,
 				22B5343A2231D6F8007F4098 /* DestinationRoutingTests.swift in Sources */,
@@ -1122,6 +1139,7 @@
 			baseConfigurationReference = 6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BayPass/BayPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
@@ -1141,6 +1159,7 @@
 			baseConfigurationReference = F3C991BFA884D85FF2F805DF /* Pods-BayPass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BayPass/BayPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
