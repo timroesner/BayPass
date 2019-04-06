@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import OverlayContainer
 import SnapKit
 import UIKit
 
@@ -24,9 +25,7 @@ extension MapViewController: UIScrollViewDelegate {
         }
 
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
-        bottomSheet.willMove(toParent: nil)
-        bottomSheet.view.removeFromSuperview()
-        bottomSheet.removeFromParent()
+        removeChild(bottomSheet)
 
         mapView.removeAnnotations(mapView.annotations)
 
@@ -131,6 +130,6 @@ extension MapViewController: UIScrollViewDelegate {
         routes.removeAll()
         centerOnUserLocation()
         setupSearchView()
-        addChild(bottomSheet)
+        addChild(bottomSheet, in: view)
     }
 }

@@ -52,6 +52,6 @@ class MapViewController: UIViewController {
         searchVC.delegate = self
         searchVC.parentMapVC = self
         setupSearchView()
-        addChild(bottomSheet)
+        addChild(bottomSheet, in: view)
     }
 }

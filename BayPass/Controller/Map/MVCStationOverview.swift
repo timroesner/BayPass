@@ -23,9 +23,7 @@ extension MapViewController {
         }
 
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
-        bottomSheet.willMove(toParent: nil)
-        bottomSheet.view.removeFromSuperview()
-        bottomSheet.removeFromParent()
+        removeChild(bottomSheet)
         mapView.removeAnnotations(mapView.annotations)
 
         let coordinate = CLLocationCoordinate2D(latitude: station.location.coordinate.longitude, longitude: station.location.coordinate.latitude)
