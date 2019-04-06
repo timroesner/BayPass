@@ -8,22 +8,71 @@
 
 @testable import BayPass
 import XCTest
+import Stripe
 
 class ClipperAddCashTests: XCTestCase {
     
     let vc = ClipperAddCashViewController()
 
     override func setUp() {
+        let testCard = ClipperCard(number: 9999999999, cashValue: 0.0, passes: [])
+        ClipperManager.shared.setClipperCard(card: testCard)
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        ClipperManager.shared.removeCard()
+    }
+    
+    func testNoCard() {
+        ClipperManager.shared.removeCard()
+        vc.setupView()
+        let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
+        XCTAssert(presentedVC is UIAlertController)
     }
 
     func testTitle() {
         XCTAssertEqual(vc.title, "Add Cash Value")
+    }
+    
+    func testTextInput() {
+        vc.valueTextField.becomeFirstResponder()
+        vc.valueTextField.text = "0.0"
+        vc.handleValueInput(vc.valueTextField)
+        vc.valueTextField.text = "301"
+        vc.handleValueInput(vc.valueTextField)
+        vc.valueTextField.text = "$"
+        vc.handleValueInput(vc.valueTextField)
+        vc.valueTextField.text = "25.00"
+        vc.handleValueInput(vc.valueTextField)
+        XCTAssert(vc.value == 25.00)
+    }
+    
+    func testPayButton() {
+        vc.valueTextField.text = "25.00"
+        vc.handleValueInput(vc.valueTextField)
+        vc.pay()
+        let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
+        XCTAssert(presentedVC is PKPaymentAuthorizationViewController)
+    }
+    
+    func testInvalidPay() {
+        vc.valueTextField.text = "301"
+        vc.handleValueInput(vc.valueTextField)
+        vc.pay()
+        let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
+        XCTAssert(presentedVC is UIAlertController)
+    }
+    
+    func testDismiss() {
+        let request = Stripe.paymentRequest(withMerchantIdentifier: Credentials().merchantId, country: "US", currency: "USD")
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "TestItem", amount: NSDecimalNumber(value: 5.00))]
+        let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: request)!
+        vc.paymentAuthorizationViewControllerDidFinish(paymentVC)
+        
+        let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
+        XCTAssertFalse(presentedVC is ClipperAddCashViewController)
     }
 
 }
