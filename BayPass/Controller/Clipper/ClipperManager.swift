@@ -9,7 +9,6 @@
 import Foundation
 
 class ClipperManager {
-    
     static let shared = ClipperManager()
     private var clipperCard: ClipperCard?
 
@@ -19,6 +18,14 @@ class ClipperManager {
 
     func setClipperCard(card: ClipperCard) {
         clipperCard = card
+    }
+
+    func removeCard() {
+        clipperCard = nil
+    }
+
+    func addCashToCard(amount: Double) {
+        clipperCard?.addCash(amount: amount)
     }
 
     func getValidPasses() -> [Pass] {
