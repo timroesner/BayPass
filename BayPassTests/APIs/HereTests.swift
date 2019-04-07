@@ -132,10 +132,12 @@ class HereTests: XCTestCase {
         let num1 = 5
         let num2 = 3
         let num3 = 8
+        let num4 = 1
 
         XCTAssertEqual(here.transitModeConvert(num: num), TransitMode.bart)
         XCTAssertEqual(here.transitModeConvert(num: num1), TransitMode.bus)
         XCTAssertEqual(here.transitModeConvert(num: num2), TransitMode.calTrain)
         XCTAssertEqual(here.transitModeConvert(num: num3), TransitMode.lightRail)
+        XCTAssertEqual(here.transitModeConvert(num: num4), TransitMode.bus)
     }
 }

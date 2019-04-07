@@ -33,8 +33,6 @@ struct Line {
             return #imageLiteral(resourceName: "CalTrain")
         case .lightRail:
             return #imageLiteral(resourceName: "Tram")
-        default:
-            return #imageLiteral(resourceName: "Tram")
         }
     }
 }
