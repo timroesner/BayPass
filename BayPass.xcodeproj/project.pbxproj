@@ -54,6 +54,7 @@
 		2266C740224DC513004C8D2E /* ClipperOnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266C73F224DC513004C8D2E /* ClipperOnBoarding.swift */; };
 		227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE6B21B4C78E00D3169E /* Bird.swift */; };
 		227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE7021B4F48D00D3169E /* BirdTests.swift */; };
+		22A4E59022597F0400DF8AD9 /* ClipperManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4E58F22597F0400DF8AD9 /* ClipperManagerTests.swift */; };
 		22B32246224DCF8D00F2508A /* BayPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32245224DCF8D00F2508A /* BayPassButton.swift */; };
 		22B32248224DDDCF00F2508A /* CollectionViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */; };
 		22B3224A224DDE7900F2508A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32249224DDE7900F2508A /* SignInViewController.swift */; };
@@ -188,6 +189,7 @@
 		227796CB21B6251F00BAF6BA /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		227BBE6B21B4C78E00D3169E /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 		227BBE7021B4F48D00D3169E /* BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdTests.swift; sourceTree = "<group>"; };
+		22A4E58F22597F0400DF8AD9 /* ClipperManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperManagerTests.swift; sourceTree = "<group>"; };
 		22B32245224DCF8D00F2508A /* BayPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayPassButton.swift; sourceTree = "<group>"; };
 		22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCVC.swift; sourceTree = "<group>"; };
 		22B32249224DDE7900F2508A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 		22B83C5F224EAF5C00D1D64E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				22A4E58F22597F0400DF8AD9 /* ClipperManagerTests.swift */,
 				22B3225722533CF100F2508A /* ClipperViewControllerTests.swift */,
 				22DB02412254579F00B8D600 /* ClipperOnBoardingTests.swift */,
 				22DB024322545DBC00B8D600 /* ClipperAddCashTests.swift */,
@@ -957,6 +960,7 @@
 				ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */,
 				6AB6ED0A218680C300A81302 /* BikeDockTests.swift in Sources */,
 				22DB02422254579F00B8D600 /* ClipperOnBoardingTests.swift in Sources */,
+				22A4E59022597F0400DF8AD9 /* ClipperManagerTests.swift in Sources */,
 				22F097552206868E009881F8 /* BartTests.swift in Sources */,
 				2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */,
 				223AF97422279289009EA730 /* DestinationSearchResultTableViewCellTests.swift in Sources */,

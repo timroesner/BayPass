@@ -46,6 +46,7 @@ class ClipperAddCashTests: XCTestCase {
         vc.handleValueInput(vc.valueTextField)
         vc.valueTextField.text = "25.00"
         vc.handleValueInput(vc.valueTextField)
+        vc.valueTextField.dismiss()
         XCTAssert(vc.value == 25.00)
     }
     
