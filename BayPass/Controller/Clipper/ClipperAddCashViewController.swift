@@ -34,11 +34,11 @@ class ClipperAddCashViewController: UIViewController {
 
         let clipperView = ClipperView(cardNumber: clipperCard.number, cashValue: clipperCard.cashValue)
         view.addSubview(clipperView)
-        clipperView.snp.makeConstraints({ (make) -> Void in
+        clipperView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(clipperView.snp.width).multipliedBy(0.6)
-        })
+        }
 
         valueTextField.placeholder = "Value"
         valueTextField.title = "ADD"
@@ -119,13 +119,13 @@ extension ClipperAddCashViewController: PKPaymentAuthorizationViewControllerDele
                 completion(.failure)
                 return
             }
-            
+
             // Here we could call our backend if we actually would submit the payment
             print(token)
             completion(.success)
         }
     }
-    
+
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
             ClipperManager.shared.addCashToCard(amount: self.value)

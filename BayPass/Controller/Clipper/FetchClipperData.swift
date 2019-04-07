@@ -71,9 +71,9 @@ extension SignInViewController {
         }
     }
 
-    private func parseCard(from doc: Document) -> [ClipperCard]? {
+    func parseCard(from doc: Document) -> [ClipperCard]? {
         var result = [ClipperCard]()
-        let cardSections = (try? doc.select("div").filter({ try $0.attr("class").contains("greyBox") })) ?? []
+        let cardSections = (try? doc.select("div").filter { try $0.attr("class").contains("greyBox") }) ?? []
         for section in cardSections {
             if let dividers = try? section.select("div").array() {
                 var cardNumber: Int = 0

@@ -41,11 +41,11 @@ class ClipperViewController: UIViewController {
             }
             let clipperView = ClipperView(cardNumber: myClipperCard.number, cashValue: myClipperCard.cashValue)
             view.addSubview(clipperView)
-            clipperView.snp.makeConstraints({ (make) -> Void in
+            clipperView.snp.makeConstraints { (make) -> Void in
                 make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
                 make.left.right.equalToSuperview().inset(20)
                 make.height.equalTo(clipperView.snp.width).multipliedBy(0.6)
-            })
+            }
 
             let label = UILabel()
             label.text = "Active Passes"

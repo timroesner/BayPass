@@ -51,11 +51,11 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         addSubview(titleLbl)
         titleLbl.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         titleLbl.textColor = UIColor(red: 0.61, green: 0.61, blue: 0.61, alpha: 1.00)
-        titleLbl.snp.makeConstraints({ (make) -> Void in
+        titleLbl.snp.makeConstraints { (make) -> Void in
             make.top.equalToSuperview()
             make.left.right.equalToSuperview()
             make.height.equalTo(14)
-        })
+        }
 
         addSubview(selectedItemButton)
         selectedItemButton.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -64,20 +64,20 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         selectedItemButton.isUserInteractionEnabled = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         selectedItemButton.addGestureRecognizer(tapRecognizer)
-        selectedItemButton.snp.makeConstraints({ (make) -> Void in
+        selectedItemButton.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(titleLbl.snp.bottom).offset(3)
             make.left.equalToSuperview()
             make.height.equalTo(24)
-        })
+        }
 
         addSubview(arrow)
         arrow.tintColor = UIColor(red: 0.61, green: 0.61, blue: 0.61, alpha: 1.00)
-        arrow.snp.makeConstraints({ (make) -> Void in
+        arrow.snp.makeConstraints { (make) -> Void in
             make.width.height.equalTo(15)
             make.centerY.equalTo(selectedItemButton)
             make.right.equalToSuperview()
             make.left.equalTo(selectedItemButton.snp.right).offset(8)
-        })
+        }
 
         let border = UILabel()
         border.backgroundColor = .lightGray
