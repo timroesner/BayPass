@@ -10,10 +10,10 @@ import SnapKit
 import UIKit
 
 class RouteOverView: UIView {
-    private let durationLabel = UILabel()
-    private let timeLabel = UILabel()
-    private let priceLabel = UILabel()
-    private let segmentView = UIView()
+    let durationLabel = UILabel()
+    let timeLabel = UILabel()
+    let priceLabel = UILabel()
+    let segmentView = UIView()
 
     init(with route: Route) {
         super.init(frame: CGRect.zero)
