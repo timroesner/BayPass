@@ -41,5 +41,10 @@ class ClipperViewControllerTests: XCTestCase {
     func testAddCash() {
         vc.addCash()
     }
+    
+    func testScan() {
+        vc.scanCard()
+        XCTAssertNotNil(vc.session)
+    }
 
 }

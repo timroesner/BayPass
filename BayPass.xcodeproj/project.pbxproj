@@ -680,6 +680,9 @@
 							com.apple.ApplePay = {
 								enabled = 1;
 							};
+							com.apple.NearFieldCommunicationTagReading = {
+								enabled = 1;
+							};
 						};
 					};
 					22049DAD214C9DF2007FF904 = {
