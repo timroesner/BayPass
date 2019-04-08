@@ -50,12 +50,20 @@ class ClipperAddCashTests: XCTestCase {
         XCTAssert(vc.value == 25.00)
     }
     
-    func testPayButton() {
+    func testApplePayButton() {
         vc.valueTextField.text = "25.00"
         vc.handleValueInput(vc.valueTextField)
         vc.pay()
         let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
         XCTAssert(presentedVC is PKPaymentAuthorizationViewController)
+    }
+    
+    func testCreditDebitPayButton() {
+        vc.dropDown.tableView.delegate?.tableView?(vc.dropDown.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(PaymentMethod(rawValue: vc.dropDown.getSelectedItem()), PaymentMethod.creditDebit)
+        vc.valueTextField.text = "25.00"
+        vc.handleValueInput(vc.valueTextField)
+        vc.pay()
     }
     
     func testInvalidPay() {
