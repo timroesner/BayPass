@@ -44,7 +44,6 @@ class System {
                     }
                     for line in station.lines {
                         self.allLines[line.name + "-" + line.agency.stringValue] = line
-                        print(self.allLines)
                     }
                 }
                 self.group.leave()
