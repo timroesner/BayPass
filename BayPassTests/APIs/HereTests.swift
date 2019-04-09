@@ -15,6 +15,7 @@ import XCTest
 class HereTests: XCTestCase {
     var testJson: [String: Any] = [:]
     var testJsonForAgency: [String: Any] = [:]
+    var testJsonForDepTime: [String: Any] = [:]
     let here = Here.shared
     override func setUp() {
         let path = Bundle(for: type(of: self)).path(forResource: "Here", ofType: "json")
@@ -24,6 +25,9 @@ class HereTests: XCTestCase {
         let pathForAgency = Bundle(for: type(of: self)).path(forResource: "HereAgency", ofType: "json")
         let dataForAgency = try! Data(contentsOf: URL(fileURLWithPath: pathForAgency!), options: .mappedIfSafe)
         testJsonForAgency = try! JSONSerialization.jsonObject(with: dataForAgency, options: .allowFragments) as! [String: Any]
+        let pathForDepTime = Bundle(for: type(of: self)).path(forResource: "HereDepTime", ofType: "json")
+        let dataForDepTime = try! Data(contentsOf: URL(fileURLWithPath: pathForDepTime!), options: .mappedIfSafe)
+        testJsonForDepTime = try! JSONSerialization.jsonObject(with: dataForDepTime, options: .allowFragments) as! [String: Any]
     }
 
     override func tearDown() {
@@ -117,6 +121,21 @@ class HereTests: XCTestCase {
         XCTAssertNotNil(results)
     }
 
+    func testGetDepartureTimes() {
+        let ex = expectation(description: "Here for getting Line from a Station ID")
+        let stationId: Int = 718_310_131
+        let time = "2019-06-24T08%3A00%3A00"
+
+        var results: [String]?
+        here.getDepartureTimes(stationId: stationId, time: time) { resp in
+            results = resp
+            ex.fulfill()
+        }
+
+        wait(for: [ex], timeout: 5)
+        XCTAssertNotNil(results)
+    }
+
     func testParseStationForId() {
         let resJson = testJson["Res"] as! [String: Any]
         let stationsJson = resJson["Stations"] as! [String: Any]
@@ -135,6 +154,18 @@ class HereTests: XCTestCase {
         let test = here.parseOperatorFromStationId(from: multiNextDeparture[0])
 
         XCTAssertEqual(test, Agency.SamsTrans)
+    }
+
+    func testParseTimesFromStationIds() {
+        var times = [String]()
+
+        let resJson = testJsonForDepTime["Res"] as? [String: Any]
+        let multiNextDepartures = resJson?["MultiNextDepartures"] as? [String: Any]
+        let multiNextDeparture = multiNextDepartures?["MultiNextDeparture"] as? [[String: Any]]
+        for mul in multiNextDeparture! {
+            times = here.parseTimeFromStationId(from: mul)!
+        }
+        XCTAssertEqual(times, ["2019-06-24T07:30:00"])
     }
 
     func testParseStation() {

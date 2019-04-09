@@ -27,9 +27,12 @@ struct Station {
         self.location = location
     }
 
-    func getDepartureTimes() -> [Int] {
-        // TODO: Implement here
-        fatalError("getDepartureTimes() is not implemented yet")
+    func getDepartureTimes() -> [String] {
+        var timings = [String]()
+        Here.shared.getDepartureTimes(stationId: code, time: Date().description) { resp in
+            timings = resp
+        }
+        return timings
     }
 
     func getPrimaryTransitMode() -> TransitMode {

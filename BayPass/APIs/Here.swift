@@ -170,6 +170,34 @@ class Here {
         }
     }
 
+    func getDepartureTimes(stationId: Int, time: String, completion: @escaping ([String]) -> Void) {
+        let param = [
+            "app_id": Credentials().hereAppID,
+            "app_code": Credentials().hereAppCode,
+            "lang": "en",
+            "stnIds": stationId,
+            "max": 1,
+            "time": time,
+        ] as [String: Any]
+        var results = [String]()
+        Alamofire.request("https://transit.api.here.com/v3/multiboard/by_stn_ids.json?", method: .get, parameters: param).responseJSON { response in
+            if let json = response.result.value as? [String: Any],
+                let resJson = json["Res"] as? [String: Any],
+                let multiNextDepartures = resJson["MultiNextDepartures"] as? [String: Any],
+                let multiNextDeparture = multiNextDepartures["MultiNextDeparture"] as? [[String: Any]] {
+                for nextDeparture in multiNextDeparture {
+                    if let timings = self.parseTimeFromStationId(from: nextDeparture) {
+                        results = timings
+                        completion(results)
+                    }
+                }
+            } else {
+                completion([])
+                print("Failed in getting Time from StationId")
+            }
+        }
+    }
+
     func getAgencies(stationIds: [Int], time: String, completion: @escaping ([Int: Agency]) -> Void) {
         var results = [Int: Agency]()
         let group = DispatchGroup()
@@ -205,6 +233,18 @@ class Here {
             abbrv = op1["short_name"] as! String
         }
         return Agency(rawValue: abbrv)
+    }
+
+    func parseTimeFromStationId(from json: [String: Any]) -> [String]? {
+        var times = [String]()
+        let nextDepartures = json["NextDepartures"] as? [String: Any]
+        let dep = nextDepartures?["Dep"] as? [[String: Any]]
+
+        for departure in dep as! [[String: Any]] {
+            times.append(departure["time"] as! String)
+        }
+
+        return times
     }
 
     func parseStation(from json: [String: Any]) -> Station? {
