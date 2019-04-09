@@ -46,6 +46,18 @@ class HereTests: XCTestCase {
         XCTAssertEqual(results!, [718_310_131])
     }
 
+    func testGetStationIdFail() {
+        let ex = expectation(description: "Here for getting Agency")
+        var result: [Int]?
+        let center = CLLocationCoordinate2D(latitude: 0, longitude: -121.9434281)
+        here.getStationIds(center: center, radius: 0, max: 0) { resp in
+            result = resp
+            ex.fulfill()
+        }
+        wait(for: [ex], timeout: 5)
+        XCTAssertEqual(result!, [0])
+    }
+
     func testGetAgencyFromStationId() {
         let ex = expectation(description: "Here for getting Agency")
         let stationId: Int = 718_310_131
@@ -58,6 +70,18 @@ class HereTests: XCTestCase {
         }
         wait(for: [ex], timeout: 5)
         XCTAssertEqual(result!, Agency.BART)
+    }
+
+    func testGetAgencyFromStationIdFail() {
+        let ex = expectation(description: "Here for getting Agency")
+        var result: Agency?
+
+        here.getAgencyFromStationId(stationId: 10, time: "") { resp in
+            result = resp
+            ex.fulfill()
+        }
+        wait(for: [ex], timeout: 5)
+        XCTAssertEqual(result!, .zero)
     }
 
     func testGetStationsNearby() {
