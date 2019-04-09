@@ -30,5 +30,14 @@ class ClipperManagerTests: XCTestCase {
         ClipperManager.shared.removeCard()
         XCTAssertNil(ClipperManager.shared.getClipperCard())
     }
+    
+    func testGetValidPasses() {
+        let calTrain = Agency(name: "CalTrain", routes: [], icon: #imageLiteral(resourceName: "CalTrain"))
+        let testCard = ClipperCard(number: 9999999999, cashValue: 0.0, passes: [Pass(name: "Monthly", duration: DateInterval(start: Date(), duration: 36000), price: 45.0, validOnAgency: calTrain)])
+        ClipperManager.shared.setClipperCard(card: testCard)
+        let validPasses = ClipperManager.shared.getValidPasses()
+        XCTAssertEqual(validPasses.count, 1)
+        ClipperManager.shared.removeCard()
+    }
 
 }

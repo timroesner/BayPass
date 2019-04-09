@@ -74,7 +74,7 @@ class ClipperAddCashTests: XCTestCase {
         XCTAssert(presentedVC is UIAlertController)
     }
     
-    func testDismiss() {
+    func testDidFinish() {
         let request = Stripe.paymentRequest(withMerchantIdentifier: Credentials().merchantId, country: "US", currency: "USD")
         request.paymentSummaryItems = [PKPaymentSummaryItem(label: "TestItem", amount: NSDecimalNumber(value: 5.00))]
         let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: request)!
@@ -82,6 +82,22 @@ class ClipperAddCashTests: XCTestCase {
         
         let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
         XCTAssertFalse(presentedVC is ClipperAddCashViewController)
+    }
+    
+    func testDidAuthorize() {
+        let request = Stripe.paymentRequest(withMerchantIdentifier: Credentials().merchantId, country: "US", currency: "USD")
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "TestItem", amount: NSDecimalNumber(value: 5.00))]
+        let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: request)!
+        let payment = PKPayment()
+        
+        let expectation = self.expectation(description: "async")
+        var statusResult = PKPaymentAuthorizationStatus(rawValue: 0)
+        vc.paymentAuthorizationViewController(paymentVC, didAuthorizePayment: payment) { (status) in
+            statusResult = status
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertEqual(statusResult, PKPaymentAuthorizationStatus.failure)
     }
 
 }
