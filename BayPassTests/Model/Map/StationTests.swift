@@ -34,16 +34,6 @@ class StationTests: XCTestCase {
         XCTAssertNotNil(subject.lines)
     }
 
-    func testGetDepartureTimes() {
-        let code = 703_840_432
-        let transitModes = [TransitMode.bart]
-        let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-        let linesX = [Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)]
-        let subject = Station(name: name, code: code, transitModes: transitModes, lines: linesX, location: loc)
-
-        XCTAssertNotNil(subject.getDepartureTimes)
-    }
-
     func testGetPrimaryTransitMode() {
         let name = "Test"
         let code = 2

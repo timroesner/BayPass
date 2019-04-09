@@ -27,14 +27,6 @@ struct Station {
         self.location = location
     }
 
-    func getDepartureTimes() -> [String] {
-        var timings = [String]()
-        Here.shared.getDepartureTimes(stationId: code, time: Date().description) { resp in
-            timings = resp
-        }
-        return timings
-    }
-
     func getPrimaryTransitMode() -> TransitMode {
         if transitModes.contains(.calTrain) {
             return .calTrain
