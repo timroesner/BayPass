@@ -240,7 +240,7 @@ class Here {
         let nextDepartures = json["NextDepartures"] as? [String: Any]
         let dep = nextDepartures?["Dep"] as? [[String: Any]]
 
-        for departure in dep as! [[String: Any]] {
+        for departure in dep! {
             times.append(departure["time"] as! String)
         }
 
