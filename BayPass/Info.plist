@@ -17,9 +17,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>5</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NFCReaderUsageDescription</key>
+	<string>Used to scan your tickets and Clipper card.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location will be used for route information, and will never be sent to our server or to third parties.</string>
 	<key>UILaunchStoryboardName</key>

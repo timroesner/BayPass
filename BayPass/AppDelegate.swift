@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import Stripe
 import UIKit
 
 @UIApplicationMain
@@ -18,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = TabViewController()
 
         window?.rootViewController = vc
+
+        // Stripe
+        STPPaymentConfiguration.shared().publishableKey = Credentials().stripeKey
+        STPPaymentConfiguration.shared().appleMerchantIdentifier = Credentials().merchantId
 
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100

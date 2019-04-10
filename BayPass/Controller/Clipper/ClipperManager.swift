@@ -8,7 +8,8 @@
 
 import Foundation
 
-class ClipperSingleton {
+class ClipperManager {
+    static let shared = ClipperManager()
     private var clipperCard: ClipperCard?
 
     func getClipperCard() -> ClipperCard? {
@@ -17,6 +18,14 @@ class ClipperSingleton {
 
     func setClipperCard(card: ClipperCard) {
         clipperCard = card
+    }
+
+    func removeCard() {
+        clipperCard = nil
+    }
+
+    func addCashToCard(amount: Double) {
+        clipperCard?.addCash(amount: amount)
     }
 
     func getValidPasses() -> [Pass] {

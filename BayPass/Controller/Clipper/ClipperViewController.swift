@@ -6,14 +6,14 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import CoreNFC
 import SnapKit
 import UIKit
-
-let clipperManager = ClipperSingleton()
 
 class ClipperViewController: UIViewController {
     var collectionView: UICollectionView?
     let cellIdentifier = "clipperPassCell"
+    var session: NFCNDEFReaderSession?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,17 +37,20 @@ class ClipperViewController: UIViewController {
     }
 
     func setupRegularView() {
-        if let myClipperCard = clipperManager.getClipperCard() {
+        if let myClipperCard = ClipperManager.shared.getClipperCard() {
             for view in view.subviews {
                 view.removeFromSuperview()
             }
             let clipperView = ClipperView(cardNumber: myClipperCard.number, cashValue: myClipperCard.cashValue)
+            clipperView.isUserInteractionEnabled = true
+            let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(scanCard))
+            clipperView.addGestureRecognizer(tapRecognizer)
             view.addSubview(clipperView)
-            clipperView.snp.makeConstraints({ (make) -> Void in
+            clipperView.snp.makeConstraints { (make) -> Void in
                 make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
                 make.left.right.equalToSuperview().inset(20)
                 make.height.equalTo(clipperView.snp.width).multipliedBy(0.6)
-            })
+            }
 
             let label = UILabel()
             label.text = "Active Passes"
@@ -83,5 +86,21 @@ class ClipperViewController: UIViewController {
 
     @objc func addCash() {
         navigationController?.pushViewController(ClipperAddCashViewController(), animated: true)
+    }
+
+    @objc func scanCard() {
+        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
+        session?.alertMessage = "Hold your iPhone near the Clipper card reader."
+        session?.begin()
+    }
+}
+
+extension ClipperViewController: NFCNDEFReaderSessionDelegate {
+    func readerSession(_: NFCNDEFReaderSession, didInvalidateWithError _: Error) {
+        print("Error")
+    }
+
+    func readerSession(_: NFCNDEFReaderSession, didDetectNDEFs _: [NFCNDEFMessage]) {
+        print("Success")
     }
 }

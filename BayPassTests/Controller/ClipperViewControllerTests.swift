@@ -16,14 +16,14 @@ class ClipperViewControllerTests: XCTestCase {
     override func setUp() {
         let calTrain = Agency(name: "CalTrain", routes: [], icon: #imageLiteral(resourceName: "CalTrain"))
         let testCard = ClipperCard(number: 9999999999, cashValue: 0.0, passes: [Pass(name: "Monthly", duration: DateInterval(start: Date(), duration: 36000), price: 45.0, validOnAgency: calTrain)])
-        clipperManager.setClipperCard(card: testCard)
+        ClipperManager.shared.setClipperCard(card: testCard)
         
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        ClipperManager.shared.removeCard()
     }
     
     func testSelectAdd() {
@@ -40,6 +40,11 @@ class ClipperViewControllerTests: XCTestCase {
     
     func testAddCash() {
         vc.addCash()
+    }
+    
+    func testScan() {
+        vc.scanCard()
+        XCTAssertNotNil(vc.session)
     }
 
 }
