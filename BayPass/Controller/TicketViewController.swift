@@ -7,11 +7,10 @@
 //
 
 import CoreLocation
-import UIKit
 import SnapKit
+import UIKit
 
 class TicketViewController: UIViewController {
-    
     let ticketCarouselViewCellID = "ticketCarouselViewCellID"
     let ticketCarouselView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -23,21 +22,22 @@ class TicketViewController: UIViewController {
         collection.showsHorizontalScrollIndicator = false
         return collection
     }()
-    
+
     let titleLbl = UILabel()
-    
+
     let purchesedTicketView = UIView()
     var purchasedTicketTableView: UITableView = {
         let tableView = UITableView()
         tableView.isScrollEnabled = true
         return tableView
     }()
-    private var tickets : [Ticket] = []
+
+    private var tickets: [Ticket] = []
     private let purchasedTicketTableViewCellID = "purchasedTicketTableViewCellID"
-    
+
     let agencies = ["BART", "CalTrain", "ACE", "ACTransit", "MUNI"]
     let icons = ["BART", "CalTrain", "CalTrain", "Bus", "Bus"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -49,7 +49,7 @@ class TicketViewController: UIViewController {
         view.addSubview(ticketCarouselView)
         //ticketCarouselView.frame = CGRect(x: 0, y: 140, width: view.frame.size.width, height: 240)
         setUpTicketCarouselView()
-        
+
         //text label
         view.addSubview(titleLbl)
         titleLbl.text = "Purchased"
@@ -59,23 +59,22 @@ class TicketViewController: UIViewController {
             make.leading.equalToSuperview().offset(20)
             make.top.equalTo(ticketCarouselView.snp.bottom).offset(10)
         })
-        
-        
-        //purchased ticket view
+
+        // purchased ticket view
         view.addSubview(purchesedTicketView)
         purchesedTicketView.snp.makeConstraints({ (make) -> Void in
             make.width.equalToSuperview()
             make.top.equalTo(titleLbl.snp.bottom).offset(10)
-            make.bottom.equalTo(view.snp.bottom).offset(-100)
+            make.bottom.equalTo(self.view.snp.bottomMargin).inset(20)
         })
-        
+
         purchesedTicketView.addSubview(purchasedTicketTableView)
-        purchasedTicketTableView.frame.size = CGSize(width: view.frame.width, height: 300)
+        purchasedTicketTableView.frame.size = CGSize(width: view.frame.width, height: view.frame.height)
         purchasedTicketTableView.rowHeight = 93.0
         purchasedTicketTableView.dataSource = self
         purchasedTicketTableView.delegate = self
         purchasedTicketTableView.register(PurchasedTicketCell.self, forCellReuseIdentifier: purchasedTicketTableViewCellID)
-        
+
         //temporary data
         let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
         let station = Station(name: "SFO", code: 2, transitModes: [TransitMode.bart], lines: ["Green"], location: loc)
@@ -92,12 +91,12 @@ class TicketViewController: UIViewController {
         let ticket4 = Ticket(name: "Monthly Pass", duration: dur, price: 2.3, validOnAgency: ace, NFCCode: "234", locations: locations)
         tickets = [ticket1, ticket2, ticket3, ticket4]
     }
-    
-    func setUpTicketCarouselView(){
-        /*ticketCarouselView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        ticketCarouselView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        ticketCarouselView.heightAnchor.constraint(equalToConstant: 240).isActive = true
-        ticketCarouselView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true*/
+
+    func setUpTicketCarouselView() {
+        /* ticketCarouselView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+         ticketCarouselView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+         ticketCarouselView.heightAnchor.constraint(equalToConstant: 240).isActive = true
+         ticketCarouselView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true */
         ticketCarouselView.snp.makeConstraints({ (make) -> Void in
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
@@ -111,36 +110,35 @@ class TicketViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    @objc func buttonAction(sender : UITapGestureRecognizer!) {
-        //TicketSelectionDelegate.ticketPressed(ticketName: sender.ticketName)
+    /*
+    @objc func buttonAction(sender _: UITapGestureRecognizer!) {
+        // TicketSelectionDelegate.ticketPressed(ticketName: sender.ticketName)
         navigationController?.pushViewController(TicketCheckoutViewController(), animated: true)
-    }
- 
+    }*/
 }
 
-
-extension TicketViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension TicketViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return agencies.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    func collectionView(_: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = ticketCarouselView.dequeueReusableCell(withReuseIdentifier: ticketCarouselViewCellID, for: indexPath) as! ticketCarouselViewCell
         cell.backgroundColor = .white
-        //cell.ticketView = TicketView(agency: agencies[indexPath.row], icon: UIImage(named: icons[indexPath.row])!, cornerRadius: 12)
+        // cell.ticketView = TicketView(agency: agencies[indexPath.row], icon: UIImage(named: icons[indexPath.row])!, cornerRadius: 12)
         cell.setup(with: TicketView(agency: agencies[indexPath.row], icon: UIImage(named: icons[indexPath.row])!, cornerRadius: 12))
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         return CGSize(width: 135, height: 200)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let ticketCheckoutViewController = TicketCheckoutViewController()
         ticketCheckoutViewController.setUpTitle(newTitle: agencies[indexPath.row])
         ticketCheckoutViewController.setUpTicketView(newTicketView: TicketView(agency: agencies[indexPath.row], icon: UIImage(named: icons[indexPath.row])!, cornerRadius: 12))
@@ -149,29 +147,26 @@ extension TicketViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 }
 
-
-extension TicketViewController: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension TicketViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return tickets.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = purchasedTicketTableView.dequeueReusableCell(withIdentifier: purchasedTicketTableViewCellID) as! PurchasedTicketCell
         cell.setup(with: tickets[indexPath.row])
         return cell
     }
 }
 
-
 class ticketCarouselViewCell: UICollectionViewCell {
-    
     var ticketView = TicketView(agency: "ACE", icon: UIImage(named: "CalTrain")!, cornerRadius: 12)
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
-    func setup(with newTicketView: TicketView){
+
+    func setup(with newTicketView: TicketView) {
         ticketView = newTicketView
         addSubview(ticketView)
         ticketView.snp.makeConstraints({ (make) -> Void in
@@ -180,8 +175,8 @@ class ticketCarouselViewCell: UICollectionViewCell {
         })
         ticketView.layoutIfNeeded()
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

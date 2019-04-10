@@ -68,7 +68,7 @@ class PurchasedTicketCell: UITableViewCell {
             make.top.equalToSuperview().offset(16)
             make.left.equalToSuperview().offset(16)
         })
-        
+
         if let dur = ticket.duration {
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = TimeZone(identifier: "America/Los_Angeles")

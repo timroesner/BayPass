@@ -6,183 +6,166 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
+import SnapKit
 import UIKit
 
-protocol DropDownProtocol {
-    func dropDownPressed(string: String)
-}
-
-class DropDownMenu: UIButton, DropDownProtocol {
-    var dropView = DropDownView()
-    var height = NSLayoutConstraint()
+class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
+    var tableView = UITableView()
+    var tableViewOpenConstraint: Constraint?
+    var tableViewClosedConstraint: Constraint?
     var titleLbl = UILabel()
-    var selectedItemLbl = UILabel()
-    let arrow = UIImageView(image: UIImage(named: "arrow")!)
+    var selectedItemButton = UILabel()
+    let arrow = UIImageView(image: #imageLiteral(resourceName: "arrow"))
     var isOpen = false
-    private var selectedItem = ""
-
-    func dropDownPressed(string: String) {
-        selectedItem = string
-        selectedItemLbl.text = string
-        collapse()
+    private var dropDownOptions = [String]()
+    private var selectedItem: String = "" {
+        didSet {
+            selectedItemButton.text = selectedItem
+        }
     }
-
+    
     func getSelectedItem() -> String {
         return selectedItem
     }
-
+    
     public init(title: String, items: [String]) {
         super.init(frame: CGRect.zero)
-
+        
         backgroundColor = UIColor.white
-
-        arrow.rotate(isOpen ? 0.0 : .pi)
-
-        selectedItem = items[0]
-
-        addSubview(titleLbl)
-        titleLbl.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-        titleLbl.text = title.uppercased()
-        titleLbl.textColor = UIColor(red: 0.61, green: 0.61, blue: 0.61, alpha: 1.00)
-        titleLbl.snp.makeConstraints({ (make) -> Void in
-            make.top.equalToSuperview().offset(10)
-            make.left.equalToSuperview().offset(10)
-        })
-
-        addSubview(selectedItemLbl)
-        selectedItemLbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        selectedItemLbl.text = selectedItem
-        selectedItemLbl.textColor = UIColor.black
-        selectedItemLbl.snp.makeConstraints({ (make) -> Void in
-            make.top.equalTo(titleLbl.snp.bottom).offset(2)
-            make.left.equalToSuperview().offset(10)
-        })
-
-        dropView = DropDownView()
-        dropView.delegate = self
-        dropView.dropDownOptions = items
-        dropView.tableView.isScrollEnabled = dropView.tableView.numberOfRows(inSection: 0) <= 4 ? false : true
-        dropView.translatesAutoresizingMaskIntoConstraints = false
-
-        addSubview(arrow)
-        arrow.tintColor = UIColor(red: 0.61, green: 0.61, blue: 0.61, alpha: 1.00)
-        arrow.snp.makeConstraints({ (make) -> Void in
-            make.width.height.equalTo(15)
-            make.top.equalToSuperview().offset(30)
-            make.right.equalToSuperview().offset(-10)
-        })
-    }
-
-    override func didMoveToSuperview() {
-        superview?.addSubview(dropView)
-        superview?.bringSubviewToFront(dropView)
-
-        dropView.topAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        dropView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        dropView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        height = dropView.heightAnchor.constraint(equalToConstant: 0)
-    }
-
-    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
-        if isOpen == false {
-            expand()
-        } else {
-            collapse()
-        }
-    }
-
-    func expand() {
-        isOpen = true
-        NSLayoutConstraint.deactivate([self.height])
-        NSLayoutConstraint.activate([self.height])
-
-        if dropView.tableView.numberOfRows(inSection: 0) <= 4 {
-            height.constant = dropView.tableView.contentSize.height
-        } else {
-            height.constant = 190
-        }
-
-        arrow.rotate(isOpen ? 0.0 : .pi)
-        expandAnimation()
-    }
-
-    func collapse() {
-        isOpen = false
-
-        NSLayoutConstraint.deactivate([self.height])
-        height.constant = 0
-        NSLayoutConstraint.activate([self.height])
-
-        arrow.rotate(isOpen ? 0.0 : .pi)
-        collapseAnimation()
-    }
-
-    func expandAnimation() {
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
-            self.dropView.layoutIfNeeded()
-            self.dropView.center.y += self.dropView.frame.height / 2
-        }, completion: nil)
-    }
-
-    func collapseAnimation() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-            self.dropView.center.y -= self.dropView.frame.height / 2
-            self.dropView.layoutIfNeeded()
-        }, completion: nil)
-    }
-
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
-    var dropDownOptions = [String]()
-    var tableView = UITableView()
-    var delegate: DropDownProtocol!
-
-    public init() {
-        super.init(frame: CGRect.zero)
-
+        
         tableView.backgroundColor = UIColor.white
-        backgroundColor = UIColor.white
-
         tableView.delegate = self
         tableView.dataSource = self
-
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-
-        addSubview(tableView)
         tableView.separatorColor = UIColor.clear
-        tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
+        arrow.rotate(isOpen ? .pi : 0.0)
+        titleLbl.text = title.uppercased()
+        
+        selectedItem = items[safe: 0] ?? ""
+        dropDownOptions = items
+        
+        setupView()
     }
-
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    
+    func setupView() {
+        addSubview(titleLbl)
+        titleLbl.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        titleLbl.textColor = UIColor(red: 0.61, green: 0.61, blue: 0.61, alpha: 1.00)
+        titleLbl.snp.makeConstraints { (make) -> Void in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.left.equalToSuperview().offset(5)
+            make.height.equalTo(14)
+        }
+        
+        addSubview(selectedItemButton)
+        selectedItemButton.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        selectedItemButton.text = selectedItem
+        selectedItemButton.textColor = .black
+        selectedItemButton.isUserInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        selectedItemButton.addGestureRecognizer(tapRecognizer)
+        selectedItemButton.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(titleLbl.snp.bottom).offset(4)
+            make.left.equalToSuperview().offset(5)
+            make.height.equalTo(24)
+        }
+        
+        addSubview(arrow)
+        arrow.tintColor = UIColor(red: 0.70, green: 0.70, blue: 0.70, alpha: 1.00)
+        arrow.snp.makeConstraints { (make) -> Void in
+            make.width.height.equalTo(15)
+            make.centerY.equalTo(selectedItemButton)
+            make.right.equalToSuperview().offset(-5)
+            make.left.equalTo(selectedItemButton.snp.right).offset(8)
+        }
+        
+        let border = UILabel()
+        border.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00)
+        addSubview(border)
+        border.snp.makeConstraints { make in
+            make.height.equalTo(1.5)
+            make.left.equalToSuperview().offset(5)
+            make.right.equalToSuperview().offset(-5)
+            make.top.equalTo(selectedItemButton.snp.bottom).offset(8)
+        }
+        
+        addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(border.snp.bottom)
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview().offset(-15)
+            //tableViewOpenConstraint = make.height.lessThanOrEqualTo(190).constraint
+            switch tableView.numberOfRows(inSection: 0) {
+                case 1:
+                    tableViewOpenConstraint = make.height.lessThanOrEqualTo(47.5).constraint
+                case 2:
+                    tableViewOpenConstraint = make.height.lessThanOrEqualTo(95).constraint
+                case 3:
+                    tableViewOpenConstraint = make.height.lessThanOrEqualTo(142.5).constraint
+                default:
+                    tableViewOpenConstraint = make.height.lessThanOrEqualTo(190).constraint
+            }
+            tableView.isScrollEnabled = tableView.numberOfRows(inSection: 0) <= 4 ? false : true
+            tableViewClosedConstraint = make.height.equalTo(0).constraint
+        }
+        tableViewOpenConstraint?.deactivate()
+        tableViewClosedConstraint?.activate()
     }
-
-    func numberOfSections(in _: UITableView) -> Int {
-        return 1
+    
+    @objc func handleTap() {
+        isOpen.toggle()
+        isOpen ? expandAnimation() : collapseAnimation()
+        arrow.rotate(isOpen ? .pi : 0.0)
     }
-
+    
+    func expandAnimation() {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        tableViewOpenConstraint?.activate()
+        tableViewClosedConstraint?.deactivate()
+        //layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.center.y -= self.frame.height
+            self.layoutIfNeeded()
+        })
+        
+        tableView.flashScrollIndicators()
+    }
+    
+    func collapseAnimation() {
+        tableViewOpenConstraint?.deactivate()
+        tableViewClosedConstraint?.activate()
+        //layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.layoutIfNeeded()
+            self.center.y += self.frame.height
+        })
+    }
+    
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return dropDownOptions.count
+        return dropDownOptions.filter { $0 != selectedItem }.count
     }
-
+    
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        // let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITableViewCell
-        cell.textLabel?.text = dropDownOptions[indexPath.row]
+        cell.textLabel?.text = dropDownOptions.filter { $0 != selectedItem }[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         cell.backgroundColor = UIColor.white
         return cell
     }
-
+    
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
+        selectedItem = dropDownOptions.filter { $0 != selectedItem }[indexPath.row]
+        handleTap()
+        tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    required init?(coder _: NSCoder) {
+        print("NSCoder not supported in DropDownMenu")
+        return nil
     }
 }
