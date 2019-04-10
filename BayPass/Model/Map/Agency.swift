@@ -16,7 +16,7 @@ enum Agency: String {
     case Muni = "SF" // San Francisco Municipal Transportation Agency
     case UnionCity = "UC" // Union City Transit
     case ACE = "99" // Altamont Corridor Express
-    case SolTrans = "247" // SolsTrans
+    case SolTrans = "247" // SolTrans
     case SamTrans = "sam" // SamTrans
     case zero = "0" // Debugging
 
