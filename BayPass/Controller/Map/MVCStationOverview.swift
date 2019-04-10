@@ -15,7 +15,7 @@ extension MapViewController {
         removeChild(bottomSheet)
         mapView.removeAnnotations(mapView.annotations)
 
-        let coordinate = CLLocationCoordinate2D(latitude: station.location.coordinate.longitude, longitude: station.location.coordinate.latitude)
+        let coordinate = CLLocationCoordinate2D(latitude: station.location.coordinate.latitude, longitude: station.location.coordinate.longitude)
 
         let coordinatRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         mapView.setRegion(mapView.regionThatFits(coordinatRegion), animated: true)
