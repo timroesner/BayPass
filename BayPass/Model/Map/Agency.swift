@@ -17,7 +17,7 @@ enum Agency: String {
     case UnionCity = "UC" // Union City Transit
     case ACE = "99" // Altamont Corridor Express
     case SolTrans = "247" // SolsTrans
-    case SamsTrans = "sam" // SamsTrans
+    case SamTrans = "sam" // SamTrans
     case zero = "0" // Debugging
 
     var stringValue: String {
@@ -38,10 +38,10 @@ enum Agency: String {
             return "Union City Transit"
         case .ACE:
             return "ACE"
-        case .SamsTrans:
-            return "SamsTrans"
+        case .SamTrans:
+            return "SamTrans"
         case .SolTrans:
-            return "SolsTrans"
+            return "SolTrans"
         default:
             return ""
         }
@@ -63,7 +63,7 @@ enum Agency: String {
             return #imageLiteral(resourceName: "Bus")
         case .UnionCity:
             return #imageLiteral(resourceName: "Bus")
-        case .SamsTrans:
+        case .SamTrans:
             return #imageLiteral(resourceName: "Bus")
         case .SolTrans:
             return #imageLiteral(resourceName: "Bus")

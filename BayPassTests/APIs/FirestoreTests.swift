@@ -28,7 +28,7 @@ class FirestoreTests: XCTestCase {
         GoogleFirestore.shared.getTicketList(agency: agency, completion: { (tickets, passes) -> Void in
             expectation.fulfill()
         })
-//        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
     }
 
 }
