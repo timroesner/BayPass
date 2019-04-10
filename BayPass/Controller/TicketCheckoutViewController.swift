@@ -28,7 +28,8 @@ class TicketCheckoutViewController: UIViewController {
 
     func setUpTitle(newTitle: String) {
         title = newTitle
-        navigationController?.navigationBar.prefersLargeTitles = false
+        //navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationItem.largeTitleDisplayMode = .never
     }
 
     func setUpTicketView(newTicketView: TicketView) {
@@ -78,12 +79,19 @@ class TicketCheckoutViewController: UIViewController {
             //make.bottom.equalToSuperview().offset(-150)
         })
         
-        //let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        //dropDown4.addGestureRecognizer(tap)
+        //view.layoutIfNeeded()
+        //view.setNeedsLayout()
+        /*UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }*/
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        //dropDown4.selectedItemButton.addGestureRecognizer(tap)
     }
     
-    /*
+    
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        /*
         UIView.animate(withDuration: 0.3) {
             self.dropDown3.snp.updateConstraints { (make) in
                 if(self.dropDown4.isOpen){
@@ -93,8 +101,9 @@ class TicketCheckoutViewController: UIViewController {
                 }
             }
             self.view.layoutIfNeeded()
-        }
-    }*/
+        }*/
+        print("test")
+    }
 
     func setUpButton(color: String) {
         let button = UIButton()

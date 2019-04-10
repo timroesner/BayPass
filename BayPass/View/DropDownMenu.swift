@@ -124,12 +124,12 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         tableViewOpenConstraint?.activate()
         tableViewClosedConstraint?.deactivate()
-        //layoutIfNeeded()
+        layoutIfNeeded()
         
-        UIView.animate(withDuration: 0.4, animations: {
+        /*UIView.animate(withDuration: 0.4, animations: {
             self.center.y -= self.frame.height
             self.layoutIfNeeded()
-        })
+        })*/
         
         tableView.flashScrollIndicators()
     }
@@ -137,12 +137,12 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     func collapseAnimation() {
         tableViewOpenConstraint?.deactivate()
         tableViewClosedConstraint?.activate()
-        //layoutIfNeeded()
+        layoutIfNeeded()
         
-        UIView.animate(withDuration: 0.4, animations: {
+        /*UIView.animate(withDuration: 0.4, animations: {
             self.layoutIfNeeded()
             self.center.y += self.frame.height
-        })
+        })*/
     }
     
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
