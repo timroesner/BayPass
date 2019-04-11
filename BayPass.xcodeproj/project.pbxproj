@@ -274,7 +274,6 @@
 		70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperAddCashViewController.swift; sourceTree = "<group>"; };
 		8F1A142AC8BE90E4ECCE89AA /* Pods-BayPassTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0C29F818ABB92915A363975 /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
-		EC064CDA22475195006C0737 /* DropDownMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuUITests.swift; sourceTree = "<group>"; };
 		EC14F1B521B64E28009F69CF /* ClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperView.swift; sourceTree = "<group>"; };
 		EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCellTests.swift; sourceTree = "<group>"; };
 		EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
@@ -305,7 +304,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3F2F93E610C58B7BFAD2B00 /* (null) in Frameworks */,
 				6A5B34F1AF2B156509203440 /* libPods-BayPassUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,7 +41,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         delegate?.didSelectSearchResult(searchResults[indexPath.row])
     }
 
-    func tableView(_: UITableView, estimatedHeightForRowAt _: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+    func scrollViewDidScroll(_: UIScrollView) {
+        searchBarSearchButtonClicked(searchBar)
     }
 }

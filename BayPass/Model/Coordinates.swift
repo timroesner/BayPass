@@ -13,12 +13,10 @@ struct Coordinates {
     var center: CLLocationCoordinate2D
     var radius: Int
     var max: Int
-    var time: String
 
-    init(center: CLLocationCoordinate2D, radius: Int, max: Int, time: String) {
+    init(center: CLLocationCoordinate2D, radius: Int, max: Int) {
         self.center = center
         self.radius = radius
         self.max = max
-        self.time = time
     }
 }

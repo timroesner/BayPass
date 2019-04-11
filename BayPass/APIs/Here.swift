@@ -18,14 +18,14 @@ class Here {
     // MARK: Get Requests for Here
 
     // Returns an agency for given Station ID
-    func getAgencyFromStationId(stationId: Int, time: String, completion: @escaping (Agency) -> Void) {
+    func getAgencyFromStationId(stationId: Int, completion: @escaping (Agency) -> Void) {
         let param = [
             "app_id": Credentials().hereAppID,
             "app_code": Credentials().hereAppCode,
             "lang": "en",
             "stnIds": stationId,
             "max": 1,
-            "time": time,
+            "time": getCurrentTimetoFormattedStringForHereAPI,
         ] as [String: Any]
         var results = Agency.zero
         Alamofire.request("https://transit.api.here.com/v3/multiboard/by_stn_ids.json?", method: .get, parameters: param).responseJSON { response in
@@ -46,7 +46,7 @@ class Here {
         }
     }
 
-    func getStationsNearby(center: CLLocationCoordinate2D, radius: Int, max: Int, time: String, completion: @escaping ([Station]) -> Void) {
+    func getStationsNearby(center: CLLocationCoordinate2D, radius: Int, max: Int, completion: @escaping ([Station]) -> Void) {
         let param = [
             "center": "\(center.latitude),\(center.longitude)",
             "radius": radius,
@@ -67,7 +67,7 @@ class Here {
                     }
                 }
 
-                self.getAgencies(stationIds: stations.map { $0.code }, time: time) { agencyStationIDs in
+                self.getAgencies(stationIds: stations.map { $0.code }) { agencyStationIDs in
                     for index in 0 ..< stations.count {
                         if let agency = agencyStationIDs[stations[index].code] {
                             for lineIndex in 0 ..< stations[index].lines.count {
@@ -140,14 +140,14 @@ class Here {
         }
     }
 
-    func getAgency(stationId: Int, time: String, completion: @escaping (Agency) -> Void) {
+    func getAgency(stationId: Int, completion: @escaping (Agency) -> Void) {
         let param = [
             "app_id": Credentials().hereAppID,
             "app_code": Credentials().hereAppCode,
             "lang": "en",
             "stnIds": stationId,
             "max": 2,
-            "time": time,
+            "time": getCurrentTimetoFormattedStringForHereAPI,
         ] as [String: Any]
 
         var results: Agency = Agency.zero
@@ -198,13 +198,13 @@ class Here {
         }
     }
 
-    func getAgencies(stationIds: [Int], time: String, completion: @escaping ([Int: Agency]) -> Void) {
+    func getAgencies(stationIds: [Int], completion: @escaping ([Int: Agency]) -> Void) {
         var results = [Int: Agency]()
         let group = DispatchGroup()
 
         for station in stationIds {
             group.enter()
-            getAgency(stationId: station, time: time) { resp in
+            getAgency(stationId: station) { resp in
                 results[station] = resp
                 group.leave()
             }
@@ -277,7 +277,7 @@ class Here {
         return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location)
     }
 
-    func parseLine(from json: [String: Any], stationID: Int, time: String) -> Line? {
+    func parseLine(from json: [String: Any], stationID: Int, time _: String) -> Line? {
         let tranport = json["Transport"] as? [String: Any]
         let name = tranport?["name"] as? String
         let destination = tranport?["dir"] as? String
@@ -290,7 +290,7 @@ class Here {
         let color = UIColor(named: colorString ?? "")
         var agencyAbbrv: Agency?
 
-        getAgency(stationId: stationID, time: time, completion: { agencyAb in
+        getAgency(stationId: stationID, completion: { agencyAb in
             agencyAbbrv = agencyAb
         })
 

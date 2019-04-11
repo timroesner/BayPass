@@ -16,15 +16,14 @@ class System {
     var allStations = [Station]()
     var allLines = [String: Line]()
     private var coordinates = [Coordinates]()
-    var time = Here.shared.getCurrentTimetoFormattedStringForHereAPI()
 
     func getAllStations() {
-        let c1 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.309690, longitude: -121.940223), radius: 1500, max: 50, time: time)
-        let c2 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.338489, longitude: -121.945763), radius: 1500, max: 50, time: time)
-        let c3 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.320425, longitude: -121.907463), radius: 1500, max: 50, time: time)
-        let c4 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.341991, longitude: -121.877350), radius: 1500, max: 50, time: time)
-        let c5 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.311733, longitude: -121.874423), radius: 1500, max: 50, time: time)
-        let c6 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.692235, longitude: -122.462882), radius: 1500, max: 50, time: time)
+        let c1 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.309690, longitude: -121.940223), radius: 1500, max: 50)
+        let c2 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.338489, longitude: -121.945763), radius: 1500, max: 50)
+        let c3 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.320425, longitude: -121.907463), radius: 1500, max: 50)
+        let c4 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.341991, longitude: -121.877350), radius: 1500, max: 50)
+        let c5 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.311733, longitude: -121.874423), radius: 1500, max: 50)
+        let c6 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.692235, longitude: -122.462882), radius: 1500, max: 50)
 
         coordinates.append(c1)
         coordinates.append(c2)
@@ -35,7 +34,7 @@ class System {
 
         for c in coordinates {
             group.enter()
-            here.getStationsNearby(center: c.center, radius: c.radius, max: c.max, time: c.time) { stations in
+            here.getStationsNearby(center: c.center, radius: c.radius, max: c.max) { stations in
                 for station in stations {
                     if var stationThatsAlreadyThere = self.allStationsDict[station.name] {
                         stationThatsAlreadyThere.lines.append(contentsOf: station.lines)
