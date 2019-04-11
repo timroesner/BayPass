@@ -48,6 +48,11 @@ class StationSearchResultTableViewCell: UITableViewCell {
         title.text = station.name
         iconView.tintColor = UIColor(hex: 0x9B9B9B)
         iconView.image = station.getIcon()
+        if station.name.last == ")" {
+            let newStationName = station.name.dropLast(3)
+            title.text = newStationName.description
+        }
+
         setLineView(with: station.lines)
     }
 
