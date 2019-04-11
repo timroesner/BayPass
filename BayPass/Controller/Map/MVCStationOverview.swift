@@ -18,6 +18,7 @@ extension MapViewController {
         let coordinate = CLLocationCoordinate2D(latitude: station.location.coordinate.latitude, longitude: station.location.coordinate.longitude)
 
         let coordinatRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        mapView.addAnnotation(MapAnnotation(fromStation: station))
         mapView.setRegion(mapView.regionThatFits(coordinatRegion), animated: true)
     }
 }

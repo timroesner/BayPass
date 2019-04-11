@@ -31,6 +31,7 @@ class SearchViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.register(DestinationSearchResultTableViewCell.self, forCellReuseIdentifier: destinationCellId)
         tableView.register(StationSearchResultTableViewCell.self, forCellReuseIdentifier: stationCellId)
+        tableView.estimatedRowHeight = 57.0
 
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 21

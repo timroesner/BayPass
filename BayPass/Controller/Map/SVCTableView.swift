@@ -40,4 +40,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         delegate?.didSelectSearchResult(searchResults[indexPath.row])
     }
+
+    func tableView(_: UITableView, estimatedHeightForRowAt _: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }

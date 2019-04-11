@@ -45,15 +45,10 @@ class StationSearchResultTableViewCell: UITableViewCell {
     }
 
     func setup(with station: Station) {
-        var lines: [Line] = []
         title.text = station.name
         iconView.tintColor = UIColor(hex: 0x9B9B9B)
         iconView.image = station.getIcon()
-        for line in station.lines {
-            lines.append(line)
-        }
-        let noNewName = lines.filterDuplicate { ($0.name) }
-        setLineView(with: noNewName)
+        setLineView(with: station.lines)
     }
 
     private func setLineView(with lines: [Line]) {
@@ -88,6 +83,12 @@ class StationSearchResultTableViewCell: UITableViewCell {
                 make.width.equalTo(32)
             }
             lineLabels.append(lineLabel)
+        }
+    }
+
+    override func prepareForReuse() {
+        for view in lineView.subviews {
+            view.removeFromSuperview()
         }
     }
 
