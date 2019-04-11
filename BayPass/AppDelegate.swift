@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import Stripe
 import UIKit
 
 let transitSystem = System()
@@ -21,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = vc
         transitSystem.getAllStations()
+
+        // Stripe
+        STPPaymentConfiguration.shared().publishableKey = Credentials().stripeKey
+        STPPaymentConfiguration.shared().appleMerchantIdentifier = Credentials().merchantId
 
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100

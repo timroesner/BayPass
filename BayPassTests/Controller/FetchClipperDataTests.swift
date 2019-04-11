@@ -7,6 +7,7 @@
 //
 
 @testable import BayPass
+import SwiftSoup
 import XCTest
 
 class FetchClipperDataTests: XCTestCase {
@@ -29,5 +30,40 @@ class FetchClipperDataTests: XCTestCase {
         })
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertNil(result)
+    }
+
+    func testParse() {
+        let htmlString = """
+            <div class="greyBox2">
+                <div class="infoDiv" tabindex="0">
+                    <div class="fieldName">Serial Number:</div>
+                    <div class="fieldData field90">1232326817</div>
+                </div>
+                <div class="infoDiv" tabindex="0">
+                    <div class="fieldName">Type:</div>
+                    <div class="fieldData">ADULT</div>
+                </div>
+                <div class="infoDiv" tabindex="0">
+                    <div class="fieldName">Status:</div>
+                    <div class="fieldData">Active</div>
+                </div>
+                <div class="spacer"></div>
+                <div class="infoDiv" tabindex="0">
+                    <div class="fieldHeader">
+                        <strong>Products on Card:</strong>
+                    </div>
+                </div>
+                <div class="infoDiv" tabindex="0">
+                    <div class="fieldName">Cash value:</div>
+                    <div class="fieldData" style="width: auto;">$7.20</div>
+                </div>
+            <div/>
+        """
+        let doc: Document = try! SwiftSoup.parse(htmlString)
+        let vc = SignInViewController()
+        let card = vc.parseCard(from: doc)?.first
+        XCTAssertEqual(card?.number, 1_232_326_817)
+        XCTAssertEqual(card?.cashValue, 7.20)
+        XCTAssertEqual(card?.passes.count, 0)
     }
 }

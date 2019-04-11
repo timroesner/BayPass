@@ -12,6 +12,7 @@ target 'BayPass' do
   pod 'OverlayContainer', '1.1.1'
   pod 'SkyFloatingLabelTextField'
   pod 'SwiftSoup'
+  pod 'Stripe'
   
   target 'BayPassTests' do
     inherit! :search_paths

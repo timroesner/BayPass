@@ -8,6 +8,8 @@ struct Credentials {
    let bartToken = "#{ENV['BART_TOKEN']}"
    let googleDirections = "#{ENV['GOOGLE_DIRECTIONS']}"
    let multicycles = "#{ENV['MULTICYCLES']}"
+   let merchantId = "#{ENV['MERCHANT_ID']}"
+   let stripeKey = "#{ENV['STRIPE_KEY']}"
    let hereAppID = "#{ENV['HEREAPPID']}"
    let hereAppCode = "#{ENV['HEREAPPCODE']}"
 }

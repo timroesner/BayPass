@@ -22,7 +22,7 @@ class ClipperViewControllerTests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        ClipperManager.shared.removeCard()
     }
 
     func testSelectAdd() {
@@ -39,5 +39,10 @@ class ClipperViewControllerTests: XCTestCase {
 
     func testAddCash() {
         vc.addCash()
+    }
+
+    func testScan() {
+        vc.scanCard()
+        XCTAssertNotNil(vc.session)
     }
 }

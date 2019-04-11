@@ -27,6 +27,6 @@ class ClipperOnBoardingTests: XCTestCase {
 
     func testCreateVirtual() {
         vc.createVirtualClipper()
-        XCTAssertNotNil(clipperManager.getClipperCard)
+        XCTAssertNotNil(ClipperManager.shared.getClipperCard)
     }
 }
