@@ -266,8 +266,7 @@ class Here {
             let lineDestination = transport1["dir"] as? String
             let at = transport1["At"] as? [String: Any]
             let colorString = at?["color"] as? String
-            var color = UIColor(hex: Int(colorString?.dropFirst() ?? "", radix: 16) ?? 0x4A90E2)
-            if color == #colorLiteral(red: 0.9960784314, green: 0.9411764706, blue: 0.7098039216, alpha: 1) || color == #colorLiteral(red: 1, green: 1, blue: 0.2, alpha: 1) { color = #colorLiteral(red: 0.9529411765, green: 0.7058823529, blue: 0.2470588235, alpha: 1) }
+            let color = UIColor(hex: Int(colorString?.dropFirst() ?? "", radix: 16) ?? 0x4A90E2)
             let modeNum = transportData?["mode"] as? Int
             let transitMode = transitModeConvert(num: modeNum ?? 0)
             let ag = Agency.zero

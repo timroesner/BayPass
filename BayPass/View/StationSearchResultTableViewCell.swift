@@ -68,6 +68,9 @@ class StationSearchResultTableViewCell: UITableViewCell {
             } else {
                 lineLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
                 lineLabel.layer.backgroundColor = lines[index].color.cgColor
+                if lines[index].color.isLight() == true {
+                    lineLabel.textColor = .black
+                }
                 lineLabel.text = lines[index].name
             }
 
