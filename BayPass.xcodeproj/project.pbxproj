@@ -97,6 +97,7 @@
 		6AAFCD1121853C59004021E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049D9D214C9DF0007FF904 /* AppDelegate.swift */; };
 		6AAFCD1421853C59004021E8 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */; };
 		6AAFCD1A21854723004021E8 /* ScooterCompanyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAFCD1921854723004021E8 /* ScooterCompanyTests.swift */; };
+		6AB22BEB225FF05E0073F023 /* SystemCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB22BEA225FF05E0073F023 /* SystemCoordinates.swift */; };
 		6AB6ECFE21867F1700A81302 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ECFB21867F1700A81302 /* MapViewController.swift */; };
 		6AB6ECFF21867F1700A81302 /* ClipperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */; };
 		6AB6ED0021867F1700A81302 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB6ECFD21867F1700A81302 /* TicketViewController.swift */; };
@@ -251,6 +252,7 @@
 		6A9261D52227663F009B61DF /* Here.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Here.swift; sourceTree = "<group>"; };
 		6AA28D282252AFE7002079B3 /* MVCStationOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCStationOverview.swift; sourceTree = "<group>"; };
 		6AAFCD1921854723004021E8 /* ScooterCompanyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScooterCompanyTests.swift; sourceTree = "<group>"; };
+		6AB22BEA225FF05E0073F023 /* SystemCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCoordinates.swift; sourceTree = "<group>"; };
 		6AB6ECFB21867F1700A81302 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipperViewController.swift; sourceTree = "<group>"; };
 		6AB6ECFD21867F1700A81302 /* TicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				22B40EFD2258456C009520C6 /* BayPass.entitlements */,
 				22049D9D214C9DF0007FF904 /* AppDelegate.swift */,
 				6A221D6B224DB37A00A36175 /* System.swift */,
+				6AB22BEA225FF05E0073F023 /* SystemCoordinates.swift */,
 				227BBE6A21B4C78000D3169E /* APIs */,
 				2262C31021829BC6000586EE /* Extensions */,
 				22B32244224DCF6800F2508A /* Controls */,
@@ -917,6 +920,7 @@
 				222A926D221A6D0200FD1367 /* GoogleMaps.swift in Sources */,
 				ECB6E64A2230488500BF5446 /* UIImageView.swift in Sources */,
 				224662ED2229142100E86C66 /* SVCSearchBar.swift in Sources */,
+				6AB22BEB225FF05E0073F023 /* SystemCoordinates.swift in Sources */,
 				224662E12228F7D200E86C66 /* SearchViewController.swift in Sources */,
 				22B40EFA2257FA9C009520C6 /* TextField.swift in Sources */,
 				22B53434222D135D007F4098 /* Date.swift in Sources */,
