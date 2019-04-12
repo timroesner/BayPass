@@ -54,12 +54,12 @@
 		2266C740224DC513004C8D2E /* ClipperOnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266C73F224DC513004C8D2E /* ClipperOnBoarding.swift */; };
 		227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE6B21B4C78E00D3169E /* Bird.swift */; };
 		227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE7021B4F48D00D3169E /* BirdTests.swift */; };
-		22A4E59022597F0400DF8AD9 /* ClipperManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4E58F22597F0400DF8AD9 /* ClipperManagerTests.swift */; };
+		22A4E59022597F0400DF8AD9 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */; };
 		22B32246224DCF8D00F2508A /* BayPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32245224DCF8D00F2508A /* BayPassButton.swift */; };
 		22B32248224DDDCF00F2508A /* CollectionViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */; };
 		22B3224A224DDE7900F2508A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32249224DDE7900F2508A /* SignInViewController.swift */; };
 		22B3224C224DE8D900F2508A /* FetchClipperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3224B224DE8D900F2508A /* FetchClipperData.swift */; };
-		22B3224E224EFEEA00F2508A /* ClipperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3224D224EFEEA00F2508A /* ClipperManager.swift */; };
+		22B3224E224EFEEA00F2508A /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3224D224EFEEA00F2508A /* UserManager.swift */; };
 		22B32253225324A100F2508A /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32252225324A100F2508A /* ProgressHUD.swift */; };
 		22B32255225329B400F2508A /* ClipperPassCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */; };
 		22B3225822533CF200F2508A /* ClipperViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3225722533CF100F2508A /* ClipperViewControllerTests.swift */; };
@@ -189,12 +189,12 @@
 		227796CB21B6251F00BAF6BA /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		227BBE6B21B4C78E00D3169E /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 		227BBE7021B4F48D00D3169E /* BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdTests.swift; sourceTree = "<group>"; };
-		22A4E58F22597F0400DF8AD9 /* ClipperManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperManagerTests.swift; sourceTree = "<group>"; };
+		22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 		22B32245224DCF8D00F2508A /* BayPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayPassButton.swift; sourceTree = "<group>"; };
 		22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCVC.swift; sourceTree = "<group>"; };
 		22B32249224DDE7900F2508A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22B3224B224DE8D900F2508A /* FetchClipperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchClipperData.swift; sourceTree = "<group>"; };
-		22B3224D224EFEEA00F2508A /* ClipperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperManager.swift; sourceTree = "<group>"; };
+		22B3224D224EFEEA00F2508A /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		22B32252225324A100F2508A /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipperPassCollectionViewCell.swift; path = ../Controller/Clipper/ClipperPassCollectionViewCell.swift; sourceTree = "<group>"; };
 		22B3225722533CF100F2508A /* ClipperViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperViewControllerTests.swift; sourceTree = "<group>"; };
@@ -336,6 +336,7 @@
 				227BBE6F21B4F45100D3169E /* APIs */,
 				2227C3EE219CBDE600053294 /* View */,
 				6AB6ED0B2186816100A81302 /* Model */,
+				22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */,
 				22B83C5F224EAF5C00D1D64E /* Controller */,
 				2262C31321829CE9000586EE /* ExtensionsTests.swift */,
 				226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */,
@@ -448,7 +449,6 @@
 		2266C73E224DC4CE004C8D2E /* Clipper */ = {
 			isa = PBXGroup;
 			children = (
-				22B3224D224EFEEA00F2508A /* ClipperManager.swift */,
 				6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */,
 				22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */,
 				2266C73F224DC513004C8D2E /* ClipperOnBoarding.swift */,
@@ -495,7 +495,6 @@
 		22B83C5F224EAF5C00D1D64E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				22A4E58F22597F0400DF8AD9 /* ClipperManagerTests.swift */,
 				22B3225722533CF100F2508A /* ClipperViewControllerTests.swift */,
 				22DB02412254579F00B8D600 /* ClipperOnBoardingTests.swift */,
 				22DB024322545DBC00B8D600 /* ClipperAddCashTests.swift */,
@@ -552,6 +551,7 @@
 				6A009191217EAD580087A32B /* Map */,
 				6A009194217EAF090087A32B /* Ticket */,
 				22B40EFB225815B5009520C6 /* PaymentMethod.swift */,
+				22B3224D224EFEEA00F2508A /* UserManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -559,8 +559,8 @@
 		6AB6ED0B2186816100A81302 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6AB6ED112186820400A81302 /* Ticket */,
 				6AB6ED0C2186816800A81302 /* Map */,
+				6AB6ED112186820400A81302 /* Ticket */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -810,6 +810,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 				"${BUILT_PRODUCTS_DIR}/OverlayContainer/OverlayContainer.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -821,6 +822,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OverlayContainer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -904,7 +906,7 @@
 				2227C3ED219C1A8D00053294 /* TicketView.swift in Sources */,
 				EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */,
 				227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */,
-				22B3224E224EFEEA00F2508A /* ClipperManager.swift in Sources */,
+				22B3224E224EFEEA00F2508A /* UserManager.swift in Sources */,
 				70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */,
 				22B32246224DCF8D00F2508A /* BayPassButton.swift in Sources */,
 				2266C740224DC513004C8D2E /* ClipperOnBoarding.swift in Sources */,
@@ -963,7 +965,7 @@
 				ECC4B9612214C1D900BB8FFC /* ClipperViewTests.swift in Sources */,
 				6AB6ED0A218680C300A81302 /* BikeDockTests.swift in Sources */,
 				22DB02422254579F00B8D600 /* ClipperOnBoardingTests.swift in Sources */,
-				22A4E59022597F0400DF8AD9 /* ClipperManagerTests.swift in Sources */,
+				22A4E59022597F0400DF8AD9 /* UserManagerTests.swift in Sources */,
 				22F097552206868E009881F8 /* BartTests.swift in Sources */,
 				2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */,
 				223AF97422279289009EA730 /* DestinationSearchResultTableViewCellTests.swift in Sources */,
