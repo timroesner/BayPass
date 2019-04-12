@@ -1,28 +1,40 @@
 PODS:
-  - Alamofire (4.8.1)
+  - Alamofire (4.8.2)
   - OverlayContainer (1.1.1)
+  - SkyFloatingLabelTextField (3.6.0)
   - SnapKit (4.0.1)
-  - SwiftFormat/CLI (0.39.0)
+  - Stripe (15.0.0)
+  - SwiftFormat/CLI (0.40.4)
+  - SwiftSoup (1.7.4)
 
 DEPENDENCIES:
   - Alamofire
-  - OverlayContainer
+  - OverlayContainer (= 1.1.1)
+  - SkyFloatingLabelTextField
   - SnapKit (~> 4.0.0)
+  - Stripe
   - SwiftFormat/CLI
+  - SwiftSoup
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - OverlayContainer
+    - SkyFloatingLabelTextField
     - SnapKit
+    - Stripe
     - SwiftFormat
+    - SwiftSoup
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   OverlayContainer: 5911b47b27f3fdf1fb989257c76e828dc11c0380
+  SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwiftFormat: a27a799eeaf246313c3b388ad6d5ae33c78eb6f3
+  Stripe: 312b22a67af9fa55c246d26148b3f3a9636a0ff2
+  SwiftFormat: cc36377840cffa5d0634782875dccf34dc02ff39
+  SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
 
-PODFILE CHECKSUM: 65ce7d126c2376b03bb4b38ffd28677def3ec6d2
+PODFILE CHECKSUM: 97ec2a915ce6c598438e0c688cff2a1013340916
 
 COCOAPODS: 1.5.3

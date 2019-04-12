@@ -6,6 +6,7 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
+import Stripe
 import UIKit
 
 extension UIViewController {
@@ -25,6 +26,26 @@ extension UIViewController {
             navController.popViewController(animated: animated)
         } else {
             dismiss(animated: animated, completion: nil)
+        }
+    }
+
+    func checkoutWithApplePay(items: [(name: String, amount: Double)], delegate: PKPaymentAuthorizationViewControllerDelegate) {
+        if Stripe.deviceSupportsApplePay() == false {
+            displayAlert(title: "Apple Pay Error", msg: "It seems like your device is not set up for Apple Pay. Please choose a different method", dismissAfter: false)
+        }
+
+        let paymentRequest = Stripe.paymentRequest(withMerchantIdentifier: Credentials().merchantId, country: "US", currency: "USD")
+
+        paymentRequest.paymentSummaryItems = items.map {
+            PKPaymentSummaryItem(label: $0.name, amount: NSDecimalNumber(value: $0.amount))
+        }
+
+        if Stripe.canSubmitPaymentRequest(paymentRequest) {
+            let paymentAuthorizationViewController = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest)!
+            paymentAuthorizationViewController.delegate = delegate
+            present(paymentAuthorizationViewController, animated: true)
+        } else {
+            print("Apple Pay error")
         }
     }
 }
