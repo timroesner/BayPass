@@ -19,14 +19,16 @@ class AgencyTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_Agency_BuildsThePath() {
-        let name = "Test"
-        let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-        let routesT = [Line(name: "ran", code: 2, destination: "dest", stops: [Station(name: "ran", code: 3, transitModes: [TransitMode.bart], lines: ["line"], location: loc)])]
-        
-        let subject = Agency(name: name, routes: routesT, icon: UIImage(named: "CalTrain")!)
-        
-        XCTAssertEqual(subject.name, name)
-        assert(subject.getRoutes() == routesT)
+    func testStringValue() {
+        XCTAssertEqual(Agency.CalTrain.stringValue, "CalTrain")
+        XCTAssertEqual(Agency.BART.stringValue, "BART")
+        XCTAssertEqual(Agency.VTA.stringValue, "VTA")
+        XCTAssertEqual(Agency.Muni.stringValue, "Muni")
+        XCTAssertEqual(Agency.ACTransit.stringValue, "AC Transit")
+        XCTAssertEqual(Agency.SolTrans.stringValue, "SolTrans")
+        XCTAssertEqual(Agency.SamTrans.stringValue, "SamTrans")
+        XCTAssertEqual(Agency.ACE.stringValue, "ACE")
+        XCTAssertEqual(Agency.GoldenGateTransit.stringValue, "Golden Gate Transit")
+        XCTAssertEqual(Agency.UnionCity.stringValue, "Union City Transit")
     }
 }
