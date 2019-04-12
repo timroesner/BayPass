@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ClipperCard {
+struct ClipperCard: Codable {
     var number: Int
     var cashValue: Double
     var passes: [Pass]

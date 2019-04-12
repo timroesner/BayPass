@@ -37,7 +37,7 @@ class ClipperViewController: UIViewController {
     }
 
     func setupRegularView() {
-        if let myClipperCard = ClipperManager.shared.getClipperCard() {
+        if let myClipperCard = UserManager.shared.getClipperCard() {
             for view in view.subviews {
                 view.removeFromSuperview()
             }

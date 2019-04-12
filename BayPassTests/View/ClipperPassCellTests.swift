@@ -26,7 +26,7 @@ class ClipperPassCellTests: XCTestCase {
     }
     
     func testSetupWithPass() {
-        let pass = Pass(name: "monthly", duration: DateInterval(start: Date(), duration: 3600), price: 45.0, validOnAgency: Agency(name: "CalTrain", routes: [], icon: #imageLiteral(resourceName: "CalTrain")))
+        let pass = Pass(name: "monthly", duration: DateInterval(start: Date(), duration: 3600), price: 45.0, validOnAgency: Agency.CalTrain)
         let cell = ClipperPassCollectionViewCell()
         cell.setup(with: pass)
         XCTAssertNotNil(cell)

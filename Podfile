@@ -13,7 +13,8 @@ target 'BayPass' do
   pod 'SkyFloatingLabelTextField'
   pod 'SwiftSoup'
   pod 'Stripe'
-  
+  pod 'Disk'
+ 
   target 'BayPassTests' do
     inherit! :search_paths
     # Pods for testing

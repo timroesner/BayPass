@@ -9,7 +9,7 @@
 import CoreLocation
 import UIKit
 
-struct Pass {
+struct Pass: Codable {
     var name: String
     var duration: DateInterval
     var price: Double

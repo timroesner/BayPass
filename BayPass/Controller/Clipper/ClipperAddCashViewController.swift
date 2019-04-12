@@ -27,7 +27,7 @@ class ClipperAddCashViewController: UIViewController {
     }
 
     func setupView() {
-        guard let clipperCard = ClipperManager.shared.getClipperCard() else {
+        guard let clipperCard = UserManager.shared.getClipperCard() else {
             displayAlert(title: "No card found", msg: "You don't have a Clipper card saved yet", dismissAfter: true)
             return
         }
@@ -128,7 +128,7 @@ extension ClipperAddCashViewController: PKPaymentAuthorizationViewControllerDele
 
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
-            ClipperManager.shared.addCashToCard(amount: self.value)
+            UserManager.shared.addCashToCard(amount: self.value)
             self.dismissOrPop(animated: true)
         })
     }

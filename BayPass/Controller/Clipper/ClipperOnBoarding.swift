@@ -69,7 +69,7 @@ extension ClipperViewController {
     @objc func createVirtualClipper() {
         let newCardNumber = Int.random(in: 1_111_111_111 ... 9_999_999_999)
         let newCard = ClipperCard(number: newCardNumber, cashValue: 0.0, passes: [])
-        ClipperManager.shared.setClipperCard(card: newCard)
+        UserManager.shared.setClipperCard(card: newCard)
         setupRegularView()
     }
 }
