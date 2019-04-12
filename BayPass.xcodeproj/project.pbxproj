@@ -56,6 +56,7 @@
 		227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE7021B4F48D00D3169E /* BirdTests.swift */; };
 		22A4E59022597F0400DF8AD9 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */; };
 		22ADA0D122604FF100AA9368 /* RouteOverViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ADA0D022604FF100AA9368 /* RouteOverViewTests.swift */; };
+		22ADA0D322610EA100AA9368 /* LineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ADA0D222610EA100AA9368 /* LineDetailView.swift */; };
 		22B32246224DCF8D00F2508A /* BayPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32245224DCF8D00F2508A /* BayPassButton.swift */; };
 		22B32248224DDDCF00F2508A /* CollectionViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */; };
 		22B3224A224DDE7900F2508A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32249224DDE7900F2508A /* SignInViewController.swift */; };
@@ -192,6 +193,7 @@
 		227BBE7021B4F48D00D3169E /* BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdTests.swift; sourceTree = "<group>"; };
 		22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 		22ADA0D022604FF100AA9368 /* RouteOverViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverViewTests.swift; sourceTree = "<group>"; };
+		22ADA0D222610EA100AA9368 /* LineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDetailView.swift; sourceTree = "<group>"; };
 		22B32245224DCF8D00F2508A /* BayPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayPassButton.swift; sourceTree = "<group>"; };
 		22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCVC.swift; sourceTree = "<group>"; };
 		22B32249224DDE7900F2508A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				ECCE1D51221D0053002F58AA /* PurchasedTicketCell.swift */,
 				EC14F1B521B64E28009F69CF /* ClipperView.swift */,
 				22B53431222D1152007F4098 /* RouteOverView.swift */,
+				22ADA0D222610EA100AA9368 /* LineDetailView.swift */,
 				224662E22228FC9B00E86C66 /* MoveIndicator.swift */,
 				223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */,
 				223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */,
@@ -887,6 +890,7 @@
 				2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */,
 				6A009193217EAD820087A32B /* ScooterCompany.swift in Sources */,
 				22C331B92186B80800836173 /* RouteSegment.swift in Sources */,
+				22ADA0D322610EA100AA9368 /* LineDetailView.swift in Sources */,
 				224662E32228FC9B00E86C66 /* MoveIndicator.swift in Sources */,
 				22B3224A224DDE7900F2508A /* SignInViewController.swift in Sources */,
 				224662EB2229136100E86C66 /* MVCLocationManager.swift in Sources */,
