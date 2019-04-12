@@ -6,6 +6,7 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
+import Stripe
 import UIKit
 
 @UIApplicationMain
@@ -19,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = vc
 
+        // Stripe
+        STPPaymentConfiguration.shared().publishableKey = Credentials().stripeKey
+        STPPaymentConfiguration.shared().appleMerchantIdentifier = Credentials().merchantId
+
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
         }
@@ -31,8 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        UserManager.shared.save()
     }
 
     func applicationWillEnterForeground(_: UIApplication) {
@@ -40,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UserManager.shared.load()
     }
 
     func applicationWillTerminate(_: UIApplication) {

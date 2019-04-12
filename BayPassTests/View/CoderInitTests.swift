@@ -71,5 +71,25 @@ class CoderInitTests: XCTestCase {
         let cell = StationSearchResultTableViewCell(coder: archiver)
         XCTAssertNil(cell)
     }
+    
+    func testBayPassButton() {
+        let button = BayPassButton(coder: archiver)
+        XCTAssertNil(button)
+    }
+    
+    func testProgressHUD() {
+        let progressHUD = ProgressHUD(coder: archiver)
+        XCTAssertNil(progressHUD)
+    }
+    
+    func testClipperPassCell() {
+        let cell = ClipperPassCollectionViewCell(coder: archiver)
+        XCTAssertNil(cell)
+    }
+    
+    func testDropDown() {
+        let dropDown = DropDownMenu(coder: archiver)
+        XCTAssertNil(dropDown)
+    }
 
 }

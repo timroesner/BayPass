@@ -27,11 +27,6 @@ struct Station: Equatable {
         self.location = location
     }
 
-    func getDepartureTimes() -> [Int] {
-        // TODO: Implement here
-        fatalError("getDepartureTimes() is not implemented yet")
-    }
-
     func getPrimaryTransitMode() -> TransitMode {
         if transitModes.contains(.calTrain) {
             return .calTrain
