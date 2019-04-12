@@ -19,14 +19,71 @@ class AgencyTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testStringValue() {
+        XCTAssertEqual(Agency.CalTrain.stringValue, "CalTrain")
+        XCTAssertEqual(Agency.BART.stringValue, "BART")
+        XCTAssertEqual(Agency.VTA.stringValue, "VTA")
+        XCTAssertEqual(Agency.Muni.stringValue, "Muni")
+        XCTAssertEqual(Agency.ACTransit.stringValue, "AC Transit")
+        XCTAssertEqual(Agency.SolTrans.stringValue, "SolTrans")
+        XCTAssertEqual(Agency.SamTrans.stringValue, "SamTrans")
+        XCTAssertEqual(Agency.ACE.stringValue, "ACE")
+        XCTAssertEqual(Agency.GoldenGateTransit.stringValue, "Golden Gate Transit")
+        XCTAssertEqual(Agency.UnionCity.stringValue, "Union City Transit")
+    }
+    
     func test_Agency_BuildsThePath() {
-        let name = "Test"
-        let loc: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0)
-        let routesT = [Line(name: "ran", code: 2, destination: "dest", stops: [Station(name: "ran", code: 3, transitModes: [TransitMode.bart], lines: ["line"], location: loc)])]
-        
-        let subject = Agency(name: name, routes: routesT, icon: UIImage(named: "CalTrain")!)
-        
-        XCTAssertEqual(subject.name, name)
-        assert(subject.getRoutes() == routesT)
+        let subject = Agency(rawValue: "BAR")
+        XCTAssertEqual(subject, Agency.BART)
+    }
+    
+    func testGetIconACE() {
+        let subject = Agency.ACE
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "CalTrain"))
+    }
+    
+    func testGetIconACTransit() {
+        let subject = Agency.ACTransit
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+    
+    func testGetIconBART() {
+        let subject = Agency.BART
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "BART"))
+    }
+    
+    func testGetIconCalTrain() {
+        let subject = Agency.CalTrain
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "CalTrain"))
+    }
+    
+    func testGetIconGoldenGateTransit() {
+        let subject = Agency.GoldenGateTransit
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+    
+    func testGetIconMuni() {
+        let subject = Agency.Muni
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+    
+    func testGetIconUnionCity() {
+        let subject = Agency.UnionCity
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+    
+    func testGetIconSamsTrans() {
+        let subject = Agency.SamTrans
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+    
+    func testGetIconSolTrans() {
+        let subject = Agency.SolTrans
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
+    }
+    
+    func testGetIconDefault() {
+        let subject = Agency.zero
+        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "CalTrain"))
     }
 }
