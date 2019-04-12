@@ -16,17 +16,17 @@ class ClipperAddCashTests: XCTestCase {
 
     override func setUp() {
         let testCard = ClipperCard(number: 9999999999, cashValue: 0.0, passes: [])
-        ClipperManager.shared.setClipperCard(card: testCard)
+        UserManager.shared.setClipperCard(card: testCard)
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
     }
 
     override func tearDown() {
-        ClipperManager.shared.removeCard()
+        UserManager.shared.removeCard()
     }
     
     func testNoCard() {
-        ClipperManager.shared.removeCard()
+        UserManager.shared.removeCard()
         vc.setupView()
         let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
         XCTAssert(presentedVC is UIAlertController)
