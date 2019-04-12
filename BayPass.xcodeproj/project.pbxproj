@@ -55,6 +55,7 @@
 		227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE6B21B4C78E00D3169E /* Bird.swift */; };
 		227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE7021B4F48D00D3169E /* BirdTests.swift */; };
 		22A4E59022597F0400DF8AD9 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */; };
+		22ADA0D122604FF100AA9368 /* RouteOverViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ADA0D022604FF100AA9368 /* RouteOverViewTests.swift */; };
 		22B32246224DCF8D00F2508A /* BayPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32245224DCF8D00F2508A /* BayPassButton.swift */; };
 		22B32248224DDDCF00F2508A /* CollectionViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */; };
 		22B3224A224DDE7900F2508A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32249224DDE7900F2508A /* SignInViewController.swift */; };
@@ -190,6 +191,7 @@
 		227BBE6B21B4C78E00D3169E /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 		227BBE7021B4F48D00D3169E /* BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdTests.swift; sourceTree = "<group>"; };
 		22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
+		22ADA0D022604FF100AA9368 /* RouteOverViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverViewTests.swift; sourceTree = "<group>"; };
 		22B32245224DCF8D00F2508A /* BayPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayPassButton.swift; sourceTree = "<group>"; };
 		22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCVC.swift; sourceTree = "<group>"; };
 		22B32249224DDE7900F2508A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -336,7 +338,6 @@
 				227BBE6F21B4F45100D3169E /* APIs */,
 				2227C3EE219CBDE600053294 /* View */,
 				6AB6ED0B2186816100A81302 /* Model */,
-				22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */,
 				22B83C5F224EAF5C00D1D64E /* Controller */,
 				2262C31321829CE9000586EE /* ExtensionsTests.swift */,
 				226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */,
@@ -399,6 +400,7 @@
 				223AF96F22278209009EA730 /* StationSearchResultTableViewCellTests.swift */,
 				226697E02239D9C1005B82EC /* CoderInitTests.swift */,
 				22B3225A2253E76100F2508A /* ProgressHUDTests.swift */,
+				22ADA0D022604FF100AA9368 /* RouteOverViewTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -561,6 +563,7 @@
 			children = (
 				6AB6ED0C2186816800A81302 /* Map */,
 				6AB6ED112186820400A81302 /* Ticket */,
+				22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -950,6 +953,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22ADA0D122604FF100AA9368 /* RouteOverViewTests.swift in Sources */,
 				2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */,
 				222A926F221A721D00FD1367 /* GoogleMapsTests.swift in Sources */,
 				22B3225B2253E76100F2508A /* ProgressHUDTests.swift in Sources */,
