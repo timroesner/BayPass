@@ -35,7 +35,7 @@ class TicketViewController: UIViewController {
     private var tickets: [Ticket] = []
     private let purchasedTicketTableViewCellID = "purchasedTicketTableViewCellID"
 
-    let agencies = ["BART", "CalTrain", "ACE", "ACTransit", "MUNI"]
+    let agencies = Agency.allCases
     let icons = ["BART", "CalTrain", "CalTrain", "Bus", "Bus"]
 
     override func viewDidLoad() {
@@ -47,7 +47,6 @@ class TicketViewController: UIViewController {
         ticketCarouselView.dataSource = self
         ticketCarouselView.register(ticketCarouselViewCell.self, forCellWithReuseIdentifier: ticketCarouselViewCellID)
         view.addSubview(ticketCarouselView)
-        //ticketCarouselView.frame = CGRect(x: 0, y: 140, width: view.frame.size.width, height: 240)
         setUpTicketCarouselView()
 
         //text label
@@ -69,21 +68,21 @@ class TicketViewController: UIViewController {
         })
 
         purchesedTicketView.addSubview(purchasedTicketTableView)
-        purchasedTicketTableView.frame.size = CGSize(width: view.frame.width, height: view.frame.height)
+        purchasedTicketTableView.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLbl.snp.bottom).offset(8)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
         purchasedTicketTableView.rowHeight = 93.0
         purchasedTicketTableView.dataSource = self
         purchasedTicketTableView.delegate = self
         purchasedTicketTableView.register(PurchasedTicketCell.self, forCellReuseIdentifier: purchasedTicketTableViewCellID)
 
         //temporary data
-        let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
-        let station = Station(name: "SFO", code: 2, transitModes: [TransitMode.bart], lines: ["Green"], location: loc)
-        let line = Line(name: "Green", code: 2, destination: "Milbrae", stops: [station])
         let calTrain = Agency.CalTrain
         let acTransit = Agency.ACTransit
         let ace = Agency.ACE
         let solTrans = Agency.SolTrans
-        let locations = [loc]
         let dur = DateInterval(start: Date(timeIntervalSince1970: 60), duration: 30)
         let ticket1 = Ticket(name: "Monthly Pass", duration: dur, price: 2.3, validOnAgency: calTrain)
         let ticket2 = Ticket(name: "Weekly Pass", duration: dur, price: 2.3, validOnAgency: acTransit)
@@ -126,7 +125,7 @@ extension TicketViewController: UICollectionViewDataSource, UICollectionViewDele
         let cell = ticketCarouselView.dequeueReusableCell(withReuseIdentifier: ticketCarouselViewCellID, for: indexPath) as! ticketCarouselViewCell
         cell.backgroundColor = .white
         // cell.ticketView = TicketView(agency: agencies[indexPath.row], icon: UIImage(named: icons[indexPath.row])!, cornerRadius: 12)
-        cell.setup(with: TicketView(agency: agencies[indexPath.row], icon: UIImage(named: icons[indexPath.row])!, cornerRadius: 12))
+        cell.setup(with: TicketView(agency: agencies[indexPath.row].stringValue, icon: agencies[indexPath.row].getIcon(), cornerRadius: 12))
         return cell
     }
 
@@ -140,9 +139,7 @@ extension TicketViewController: UICollectionViewDataSource, UICollectionViewDele
 
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let ticketCheckoutViewController = TicketCheckoutViewController()
-        ticketCheckoutViewController.setUpTitle(newTitle: agencies[indexPath.row])
-        ticketCheckoutViewController.setUpTicketView(newTicketView: TicketView(agency: agencies[indexPath.row], icon: UIImage(named: icons[indexPath.row])!, cornerRadius: 12))
-        ticketCheckoutViewController.setUpButton(color: agencies[indexPath.row])
+        ticketCheckoutViewController.agency = agencies[indexPath.row]
         navigationController?.pushViewController(ticketCheckoutViewController, animated: true)
     }
 }

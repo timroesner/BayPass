@@ -9,8 +9,9 @@
 import UIKit
 
 class TicketCheckoutViewController: UIViewController {
+    
     var ticket = ""
-    // var title = ""
+    var agency = Agency.zero
     let dropDown1 = DropDownMenu(title: "ticket type", items: ["Day Pass", "3 Day Pass", "Monthly Pass"])
     let dropDown2 = DropDownMenu(title: "from", items: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6", "Zone 7"])
     let dropDown3 = DropDownMenu(title: "to", items: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6", "Zone 7"])
@@ -18,18 +19,12 @@ class TicketCheckoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //title = "test"
         view.backgroundColor = .white
-        //navigationController?.navigationBar.prefersLargeTitles = false
-
-        // let ticketTypeDropDown = DropDownMenu(title: "ticket type", items: ["Apple Pay", "Credit/Debit", "Paypal"])
         
-    }
-
-    func setUpTitle(newTitle: String) {
-        title = newTitle
-        //navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationItem.largeTitleDisplayMode = .never
+        title = agency.stringValue
+        navigationController?.navigationBar.prefersLargeTitles = false
+        setUpTicketView(newTicketView: TicketView(agency: agency.stringValue, icon: agency.getIcon(), cornerRadius: 12))
+        setUpButton(color: UIColor(named: "dark\(agency.stringValue.replacingOccurrences(of: " ", with: ""))") ?? UIColor.black)
     }
 
     func setUpTicketView(newTicketView: TicketView) {
@@ -78,47 +73,21 @@ class TicketCheckoutViewController: UIViewController {
             make.bottom.equalTo(self.view.snp.bottomMargin).inset(120)
             //make.bottom.equalToSuperview().offset(-150)
         })
-        
-        //view.layoutIfNeeded()
-        //view.setNeedsLayout()
-        /*UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
-        }*/
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        //dropDown4.selectedItemButton.addGestureRecognizer(tap)
-    }
-    
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        /*
-        UIView.animate(withDuration: 0.3) {
-            self.dropDown3.snp.updateConstraints { (make) in
-                if(self.dropDown4.isOpen){
-                    make.bottom.equalTo(self.dropDown4.snp.top).offset(-20)
-                }else{
-                    make.bottom.equalTo(self.dropDown4.snp.top).offset(-20)
-                }
-            }
-            self.view.layoutIfNeeded()
-        }*/
-        print("test")
     }
 
-    func setUpButton(color: String) {
-        let button = UIButton()
-        button.backgroundColor = UIColor(named: "dark\(color)") ?? UIColor(hex: 0x000)
-        button.layer.cornerRadius = 10
-        button.setTitle("Pay $xx.xx", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        button.setTitleColor(.white, for: .normal)
-        // button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        view.addSubview(button)
-        button.snp.makeConstraints { (make) -> Void in
+    func setUpButton(color: UIColor) {
+        let payButton = BayPassButton(title: "Pay $xx.xx", color: color)
+        payButton.addTarget(self, action: #selector(pay), for: .touchUpInside)
+        view.addSubview(payButton)
+        payButton.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(self.view.snp.bottomMargin).inset(20)
             make.leading.equalToSuperview().inset(16)
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(self.view.snp.width).multipliedBy(0.15)
         }
+    }
+    
+    @objc func pay() {
+        print("pay")
     }
 }
