@@ -9,7 +9,11 @@ target 'BayPass' do
   pod 'SwiftFormat/CLI'
   pod 'SnapKit', '~> 4.0.0'
   pod 'Alamofire'
-  pod 'OverlayContainer'
+  pod 'OverlayContainer', '1.1.1'
+  pod 'SkyFloatingLabelTextField'
+  pod 'SwiftSoup'
+  pod 'Stripe'
+  pod 'Disk'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   

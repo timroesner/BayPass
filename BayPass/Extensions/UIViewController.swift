@@ -6,7 +6,7 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import Stripe
+import Stripe 
 import UIKit
 
 extension UIViewController {

@@ -7,6 +7,7 @@
 //
 
 import Stripe
+import Firebase
 import UIKit
 
 @UIApplicationMain
