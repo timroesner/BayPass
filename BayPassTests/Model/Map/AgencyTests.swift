@@ -42,7 +42,7 @@ class AgencyTests: XCTestCase {
     }
     
     func testStringValueSamsTrans() {
-        let subject = Agency.SamsTrans
+        let subject = Agency.SamTrans
         XCTAssertEqual(subject.stringValue, "SamsTrans")
     }
     
@@ -82,7 +82,7 @@ class AgencyTests: XCTestCase {
     }
     
     func testGetIconSamsTrans() {
-        let subject = Agency.SamsTrans
+        let subject = Agency.SamTrans
         XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
     }
     

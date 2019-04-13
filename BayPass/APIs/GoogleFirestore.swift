@@ -62,6 +62,8 @@ class GoogleFirestore {
                                 let interval = DateInterval(start: Date(), duration: TimeInterval(duration * 3600))
                                 let newPass = Pass(name: newName, duration: interval, price: priceValue, validOnAgency: agency)
                                 let newTicket = Ticket(name: newName, duration: interval, price: priceValue, validOnAgency: agency)
+                                tickets.append(newTicket)
+                                passes.append(newPass)
                             }
                         }
                     }

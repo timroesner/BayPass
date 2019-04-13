@@ -24,7 +24,7 @@ class FirestoreTests: XCTestCase {
         let expectation = self.expectation(description: "async")
         var tickets = [Ticket]()
         var passes = [Pass]()
-        let agency = Agency.SamsTrans
+        let agency = Agency.SamTrans
         GoogleFirestore.shared.getTicketList(agency: agency, completion: { (tickets, passes) -> Void in
             expectation.fulfill()
         })
