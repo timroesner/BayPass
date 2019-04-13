@@ -5,7 +5,6 @@
 //  Created by Tim Roesner on 4/1/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
-
 import UIKit
 
 class ClipperPassCollectionViewCell: UICollectionViewCell {

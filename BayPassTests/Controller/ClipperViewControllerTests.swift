@@ -13,16 +13,16 @@ class ClipperViewControllerTests: XCTestCase {
     let vc = ClipperViewController()
 
     override func setUp() {
-        let calTrain = Agency(rawValue: "CT")
+        let calTrain = Agency.CalTrain
         let testCard = ClipperCard(number: 9_999_999_999, cashValue: 0.0, passes: [Pass(name: "Monthly", duration: DateInterval(start: Date(), duration: 36000), price: 45.0, validOnAgency: calTrain ?? Agency.zero)])
-        ClipperManager.shared.setClipperCard(card: testCard)
+        UserManager.shared.setClipperCard(card: testCard)
 
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
     }
 
     override func tearDown() {
-        ClipperManager.shared.removeCard()
+        UserManager.shared.removeCard()
     }
 
     func testSelectAdd() {

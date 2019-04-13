@@ -5,7 +5,6 @@
 //  Created by Zhe Li on 2/19/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
-
 import SnapKit
 import UIKit
 
@@ -60,7 +59,7 @@ class PurchasedTicketCell: UITableViewCell {
 
     func setup(with ticket: Ticket) {
         nameLbl.text = ticket.name
-        ticketView = TicketView(agency: ticket.validOnAgency, icon: ticket.validOnAgency.getIcon(), cornerRadius: 8)
+        ticketView = TicketView(agency: Agency(rawValue: ticket.validOnAgency.stringValue) ?? Agency.zero, icon: ticket.validOnAgency.getIcon(), cornerRadius: 8)
 
         if let dur = ticket.duration {
             let dateFormatter = DateFormatter()

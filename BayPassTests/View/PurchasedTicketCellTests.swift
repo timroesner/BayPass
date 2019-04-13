@@ -21,16 +21,11 @@ class PurchasedTicketCellTests: XCTestCase {
     }
 
     func testSetup() {
-        let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
-
         let agency = Agency.BART
-        let locations = [loc]
-
         let name = "Monthly Pass"
         let dur = DateInterval(start: Date(timeIntervalSince1970: 60), duration: 30)
         let cost = 2.3
-        let code = "234"
-        let ticket = Ticket(name: name, duration: dur, price: cost, validOnAgency: agency, NFCCode: code, locations: locations)
+        let ticket = Ticket(name: name, duration: dur, price: cost, validOnAgency: agency)
 
         let cell = PurchasedTicketCell()
         cell.setup(with: ticket)

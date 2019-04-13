@@ -14,7 +14,7 @@ class ClipperCardTests: XCTestCase {
     var pass: Pass?
 
     override func setUp() {
-        let agency = Agency(rawValue: "BA")
+        let agency = Agency.BART
         pass = Pass(name: "BART", duration: DateInterval(), price: 2.3, validOnAgency: agency ?? Agency.zero)
     }
 

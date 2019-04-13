@@ -7,7 +7,7 @@
 //
 import UIKit
 
-enum Agency: String {
+enum Agency: String, Codable {
     case ACTransit = "AC " // AC Transit
     case VTA = "SC" // VTA
     case BART = "BAR" // Bart
@@ -39,9 +39,9 @@ enum Agency: String {
         case .ACE:
             return "ACE"
         case .SamTrans:
-            return "SamsTrans"
+            return "SamTrans"
         case .SolTrans:
-            return "SolsTrans"
+            return "SolTrans"
         default:
             return ""
         }

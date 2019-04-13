@@ -26,29 +26,16 @@ class AgencyTests: XCTestCase {
     }
 
     func testStringValue() {
-        let subject = Agency.ACTransit
-
-        XCTAssertEqual(subject.stringValue, "AC Transit")
-    }
-
-    func testStringValueMuni() {
-        let subject = Agency.Muni
-        XCTAssertEqual(subject.stringValue, "Muni")
-    }
-
-    func testStringValueUnionCity() {
-        let subject = Agency.UnionCity
-        XCTAssertEqual(subject.stringValue, "Union City Transit")
-    }
-
-    func testStringValueSamsTrans() {
-        let subject = Agency.SamTrans
-        XCTAssertEqual(subject.stringValue, "SamsTrans")
-    }
-
-    func testStringValueSolsTrans() {
-        let subject = Agency.SolTrans
-        XCTAssertEqual(subject.stringValue, "SolsTrans")
+        XCTAssertEqual(Agency.CalTrain.stringValue, "CalTrain")
+        XCTAssertEqual(Agency.BART.stringValue, "BART")
+        XCTAssertEqual(Agency.VTA.stringValue, "VTA")
+        XCTAssertEqual(Agency.Muni.stringValue, "Muni")
+        XCTAssertEqual(Agency.ACTransit.stringValue, "AC Transit")
+        XCTAssertEqual(Agency.SolTrans.stringValue, "SolTrans")
+        XCTAssertEqual(Agency.SamTrans.stringValue, "SamTrans")
+        XCTAssertEqual(Agency.ACE.stringValue, "ACE")
+        XCTAssertEqual(Agency.GoldenGateTransit.stringValue, "Golden Gate Transit")
+        XCTAssertEqual(Agency.UnionCity.stringValue, "Union City Transit")
     }
 
     func testGetIconACE() {
