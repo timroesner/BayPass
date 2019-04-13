@@ -151,7 +151,7 @@ class HereTests: XCTestCase {
 
         let test = here.parseOperatorFromStationId(from: multiNextDeparture[0])
 
-        XCTAssertEqual(test, Agency.SamsTrans)
+        XCTAssertEqual(test, Agency.SamTrans)
     }
 
     func testParseTimesFromStationIds() {
