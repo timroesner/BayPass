@@ -17,8 +17,8 @@ class ClipperCardTests: XCTestCase {
         let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
         let station = Station(name: "SFO", code: 2, transitModes: [TransitMode.bart], lines: ["Green"], location: loc)
         let line = Line(name: "Green", code: 2, destination: "Milbrae", stops: [station])
-        let agency = Agency(rawValue: "BART")
-        pass = Pass(name: "BART", duration: DateInterval(), price: 2.3, validOnAgency: agency!)
+        let agency = Agency.BART
+        pass = Pass(name: "BART", duration: DateInterval(), price: 2.3, validOnAgency: agency)
     }
 
     override func tearDown() {

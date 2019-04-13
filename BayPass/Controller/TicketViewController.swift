@@ -15,6 +15,13 @@ class TicketViewController: UIViewController {
         view.backgroundColor = .white
         title = "Tickets"
 
+        let dropDown = DropDownMenu(title: "Payment method", items: ["Apple Pay", "Credit/Debit", "item2", "item3", "item4", "item5"])
+        view.addSubview(dropDown)
+        dropDown.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(40)
+            make.left.right.equalToSuperview().inset(16)
+        }
+
         // button to ticket checkout page
         let button = UIButton()
         button.backgroundColor = UIColor(red: 221, green: 84, blue: 65)

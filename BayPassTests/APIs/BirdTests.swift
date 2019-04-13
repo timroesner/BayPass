@@ -79,7 +79,7 @@ class BirdTests: XCTestCase {
             expectation.fulfill()
         })
         waitForExpectations(timeout: 5, handler: nil)
-        assert(!scooters.isEmpty)
+        XCTAssert(!scooters.isEmpty)
     }
 
 }

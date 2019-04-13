@@ -21,29 +21,29 @@ class PurchasedTicketCell: UITableViewCell {
 
         // setup()
         addSubview(ticketView)
-        ticketView.snp.makeConstraints({ (make) -> Void in
+        ticketView.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(60)
             make.width.equalTo(95)
             make.top.equalToSuperview().offset(16)
             make.left.equalToSuperview().offset(16)
-        })
+        }
 
         addSubview(durationLbl)
         durationLbl.textColor = .gray
         // durationLbl.text = "Valid until "
         durationLbl.font = UIFont.systemFont(ofSize: 13, weight: .bold)
-        durationLbl.snp.makeConstraints({ (make) -> Void in
+        durationLbl.snp.makeConstraints { (make) -> Void in
             make.top.equalToSuperview().offset(30)
             make.left.equalTo(ticketView.snp.right).offset(14)
-        })
+        }
 
         addSubview(nameLbl)
         nameLbl.textColor = .black
         nameLbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        nameLbl.snp.makeConstraints({ (make) -> Void in
+        nameLbl.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(durationLbl.snp.bottom).offset(0)
             make.left.equalTo(ticketView.snp.right).offset(14)
-        })
+        }
 
         addSubview(showLbl)
         showLbl.backgroundColor = UIColor(red: 0.91, green: 0.90, blue: 0.90, alpha: 1.00)
@@ -52,10 +52,10 @@ class PurchasedTicketCell: UITableViewCell {
         showLbl.layer.masksToBounds = true
         showLbl.layer.cornerRadius = 8
         showLbl.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        showLbl.snp.makeConstraints({ (make) -> Void in
+        showLbl.snp.makeConstraints { (make) -> Void in
             make.top.equalToSuperview().offset(39)
             make.right.equalToSuperview().offset(-12)
-        })
+        }
     }
 
     func setup(with ticket: Ticket) {

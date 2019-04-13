@@ -50,21 +50,21 @@ class ClipperView: UIView {
         gradient1.frame = CGRect(x: 0.0, y: 0.0, width: frame.width * 0.6, height: frame.height)
         gradient2.frame = CGRect(x: frame.width * 0.6, y: 0.0, width: frame.width * 0.4, height: frame.height)
 
-        imageView.snp.makeConstraints({ (make) -> Void in
+        imageView.snp.makeConstraints { (make) -> Void in
             make.top.bottom.equalToSuperview().inset(30)
             make.centerX.equalTo(gradient1.frame.width / 2)
             make.width.equalTo(imageView.snp.height).multipliedBy(0.82)
-        })
+        }
 
-        cashValueLbl.snp.makeConstraints({ (make) -> Void in
+        cashValueLbl.snp.makeConstraints { (make) -> Void in
             make.top.equalToSuperview().offset(frame.height * 0.08)
             make.right.equalToSuperview().offset(-frame.width * 0.05)
-        })
+        }
 
-        cardNumberLbl.snp.makeConstraints({ (make) -> Void in
+        cardNumberLbl.snp.makeConstraints { (make) -> Void in
             make.bottom.equalToSuperview().offset(-frame.height * 0.08)
             make.right.equalToSuperview().offset(-frame.width * 0.05)
-        })
+        }
 
         switch frame.width {
         // 135 x 77

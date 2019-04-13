@@ -9,7 +9,7 @@
 import CoreLocation
 import UIKit
 
-struct Ticket {
+struct Ticket: Codable, Equatable {
     var name: String
     var duration: DateInterval?
     var count: Int = 0

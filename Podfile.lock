@@ -1,153 +1,44 @@
 PODS:
-  - Alamofire (4.8.1)
-  - BoringSSL-GRPC (0.0.2):
-    - BoringSSL-GRPC/Implementation (= 0.0.2)
-    - BoringSSL-GRPC/Interface (= 0.0.2)
-  - BoringSSL-GRPC/Implementation (0.0.2):
-    - BoringSSL-GRPC/Interface (= 0.0.2)
-  - BoringSSL-GRPC/Interface (0.0.2)
-  - Firebase (5.17.0):
-    - Firebase/Core (= 5.17.0)
-  - Firebase/Core (5.17.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.6.0)
-  - Firebase/CoreOnly (5.17.0):
-    - FirebaseCore (= 5.3.0)
-  - Firebase/Firestore (5.17.0):
-    - Firebase/CoreOnly
-    - FirebaseFirestore (= 1.0.1)
-  - FirebaseAnalytics (5.6.0):
-    - FirebaseCore (~> 5.3)
-    - FirebaseInstanceID (~> 3.5)
-    - GoogleAppMeasurement (= 5.6.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
-    - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - nanopb (~> 0.3)
-  - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (5.3.0):
-    - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseFirestore (1.0.1):
-    - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 5.2)
-    - FirebaseFirestore/abseil-cpp (= 1.0.1)
-    - "gRPC-C++ (= 0.0.6)"
-    - leveldb-library (~> 1.20)
-    - nanopb (~> 0.3.901)
-    - Protobuf (~> 3.1)
-  - FirebaseFirestore/abseil-cpp (1.0.1):
-    - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 5.2)
-    - "gRPC-C++ (= 0.0.6)"
-    - leveldb-library (~> 1.20)
-    - nanopb (~> 0.3.901)
-    - Protobuf (~> 3.1)
-  - FirebaseInstanceID (3.5.0):
-    - FirebaseCore (~> 5.3)
-    - GoogleUtilities/Environment (~> 5.3)
-    - GoogleUtilities/UserDefaults (~> 5.3)
-  - GoogleAppMeasurement (5.6.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
-    - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - nanopb (~> 0.3)
-  - GoogleUtilities/AppDelegateSwizzler (5.3.7):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
-  - GoogleUtilities/Environment (5.3.7)
-  - GoogleUtilities/Logger (5.3.7):
-    - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (5.3.7):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (5.3.7):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.3.7)"
-  - GoogleUtilities/Reachability (5.3.7):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (5.3.7):
-    - GoogleUtilities/Logger
-  - "gRPC-C++ (0.0.6)":
-    - "gRPC-C++/Implementation (= 0.0.6)"
-    - "gRPC-C++/Interface (= 0.0.6)"
-  - "gRPC-C++/Implementation (0.0.6)":
-    - "gRPC-C++/Interface (= 0.0.6)"
-    - gRPC-Core (= 1.17.0)
-    - nanopb (~> 0.3)
-  - "gRPC-C++/Interface (0.0.6)"
-  - gRPC-Core (1.17.0):
-    - gRPC-Core/Implementation (= 1.17.0)
-    - gRPC-Core/Interface (= 1.17.0)
-  - gRPC-Core/Implementation (1.17.0):
-    - BoringSSL-GRPC (= 0.0.2)
-    - gRPC-Core/Interface (= 1.17.0)
-    - nanopb (~> 0.3)
-  - gRPC-Core/Interface (1.17.0)
-  - leveldb-library (1.20)
-  - nanopb (0.3.901):
-    - nanopb/decode (= 0.3.901)
-    - nanopb/encode (= 0.3.901)
-  - nanopb/decode (0.3.901)
-  - nanopb/encode (0.3.901)
+  - Alamofire (4.8.2)
+  - Disk (0.6.1)
   - OverlayContainer (1.1.1)
-  - Protobuf (3.6.1)
+  - SkyFloatingLabelTextField (3.6.0)
   - SnapKit (4.0.1)
-  - SwiftFormat/CLI (0.39.0)
+  - Stripe (15.0.0)
+  - SwiftFormat/CLI (0.40.4)
+  - SwiftSoup (1.7.4)
 
 DEPENDENCIES:
   - Alamofire
-  - Firebase
-  - Firebase/Core
-  - Firebase/Firestore
-  - OverlayContainer
+  - Disk
+  - OverlayContainer (= 1.1.1)
+  - SkyFloatingLabelTextField
   - SnapKit (~> 4.0.0)
+  - Stripe
   - SwiftFormat/CLI
+  - SwiftSoup
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - BoringSSL-GRPC
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseAuthInterop
-    - FirebaseCore
-    - FirebaseFirestore
-    - FirebaseInstanceID
-    - GoogleAppMeasurement
-    - GoogleUtilities
-    - "gRPC-C++"
-    - gRPC-Core
-    - leveldb-library
-    - nanopb
+    - Disk
     - OverlayContainer
-    - Protobuf
+    - SkyFloatingLabelTextField
     - SnapKit
+    - Stripe
     - SwiftFormat
+    - SwiftSoup
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
-  Firebase: 59d557e064217fab6a03ff00baa73c06e73832e6
-  FirebaseAnalytics: 75e4bbc6417d190cc98ec1f17c41a4fad4c2c976
-  FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: c0c4befb82374d6aef64d800e569f47625352edc
-  FirebaseFirestore: e95af4fe30552092d6e72a8f97ea475d93891b75
-  FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
-  GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
-  GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
-  "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
-  gRPC-Core: 4028031ed2c5267cca0d846c876d8046b1ecb9b6
-  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
-  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Disk: e77d422fe19d0a696c75b59f7c78bfbd4e588d50
   OverlayContainer: 5911b47b27f3fdf1fb989257c76e828dc11c0380
-  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwiftFormat: a27a799eeaf246313c3b388ad6d5ae33c78eb6f3
+  Stripe: 312b22a67af9fa55c246d26148b3f3a9636a0ff2
+  SwiftFormat: cc36377840cffa5d0634782875dccf34dc02ff39
+  SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
 
-PODFILE CHECKSUM: 47392b0970231a11bcf94513af57989ce23fe444
+PODFILE CHECKSUM: bd3de449030b25a0435c28490d08303fa6bab755
 
 COCOAPODS: 1.6.0

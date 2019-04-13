@@ -17,8 +17,7 @@ class PassTests: XCTestCase {
     override func setUp() {
         let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
         let station = Station(name: "SFO", code: 2, transitModes: [TransitMode.bart], lines: ["Green"], location: loc)
-        let line = Line(name: "Green", code: 2, destination: "Milbrae", stops: [station])
-        agency = Agency(rawValue: "BART")
+        agency = Agency.BART
     }
 
     override func tearDown() {
