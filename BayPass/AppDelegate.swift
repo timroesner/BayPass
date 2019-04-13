@@ -6,8 +6,8 @@
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
 
-import Stripe
 import Firebase
+import Stripe
 import UIKit
 
 @UIApplicationMain
@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GoogleFirestore.shared.configure()
-        // test here
-        GoogleFirestore.shared.getTicketList(agency: .CalTrain) { _ in
-        }
+//        // test here
+//        GoogleFirestore.shared.getTicketList(agency: .CalTrain) { _ in
+//        }
 
         window = UIWindow()
         window?.makeKeyAndVisible()
