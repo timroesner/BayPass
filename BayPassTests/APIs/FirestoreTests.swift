@@ -25,7 +25,9 @@ class FirestoreTests: XCTestCase {
         var tickets = [Ticket]()
         var passes = [Pass]()
         let agency = Agency.SamTrans
-        GoogleFirestore.shared.getTicketList(agency: agency, completion: { (tickets, passes) -> Void in
+        GoogleFirestore.shared.getTicketList(agency: agency, completion: {
+            tickets = $0
+            passes = $1
             expectation.fulfill()
         })
         waitForExpectations(timeout: 5, handler: nil)
