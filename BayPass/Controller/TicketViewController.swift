@@ -79,16 +79,16 @@ class TicketViewController: UIViewController {
         let loc: CLLocation = CLLocation(latitude: 21.35, longitude: 121.34)
         let station = Station(name: "SFO", code: 2, transitModes: [TransitMode.bart], lines: ["Green"], location: loc)
         let line = Line(name: "Green", code: 2, destination: "Milbrae", stops: [station])
-        let calTrain = Agency(name: "CalTrain", routes: [line], icon: UIImage(named: "CalTrain")!)
-        let acTransit = Agency(name: "ACTransit", routes: [line], icon: UIImage(named: "Bus")!)
-        let ace = Agency(name: "ACE", routes: [line], icon: UIImage(named: "CalTrain")!)
-        let solTrans = Agency(name: "SolTrans", routes: [line], icon: UIImage(named: "Bus")!)
+        let calTrain = Agency.CalTrain
+        let acTransit = Agency.ACTransit
+        let ace = Agency.ACE
+        let solTrans = Agency.SolTrans
         let locations = [loc]
         let dur = DateInterval(start: Date(timeIntervalSince1970: 60), duration: 30)
-        let ticket1 = Ticket(name: "Monthly Pass", duration: dur, price: 2.3, validOnAgency: calTrain, NFCCode: "234", locations: locations)
-        let ticket2 = Ticket(name: "Weekly Pass", duration: dur, price: 2.3, validOnAgency: acTransit, NFCCode: "234", locations: locations)
-        let ticket3 = Ticket(name: "Weekly Pass", duration: dur, price: 2.3, validOnAgency: solTrans, NFCCode: "234", locations: locations)
-        let ticket4 = Ticket(name: "Monthly Pass", duration: dur, price: 2.3, validOnAgency: ace, NFCCode: "234", locations: locations)
+        let ticket1 = Ticket(name: "Monthly Pass", duration: dur, price: 2.3, validOnAgency: calTrain)
+        let ticket2 = Ticket(name: "Weekly Pass", duration: dur, price: 2.3, validOnAgency: acTransit)
+        let ticket3 = Ticket(name: "Weekly Pass", duration: dur, price: 2.3, validOnAgency: solTrans)
+        let ticket4 = Ticket(name: "Monthly Pass", duration: dur, price: 2.3, validOnAgency: ace)
         tickets = [ticket1, ticket2, ticket3, ticket4]
     }
 
