@@ -40,7 +40,7 @@ class TicketViewController: UIViewController {
 
         ticketCarouselView.delegate = self
         ticketCarouselView.dataSource = self
-        ticketCarouselView.register(ticketCarouselViewCell.self, forCellWithReuseIdentifier: ticketCarouselViewCellID)
+        ticketCarouselView.register(TicketCarouselViewCell.self, forCellWithReuseIdentifier: ticketCarouselViewCellID)
         setUpTicketCarouselView()
         
         purchasedTicketTableView.rowHeight = 93.0
@@ -50,7 +50,7 @@ class TicketViewController: UIViewController {
         layoutTableView()
 
         // MARK: temporary data
-
+        UserManager.shared.clearAllPurchasedTickets()
         let expiredDuration = DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: -220_482.0))
         let validDuration = DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0))
 
@@ -58,11 +58,13 @@ class TicketViewController: UIViewController {
         let validTicket1 = Ticket(name: "Weekly Pass", duration: validDuration, price: 2.3, validOnAgency: Agency.ACTransit)
         let validTicket2 = Ticket(name: "Weekly Pass", duration: validDuration, price: 2.3, validOnAgency: Agency.SolTrans)
         let validTicket3 = Ticket(name: "Monthly Pass", duration: validDuration, price: 2.3, validOnAgency: Agency.ACE)
+        let validSingleRide = Ticket(name: "Single Ride", count: 1, price: 2.50, validOnAgency: Agency.VTA)
 
         UserManager.shared.addPurchased(ticket: expiredTicket)
         UserManager.shared.addPurchased(ticket: validTicket1)
         UserManager.shared.addPurchased(ticket: validTicket2)
         UserManager.shared.addPurchased(ticket: validTicket3)
+        UserManager.shared.addPurchased(ticket: validSingleRide)
     }
 
     override func viewWillAppear(_ animated: Bool) {
