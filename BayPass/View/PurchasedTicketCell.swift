@@ -62,12 +62,12 @@ class PurchasedTicketCell: UITableViewCell {
         nameLbl.text = ticket.name
         ticketView = TicketView(agency: ticket.validOnAgency.stringValue, icon: ticket.validOnAgency.getIcon(), cornerRadius: 8)
         addSubview(ticketView)
-        ticketView.snp.makeConstraints({ (make) -> Void in
+        ticketView.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(60)
             make.width.equalTo(95)
             make.top.equalToSuperview().offset(16)
             make.left.equalToSuperview().offset(16)
-        })
+        }
 
         if let dur = ticket.duration {
             let dateFormatter = DateFormatter()

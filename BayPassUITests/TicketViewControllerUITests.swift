@@ -1,14 +1,14 @@
 //
-//  BackButtonUITests.swift
+//  TicketViewControllerUITests.swift
 //  BayPassUITests
 //
-//  Created by 凌脩羽 on 3/6/19.
+//  Created by Zhe Li on 4/13/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
 import XCTest
 
-class BackButtonUITests: XCTestCase {
+class TicketViewControllerUITests: XCTestCase {
     
     override func setUp() {
         continueAfterFailure = false
@@ -23,17 +23,22 @@ class BackButtonUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testBackButton () {
+    func testSelectingTicket() {
+        
         
         let app = XCUIApplication()
         let tabBarsQuery = app.tabBars
-        
-        // Ticket
+        tabBarsQuery.buttons["Map"].tap()
         tabBarsQuery.buttons["Ticket"].tap()
-        app.buttons["Ticket Checkout"].tap()
-        let ticketBack = XCUIApplication().buttons["Tickets"]
-        XCTAssert(ticketBack.exists)
-        app.navigationBars["Ticket Checkout"].buttons["Tickets"].tap()
+        app.collectionViews.cells.otherElements.containing(.staticText, identifier:"VTA").element.tap()
+        
+        let dayPassStaticText = app.staticTexts["Day Pass"]
+        dayPassStaticText.tap()
+        dayPassStaticText.tap()
+        app.navigationBars["VTA"].buttons["Tickets"].tap()
+                
+        
     }
+    
     
 }

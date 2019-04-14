@@ -32,11 +32,9 @@ class TicketViewController: UIViewController {
         return tableView
     }()
 
-    private var tickets: [Ticket] = []
     private let purchasedTicketTableViewCellID = "purchasedTicketTableViewCellID"
 
     let agencies = Agency.allCases
-    let icons = ["BART", "CalTrain", "CalTrain", "Bus", "Bus"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,26 +47,28 @@ class TicketViewController: UIViewController {
         view.addSubview(ticketCarouselView)
         setUpTicketCarouselView()
 
-        //text label
+        // MARK: Text Label
+
         view.addSubview(titleLbl)
         titleLbl.text = "Purchased"
         titleLbl.textColor = UIColor.black
         titleLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        titleLbl.snp.makeConstraints({ (make) -> Void in
+        titleLbl.snp.makeConstraints { (make) -> Void in
             make.leading.equalToSuperview().offset(20)
             make.top.equalTo(ticketCarouselView.snp.bottom).offset(10)
-        })
+        }
 
-        // purchased ticket view
+        // MARK: Purchased Ticket view
+
         view.addSubview(purchesedTicketView)
-        purchesedTicketView.snp.makeConstraints({ (make) -> Void in
+        purchesedTicketView.snp.makeConstraints { (make) -> Void in
             make.width.equalToSuperview()
             make.top.equalTo(titleLbl.snp.bottom).offset(10)
             make.bottom.equalTo(self.view.snp.bottomMargin).inset(20)
-        })
+        }
 
         purchesedTicketView.addSubview(purchasedTicketTableView)
-        purchasedTicketTableView.snp.makeConstraints { (make) in
+        purchasedTicketTableView.snp.makeConstraints { make in
             make.top.equalTo(titleLbl.snp.bottom).offset(8)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
@@ -78,42 +78,35 @@ class TicketViewController: UIViewController {
         purchasedTicketTableView.delegate = self
         purchasedTicketTableView.register(PurchasedTicketCell.self, forCellReuseIdentifier: purchasedTicketTableViewCellID)
 
-        //temporary data
-        let calTrain = Agency.CalTrain
-        let acTransit = Agency.ACTransit
-        let ace = Agency.ACE
-        let solTrans = Agency.SolTrans
-        let dur = DateInterval(start: Date(timeIntervalSince1970: 60), duration: 30)
-        let ticket1 = Ticket(name: "Monthly Pass", duration: dur, price: 2.3, validOnAgency: calTrain)
-        let ticket2 = Ticket(name: "Weekly Pass", duration: dur, price: 2.3, validOnAgency: acTransit)
-        let ticket3 = Ticket(name: "Weekly Pass", duration: dur, price: 2.3, validOnAgency: solTrans)
-        let ticket4 = Ticket(name: "Monthly Pass", duration: dur, price: 2.3, validOnAgency: ace)
-        tickets = [ticket1, ticket2, ticket3, ticket4]
+        // MARK: temporary data
+
+        let expiredDuration = DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: -220_482.0))
+        let validDuration = DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0))
+
+        let expiredTicket = Ticket(name: "Monthly Pass", duration: expiredDuration, price: 2.3, validOnAgency: Agency.CalTrain)
+        let validTicket1 = Ticket(name: "Weekly Pass", duration: validDuration, price: 2.3, validOnAgency: Agency.ACTransit)
+        let validTicket2 = Ticket(name: "Weekly Pass", duration: validDuration, price: 2.3, validOnAgency: Agency.SolTrans)
+        let validTicket3 = Ticket(name: "Monthly Pass", duration: validDuration, price: 2.3, validOnAgency: Agency.ACE)
+
+        UserManager.shared.addPurchased(ticket: expiredTicket)
+        UserManager.shared.addPurchased(ticket: validTicket1)
+        UserManager.shared.addPurchased(ticket: validTicket2)
+        UserManager.shared.addPurchased(ticket: validTicket3)
     }
 
     func setUpTicketCarouselView() {
-        /* ticketCarouselView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-         ticketCarouselView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-         ticketCarouselView.heightAnchor.constraint(equalToConstant: 240).isActive = true
-         ticketCarouselView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true */
-        ticketCarouselView.snp.makeConstraints({ (make) -> Void in
+        ticketCarouselView.snp.makeConstraints { (make) -> Void in
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
             make.top.equalTo(view.snp.top).offset(140)
             make.height.equalTo(240)
-        })
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-
-    /*
-    @objc func buttonAction(sender _: UITapGestureRecognizer!) {
-        // TicketSelectionDelegate.ticketPressed(ticketName: sender.ticketName)
-        navigationController?.pushViewController(TicketCheckoutViewController(), animated: true)
-    }*/
 }
 
 extension TicketViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -124,7 +117,6 @@ extension TicketViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = ticketCarouselView.dequeueReusableCell(withReuseIdentifier: ticketCarouselViewCellID, for: indexPath) as! ticketCarouselViewCell
         cell.backgroundColor = .white
-        // cell.ticketView = TicketView(agency: agencies[indexPath.row], icon: UIImage(named: icons[indexPath.row])!, cornerRadius: 12)
         cell.setup(with: TicketView(agency: agencies[indexPath.row].stringValue, icon: agencies[indexPath.row].getIcon(), cornerRadius: 12))
         return cell
     }
@@ -146,34 +138,12 @@ extension TicketViewController: UICollectionViewDataSource, UICollectionViewDele
 
 extension TicketViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return tickets.count
+        return UserManager.shared.getPurchasedTickets().count
     }
 
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = purchasedTicketTableView.dequeueReusableCell(withIdentifier: purchasedTicketTableViewCellID) as! PurchasedTicketCell
-        cell.setup(with: tickets[indexPath.row])
+        cell.setup(with: UserManager.shared.getPurchasedTickets()[indexPath.row])
         return cell
-    }
-}
-
-class ticketCarouselViewCell: UICollectionViewCell {
-    var ticketView = TicketView(agency: "ACE", icon: UIImage(named: "CalTrain")!, cornerRadius: 12)
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    func setup(with newTicketView: TicketView) {
-        ticketView = newTicketView
-        addSubview(ticketView)
-        ticketView.snp.makeConstraints({ (make) -> Void in
-            make.width.equalTo(135)
-            make.height.equalTo(200)
-        })
-        ticketView.layoutIfNeeded()
-    }
-
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
