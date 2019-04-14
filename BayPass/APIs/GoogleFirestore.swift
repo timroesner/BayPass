@@ -24,8 +24,6 @@ class GoogleFirestore {
         return Firestore.firestore().collection(collectionReference)
     }
 
-    func create() {}
-
     func getTicketList(agency: Agency, completion: @escaping (([Ticket], [Pass])) -> Void) {
         var tickets = [Ticket]()
         var passes = [Pass]()
@@ -73,16 +71,5 @@ class GoogleFirestore {
             print(passes)
             completion((tickets, passes))
         }
-    }
-
-    func update() {}
-
-    func delete() {}
-
-    // add cards to database
-    func add(card _: ClipperCard) {
-        let clipperRef = reference(to: "Clipper Card")
-//        let params = []
-//        clipperRef.addDocument(data: )
     }
 }
