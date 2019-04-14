@@ -81,9 +81,4 @@ class AgencyTests: XCTestCase {
         let subject = Agency.SolTrans
         XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "Bus"))
     }
-    
-    func testGetIconDefault() {
-        let subject = Agency.zero
-        XCTAssertEqual(subject.getIcon(), #imageLiteral(resourceName: "CalTrain"))
-    }
 }
