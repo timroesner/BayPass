@@ -9,7 +9,7 @@
 import CoreLocation
 import UIKit
 
-struct Station {
+struct Station: Equatable {
     var name: String
     var code: Int
     var transitModes: [TransitMode]

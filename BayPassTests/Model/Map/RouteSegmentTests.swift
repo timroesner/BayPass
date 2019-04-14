@@ -11,11 +11,11 @@ import XCTest
 import MapKit
 
 class RouteSegmentTests: XCTestCase {
-
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
+    
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
@@ -29,7 +29,7 @@ class RouteSegmentTests: XCTestCase {
         assert(segment.polyline == polyline)
         assert(segment.travelMode == .walking)
     }
-
+    
     func testExtendedInit() {
         let depTime = Date(timeIntervalSinceNow: 60)
         let arrTime = Date(timeIntervalSinceNow: 240)
@@ -45,7 +45,9 @@ class RouteSegmentTests: XCTestCase {
         assert(segment.arrivalTime == arrTime)
         assert(segment.polyline == polyline)
         assert(segment.travelMode == TravelMode.transit)
+        assert(segment.line == line)
         assert(segment.price == 2.25)
+        assert(segment.waypoints == waypoints)
     }
-
+    
 }

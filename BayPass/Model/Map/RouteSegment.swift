@@ -10,7 +10,7 @@ import CoreLocation
 import Foundation
 import MapKit
 
-struct RouteSegment {
+struct RouteSegment: Equatable {
     var distanceInMeters: Int
     var departureTime: Date?
     var arrivalTime: Date?
@@ -20,14 +20,14 @@ struct RouteSegment {
     var line: Line?
     var price: Double = 0.0
     var waypoints = [Station]()
-
+    
     init(distanceInMeters: Int, durationInMinutes: Int, polyline: MKPolyline, travelMode: TravelMode) {
         self.distanceInMeters = distanceInMeters
         self.durationInMinutes = durationInMinutes
         self.polyline = polyline
         self.travelMode = travelMode
     }
-
+    
     init(distanceInMeters: Int, departureTime: Date, arrivalTime: Date, polyline: MKPolyline, travelMode: TravelMode, line: Line, price: Double, waypoints: [Station]) {
         self.distanceInMeters = distanceInMeters
         self.departureTime = departureTime
