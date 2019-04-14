@@ -24,8 +24,6 @@ class TicketViewControllerUITests: XCTestCase {
     }
     
     func testSelectingTicket() {
-        
-        
         let app = XCUIApplication()
         let tabBarsQuery = app.tabBars
         tabBarsQuery.buttons["Map"].tap()
@@ -36,8 +34,7 @@ class TicketViewControllerUITests: XCTestCase {
         dayPassStaticText.tap()
         dayPassStaticText.tap()
         app.navigationBars["VTA"].buttons["Tickets"].tap()
-                
-        
+
     }
     
     
