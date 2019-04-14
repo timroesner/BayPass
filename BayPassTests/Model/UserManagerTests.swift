@@ -41,6 +41,7 @@ class UserManagerTests: XCTestCase {
     }
     
     func testTicketFlow() {
+        UserManager.shared.clearAllPurchasedTickets()
         let ticket1 = Ticket(name: "Single Ride", count: 1, price: 2.50, validOnAgency: .VTA)
         let ticket2 = Ticket(name: "Day Pass", duration: DateInterval(start: Date(), duration: 86400), price: 12.00, validOnAgency: .Muni)
         let ticket3 = Ticket(name: "Monthly Pass", duration: DateInterval(start: Date().addingTimeInterval(3600), duration: 2592000), price: 260.0, validOnAgency: .CalTrain)

@@ -10,7 +10,6 @@ import SnapKit
 import UIKit
 
 class PurchasedTicketCell: UITableViewCell {
-    
     var ticketView = TicketView(agency: Agency.VTA.stringValue, icon: Agency.VTA.getIcon(), cornerRadius: 8)
     let nameLbl = UILabel()
     let durationLbl = UILabel()
@@ -46,7 +45,7 @@ class PurchasedTicketCell: UITableViewCell {
                 make.left.equalToSuperview().offset(125)
             }
         }
-        
+
         nameLbl.text = ticket.name
         addSubview(nameLbl)
         nameLbl.textColor = .black
@@ -59,17 +58,17 @@ class PurchasedTicketCell: UITableViewCell {
             }
             make.left.equalToSuperview().offset(125)
         }
-        
+
         background.layer.backgroundColor = UIColor(red: 0.91, green: 0.90, blue: 0.90, alpha: 1.00).cgColor
         background.layer.cornerRadius = 11
         addSubview(background)
-        background.snp.makeConstraints { (make) in
+        background.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().inset(9)
             make.width.equalTo(60)
             make.height.equalTo(22)
         }
-        
+
         showLbl.textColor = UIColor(red: 0.16, green: 0.47, blue: 0.96, alpha: 1)
         showLbl.text = "Show"
         showLbl.font = UIFont.systemFont(ofSize: 14, weight: .bold)
@@ -78,7 +77,7 @@ class PurchasedTicketCell: UITableViewCell {
             make.center.equalTo(background)
         }
     }
-    
+
     override func prepareForReuse() {
         ticketView.removeFromSuperview()
         durationLbl.text = ""

@@ -22,6 +22,7 @@ class TicketViewController: UIViewController {
         collection.showsHorizontalScrollIndicator = false
         return collection
     }()
+
     let titleLbl = UILabel()
     var purchasedTicketTableView: UITableView = {
         let tableView = UITableView()
@@ -42,7 +43,7 @@ class TicketViewController: UIViewController {
         ticketCarouselView.dataSource = self
         ticketCarouselView.register(TicketCarouselViewCell.self, forCellWithReuseIdentifier: ticketCarouselViewCellID)
         setUpTicketCarouselView()
-        
+
         purchasedTicketTableView.rowHeight = 93.0
         purchasedTicketTableView.dataSource = self
         purchasedTicketTableView.delegate = self
@@ -50,6 +51,7 @@ class TicketViewController: UIViewController {
         layoutTableView()
 
         // MARK: temporary data
+
         UserManager.shared.clearAllPurchasedTickets()
         let expiredDuration = DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: -220_482.0))
         let validDuration = DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0))
@@ -71,7 +73,7 @@ class TicketViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+
     func setUpTicketCarouselView() {
         view.addSubview(ticketCarouselView)
         ticketCarouselView.snp.makeConstraints { (make) -> Void in
@@ -81,9 +83,10 @@ class TicketViewController: UIViewController {
             make.height.equalTo(240)
         }
     }
-    
+
     func layoutTableView() {
         // MARK: Text Label
+
         view.addSubview(titleLbl)
         titleLbl.text = "Purchased"
         titleLbl.textColor = UIColor.black
@@ -92,8 +95,9 @@ class TicketViewController: UIViewController {
             make.leading.equalToSuperview().offset(20)
             make.top.equalTo(ticketCarouselView.snp.bottom).offset(10)
         }
-        
+
         // MARK: Purchased Ticket tableView
+
         view.addSubview(purchasedTicketTableView)
         purchasedTicketTableView.snp.makeConstraints { make in
             make.top.equalTo(titleLbl.snp.bottom).offset(8)

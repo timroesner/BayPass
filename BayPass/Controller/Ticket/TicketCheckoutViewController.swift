@@ -15,7 +15,7 @@ class TicketCheckoutViewController: UIViewController {
         (title: "Ticket Type", values: ["Day Pass", "3 Day Pass", "Monthly Pass"]),
         (title: "From", values: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6", "Zone 7"]),
         (title: "To", values: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6", "Zone 7"]),
-        (title: "Payment Method", values: PaymentMethod.allCases.map{ $0.rawValue })
+        (title: "Payment Method", values: PaymentMethod.allCases.map { $0.rawValue }),
     ]
     private var stackedViews = [UIView]()
 
@@ -39,7 +39,7 @@ class TicketCheckoutViewController: UIViewController {
         newTicketView.layoutIfNeeded()
         stackedViews.append(newTicketView)
     }
-    
+
     func setupDropDowns() {
         for option in dropDownOptions {
             let dropDown = DropDownMenu(title: option.title, items: option.values)
@@ -51,7 +51,7 @@ class TicketCheckoutViewController: UIViewController {
             stackedViews.append(dropDown)
         }
         setUpButton(color: UIColor(named: "dark\(agency.stringValue.replacingOccurrences(of: " ", with: ""))") ?? UIColor.black)
-    }   
+    }
 
     func setUpButton(color: UIColor) {
         let payButton = BayPassButton(title: "Pay $xx.xx", color: color)
