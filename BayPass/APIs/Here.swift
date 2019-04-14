@@ -12,7 +12,7 @@ import MapKit
 
 class Here {
     static let shared = Here()
-
+    let time = getCurrentTimetoFormattedStringForHereAPI
     private init() {}
 
     // MARK: Get Requests for Here
@@ -24,9 +24,10 @@ class Here {
             "app_code": Credentials().hereAppCode,
             "lang": "en",
             "stnIds": stationId,
-            "max": 1,
-            "time": getCurrentTimetoFormattedStringForHereAPI,
+            "max": 50,
+            "time": self.time,
         ] as [String: Any]
+
         var results = Agency.zero
         Alamofire.request("https://transit.api.here.com/v3/multiboard/by_stn_ids.json?", method: .get, parameters: param).responseJSON { response in
             if let json = response.result.value as? [String: Any],
@@ -147,7 +148,7 @@ class Here {
             "lang": "en",
             "stnIds": stationId,
             "max": 2,
-            "time": getCurrentTimetoFormattedStringForHereAPI,
+            "time": self.time,
         ] as [String: Any]
 
         var results: Agency = Agency.zero

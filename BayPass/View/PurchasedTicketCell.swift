@@ -59,7 +59,7 @@ class PurchasedTicketCell: UITableViewCell {
 
     func setup(with ticket: Ticket) {
         nameLbl.text = ticket.name
-        ticketView = TicketView(agency: Agency(rawValue: ticket.validOnAgency.stringValue) ?? Agency.zero, icon: ticket.validOnAgency.getIcon(), cornerRadius: 8)
+        ticketView = TicketView(agency: ticket.validOnAgency, icon: ticket.validOnAgency.getIcon(), cornerRadius: 8)
 
         if let dur = ticket.duration {
             let dateFormatter = DateFormatter()
