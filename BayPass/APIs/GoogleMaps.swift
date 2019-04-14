@@ -80,7 +80,9 @@ class GoogleMaps {
                 let arrivalInterval = arrivalJson["value"] as? Int,
                 let departureJson = transitDetails["departure_time"] as? [String: Any],
                 let departureInterval = departureJson["value"] as? Int,
-                let lineJson = transitDetails["line"] as? [String: Any]
+                let lineJson = transitDetails["line"] as? [String: Any],
+                let depStopJson = transitDetails["departure_stop"] as? [String: Any],
+                let arrivalStopJson = transitDetails["arrival_stop"] as? [String: Any]
             else {
                 return nil
             }
@@ -89,10 +91,14 @@ class GoogleMaps {
             let arrivalDate = Date(timeIntervalSince1970: Double(arrivalInterval))
 
             let lineName = lineJson["short_name"] as? String ?? ""
+            
+            let depStop = depStopJson["name"] as? String ?? ""
+            let arrivalStop = arrivalStopJson["name"] as? String ?? ""
+            let waypoints = [depStop, arrivalStop]
 
+            
             // TODO: This section relies on getting the fare prices from firebase and the line from the API first
             let line = Line(name: lineName, code: 232, destination: "De Anza", stops: [])
-            let waypoints = [Station]()
             let price = 2.50
 
             return RouteSegment(distanceInMeters: distance, departureTime: departureDate, arrivalTime: arrivalDate, polyline: polyline, travelMode: .transit, line: line, price: price, waypoints: waypoints)

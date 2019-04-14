@@ -17,9 +17,14 @@ class LineDetailView: UIView {
     private let endLabel = UILabel()
     private let endTimeLabel = UILabel()
     private let dotView = UIView()
+    private let color: UIColor
     
     init(with routeSegment: RouteSegment) {
+        self.color = .blue
         super.init(frame: CGRect.zero)
+        backgroundColor = .white
+        layer.backgroundColor = UIColor.white.cgColor
+        layer.cornerRadius = 20
         
         setupView(with: routeSegment)
     }
@@ -30,7 +35,7 @@ class LineDetailView: UIView {
         iconView.image = #imageLiteral(resourceName: "Bus")
         addSubview(iconView)
         iconView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(16)
+            make.top.equalToSuperview().offset(8)
             make.left.equalToSuperview().offset(12)
             make.width.height.equalTo(30)
         }
@@ -46,7 +51,7 @@ class LineDetailView: UIView {
         }
         
         // TODO: Adjust to new model
-        startLabel.text = routeSegment.waypoints.first?.name
+        startLabel.text = routeSegment.waypoints.first
         startLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         startLabel.textColor = .black
         addSubview(startLabel)
@@ -63,6 +68,7 @@ class LineDetailView: UIView {
         startTimeLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(startLabel)
             make.right.equalToSuperview().inset(15)
+            make.left.greaterThanOrEqualTo(startLabel.snp.right).offset(4)
         }
         
         destinationLabel.text = routeSegment.line?.destination
@@ -75,22 +81,51 @@ class LineDetailView: UIView {
         }
         
         // TODO: Adjust to new model
-        endLabel.text = routeSegment.waypoints.last?.name
+        endLabel.text = routeSegment.waypoints.last
+        endLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        endLabel.textColor = .black
+        addSubview(endLabel)
+        endLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(destinationLabel.snp.bottom).offset(30)
+            make.left.equalTo(startLabel)
+            make.bottom.equalToSuperview().inset(8)
+        }
+        
+        endTimeLabel.text = routeSegment.arrivalTime?.timeShort()
+        endTimeLabel.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        endTimeLabel.textColor = .gray
+        endTimeLabel.textAlignment = .right
+        addSubview(endTimeLabel)
+        endTimeLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(endLabel)
+            make.right.equalToSuperview().inset(15)
+            make.left.greaterThanOrEqualTo(endLabel.snp.right).offset(4)
+        }
         
         // TODO: Add fucntion to setup view with line color
-        dotView.backgroundColor = .blue
+        //dotView.backgroundColor = .yellow
         addSubview(dotView)
         dotView.snp.makeConstraints { (make) in
             make.top.equalTo(startLabel)
             make.width.equalTo(iconView)
             make.centerX.equalTo(iconView)
-            // Bottom equal to stopLabel
+            make.bottom.equalTo(endLabel)
         }
-        setupDotView(with: .blue)
+        
+        // Shadow
+        layer.applySketchShadow(color: .black, alpha: 0.18, x: -3, y: 6, blur: 25, spread: -10)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupDotView(with: color)
     }
     
     func setupDotView(with color: UIColor) {
-        
+        let width = dotView.bounds.width-16
+        dotView.layer.addOval(CGRect(x: 8, y: 0, width: width, height: width), color: color, width: 2.5)
+        dotView.layer.addLine(from: CGPoint(x: dotView.frame.width/2, y: width), to: CGPoint(x: dotView.frame.width/2, y: dotView.frame.height-width), color: color, width: 2.5, dashed: false)
+        dotView.layer.addOval(CGRect(x: 8, y: dotView.frame.height-width, width: width, height: width), color: color, width: 2.5)
     }
     
     required init?(coder aDecoder: NSCoder) {
