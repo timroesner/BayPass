@@ -1,3 +1,11 @@
+//
+//  DropDownMenu.swift
+//  BayPass
+//
+//  Created by Zhe Li on 3/5/19.
+//  Copyright © 2019 Tim Roesner. All rights reserved.
+//
+
 import SnapKit
 import UIKit
 
@@ -87,21 +95,21 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
             make.top.equalTo(border.snp.bottom)
             make.right.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.left.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(-15)
             //tableViewOpenConstraint = make.height.lessThanOrEqualTo(190).constraint
             switch tableView.numberOfRows(inSection: 0) {
             case 1:
-                tableViewOpenConstraint = make.height.equalTo(47.5).constraint
+                tableViewOpenConstraint = make.height.lessThanOrEqualTo(47.5).constraint
             case 2:
-                tableViewOpenConstraint = make.height.equalTo(95).constraint
+                tableViewOpenConstraint = make.height.lessThanOrEqualTo(95).constraint
             case 3:
-                tableViewOpenConstraint = make.height.equalTo(142.5).constraint
+                tableViewOpenConstraint = make.height.lessThanOrEqualTo(142.5).constraint
             default:
-                tableViewOpenConstraint = make.height.equalTo(190).constraint
+                tableViewOpenConstraint = make.height.lessThanOrEqualTo(190).constraint
             }
+            tableView.isScrollEnabled = tableView.numberOfRows(inSection: 0) <= 4 ? false : true
             tableViewClosedConstraint = make.height.equalTo(0).constraint
         }
-        tableView.isScrollEnabled = tableView.numberOfRows(inSection: 0) <= 4 ? false : true
         tableViewOpenConstraint?.deactivate()
         tableViewClosedConstraint?.activate()
     }

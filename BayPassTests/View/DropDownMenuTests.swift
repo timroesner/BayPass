@@ -32,7 +32,6 @@ class DropDownMenuTests: XCTestCase {
 
         let dropDown2 = DropDownMenu(title: "Payment method", items: ["Apple Pay", "Credit/Debit", "Paypal", "Venmo", "Cash"])
         XCTAssertEqual(dropDown2.tableView.numberOfRows(inSection: 0), 4)
-        XCTAssertEqual(dropDown2.tableView.isScrollEnabled, true)
         XCTAssertEqual(dropDown2.tableView.dataSource?.tableView(dropDown2.tableView, cellForRowAt: IndexPath(row: 1, section: 0)).textLabel?.text, "Paypal")
     }
 
