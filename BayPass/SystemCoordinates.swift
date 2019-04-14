@@ -48,6 +48,15 @@ extension System {
         let c38 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.241805, longitude: -121.987327), radius: 1500, max: 50)
         let c51 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.213054, longitude: -121.974911), radius: 1500, max: 50)
 
+        // Caltrain Stations
+        let c103 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.400300, longitude: -122.063873), radius: 1500, max: 50) // Sunnyvale Station
+        let c63 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.400300, longitude: -122.063873), radius: 1500, max: 50) // Mountain View Station
+        let c118 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.429200, longitude: -122.141900), radius: 500, max: 50) // California Avenue Train Station
+        let c111 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.447467, longitude: -122.171221), radius: 1500, max: 50) // Palo Alto Station Menlo Park Station
+        let c79 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.490823, longitude: -122.222716), radius: 1500, max: 50) // Redwood City Station
+        let c92 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.574715, longitude: -122.335136), radius: 1500, max: 50) // San Mateo Station
+
+        // San Jose
         coordinates.append(c48)
         coordinates.append(c44)
         coordinates.append(c45)
@@ -81,6 +90,14 @@ extension System {
         coordinates.append(c26)
         coordinates.append(c38)
         coordinates.append(c51)
+
+        // Caltrain Stations
+        coordinates.append(c103)
+        coordinates.append(c63)
+        coordinates.append(c118)
+        coordinates.append(c111)
+        coordinates.append(c79)
+        coordinates.append(c92)
 
         return coordinates
     }

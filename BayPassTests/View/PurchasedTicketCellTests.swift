@@ -26,7 +26,6 @@ class PurchasedTicketCellTests: XCTestCase {
         let dur = DateInterval(start: Date(timeIntervalSince1970: 60), duration: 30)
         let cost = 2.3
         let ticket = Ticket(name: name, duration: dur, price: cost, validOnAgency: agency)
-
         let cell = PurchasedTicketCell()
         cell.setup(with: ticket)
 

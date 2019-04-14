@@ -52,8 +52,9 @@ class StationSearchResultTableViewCell: UITableViewCell {
             let newStationName = station.name.dropLast(3)
             title.text = newStationName.description
         }
+        let noNewLines = station.lines.filterDuplicate { ($0.name) }
 
-        setLineView(with: station.lines)
+        setLineView(with: noNewLines)
     }
 
     private func setLineView(with lines: [Line]) {

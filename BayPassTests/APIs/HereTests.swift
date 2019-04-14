@@ -72,7 +72,7 @@ class HereTests: XCTestCase {
             ex.fulfill()
         }
         wait(for: [ex], timeout: 5)
-        XCTAssertEqual(result!, Agency.CalTrain)
+        XCTAssertEqual(result?.stringValue, "CalTrain")
     }
 
     func testGetAgencyFromStationIdFail() {

@@ -243,7 +243,6 @@ class Here {
         for departure in dep! {
             times.append(departure["time"] as! String)
         }
-
         return times
     }
 
