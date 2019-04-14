@@ -8,33 +8,33 @@
 
 import UIKit
 
-enum Agency: String, Codable {
-    case ACTransit = "AC " // AC Transit
+enum Agency: String, Codable, CaseIterable {
     case VTA = "SC" // VTA
     case BART = "BAR" // Bart
     case CalTrain = "CT" // Caltrain
-    case GoldenGateTransit = "GGT"
     case Muni = "SF" // San Francisco Municipal Transportation Agency
     case UnionCity = "UC" // Union City Transit
+    case SamTrans = "sam" // SamTrans
+    case GoldenGateTransit = "GGT"
+    case ACTransit = "AC " // AC Transit
     case ACE = "99" // Altamont Corridor Express
     case SolTrans = "247" // SolTrans
-    case SamTrans = "sam" // SamTrans
     case zero = "0" // Debugging
 
     var stringValue: String {
         switch self {
-        case .ACTransit:
-            return "AC Transit"
         case .VTA:
             return "VTA"
         case .BART:
             return "BART"
         case .CalTrain:
             return "CalTrain"
-        case .GoldenGateTransit:
-            return "Golden Gate Transit"
         case .Muni:
             return "Muni"
+        case .GoldenGateTransit:
+            return "Golden Gate Transit"
+        case .ACTransit:
+            return "AC Transit"
         case .UnionCity:
             return "Union City Transit"
         case .ACE:
@@ -64,6 +64,8 @@ enum Agency: String, Codable {
             return #imageLiteral(resourceName: "Bus")
         case .UnionCity:
             return #imageLiteral(resourceName: "Bus")
+        case .VTA:
+            return #imageLiteral(resourceName: "Tram")
         case .SamTrans:
             return #imageLiteral(resourceName: "Bus")
         case .SolTrans:
