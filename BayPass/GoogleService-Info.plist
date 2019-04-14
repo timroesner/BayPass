@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.timroesner.BayPass</string>
+	<string>com.timroesner.BayPass-1</string>
 	<key>PROJECT_ID</key>
 	<string>baypass-test-54b4c</string>
 	<key>STORAGE_BUCKET</key>
