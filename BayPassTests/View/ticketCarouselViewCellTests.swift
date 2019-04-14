@@ -20,7 +20,7 @@ class ticketCarouselViewCellTests: XCTestCase {
     }
 
     func testSetup() {
-        let ticketView = TicketView(agency: "VTA", icon: UIImage(named: "Tram")!, cornerRadius: 8)
+        let ticketView = TicketView(agency: Agency.VTA, icon: UIImage(named: "Tram")!, cornerRadius: 8)
 
         let cell = TicketCarouselViewCell()
         cell.setup(with: ticketView)

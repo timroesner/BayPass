@@ -16,7 +16,7 @@ extension TicketViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = ticketCarouselView.dequeueReusableCell(withReuseIdentifier: ticketCarouselViewCellID, for: indexPath) as! TicketCarouselViewCell
         cell.backgroundColor = .white
-        cell.setup(with: TicketView(agency: agencies[indexPath.row].stringValue, icon: agencies[indexPath.row].getIcon(), cornerRadius: 12))
+        cell.setup(with: TicketView(agency: agencies[indexPath.row], icon: agencies[indexPath.row].getIcon(), cornerRadius: 12))
         return cell
     }
 

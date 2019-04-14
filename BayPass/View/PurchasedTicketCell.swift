@@ -9,7 +9,7 @@ import SnapKit
 import UIKit
 
 class PurchasedTicketCell: UITableViewCell {
-    var ticketView = TicketView(agency: Agency.VTA.stringValue, icon: Agency.VTA.getIcon(), cornerRadius: 8)
+    var ticketView = TicketView(agency: Agency.VTA, icon: Agency.VTA.getIcon(), cornerRadius: 8)
     let nameLbl = UILabel()
     let durationLbl = UILabel()
     let background = UILabel()
@@ -20,7 +20,7 @@ class PurchasedTicketCell: UITableViewCell {
     }
 
     func setup(with ticket: Ticket) {
-        ticketView = TicketView(agency: ticket.validOnAgency.stringValue, icon: ticket.validOnAgency.getIcon(), cornerRadius: 8)
+        ticketView = TicketView(agency: ticket.validOnAgency, icon: ticket.validOnAgency.getIcon(), cornerRadius: 8)
         addSubview(ticketView)
         ticketView.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(60)

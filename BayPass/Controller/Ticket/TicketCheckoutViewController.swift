@@ -25,7 +25,7 @@ class TicketCheckoutViewController: UIViewController {
 
         title = agency.stringValue
         navigationController?.navigationBar.prefersLargeTitles = false
-        setUpTicketView(newTicketView: TicketView(agency: agency.stringValue, icon: agency.getIcon(), cornerRadius: 12))
+        setUpTicketView(newTicketView: TicketView(agency: agency, icon: agency.getIcon(), cornerRadius: 12))
         setupDropDowns()
     }
 

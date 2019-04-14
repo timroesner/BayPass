@@ -18,12 +18,10 @@ enum Agency: String, Codable, CaseIterable {
     case ACTransit = "AC " // AC Transit
     case ACE = "99" // Altamont Corridor Express
     case SolTrans = "247" // SolTrans
-    case SamTrans = "sam" // SamsTrans
     case zero = "0" // Debugging
 
     var stringValue: String {
         switch self {
-            "AC Transit"
         case .VTA:
             return "VTA"
         case .BART:
