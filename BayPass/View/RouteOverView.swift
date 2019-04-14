@@ -14,20 +14,20 @@ class RouteOverView: UIView {
     private let timeLabel = UILabel()
     private let priceLabel = UILabel()
     private let segmentView = UIView()
-    
+
     init(with route: Route) {
         super.init(frame: CGRect.zero)
-        
+
         layer.backgroundColor = UIColor.white.cgColor
         layer.cornerRadius = 14
-        
+
         addSubview(durationLabel)
         durationLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         durationLabel.text = route.departureTime.duration(to: route.arrivalTime)
         durationLabel.snp.makeConstraints { make in
             make.left.top.equalToSuperview().offset(16)
         }
-        
+
         addSubview(timeLabel)
         timeLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         timeLabel.textColor = UIColor().lightGrey
@@ -36,7 +36,7 @@ class RouteOverView: UIView {
             make.top.equalTo(durationLabel.snp.bottom).offset(2)
             make.left.equalTo(durationLabel)
         }
-        
+
         addSubview(priceLabel)
         priceLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         priceLabel.text = route.getPrice()
@@ -54,30 +54,30 @@ class RouteOverView: UIView {
             make.right.greaterThanOrEqualToSuperview().inset(16)
         }
     }
-    
+
     private func setupLineView(with route: Route) -> UIView {
         let lineView = UIView()
         let totalDuration = route.arrivalTime.timeIntervalSince(route.departureTime)
-        
+
         let multiplier = totalDuration / 3600
         let maxWidth = Double(UIScreen.main.bounds.width - 74)
         let viewWidth = min((maxWidth / 1.5) * multiplier, maxWidth)
-        
+
         var labels = [UILabel]()
-        
+
         for segment in route.segments {
             let lineLabel = UILabel()
             let lineMultiplier = Double(segment.durationInMinutes) / (totalDuration / 60)
             let lineWidth = viewWidth * lineMultiplier - 2
             lineLabel.layer.cornerRadius = 4
-            
+
             if segment.travelMode == .transit {
                 // TODO: Replace with actual line color
                 lineLabel.layer.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             } else {
                 lineLabel.layer.backgroundColor = UIColor(red: 216, green: 216, blue: 216).cgColor
             }
-            
+
             if lineWidth > 33 {
                 if lineWidth > 74, segment.travelMode == .transit {
                     let canvas = UIView()
@@ -144,7 +144,7 @@ class RouteOverView: UIView {
         }
         return lineView
     }
-    
+
     required init?(coder _: NSCoder) {
         print("NSCoder not supported in RouteOverView")
         return nil

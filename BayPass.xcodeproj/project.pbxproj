@@ -108,7 +108,6 @@
 		6ABF983B218250B1006878E4 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9836218250B0006878E4 /* Line.swift */; };
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
 		702CBA7522429C9200D5F1F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 702CBA7422429C9200D5F1F7 /* GoogleService-Info.plist */; };
-		7032A023224D4FFD002B9763 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7032A022224D4FFD002B9763 /* Location.swift */; };
 		70B86430223FA27000EEA029 /* GoogleFirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B8642F223FA27000EEA029 /* GoogleFirestore.swift */; };
 		70B864382240BE3800EEA029 /* FirestoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B864372240BE3800EEA029 /* FirestoreTests.swift */; };
 		70F72F652230417D00A8BC0A /* BackButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F642230417D00A8BC0A /* BackButtonUITests.swift */; };
@@ -252,7 +251,6 @@
 		6AE3578513C59E0ED24985ED /* Pods-BayPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BayPass/Pods-BayPass.debug.xcconfig"; sourceTree = "<group>"; };
 		6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		702CBA7422429C9200D5F1F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7032A022224D4FFD002B9763 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		70B8642F223FA27000EEA029 /* GoogleFirestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleFirestore.swift; sourceTree = "<group>"; };
 		70B864372240BE3800EEA029 /* FirestoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreTests.swift; sourceTree = "<group>"; };
 		70F72F642230417D00A8BC0A /* BackButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonUITests.swift; sourceTree = "<group>"; };
@@ -544,7 +542,6 @@
 				22C331B82186B80800836173 /* RouteSegment.swift */,
 				22C331BA2186B88000836173 /* TravelMode.swift */,
 				6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */,
-				7032A022224D4FFD002B9763 /* Location.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -976,7 +973,6 @@
 				EC8CF4B3222F56BF0018E935 /* DropDownMenu.swift in Sources */,
 				224662E92229059500E86C66 /* SVCTableView.swift in Sources */,
 				2227C3EA219C198A00053294 /* CAGradientLayer.swift in Sources */,
-				7032A023224D4FFD002B9763 /* Location.swift in Sources */,
 				2262C31621829E4A000586EE /* Collection.swift in Sources */,
 				2262C31821829F79000586EE /* String.swift in Sources */,
 				22C331BB2186B88000836173 /* TravelMode.swift in Sources */,

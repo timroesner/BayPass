@@ -12,7 +12,6 @@ import FirebaseFirestore
 import Foundation
 
 class GoogleFirestore {
-
     static let shared = GoogleFirestore()
 
     func configure() {

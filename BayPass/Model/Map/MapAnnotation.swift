@@ -16,14 +16,14 @@ class MapAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var icon: UIImage
     var color: UIColor
-    
+
     init(title: String, coordinate: CLLocationCoordinate2D, icon: UIImage, color: UIColor) {
         self.title = title
         self.coordinate = coordinate
         self.icon = icon
         self.color = color
     }
-    
+
     init(fromScooter: Scooter) {
         title = "\(fromScooter.company.name) Scooter"
         if fromScooter.battery != "" {
@@ -33,14 +33,14 @@ class MapAnnotation: NSObject, MKAnnotation {
         icon = fromScooter.company.icon
         color = fromScooter.company.color
     }
-    
+
     init(fromStation: Station) {
         title = fromStation.name
         coordinate = fromStation.location.coordinate
         icon = fromStation.getIcon()
         color = fromStation.color
     }
-    
+
     init(fromBikeDock: BikeDock) {
         title = fromBikeDock.name
         coordinate = fromBikeDock.location.coordinate

@@ -9,19 +9,18 @@
 import UIKit
 
 struct Line: Equatable {
-
     var name: String
     var code: Int
     var destination: String
     var stops: [Station]
-    
+
     init(name: String, code: Int, destination: String, stops: [Station]) {
         self.name = name
         self.code = code
         self.destination = destination
         self.stops = stops
     }
-    
+
     func getStops() -> [Station] {
         return stops
     }

@@ -31,6 +31,7 @@ class FirestoreTests: XCTestCase {
             expectation.fulfill()
         })
         waitForExpectations(timeout: 5, handler: nil)
+        XCTAssert(!tickets.isEmpty)
     }
 
 }
