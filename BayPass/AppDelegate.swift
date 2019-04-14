@@ -10,6 +10,9 @@ import Firebase
 import Stripe
 import UIKit
 
+var tickets = [Agency: [Ticket]]()
+var passes = [Agency: [Pass]]()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -26,6 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Stripe
         STPPaymentConfiguration.shared().publishableKey = Credentials().stripeKey
         STPPaymentConfiguration.shared().appleMerchantIdentifier = Credentials().merchantId
+
+        // Get Tickets
+        for agency in Agency.allCases {
+            GoogleFirestore.shared.getTicketList(agency: agency) {
+                tickets[agency] = $0
+                passes[agency] = $1
+            }
+        }
 
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
