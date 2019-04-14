@@ -108,10 +108,9 @@ class HereTests: XCTestCase {
     func testGetLine() {
         let ex = expectation(description: "Here for getting Line from a Station ID")
         let stationId: Int = 718_310_131
-        let time = "2019-06-24T08%3A00%3A00"
 
         var results: [Line]?
-        here.getLine(stationId: stationId, time: time) { resp in
+        here.getLine(stationId: stationId) { resp in
             results = resp
             ex.fulfill()
         }
@@ -123,7 +122,7 @@ class HereTests: XCTestCase {
     func testGetDepartureTimes() {
         let ex = expectation(description: "Here for getting Line from a Station ID")
         let stationId: Int = 718_310_131
-        let time = here.getCurrentTimetoFormattedStringForHereAPI()
+        let time = Date().getCurrentTimetoFormattedStringForHereAPI()
 
         var results: [String]?
         here.getDepartureTimes(stationId: stationId, time: time) { resp in

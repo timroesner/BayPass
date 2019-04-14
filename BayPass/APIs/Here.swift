@@ -12,7 +12,6 @@ import MapKit
 
 class Here {
     static let shared = Here()
-    let time = getCurrentTimetoFormattedStringForHereAPI
     private init() {}
 
     // MARK: Get Requests for Here
@@ -25,7 +24,7 @@ class Here {
             "lang": "en",
             "stnIds": stationId,
             "max": 50,
-            "time": self.time,
+            "time": Date().getCurrentTimetoFormattedStringForHereAPI(),
         ] as [String: Any]
 
         var results = Agency.zero
@@ -114,7 +113,7 @@ class Here {
         }
     }
 
-    func getLine(stationId: Int, time: String, completion: @escaping ([Line]) -> Void) {
+    func getLine(stationId: Int, completion: @escaping ([Line]) -> Void) {
         let param = [
             "app_id": Credentials().hereAppID,
             "app_code": Credentials().hereAppCode,
@@ -129,7 +128,7 @@ class Here {
                 let linesJson = resJson["LineInfos"] as? [String: Any],
                 let lineJson = linesJson["LineInfo"] as? [[String: Any]] {
                 for line in lineJson {
-                    if let line = self.parseLine(from: line, stationID: stationId, time: time) {
+                    if let line = self.parseLine(from: line, stationID: stationId) {
                         results.append(line)
                     }
                 }
@@ -148,7 +147,7 @@ class Here {
             "lang": "en",
             "stnIds": stationId,
             "max": 2,
-            "time": self.time,
+            "time": Date().getCurrentTimetoFormattedStringForHereAPI(),
         ] as [String: Any]
 
         var results: Agency = Agency.zero
@@ -171,14 +170,14 @@ class Here {
         }
     }
 
-    func getDepartureTimes(stationId: Int, time: String, completion: @escaping ([String]) -> Void) {
+    func getDepartureTimes(stationId: Int, time _: String, completion: @escaping ([String]) -> Void) {
         let param = [
             "app_id": Credentials().hereAppID,
             "app_code": Credentials().hereAppCode,
             "lang": "en",
             "stnIds": stationId,
             "max": 1,
-            "time": time,
+            "time": Date().getCurrentTimetoFormattedStringForHereAPI(),
         ] as [String: Any]
         var results = [String]()
         Alamofire.request("https://transit.api.here.com/v3/multiboard/by_stn_ids.json?", method: .get, parameters: param).responseJSON { response in
@@ -276,7 +275,7 @@ class Here {
         return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location)
     }
 
-    func parseLine(from json: [String: Any], stationID: Int, time _: String) -> Line? {
+    func parseLine(from json: [String: Any], stationID: Int) -> Line? {
         let tranport = json["Transport"] as? [String: Any]
         let name = tranport?["name"] as? String
         let destination = tranport?["dir"] as? String
@@ -309,18 +308,5 @@ class Here {
         default:
             return TransitMode.bus
         }
-    }
-
-    func getCurrentTimetoFormattedStringForHereAPI() -> String {
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        var formattedDate = format.string(from: date)
-        var dateFormatArr = formattedDate.components(separatedBy: " ")
-        let dateString = dateFormatArr[0]
-        let timeString = dateFormatArr[1]
-
-        formattedDate = dateString + "T" + timeString
-        return formattedDate
     }
 }
