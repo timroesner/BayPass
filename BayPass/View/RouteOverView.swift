@@ -14,12 +14,15 @@ class RouteOverView: UIView {
     private let timeLabel = UILabel()
     private let priceLabel = UILabel()
     private let segmentView = UIView()
+    let route: Route
 
     init(with route: Route) {
+        self.route = route
         super.init(frame: CGRect.zero)
 
         layer.backgroundColor = UIColor.white.cgColor
         layer.cornerRadius = 14
+        layer.applySketchShadow(color: .black, alpha: 0.06, x: 0, y: 2, blur: 13, spread: 0)
 
         addSubview(durationLabel)
         durationLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
@@ -69,8 +72,9 @@ class RouteOverView: UIView {
             let lineLabel = UILabel()
             let lineMultiplier = Double(segment.durationInMinutes) / (totalDuration / 60)
             let lineWidth = viewWidth * lineMultiplier - 2
+            let nameWillFit = (lineWidth - Double((segment.line?.name.count ?? 0) * 5) - 30) > 4.0
             lineLabel.layer.cornerRadius = 4
-
+            
             if segment.travelMode == .transit {
                 // TODO: Replace with actual line color
                 lineLabel.layer.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
@@ -79,7 +83,7 @@ class RouteOverView: UIView {
             }
 
             if lineWidth > 33 {
-                if lineWidth > 74, segment.travelMode == .transit {
+                if lineWidth > 74, segment.travelMode == .transit, nameWillFit {
                     let canvas = UIView()
                     let icon = UIImageView()
                     icon.tintColor = .white
