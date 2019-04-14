@@ -65,8 +65,6 @@ class GoogleFirestore {
                     }
                 }
             }
-            print(tickets)
-            print(passes)
             completion((tickets, passes))
         }
     }
