@@ -12,7 +12,6 @@ import FirebaseFirestore
 import Foundation
 
 class GoogleFirestore {
-    private init() {}
 
     static let shared = GoogleFirestore()
 
