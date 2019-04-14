@@ -91,13 +91,13 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
             //tableViewOpenConstraint = make.height.lessThanOrEqualTo(190).constraint
             switch tableView.numberOfRows(inSection: 0) {
             case 1:
-                tableViewOpenConstraint = make.height.lessThanOrEqualTo(47.5).constraint
+                tableViewOpenConstraint = make.height.equalTo(47.5).constraint
             case 2:
-                tableViewOpenConstraint = make.height.lessThanOrEqualTo(95).constraint
+                tableViewOpenConstraint = make.height.equalTo(95).constraint
             case 3:
-                tableViewOpenConstraint = make.height.lessThanOrEqualTo(142.5).constraint
+                tableViewOpenConstraint = make.height.equalTo(142.5).constraint
             default:
-                tableViewOpenConstraint = make.height.lessThanOrEqualTo(190).constraint
+                tableViewOpenConstraint = make.height.equalTo(190).constraint
             }
             tableViewClosedConstraint = make.height.equalTo(0).constraint
         }

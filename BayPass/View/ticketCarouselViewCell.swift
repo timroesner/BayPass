@@ -9,7 +9,7 @@
 import Foundation
 import SnapKit
 
-class ticketCarouselViewCell: UICollectionViewCell {
+class TicketCarouselViewCell: UICollectionViewCell {
     var ticketView = TicketView(agency: "ACE", icon: UIImage(named: "CalTrain")!, cornerRadius: 12)
 
     override init(frame: CGRect) {
