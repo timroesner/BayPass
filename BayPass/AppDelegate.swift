@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Stripe
         STPPaymentConfiguration.shared().publishableKey = Credentials().stripeKey
         STPPaymentConfiguration.shared().appleMerchantIdentifier = Credentials().merchantId
+        
+        let _ = TicketManager.shared
 
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
