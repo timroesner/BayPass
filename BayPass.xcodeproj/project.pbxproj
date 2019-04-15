@@ -202,7 +202,7 @@
 		2262C31B2182A3D1000586EE /* MKPolyline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPolyline.swift; sourceTree = "<group>"; };
 		2262C31D2187ED24000586EE /* RouteSegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentTests.swift; sourceTree = "<group>"; };
 		2262C31F2187FD68000586EE /* MapAnnotationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationTests.swift; sourceTree = "<group>"; };
-		226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
+		226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewControllerTests.swift; path = ../MapViewControllerTests.swift; sourceTree = "<group>"; };
 		226697DE22396F24005B82EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		226697E02239D9C1005B82EC /* CoderInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderInitTests.swift; sourceTree = "<group>"; };
 		226697E2223A2750005B82EC /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
@@ -250,8 +250,8 @@
 		6A0A9BEF225734B50093CA57 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = BayPass/Model/Map/MapAnnotation.swift; sourceTree = SOURCE_ROOT; };
 		6A18FDBA2235AFB7002047B9 /* HereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HereTests.swift; sourceTree = "<group>"; };
-		6A221D6B224DB37A00A36175 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
-		6A39E6492259734200F6BE0C /* SystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemTests.swift; sourceTree = "<group>"; };
+		6A221D6B224DB37A00A36175 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = System.swift; path = ../../System.swift; sourceTree = "<group>"; };
+		6A39E6492259734200F6BE0C /* SystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SystemTests.swift; path = ../../SystemTests.swift; sourceTree = "<group>"; };
 		6A39E64B2259D07400F6BE0C /* RouteOverViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverViewTests.swift; sourceTree = "<group>"; };
 		6A3F2CB521816B46006DA755 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		6A5B7A10225C4CC50009D89F /* HereDepTime.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HereDepTime.json; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		6AADB1D9226282F400290A83 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		6AADB1DB226285B400290A83 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 		6AAFCD1921854723004021E8 /* ScooterCompanyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScooterCompanyTests.swift; sourceTree = "<group>"; };
-		6AB22BEA225FF05E0073F023 /* SystemCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCoordinates.swift; sourceTree = "<group>"; };
+		6AB22BEA225FF05E0073F023 /* SystemCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SystemCoordinates.swift; path = ../../SystemCoordinates.swift; sourceTree = "<group>"; };
 		6AB6ECFB21867F1700A81302 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipperViewController.swift; sourceTree = "<group>"; };
 		6AB6ED012186808E00A81302 /* AgencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyTests.swift; sourceTree = "<group>"; };
@@ -354,8 +354,6 @@
 			children = (
 				22B40EFD2258456C009520C6 /* BayPass.entitlements */,
 				22049D9D214C9DF0007FF904 /* AppDelegate.swift */,
-				6A221D6B224DB37A00A36175 /* System.swift */,
-				6AB22BEA225FF05E0073F023 /* SystemCoordinates.swift */,
 				227BBE6A21B4C78000D3169E /* APIs */,
 				2262C31021829BC6000586EE /* Extensions */,
 				22B32244224DCF6800F2508A /* Controls */,
@@ -378,9 +376,7 @@
 				6AB6ED0B2186816100A81302 /* Model */,
 				22B83C5F224EAF5C00D1D64E /* Controller */,
 				2262C31321829CE9000586EE /* ExtensionsTests.swift */,
-				226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */,
 				22049DB4214C9DF2007FF904 /* Info.plist */,
-				6A39E6492259734200F6BE0C /* SystemTests.swift */,
 			);
 			path = BayPassTests;
 			sourceTree = "<group>";
@@ -545,6 +541,7 @@
 		22B83C5F224EAF5C00D1D64E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				226697DC2238B0E7005B82EC /* MapViewControllerTests.swift */,
 				22A4E58F22597F0400DF8AD9 /* ClipperManagerTests.swift */,
 				22B3225722533CF100F2508A /* ClipperViewControllerTests.swift */,
 				22DB02412254579F00B8D600 /* ClipperOnBoardingTests.swift */,
@@ -580,6 +577,8 @@
 				22C331B82186B80800836173 /* RouteSegment.swift */,
 				22C331BA2186B88000836173 /* TravelMode.swift */,
 				6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */,
+				6A221D6B224DB37A00A36175 /* System.swift */,
+				6AB22BEA225FF05E0073F023 /* SystemCoordinates.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -629,6 +628,7 @@
 				6AB6ED0F2186819900A81302 /* RouteTests.swift */,
 				2262C31D2187ED24000586EE /* RouteSegmentTests.swift */,
 				2262C31F2187FD68000586EE /* MapAnnotationTests.swift */,
+				6A39E6492259734200F6BE0C /* SystemTests.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";

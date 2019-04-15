@@ -26,5 +26,6 @@ class RouteOverViewTests: XCTestCase {
         let testRoute = Route(departureTime: Date().addingTimeInterval(1600), arrivalTime: Date().addingTimeInterval(5600), segments: [segment1, segment2, segment3])
 
         let view = RouteOverView(with: testRoute)
+        XCTAssertNotNil(view)
     }
 }

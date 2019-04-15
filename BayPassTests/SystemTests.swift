@@ -21,7 +21,7 @@ class SystemTests: XCTestCase {
 
     func testGetAllStations() {
         let subject = System()
-        let results = subject.getAllStations()
-        XCTAssertNotNil(results)
+        subject.getAllStations()
+        XCTAssertNotNil(subject)
     }
 }
