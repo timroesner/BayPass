@@ -3,12 +3,15 @@ import UIKit
 
 class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     var tableView = UITableView()
-    var tableViewOpenConstraint: Constraint?
-    var tableViewClosedConstraint: Constraint?
     var titleLbl = UILabel()
     var selectedItemButton = UILabel()
     let arrow = UIImageView(image: #imageLiteral(resourceName: "arrow"))
     var isOpen = false
+    
+    var delegate: DropDownDelegate?
+    var tableViewOpenConstraint: Constraint?
+    var tableViewClosedConstraint: Constraint?
+    
     private var dropDownOptions = [String]()
     private var selectedItem: String = "" {
         didSet {
@@ -90,6 +93,8 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
             make.left.equalToSuperview().offset(-10)
             //tableViewOpenConstraint = make.height.lessThanOrEqualTo(190).constraint
             switch tableView.numberOfRows(inSection: 0) {
+            case 0:
+                tableViewOpenConstraint = make.height.equalTo(0).constraint
             case 1:
                 tableViewOpenConstraint = make.height.equalTo(47.5).constraint
             case 2:
@@ -113,7 +118,7 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 
     func expandAnimation() {
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        tableView.setContentOffset(.zero, animated: false)
         tableViewOpenConstraint?.activate()
         tableViewClosedConstraint?.deactivate()
         layoutIfNeeded()
@@ -154,6 +159,7 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         handleTap()
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.didChangeSelectedItem(self)
     }
 
     required init?(coder _: NSCoder) {
