@@ -83,6 +83,9 @@
 		22F09753220683FC009881F8 /* BART.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F09752220683FC009881F8 /* BART.swift */; };
 		22F097552206868E009881F8 /* BartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F097542206868E009881F8 /* BartTests.swift */; };
 		22FF60222263264600AEC7C7 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF60212263264600AEC7C7 /* TicketViewController.swift */; };
+		22FF60262263EFC800AEC7C7 /* TicketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF60252263EFC800AEC7C7 /* TicketManager.swift */; };
+		22FF60282263FBF000AEC7C7 /* DropDownDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF60272263FBF000AEC7C7 /* DropDownDelegate.swift */; };
+		22FF602A2263FC2B00AEC7C7 /* TCVCDropDownDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF60292263FC2B00AEC7C7 /* TCVCDropDownDelegate.swift */; };
 		3F2A3909C8E024CD3AE14311 /* Pods_BayPassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9E10235387E04CAF9B6BB9 /* Pods_BayPassTests.framework */; };
 		6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A00918D217EAB1D0087A32B /* BikeDock.swift */; };
 		6A009190217EACCD0087A32B /* Scooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A00918F217EACCD0087A32B /* Scooter.swift */; };
@@ -225,6 +228,9 @@
 		22F09752220683FC009881F8 /* BART.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BART.swift; sourceTree = "<group>"; };
 		22F097542206868E009881F8 /* BartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartTests.swift; sourceTree = "<group>"; };
 		22FF60212263264600AEC7C7 /* TicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		22FF60252263EFC800AEC7C7 /* TicketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketManager.swift; sourceTree = "<group>"; };
+		22FF60272263FBF000AEC7C7 /* DropDownDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDelegate.swift; sourceTree = "<group>"; };
+		22FF60292263FC2B00AEC7C7 /* TCVCDropDownDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCVCDropDownDelegate.swift; sourceTree = "<group>"; };
 		4D4F7368CE1FD8AB6E3F8FE1 /* Pods-BayPassTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayPassTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayPassTests/Pods-BayPassTests.release.xcconfig"; sourceTree = "<group>"; };
 		62B2E1F74981CC584A06A053 /* libPods-BayPassUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BayPassUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A00918D217EAB1D0087A32B /* BikeDock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDock.swift; sourceTree = "<group>"; };
@@ -499,6 +505,7 @@
 			children = (
 				22B32245224DCF8D00F2508A /* BayPassButton.swift */,
 				EC8CF4B2222F56BF0018E935 /* DropDownMenu.swift */,
+				22FF60272263FBF000AEC7C7 /* DropDownDelegate.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -522,6 +529,7 @@
 				2245E8842263234900A3F088 /* TVCCollectionView.swift */,
 				2245E8862263238400A3F088 /* TVCTableView.swift */,
 				70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */,
+				22FF60292263FC2B00AEC7C7 /* TCVCDropDownDelegate.swift */,
 			);
 			path = Ticket;
 			sourceTree = "<group>";
@@ -563,6 +571,7 @@
 				6A009195217EAF1A0087A32B /* ClipperCard.swift */,
 				6A009197217EAF800087A32B /* Pass.swift */,
 				6A009199217EAFFE0087A32B /* Ticket.swift */,
+				22FF60252263EFC800AEC7C7 /* TicketManager.swift */,
 			);
 			path = Ticket;
 			sourceTree = "<group>";
@@ -903,6 +912,7 @@
 				224662E72229031300E86C66 /* MVCSearchDelegate.swift in Sources */,
 				224662F5222B4BE600E86C66 /* UIViewController.swift in Sources */,
 				2235A97321B8F672009EDAC7 /* Credentials.swift in Sources */,
+				22FF60282263FBF000AEC7C7 /* DropDownDelegate.swift in Sources */,
 				2262C31221829BE3000586EE /* UIColor.swift in Sources */,
 				2262C31C2182A3D1000586EE /* MKPolyline.swift in Sources */,
 				6A009193217EAD820087A32B /* ScooterCompany.swift in Sources */,
@@ -968,7 +978,9 @@
 				6ABF983C218250B1006878E4 /* Station.swift in Sources */,
 				223AF97222278965009EA730 /* DestinationSearchResultTableViewCell.swift in Sources */,
 				22B53436222D1CB4007F4098 /* MVCMapDelegate.swift in Sources */,
+				22FF602A2263FC2B00AEC7C7 /* TCVCDropDownDelegate.swift in Sources */,
 				224662F9222B5A0B00E86C66 /* CustomTextField.swift in Sources */,
+				22FF60262263EFC800AEC7C7 /* TicketManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
