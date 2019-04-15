@@ -121,7 +121,7 @@
 		6AFF633C2242C47400266B7E /* HereAgency.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF633A2242C47400266B7E /* HereAgency.json */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
-		B42F9F74301CC90D63BABE7C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B42F9F74301CC90D63BABE7C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		BB84D07A3E315ACA002D5BB9 /* libPods-BayPassUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6126A94A89582D885FCFDB1 /* libPods-BayPassUITests.a */; };
 		BE6080868E601733A9CD241E /* Pods_BayPassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BC65A92B9C2C3A53739B2B /* Pods_BayPassTests.framework */; };
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
@@ -311,7 +311,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B42F9F74301CC90D63BABE7C /* BuildFile in Frameworks */,
+				B42F9F74301CC90D63BABE7C /* (null) in Frameworks */,
 				BE6080868E601733A9CD241E /* Pods_BayPassTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1215,7 +1215,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BayPass/BayPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1236,7 +1236,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BayPass/BayPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
