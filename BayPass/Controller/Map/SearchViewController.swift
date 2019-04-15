@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
 
     let stationCellId = "station"
     let destinationCellId = "destination"
-    let subject = Station(name: "Test", code: 2, transitModes: [TransitMode.bart], lines: [Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)], location: CLLocation(latitude: 0.0, longitude: 0.0))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

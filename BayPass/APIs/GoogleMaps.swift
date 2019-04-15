@@ -11,7 +11,6 @@ import Foundation
 import MapKit
 
 class GoogleMaps {
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
     func getRoutes(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D, departureTime: Date = Date(), completion: @escaping ([Route]) -> Void) {
         let params = [
@@ -63,7 +62,6 @@ class GoogleMaps {
     }
 
     func parseSegment(from json: [String: Any]) -> RouteSegment? {
-        var agencyName = Agency.zero.stringValue
         guard let distanceJson = json["distance"] as? [String: Any],
             let distance = distanceJson["value"] as? Int,
             let polylineJson = json["polyline"] as? [String: Any],
@@ -94,6 +92,7 @@ class GoogleMaps {
             let lineName = lineJson["short_name"] as? String ?? ""
             let destinationName = lineJson["name"] as? String ?? ""
 
+            var agencyName = ""
             if let agencies = lineJson["agencies"] as? [[String: Any]] {
                 agencyName = agencies[0]["name"] as? String ?? ""
             }

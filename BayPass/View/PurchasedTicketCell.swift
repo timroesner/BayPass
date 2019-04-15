@@ -51,7 +51,7 @@ class PurchasedTicketCell: UITableViewCell {
         nameLbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         nameLbl.snp.makeConstraints { (make) -> Void in
             if ticket.duration == nil {
-                make.centerY.equalToSuperview().priorityLow()
+                make.centerY.equalToSuperview().priority(.low)
             } else {
                 make.top.equalTo(durationLbl.snp.bottom).offset(1)
             }
