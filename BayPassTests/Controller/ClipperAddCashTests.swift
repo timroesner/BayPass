@@ -91,11 +91,11 @@ class ClipperAddCashTests: XCTestCase {
 
         let expectation = self.expectation(description: "async")
         var statusResult = PKPaymentAuthorizationStatus(rawValue: 0)
-        vc.paymentAuthorizationViewController(paymentVC, didAuthorizePayment: payment) { status in
-            statusResult = status
+        vc.paymentAuthorizationViewController(paymentVC, didAuthorizePayment: payment) {
+            statusResult = $0
             expectation.fulfill()
         }
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
         XCTAssertEqual(statusResult, PKPaymentAuthorizationStatus.failure)
     }
 }
