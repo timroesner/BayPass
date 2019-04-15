@@ -16,12 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         window = UIWindow()
         window?.makeKeyAndVisible()
         let vc = TabViewController()
-
         window?.rootViewController = vc
-        transitSystem.getAllStations()
+        
+        //transitSystem.getAllStations()
 
         // Stripe
         STPPaymentConfiguration.shared().publishableKey = Credentials().stripeKey
