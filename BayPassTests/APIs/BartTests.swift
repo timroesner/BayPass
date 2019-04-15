@@ -29,5 +29,16 @@ class BartTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertEqual(result, 12.35)
     }
+    
+    func testGetStations() {
+        let expectation = self.expectation(description: "async")
+        var result = [String: String]()
+        BART().getAllStations( completion: {
+            result = $0
+            expectation.fulfill()
+        })
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssert(!result.isEmpty)
+    }
 
 }
