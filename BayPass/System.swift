@@ -16,10 +16,10 @@ class System {
     var allLines = [String: Line]()
     private var coordinates = [Coordinates]()
 
-    func getAllStations(completion: @escaping (Bool) -> Void) {
+    func getAllStations() {
         coordinates = getAllCoordinates()
         let group = DispatchGroup()
-        
+
         for c in coordinates {
             group.enter()
             here.getStationsNearby(center: c.center, radius: c.radius, max: c.max) { stations in
@@ -38,7 +38,6 @@ class System {
         }
         group.notify(queue: .main) {
             self.allStations.append(contentsOf: self.allStationsDict.values)
-            completion(true)
         }
     }
 
