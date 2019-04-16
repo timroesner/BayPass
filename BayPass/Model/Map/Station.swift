@@ -16,9 +16,6 @@ struct Station {
     var lines: [Line]
     var location: CLLocation
 
-    // Only used for the MapAnnotation
-    var color = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
-
     init(name: String, code: Int, transitModes: [TransitMode], lines: [Line], location: CLLocation) {
         self.name = name
         self.code = code
@@ -36,6 +33,19 @@ struct Station {
             return .lightRail
         } else {
             return .bus
+        }
+    }
+    
+    func getColor() -> UIColor {
+        switch getPrimaryTransitMode() {
+        case .calTrain:
+            return #colorLiteral(red: 0.8500424027, green: 0.2757331729, blue: 0.2237280607, alpha: 1)
+        case .bart:
+            return #colorLiteral(red: 0.2190811634, green: 0.5006315708, blue: 0.7984559536, alpha: 1)
+        case .lightRail:
+            return #colorLiteral(red: 0.2022112012, green: 0.5027229786, blue: 0.6945596933, alpha: 1)
+        case .bus:
+            return #colorLiteral(red: 0.2284308672, green: 0.5924664736, blue: 0.8979970217, alpha: 1)
         }
     }
 
