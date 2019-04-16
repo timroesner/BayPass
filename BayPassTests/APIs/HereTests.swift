@@ -62,32 +62,6 @@ class HereTests: XCTestCase {
         XCTAssertEqual(result!, [0])
     }
 
-    func testGetAgencyFromStationId() {
-        let ex = expectation(description: "Here for getting Agency")
-        let stationId: Int = 718_610_044
-        var result: Agency?
-
-        here.getAgencyFromStationId(stationId: stationId) { resp in
-            result = resp
-            ex.fulfill()
-        }
-
-        wait(for: [ex], timeout: 15)
-        XCTAssertEqual(result!.stringValue, "CalTrain")
-    }
-
-    func testGetAgencyFromStationIdFail() {
-        let ex = expectation(description: "Here for getting Agency")
-        var result: Agency?
-
-        here.getAgencyFromStationId(stationId: 10) { resp in
-            result = resp
-            ex.fulfill()
-        }
-        wait(for: [ex], timeout: 5)
-        XCTAssertEqual(result!, .zero)
-    }
-
     func testGetStationsNearby() {
         let ex = expectation(description: "Here for getting Station Ids")
         let center = CLLocationCoordinate2D(latitude: 37.5032238, longitude: -121.9434281)

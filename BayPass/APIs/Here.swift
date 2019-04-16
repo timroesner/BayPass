@@ -16,36 +16,6 @@ class Here {
 
     // MARK: Get Requests for Here
 
-    // Returns an agency for given Station ID
-    func getAgencyFromStationId(stationId: Int, completion: @escaping (Agency) -> Void) {
-        let param = [
-            "app_id": Credentials().hereAppID,
-            "app_code": Credentials().hereAppCode,
-            "lang": "en",
-            "stnIds": stationId,
-            "max": 50,
-            "time": Date().getCurrentTimetoFormattedStringForHereAPI(),
-        ] as [String: Any]
-
-        var results = Agency.zero
-        Alamofire.request("https://transit.api.here.com/v3/multiboard/by_stn_ids.json?", method: .get, parameters: param).responseJSON { response in
-            if let json = response.result.value as? [String: Any],
-                let resJson = json["Res"] as? [String: Any],
-                let multiNextDepartures = resJson["MultiNextDepartures"] as? [String: Any],
-                let multiNextDeparture = multiNextDepartures["MultiNextDeparture"] as? [[String: Any]] {
-                for nextDeparture in multiNextDeparture {
-                    if let agency = self.parseOperatorFromStationId(from: nextDeparture) {
-                        results = agency
-                        completion(results)
-                    }
-                }
-            } else {
-                completion(.zero)
-                print("Failed in getting Agency from StationId")
-            }
-        }
-    }
-
     func getStationsNearby(center: CLLocationCoordinate2D, radius: Int, max: Int, completion: @escaping ([Station]) -> Void) {
         let param = [
             "center": "\(center.latitude),\(center.longitude)",
@@ -291,7 +261,7 @@ class Here {
         getAgency(stationId: stationID, completion: { agencyAb in
             agencyAbbrv = agencyAb
         })
-        
+
         return Line(name: name ?? "", agency: agencyAbbrv ?? Agency.zero, destination: destination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)
     }
 
