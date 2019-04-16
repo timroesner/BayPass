@@ -57,7 +57,7 @@ class MapAnnotationTests: XCTestCase {
         assert(annotation.coordinate.latitude == location.coordinate.latitude)
         assert(annotation.coordinate.longitude == location.coordinate.longitude)
         assert(annotation.icon == UIImage(named: "Bus"))
-        assert(annotation.color == station.color)
+        assert(annotation.color == station.getColor())
     }
 
     func testBikeDockInit() {
