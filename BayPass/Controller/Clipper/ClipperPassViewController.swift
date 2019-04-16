@@ -54,15 +54,12 @@ class ClipperPassViewController: UIViewController {
         recentlyPurchasedClipperPassCollectionView.register(ClipperPassCollectionViewCell.self, forCellWithReuseIdentifier: recentlyPurchasedClipperPassCollectionViewCellID)
 
         // MARK: temporary data for testing "Recently Purchased"
-
         let BARTPass = Pass(name: Agency.BART.stringValue,
                             duration: DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0)),
-                            price: 0.0,
-                            validOnAgency: Agency.BART)
+                            price: 0.0, validOnAgency: Agency.BART)
         let CalTrainPass = Pass(name: Agency.CalTrain.stringValue,
                                 duration: DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0)),
-                                price: 0.0,
-                                validOnAgency: Agency.CalTrain)
+                                price: 0.0, validOnAgency: Agency.CalTrain)
         UserManager.shared.addPass(pass: BARTPass)
         UserManager.shared.addPass(pass: CalTrainPass)
 
@@ -70,6 +67,19 @@ class ClipperPassViewController: UIViewController {
     }
 
     func setupView() {
+        view.addSubview(agenciesLbl)
+        agenciesLbl.text = "Agencies"
+        agenciesLbl.textColor = UIColor.black
+        agenciesLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        
+        view.addSubview(clipperPassCollectionView)
+        clipperPassCollectionView.snp.makeConstraints { (make) -> Void in
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().inset(10)
+            make.top.equalTo(agenciesLbl.snp.bottom).offset(10)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
         if UserManager.shared.getValidPasses().count > 0 {
             view.addSubview(recentlyPurchasedLbl)
             recentlyPurchasedLbl.text = "Recently Purchased"
@@ -88,40 +98,18 @@ class ClipperPassViewController: UIViewController {
                 make.height.equalTo(140)
             }
 
-            view.addSubview(agenciesLbl)
-            agenciesLbl.text = "Agencies"
-            agenciesLbl.textColor = UIColor.black
-            agenciesLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             agenciesLbl.snp.makeConstraints { (make) -> Void in
                 make.leading.equalToSuperview().offset(20)
                 make.top.equalTo(recentlyPurchasedClipperPassCollectionView.snp.bottom).offset(20)
             }
-
-            view.addSubview(clipperPassCollectionView)
-            clipperPassCollectionView.snp.makeConstraints { (make) -> Void in
-                make.leading.equalToSuperview().offset(10)
-                make.trailing.equalToSuperview().inset(10)
-                make.top.equalTo(agenciesLbl.snp.bottom).offset(10)
-                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            }
-
         } else {
-            view.addSubview(agenciesLbl)
-            agenciesLbl.text = "Agencies"
-            agenciesLbl.textColor = UIColor.black
-            agenciesLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             agenciesLbl.snp.makeConstraints { (make) -> Void in
                 make.leading.equalToSuperview().offset(20)
                 make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
             }
 
-            view.addSubview(clipperPassCollectionView)
-            clipperPassCollectionView.snp.makeConstraints { (make) -> Void in
-                make.leading.equalToSuperview().offset(10)
-                make.trailing.equalToSuperview().inset(10)
-                make.top.equalTo(agenciesLbl.snp.bottom).offset(10)
-                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            }
-        }
+        } 
+        
     }
+    
 }

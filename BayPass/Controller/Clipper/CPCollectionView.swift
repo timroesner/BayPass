@@ -53,7 +53,6 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
     }
 
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
-        // return CGSize(width: (self.view.frame.size.width - 90) / 2, height: (self.view.frame.size.width - 90) * 0.28)
         if collectionView == clipperPassCollectionView {
             return CGSize(width: 160, height: 85)
         } else if collectionView == recentlyPurchasedClipperPassCollectionView {
