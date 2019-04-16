@@ -39,6 +39,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         delegate?.didSelectSearchResult(searchResults[indexPath.row])
+        resetSearch()
     }
 
     func scrollViewDidScroll(_: UIScrollView) {
