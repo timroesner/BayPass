@@ -40,9 +40,9 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let ticketCheckoutViewController = TicketCheckoutViewController()
-        //ticketCheckoutViewController.agency = agencies[indexPath.row]
-        //navigationController?.pushViewController(ticketCheckoutViewController, animated: true)
+        let clipperPassCheckoutViewController = ClipperPassCheckoutViewController()
+        clipperPassCheckoutViewController.agency = agencies[indexPath.row]
+        navigationController?.pushViewController(clipperPassCheckoutViewController, animated: true)
     }
   
 }

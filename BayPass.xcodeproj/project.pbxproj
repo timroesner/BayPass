@@ -114,6 +114,7 @@
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
 		EC26414F226599930081AC6E /* ClipperPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26414E226599930081AC6E /* ClipperPassViewController.swift */; };
 		EC26415122659D680081AC6E /* CPVCCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26415022659D680081AC6E /* CPVCCollectionView.swift */; };
+		EC2641532265AC2D0081AC6E /* ClipperPassCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2641522265AC2D0081AC6E /* ClipperPassCheckoutViewController.swift */; };
 		EC3B66A822278C8F004FFA23 /* PurchasedTicketCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */; };
 		EC83AD6F2262C41300AF7588 /* TicketCarouselViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC83AD6E2262C41300AF7588 /* TicketCarouselViewCell.swift */; };
 		EC83AD712262C48000AF7588 /* ticketCarouselViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC83AD702262C48000AF7588 /* ticketCarouselViewCellTests.swift */; };
@@ -263,6 +264,7 @@
 		EC14F1B521B64E28009F69CF /* ClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperView.swift; sourceTree = "<group>"; };
 		EC26414E226599930081AC6E /* ClipperPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperPassViewController.swift; sourceTree = "<group>"; };
 		EC26415022659D680081AC6E /* CPVCCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPVCCollectionView.swift; sourceTree = "<group>"; };
+		EC2641522265AC2D0081AC6E /* ClipperPassCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperPassCheckoutViewController.swift; sourceTree = "<group>"; };
 		EC3B66A722278C8F004FFA23 /* PurchasedTicketCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketCellTests.swift; sourceTree = "<group>"; };
 		EC83AD6E2262C41300AF7588 /* TicketCarouselViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCarouselViewCell.swift; sourceTree = "<group>"; };
 		EC83AD702262C48000AF7588 /* ticketCarouselViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ticketCarouselViewCellTests.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */,
 				EC26414E226599930081AC6E /* ClipperPassViewController.swift */,
 				EC26415022659D680081AC6E /* CPVCCollectionView.swift */,
+				EC2641522265AC2D0081AC6E /* ClipperPassCheckoutViewController.swift */,
 				2266C73F224DC513004C8D2E /* ClipperOnBoarding.swift */,
 				22B32249224DDE7900F2508A /* SignInViewController.swift */,
 				22B3224B224DE8D900F2508A /* FetchClipperData.swift */,
@@ -919,6 +922,7 @@
 				6AAFCD1421853C59004021E8 /* MapAnnotation.swift in Sources */,
 				22F09753220683FC009881F8 /* BART.swift in Sources */,
 				6A009198217EAF800087A32B /* Pass.swift in Sources */,
+				EC2641532265AC2D0081AC6E /* ClipperPassCheckoutViewController.swift in Sources */,
 				6A00919A217EAFFE0087A32B /* Ticket.swift in Sources */,
 				EC83AD6F2262C41300AF7588 /* TicketCarouselViewCell.swift in Sources */,
 				222A926D221A6D0200FD1367 /* GoogleMaps.swift in Sources */,
