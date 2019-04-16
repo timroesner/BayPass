@@ -411,8 +411,8 @@
 				22B53431222D1152007F4098 /* RouteOverView.swift */,
 				224662E22228FC9B00E86C66 /* MoveIndicator.swift */,
 				223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */,
-				224662F02229204200E86C66 /* EmptyView.swift */,
 				223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */,
+				224662F02229204200E86C66 /* EmptyView.swift */,
 				22B32252225324A100F2508A /* ProgressHUD.swift */,
 			);
 			path = View;

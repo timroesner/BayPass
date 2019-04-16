@@ -14,12 +14,14 @@ extension System {
         var coordinates = [Coordinates]()
 
         // San Jose
-        let c48 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.353065, longitude: -121.782045), radius: 1500, max: 50)
+        let c40 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.329389, longitude: -121.902431), radius: 1000, max: 50)
+        let c42 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.335954, longitude: -121.889724), radius: 1000, max: 50)
+        let c43 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.338321, longitude: -121.891566), radius: 1000, max: 50)
         let c44 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.322689, longitude: -121.785528), radius: 1500, max: 50)
         let c45 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.292966, longitude: -121.780044), radius: 1500, max: 50)
         let c49 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.227811, longitude: -121.791948), radius: 1500, max: 50)
         let c47 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.371895, longitude: -121.810347), radius: 1500, max: 50)
-        let c43 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.339400, longitude: -121.813733), radius: 1500, max: 50)
+        let c48 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.339400, longitude: -121.813733), radius: 1500, max: 50)
         let c31 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.311074, longitude: -121.818655), radius: 1500, max: 50)
         let c32 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.283461, longitude: -121.813508), radius: 1500, max: 50)
         let c35 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.256727, longitude: -121.801805), radius: 1500, max: 50)
@@ -37,7 +39,6 @@ extension System {
         let c28 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.263751, longitude: -121.904545), radius: 1500, max: 50)
         let c37 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.236491, longitude: -121.911759), radius: 1500, max: 50)
         let c41 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.213033, longitude: -121.890514), radius: 1500, max: 50)
-        let c40 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.210253, longitude: -121.925378), radius: 1500, max: 50)
 
         // Campbell
         let c27 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.260086, longitude: -121.958256), radius: 1500, max: 50)
@@ -61,7 +62,6 @@ extension System {
         let b2 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.502200, longitude: -121.939300), radius: 500, max: 50)
         let b3 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.590600, longitude: -122.017400), radius: 500, max: 50)
         let b4 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.634400, longitude: -122.057200), radius: 500, max: 50)
-        let b5 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.371895, longitude: -121.810347), radius: 500, max: 50)
         let b6 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.616000, longitude: -122.392500), radius: 500, max: 50)
         let b7 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.844700, longitude: -122.251400), radius: 500, max: 50)
         let b8 = Coordinates(center: CLLocationCoordinate2D(latitude: 38.016900, longitude: -121.889100), radius: 500, max: 50)
@@ -105,9 +105,11 @@ extension System {
         let b47 = Coordinates(center: CLLocationCoordinate2D(latitude: 37.808800, longitude: -122.268500), radius: 500, max: 50)
 
         // San Jose
-        coordinates.append(c48)
+        coordinates.append(c40)
+        coordinates.append(c42)
         coordinates.append(c44)
         coordinates.append(c45)
+        coordinates.append(c48)
         coordinates.append(c49)
         coordinates.append(c47)
         coordinates.append(c43)
@@ -128,7 +130,6 @@ extension System {
         coordinates.append(c28)
         coordinates.append(c37)
         coordinates.append(c41)
-        coordinates.append(c40)
 
         // Campbell
         coordinates.append(c27)
@@ -152,7 +153,6 @@ extension System {
         coordinates.append(b2)
         coordinates.append(b3)
         coordinates.append(b4)
-        coordinates.append(b5)
         coordinates.append(b6)
         coordinates.append(b7)
         coordinates.append(b8)
