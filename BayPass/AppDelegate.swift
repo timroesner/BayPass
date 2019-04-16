@@ -21,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = TabViewController()
         window?.rootViewController = vc
 
-        transitSystem.getAllStations()
+        transitSystem.getAllStations { (result) in
+            let _ = result
+        }
 
         // Stripe
         STPPaymentConfiguration.shared().publishableKey = Credentials().stripeKey

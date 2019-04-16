@@ -10,15 +10,16 @@ import Foundation
 import MapKit
 
 class System {
-    let group = DispatchGroup()
     var here = Here.shared
     var allStationsDict = [String: Station]()
     var allStations = [Station]()
     var allLines = [String: Line]()
     private var coordinates = [Coordinates]()
 
-    func getAllStations() {
+    func getAllStations(completion: @escaping (Bool) -> Void) {
         coordinates = getAllCoordinates()
+        let group = DispatchGroup()
+        
         for c in coordinates {
             group.enter()
             here.getStationsNearby(center: c.center, radius: c.radius, max: c.max) { stations in
@@ -32,11 +33,12 @@ class System {
                         self.allLines[line.name + " - " + line.destination] = line
                     }
                 }
-                self.group.leave()
+                group.leave()
             }
         }
         group.notify(queue: .main) {
             self.allStations.append(contentsOf: self.allStationsDict.values)
+            completion(true)
         }
     }
 
