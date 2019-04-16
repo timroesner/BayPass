@@ -46,6 +46,33 @@ enum Agency: String, Codable, CaseIterable {
             return ""
         }
     }
+    
+    init(stringValue: String) {
+        switch stringValue {
+        case "VTA":
+            self = .VTA
+        case "BART":
+            self = .BART
+        case "CalTrain":
+            self = .CalTrain
+        case "Muni":
+            self = .Muni
+        case "Golden Gate Transit":
+            self = .GoldenGateTransit
+        case "AC Transit":
+            self = .ACTransit
+        case "Union City Transit":
+            self = .UnionCity
+        case "ACE":
+            self = .ACE
+        case "SamTrans":
+            self = .SamTrans
+        case "SolTrans":
+            self = .SolTrans
+        default:
+            self = .zero
+        }
+    }
 
     func getIcon() -> UIImage {
         switch self {

@@ -97,7 +97,7 @@ class GoogleMaps {
                 agencyName = agencies[0]["name"] as? String ?? ""
             }
 
-            let line = transitSystem.allLines[lineName + "-" + agencyName] ?? Line(name: lineName, agency: Agency(rawValue: agencyName) ?? Agency.zero, destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+            let line = transitSystem.allLines[lineName + "-" + agencyName] ?? Line(name: lineName, agency: Agency(stringValue: agencyName), destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
 
             let waypoints = [Station]()
 
