@@ -9,24 +9,23 @@
 import UIKit
 
 class ClipperPassCheckoutViewController: UIViewController {
-    
     var agency = Agency.zero
     var dropDownOptions: [(title: String, values: [String])] = [
         (title: "Ticket Type", values: ["Day Pass", "3 Day Pass", "Monthly Pass"]),
         (title: "Payment Method", values: PaymentMethod.allCases.map { $0.rawValue }),
     ]
     private var stackedViews = [UIView]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+
         title = agency.stringValue
         navigationController?.navigationBar.prefersLargeTitles = false
         setUpTicketView(newTicketView: TicketView(agency: agency.stringValue, icon: agency.getIcon(), cornerRadius: 12))
         setupDropDowns()
     }
-    
+
     func setUpTicketView(newTicketView: TicketView) {
         view.addSubview(newTicketView)
         newTicketView.snp.makeConstraints { (make) -> Void in
@@ -37,7 +36,7 @@ class ClipperPassCheckoutViewController: UIViewController {
         newTicketView.layoutIfNeeded()
         stackedViews.append(newTicketView)
     }
-    
+
     func setupDropDowns() {
         for option in dropDownOptions {
             let dropDown = DropDownMenu(title: option.title, items: option.values)
@@ -50,7 +49,7 @@ class ClipperPassCheckoutViewController: UIViewController {
         }
         setUpButton(color: UIColor(named: "dark\(agency.stringValue.replacingOccurrences(of: " ", with: ""))") ?? UIColor.black)
     }
-    
+
     func setUpButton(color: UIColor) {
         let payButton = BayPassButton(title: "Pay $xx.xx", color: color)
         payButton.addTarget(self, action: #selector(pay), for: .touchUpInside)
@@ -62,9 +61,8 @@ class ClipperPassCheckoutViewController: UIViewController {
             make.height.equalTo(50)
         }
     }
-    
+
     @objc func pay() {
         print("pay")
     }
-    
 }

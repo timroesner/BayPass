@@ -19,7 +19,7 @@ extension TicketViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.setup(with: TicketView(agency: agencies[indexPath.row].stringValue, icon: agencies[indexPath.row].getIcon(), cornerRadius: 12))
         return cell
     }
-    
+
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         return CGSize(width: 135, height: 200)
     }
