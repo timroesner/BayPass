@@ -21,14 +21,14 @@ class SystemTests: XCTestCase {
 
     func testGetAllStations() {
         let subject = System()
-        
+
         let expectation = self.expectation(description: "async")
         var result = false
         subject.getAllStations {
             result = $0
             expectation.fulfill()
         }
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 15, handler: nil)
         XCTAssertTrue(result)
     }
 }
