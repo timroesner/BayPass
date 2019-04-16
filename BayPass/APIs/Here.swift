@@ -78,7 +78,7 @@ class Here {
                     completion(stations)
                 }
             } else {
-                print("Failed in getting Stations Near By")
+                print("Failed in getting Stations near \(center)")
                 completion([])
             }
         }
@@ -164,7 +164,7 @@ class Here {
                 }
                 completion(results)
             } else {
-                print("Failed in getting Agency")
+                print("Failed in getting Agency from stationID: \(stationId)")
                 completion(.zero)
             }
         }
@@ -291,7 +291,7 @@ class Here {
         getAgency(stationId: stationID, completion: { agencyAb in
             agencyAbbrv = agencyAb
         })
-
+        
         return Line(name: name ?? "", agency: agencyAbbrv ?? Agency.zero, destination: destination ?? "", color: color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: transitMode)
     }
 
