@@ -31,6 +31,12 @@ class UserManager {
     func addCashToCard(amount: Double) {
         clipperCard?.addCash(amount: amount)
     }
+    
+    //----------------
+    func addPass(pass: Pass) {
+        clipperCard?.passes.append(pass)
+    }
+    //---------------
 
     func getValidPasses() -> [Pass] {
         var result = [Pass]()
