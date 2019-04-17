@@ -35,6 +35,10 @@ class GoogleFirestore {
                 let duration = ticketValue["duration"] as? Int
                 let price = ticketValue["price"] as? Double
 
+                // print out data
+                print(agency.stringValue)
+                print(snapshot.data() as [String: AnyObject]? ?? [:])
+                
                 if let price = price {
                     if let count = count {
                         let newTicket = Ticket(name: ticketName, count: count, price: price, validOnAgency: agency)
