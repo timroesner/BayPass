@@ -63,6 +63,7 @@ class ClipperPassViewController: UIViewController {
         UserManager.shared.addPass(pass: BARTPass)
         UserManager.shared.addPass(pass: CalTrainPass)
 
+        
         setupView()
     }
 
