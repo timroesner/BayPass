@@ -7,12 +7,11 @@
 //
 
 @testable import BayPass
-import XCTest
-import SkyFloatingLabelTextField
 import SafariServices
+import SkyFloatingLabelTextField
+import XCTest
 
 class ClipperSignInTests: XCTestCase {
-    
     let vc = SignInViewController()
 
     override func setUp() {
@@ -27,19 +26,19 @@ class ClipperSignInTests: XCTestCase {
     func testChangeText() {
         vc.emailTextField.text = "invalidemail "
         vc.validateEmail(vc.emailTextField)
-        
+
         let textField = vc.emailTextField as? SkyFloatingLabelTextField
         XCTAssertEqual(textField?.errorMessage, "Invalid email")
         XCTAssertEqual(vc.emailTextField.text, "invalidemail")
         XCTAssertTrue(vc.passwordTextField.isEditing)
     }
-    
+
     func testForgotPasswordButton() {
         vc.forgotPassword()
         let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
         XCTAssert(presentedVC is SFSafariViewController)
     }
-    
+
     func testLoginEmpty() {
         vc.logIn()
         let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController

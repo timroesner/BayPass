@@ -22,4 +22,17 @@ extension Date {
         dateFormatter.timeStyle = .short
         return dateFormatter.string(from: self)
     }
+
+    func getCurrentTimetoFormattedStringForHereAPI() -> String {
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var formattedDate = format.string(from: date)
+        var dateFormatArr = formattedDate.components(separatedBy: " ")
+        let dateString = dateFormatArr[0]
+        let timeString = dateFormatArr[1]
+
+        formattedDate = dateString + "T" + timeString
+        return formattedDate
+    }
 }

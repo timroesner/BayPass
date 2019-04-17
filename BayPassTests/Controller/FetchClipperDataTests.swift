@@ -7,11 +7,10 @@
 //
 
 @testable import BayPass
-import XCTest
 import SwiftSoup
+import XCTest
 
 class FetchClipperDataTests: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -22,7 +21,7 @@ class FetchClipperDataTests: XCTestCase {
 
     func testFetchData() {
         let vc = SignInViewController()
-        
+
         let expectation = self.expectation(description: "async")
         var result: ClipperCard?
         vc.fetchClipperData(email: "tim.roesner@sjsu.edu", password: "abc", completion: {
@@ -32,7 +31,7 @@ class FetchClipperDataTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertNil(result)
     }
-    
+
     func testParse() {
         let htmlString = """
             <div class="greyBox2">
@@ -63,9 +62,8 @@ class FetchClipperDataTests: XCTestCase {
         let doc: Document = try! SwiftSoup.parse(htmlString)
         let vc = SignInViewController()
         let card = vc.parseCard(from: doc)?.first
-        XCTAssertEqual(card?.number, 1232326817)
+        XCTAssertEqual(card?.number, 1_232_326_817)
         XCTAssertEqual(card?.cashValue, 7.20)
         XCTAssertEqual(card?.passes.count, 0)
     }
-
 }

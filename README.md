@@ -35,6 +35,8 @@ After cloning this repository you will first need to run `pod install` to downlo
 export BIRD_TOKEN = YOUR_TOKEN
 export BART_TOKEN = YOUR_TOKEN
 export GOOGLE_DIRECTIONS = YOUR_TOKEN
+export HEREAPPID = YOUR_TOKEN
+export HEREAPPCODE = YOUR_TOKEN
 export MULTICYCLES = YOUR_TOKEN
 ```
 

@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import OverlayContainer
 import SnapKit
 import UIKit
 
@@ -25,6 +26,7 @@ extension MapViewController: UIScrollViewDelegate {
 
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
         removeChild(bottomSheet)
+
         mapView.removeAnnotations(mapView.annotations)
 
         let searchFloat = SearchFloatView(from: "Current Location", to: destination.name ?? "No Name")

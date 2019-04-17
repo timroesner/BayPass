@@ -10,7 +10,7 @@ import CoreLocation
 import Foundation
 import MapKit
 
-struct RouteSegment: Equatable {
+struct RouteSegment {
     var distanceInMeters: Int
     var departureTime: Date?
     var arrivalTime: Date?
