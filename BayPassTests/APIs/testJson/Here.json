@@ -1,0 +1,76 @@
+{
+    "Res": {
+        "serviceUrl": "http://internal-ptes-prd-v453-1355306629.us-east-1.elb.amazonaws.com/stations_v2/stations_v2",
+        "Stations": {
+            "Stn": [
+                {
+                    "id": "718290976",
+                    "name": "Magnolia Ave & Ward St",
+                    "distance": 592,
+                    "duration": "PT0H9M52S",
+                    "x": -122.5353,
+                    "y": 37.935921,
+                    "has_board": 1,
+                    "country": "United States",
+                    "ccode": "USA",
+                    "state": "CA",
+                    "postal": "94939",
+                    "street": "Magnolia Ave",
+                    "number": "503",
+                    "city": "Larkspur",
+                    "Transports": {
+                        "Transport": [
+                            {
+                                "name": "18",
+                                "mode": 5,
+                                "dir": "Route 18 Southbound - San Francisco",
+                                "At": {
+                                    "textColor": "#FFFFFF",
+                                    "color": "#CC3333"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "718630118",
+                    "name": "Magnolia Av & Ward St",
+                    "distance": 592,
+                    "duration": "PT0H9M52S",
+                    "x": -122.5353,
+                    "y": 37.935879,
+                    "has_board": 1,
+                    "country": "United States",
+                    "ccode": "USA",
+                    "state": "CA",
+                    "postal": "94939",
+                    "street": "Magnolia Ave",
+                    "number": "499",
+                    "city": "Larkspur",
+                    "Transports": {
+                        "Transport": [
+                            {
+                                "name": "117",
+                                "mode": 5,
+                                "dir": "East Corte Madera",
+                                "At": {
+                                    "textColor": "#FFFFFF",
+                                    "color": "#F89838"
+                                }
+                            },
+                            {
+                                "name": "22",
+                                "mode": 5,
+                                "dir": "Marin City via College of Marin",
+                                "At": {
+                                    "textColor": "#FFFFFF",
+                                    "color": "#53A946"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

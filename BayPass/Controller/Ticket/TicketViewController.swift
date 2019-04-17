@@ -47,6 +47,7 @@ class TicketViewController: UIViewController {
         purchasedTicketTableView.rowHeight = 93.0
         purchasedTicketTableView.dataSource = self
         purchasedTicketTableView.delegate = self
+        purchasedTicketTableView.tableFooterView = UIView(frame: CGRect.zero)
         purchasedTicketTableView.register(PurchasedTicketCell.self, forCellReuseIdentifier: purchasedTicketTableViewCellID)
         layoutTableView()
 

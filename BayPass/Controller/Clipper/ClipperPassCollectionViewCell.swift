@@ -5,7 +5,6 @@
 //  Created by Tim Roesner on 4/1/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
-
 import UIKit
 
 class ClipperPassCollectionViewCell: UICollectionViewCell {
@@ -14,7 +13,7 @@ class ClipperPassCollectionViewCell: UICollectionViewCell {
     }
 
     func setup(with pass: Pass) {
-        let ticketView = TicketView(agency: pass.validOnAgency.stringValue, icon: pass.validOnAgency.getIcon(), cornerRadius: 8)
+        let ticketView = TicketView(agency: pass.validOnAgency, icon: pass.validOnAgency.getIcon(), cornerRadius: 8)
         contentView.addSubview(ticketView)
         ticketView.snp.makeConstraints { make in
             make.center.equalToSuperview()

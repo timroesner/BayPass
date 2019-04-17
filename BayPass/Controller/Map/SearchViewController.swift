@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
 
     let stationCellId = "station"
     let destinationCellId = "destination"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +30,8 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.register(DestinationSearchResultTableViewCell.self, forCellReuseIdentifier: destinationCellId)
+        tableView.register(StationSearchResultTableViewCell.self, forCellReuseIdentifier: stationCellId)
+        tableView.estimatedRowHeight = 57.0
 
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 21
@@ -58,6 +60,15 @@ class SearchViewController: UIViewController {
         }
     }
 
+    func searchStations(with searchText: String) {
+        stations = transitSystem.findStations(with: searchText)
+        searchResults = []
+        searchResults.append(contentsOf: destinations)
+        searchResults.append(contentsOf: stations)
+        sortResults()
+        tableView.reloadData()
+    }
+
     func searchDestinations(with searchText: String) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchText
@@ -72,7 +83,6 @@ class SearchViewController: UIViewController {
                 print(error?.localizedDescription as Any)
                 return
             }
-
             self.destinations = response.mapItems
             self.searchResults = []
             self.searchResults.append(contentsOf: self.destinations)
@@ -91,15 +101,15 @@ class SearchViewController: UIViewController {
                 firstLocation = destination.placemark.location ?? CLLocation()
             }
 
-            var secoondLocation = CLLocation()
+            var secondLocation = CLLocation()
             if let station = second as? Station {
-                secoondLocation = station.location
+                secondLocation = station.location
             } else if let destination = second as? MKMapItem {
-                secoondLocation = destination.placemark.location ?? CLLocation()
+                secondLocation = destination.placemark.location ?? CLLocation()
             }
 
             let userLocation = parentMapVC?.mapView.userLocation.location ?? CLLocation()
-            return firstLocation.distance(from: userLocation) < secoondLocation.distance(from: userLocation)
+            return firstLocation.distance(from: userLocation) < secondLocation.distance(from: userLocation)
         }
     }
 }

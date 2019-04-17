@@ -1,0 +1,59 @@
+{
+    "Res": {
+        "serviceUrl": "http://internal-ptkernel-prd-v452-2144272152.us-east-1.elb.amazonaws.com/goroute/CALIFORNIA_NEVADA_W001287_20190311",
+        "MultiNextDepartures": {
+            "MultiNextDeparture": [
+                {
+                    "Stn": {
+                        "y": 37.548843,
+                        "x": -122.31066,
+                        "name": "El Camino Real & 20th Ave",
+                        "id": "703841089"
+                    },
+                    "NextDepartures": {
+                        "Dep": [
+                            {
+                                "time": "2019-03-24T08:23:00",
+                                "Stn": {
+                                    "y": 37.548843,
+                                    "x": -122.31066,
+                                    "name": "El Camino Real & 20th Ave",
+                                    "id": "703841089"
+                                },
+                                "Transport": {
+                                    "mode": 5,
+                                    "dir": "Palo Alto",
+                                    "name": "ECR",
+                                    "At": {
+                                        "category": "Bus",
+                                        "operator": "61ksam00"
+                                    }
+                                }
+                            }
+                        ],
+                        "Operators": {
+                            "Op": [
+                                {
+                                    "code": "61ksam00",
+                                    "type": "TT",
+                                    "name": "SamTrans",
+                                    "short_name": "sam",
+                                    "Link": [
+                                        {
+                                            "type": "website",
+                                            "href": "https://transit.api.here.com/r?appId=EoCcdY3ZM0BsSoHPvra4&u=http://www.samtrans.com",
+                                            "text": "SamTrans"
+                                        }
+                                    ],
+                                    "At": {
+                                        "phone": "800-660-4287"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

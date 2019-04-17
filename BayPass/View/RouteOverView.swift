@@ -10,10 +10,10 @@ import SnapKit
 import UIKit
 
 class RouteOverView: UIView {
-    private let durationLabel = UILabel()
-    private let timeLabel = UILabel()
-    private let priceLabel = UILabel()
-    private let segmentView = UIView()
+    let durationLabel = UILabel()
+    let timeLabel = UILabel()
+    let priceLabel = UILabel()
+    let segmentView = UIView()
 
     init(with route: Route) {
         super.init(frame: CGRect.zero)
@@ -72,8 +72,7 @@ class RouteOverView: UIView {
             lineLabel.layer.cornerRadius = 4
 
             if segment.travelMode == .transit {
-                // TODO: Replace with actual line color
-                lineLabel.layer.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                lineLabel.layer.backgroundColor = segment.line?.color.cgColor
             } else {
                 lineLabel.layer.backgroundColor = UIColor(red: 216, green: 216, blue: 216).cgColor
             }
@@ -83,8 +82,7 @@ class RouteOverView: UIView {
                     let canvas = UIView()
                     let icon = UIImageView()
                     icon.tintColor = .white
-                    // TODO: Replace with actual line icon
-                    icon.image = #imageLiteral(resourceName: "Bus")
+                    icon.image = segment.line?.getIcon()
                     canvas.addSubview(icon)
                     icon.snp.makeConstraints { make in
                         make.left.equalToSuperview()
@@ -118,8 +116,7 @@ class RouteOverView: UIView {
                         icon.image = #imageLiteral(resourceName: "Bike")
                     case .transit:
                         icon.tintColor = .white
-                        // TODO: replace with line icon
-                        icon.image = #imageLiteral(resourceName: "Bus")
+                        icon.image = segment.line?.getIcon()
                     }
                     lineLabel.addSubview(icon)
                     icon.snp.makeConstraints { make in
