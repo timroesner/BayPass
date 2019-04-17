@@ -12,11 +12,9 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         if collectionView == clipperPassCollectionView {
             return agencies.count
-        } else if collectionView == recentlyPurchasedClipperPassCollectionView {
+        } else {
             return UserManager.shared.getValidPasses().count
         }
-
-        return 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -28,24 +26,20 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
                                   price: 0.0,
                                   validOnAgency: agencies[indexPath.row]))
             return cell
-        } else if collectionView == recentlyPurchasedClipperPassCollectionView {
+        } else {
             let cell = recentlyPurchasedClipperPassCollectionView.dequeueReusableCell(withReuseIdentifier: recentlyPurchasedClipperPassCollectionViewCellID, for: indexPath) as! ClipperPassCollectionViewCell
             cell.backgroundColor = .white
             cell.setup(with: UserManager.shared.getValidPasses()[indexPath.row])
             return cell
         }
-
-        return UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
         if collectionView == clipperPassCollectionView {
             return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        } else if collectionView == recentlyPurchasedClipperPassCollectionView {
+        } else {
             return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 15)
         }
-
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumInteritemSpacingForSectionAt _: Int) -> CGFloat {
@@ -55,11 +49,9 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         if collectionView == clipperPassCollectionView {
             return CGSize(width: 160, height: 85)
-        } else if collectionView == recentlyPurchasedClipperPassCollectionView {
+        } else {
             return CGSize(width: 250, height: 140)
         }
-
-        return CGSize(width: 0, height: 0)
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
