@@ -5,36 +5,35 @@
 //  Created by Ayesha Khan on 10/20/18.
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
-
 import UIKit
 
-enum Agency: String, Codable {
-    case ACTransit = "AC " // AC Transit
+enum Agency: String, Codable, CaseIterable {
     case VTA = "SC" // VTA
     case BART = "BAR" // Bart
     case CalTrain = "CT" // Caltrain
-    case GoldenGateTransit = "GGT"
     case Muni = "SF" // San Francisco Municipal Transportation Agency
     case UnionCity = "UC" // Union City Transit
+    case SamTrans = "sam" // SamTrans
+    case GoldenGateTransit = "GGT"
+    case ACTransit = "AC " // AC Transit
     case ACE = "99" // Altamont Corridor Express
     case SolTrans = "247" // SolTrans
-    case SamTrans = "sam" // SamTrans
     case zero = "0" // Debugging
 
     var stringValue: String {
         switch self {
-        case .ACTransit:
-            return "AC Transit"
         case .VTA:
             return "VTA"
         case .BART:
             return "BART"
         case .CalTrain:
             return "CalTrain"
-        case .GoldenGateTransit:
-            return "Golden Gate Transit"
         case .Muni:
             return "Muni"
+        case .GoldenGateTransit:
+            return "Golden Gate Transit"
+        case .ACTransit:
+            return "AC Transit"
         case .UnionCity:
             return "Union City Transit"
         case .ACE:
@@ -45,6 +44,33 @@ enum Agency: String, Codable {
             return "SolTrans"
         default:
             return ""
+        }
+    }
+    
+    init(stringValue: String) {
+        switch stringValue {
+        case "VTA":
+            self = .VTA
+        case "BART":
+            self = .BART
+        case "CalTrain":
+            self = .CalTrain
+        case "Muni":
+            self = .Muni
+        case "Golden Gate Transit":
+            self = .GoldenGateTransit
+        case "AC Transit":
+            self = .ACTransit
+        case "Union City Transit":
+            self = .UnionCity
+        case "ACE":
+            self = .ACE
+        case "SamTrans":
+            self = .SamTrans
+        case "SolTrans":
+            self = .SolTrans
+        default:
+            self = .zero
         }
     }
 
@@ -64,6 +90,8 @@ enum Agency: String, Codable {
             return #imageLiteral(resourceName: "Bus")
         case .UnionCity:
             return #imageLiteral(resourceName: "Bus")
+        case .VTA:
+            return #imageLiteral(resourceName: "Tram")
         case .SamTrans:
             return #imageLiteral(resourceName: "Bus")
         case .SolTrans:

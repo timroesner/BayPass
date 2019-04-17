@@ -10,7 +10,6 @@
 import XCTest
 
 class ClipperOnBoardingTests: XCTestCase {
-    
     let vc = ClipperViewController()
 
     override func setUp() {
@@ -25,10 +24,9 @@ class ClipperOnBoardingTests: XCTestCase {
     func testSignInButton() {
         vc.signInMyClipper()
     }
-    
+
     func testCreateVirtual() {
         vc.createVirtualClipper()
         XCTAssertNotNil(UserManager.shared.getClipperCard)
     }
-
 }

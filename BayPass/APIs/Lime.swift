@@ -23,7 +23,7 @@ class Lime {
             "query": "query ($lat: Float!, $lng: Float!) {\n  vehicles(lat: $lat, lng: $lng) {\n\t\ttype\nlat\nlng\n }\n}",
             "variables": ["lat": latitude, "lng": longitude],
         ]
-        Alamofire.request("https://api.multicycles.org/v1?access_token=\(Credentials().multicycles)", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request("https://api.multicycles.org/v1?access_token=\(Credentials().multicycles)", method: .post, parameters: params, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
             if let jsonResponse = response.result.value as? [String: Any],
                 let json = jsonResponse["data"] as? [String: Any],
                 let allScooters = json["vehicles"] as? [[String: Any]] {
