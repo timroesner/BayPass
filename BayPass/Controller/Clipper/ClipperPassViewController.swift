@@ -60,8 +60,8 @@ class ClipperPassViewController: UIViewController {
         let CalTrainPass = Pass(name: Agency.CalTrain.stringValue,
                                 duration: DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0)),
                                 price: 0.0, validOnAgency: Agency.CalTrain)
-        //UserManager.shared.addPass(pass: BARTPass)
-        //UserManager.shared.addPass(pass: CalTrainPass)
+        UserManager.shared.addPass(pass: BARTPass)
+        UserManager.shared.addPass(pass: CalTrainPass)
 
         
         setupView()
