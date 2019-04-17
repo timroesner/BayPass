@@ -60,8 +60,8 @@ class ClipperPassViewController: UIViewController {
         let CalTrainPass = Pass(name: Agency.CalTrain.stringValue,
                                 duration: DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0)),
                                 price: 0.0, validOnAgency: Agency.CalTrain)
-        UserManager.shared.addPass(pass: BARTPass)
-        UserManager.shared.addPass(pass: CalTrainPass)
+        //UserManager.shared.addPass(pass: BARTPass)
+        //UserManager.shared.addPass(pass: CalTrainPass)
 
         
         setupView()
@@ -101,12 +101,12 @@ class ClipperPassViewController: UIViewController {
 
             agenciesLbl.snp.makeConstraints { (make) -> Void in
                 make.leading.equalToSuperview().offset(20)
-                make.top.equalTo(recentlyPurchasedClipperPassCollectionView.snp.bottom).offset(20)
+                make.top.equalTo(recentlyPurchasedClipperPassCollectionView.snp.bottom).offset(15)
             }
         } else {
             agenciesLbl.snp.makeConstraints { (make) -> Void in
                 make.leading.equalToSuperview().offset(20)
-                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(15)
             }
 
         } 
