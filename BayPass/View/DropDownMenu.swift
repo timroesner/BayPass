@@ -127,8 +127,8 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         layoutIfNeeded()
 
         /* UIView.animate(withDuration: 0.4, animations: {
-             self.center.y -= self.frame.height
-             self.layoutIfNeeded()
+         self.center.y -= self.frame.height
+         self.layoutIfNeeded()
          }) */
 
         tableView.flashScrollIndicators()
@@ -140,8 +140,8 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
         layoutIfNeeded()
 
         /* UIView.animate(withDuration: 0.4, animations: {
-             self.layoutIfNeeded()
-             self.center.y += self.frame.height
+         self.layoutIfNeeded()
+         self.center.y += self.frame.height
          }) */
     }
 

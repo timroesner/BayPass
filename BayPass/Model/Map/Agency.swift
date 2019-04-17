@@ -5,7 +5,6 @@
 //  Created by Ayesha Khan on 10/20/18.
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
-
 import UIKit
 
 enum Agency: String, Codable, CaseIterable {
@@ -45,6 +44,33 @@ enum Agency: String, Codable, CaseIterable {
             return "SolTrans"
         default:
             return ""
+        }
+    }
+    
+    init(stringValue: String) {
+        switch stringValue {
+        case "VTA":
+            self = .VTA
+        case "BART":
+            self = .BART
+        case "CalTrain":
+            self = .CalTrain
+        case "Muni":
+            self = .Muni
+        case "Golden Gate Transit":
+            self = .GoldenGateTransit
+        case "AC Transit":
+            self = .ACTransit
+        case "Union City Transit":
+            self = .UnionCity
+        case "ACE":
+            self = .ACE
+        case "SamTrans":
+            self = .SamTrans
+        case "SolTrans":
+            self = .SolTrans
+        default:
+            self = .zero
         }
     }
 
