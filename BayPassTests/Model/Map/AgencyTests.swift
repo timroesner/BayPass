@@ -34,7 +34,7 @@ class AgencyTests: XCTestCase {
         XCTAssertEqual(Agency.SolTrans.stringValue, "SolTrans")
         XCTAssertEqual(Agency.SamTrans.stringValue, "SamTrans")
         XCTAssertEqual(Agency.ACE.stringValue, "ACE")
-        XCTAssertEqual(Agency.GoldenGateTransit.stringValue, "Golden Gate Transit")
+        XCTAssertEqual(Agency.GoldenGateTransit.stringValue, "Golden Gate\nTransit")
         XCTAssertEqual(Agency.UnionCity.stringValue, "Union City Transit")
     }
 
