@@ -134,9 +134,7 @@ class RouteDetailsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         setupDashedView()
         
-        if scrollView.contentSize.height < scrollView.frame.height {
-            scrollView.isUserInteractionEnabled = false
-        }
+        scrollView.isUserInteractionEnabled = scrollView.contentSize.height > scrollView.frame.height
     }
     
     func setupDashedView() {
