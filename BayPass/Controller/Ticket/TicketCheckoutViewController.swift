@@ -21,7 +21,7 @@ class TicketCheckoutViewController: UIViewController {
     private var stackedViews = [UIView]()
 
     // MARK: temporary data, waiting for integration of Ticket/Pass Manager
-    var currentTicketPrice = 0.0
+    var currentTicketPrice = 1.0
     
     
     override func viewDidLoad() {
@@ -71,9 +71,10 @@ class TicketCheckoutViewController: UIViewController {
     }
 
     @objc func pay() {
-        print("pay")
+        //print("pay")
         
-        let paymentDropDown = stackedViews[safe: 3] as? DropDownMenu
+        let paymentDropDown = stackedViews[safe: 4] as? DropDownMenu
+        //print(paymentDropDown?.getSelectedItem() ?? "default")
         if currentTicketPrice != 0.0 {
             switch PaymentMethod(rawValue: (paymentDropDown?.getSelectedItem())!) ?? .applePay {
             case .applePay:
@@ -105,7 +106,8 @@ extension TicketCheckoutViewController: PKPaymentAuthorizationViewControllerDele
     
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
-            UserManager.shared.addCashToCard(amount: self.currentTicketPrice)
+            // To-Do: Add the ticekt to UserManager
+            //UserManager.shared.addCashToCard(amount: self.currentTicketPrice)
             self.dismissOrPop(animated: true)
         })
     }
