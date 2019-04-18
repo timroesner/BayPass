@@ -20,7 +20,7 @@ class LineDetailView: UIView {
     private let color: UIColor
     
     init(with routeSegment: RouteSegment) {
-        self.color = .blue
+        self.color = routeSegment.line?.color ?? .blue
         super.init(frame: CGRect.zero)
         backgroundColor = .white
         layer.backgroundColor = UIColor.white.cgColor
@@ -30,9 +30,8 @@ class LineDetailView: UIView {
     }
     
     func setupView(with routeSegment: RouteSegment) {
-        // TODO: Line icon
         iconView.tintColor = .gray
-        iconView.image = #imageLiteral(resourceName: "Bus")
+        iconView.image = routeSegment.line?.getIcon()
         addSubview(iconView)
         iconView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(8)
@@ -40,17 +39,15 @@ class LineDetailView: UIView {
             make.width.height.equalTo(30)
         }
         
-        // TODO: Adjust to new Line model
         nameLabel.text = routeSegment.line?.name
         nameLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
-        nameLabel.textColor = .blue
+        nameLabel.textColor = routeSegment.line?.color
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(iconView.snp.right).offset(3)
             make.centerY.equalTo(iconView)
         }
         
-        // TODO: Adjust to new model
         startLabel.text = routeSegment.waypoints.first
         startLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         startLabel.textColor = .black
@@ -69,6 +66,7 @@ class LineDetailView: UIView {
             make.centerY.equalTo(startLabel)
             make.right.equalToSuperview().inset(15)
             make.left.greaterThanOrEqualTo(startLabel.snp.right).offset(4)
+            make.width.equalTo(60)
         }
         
         destinationLabel.text = routeSegment.line?.destination
@@ -78,9 +76,9 @@ class LineDetailView: UIView {
         destinationLabel.snp.makeConstraints { (make) in
             make.top.equalTo(startLabel.snp.bottom).offset(2)
             make.left.equalTo(startLabel)
+            make.right.lessThanOrEqualToSuperview().offset(-15)
         }
         
-        // TODO: Adjust to new model
         endLabel.text = routeSegment.waypoints.last
         endLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         endLabel.textColor = .black
@@ -100,10 +98,9 @@ class LineDetailView: UIView {
             make.centerY.equalTo(endLabel)
             make.right.equalToSuperview().inset(15)
             make.left.greaterThanOrEqualTo(endLabel.snp.right).offset(4)
+            make.width.equalTo(60)
         }
         
-        // TODO: Add fucntion to setup view with line color
-        //dotView.backgroundColor = .yellow
         addSubview(dotView)
         dotView.snp.makeConstraints { (make) in
             make.top.equalTo(startLabel)

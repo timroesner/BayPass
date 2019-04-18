@@ -35,8 +35,8 @@ class RouteDetailsViewController: UIViewController {
         if routeHasMultipleTransit {
             buyButton = BayPassButton(title: "Buy Tickets", color: #colorLiteral(red: 0.6504354477, green: 0.4037398994, blue: 0.844121635, alpha: 1))
         } else {
-            let lineColor = route.segments.filter{ $0.travelMode == .transit }.first?.line
-            buyButton = BayPassButton(title: "Buy Ticket", color: .blue)
+            let lineColor = route.segments.filter{ $0.travelMode == .transit }.first?.line?.color ?? .blue
+            buyButton = BayPassButton(title: "Buy Ticket", color: lineColor)
         }
         
         view.addSubview(routeOverView!)

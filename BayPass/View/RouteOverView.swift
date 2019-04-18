@@ -72,7 +72,7 @@ class RouteOverView: UIView {
             let lineLabel = UILabel()
             let lineMultiplier = Double(segment.durationInMinutes) / (totalDuration / 60)
             let lineWidth = viewWidth * lineMultiplier - 2
-            let nameWillFit = (lineWidth - Double((segment.line?.name.count ?? 0) * 5) - 30) > 4.0
+            let nameWillFit = (lineWidth - Double((segment.line?.name.count ?? 0) * 8) - 30) > 4.0
             lineLabel.layer.cornerRadius = 4
             
             if segment.travelMode == .transit {
@@ -80,12 +80,17 @@ class RouteOverView: UIView {
             } else {
                 lineLabel.layer.backgroundColor = UIColor(red: 216, green: 216, blue: 216).cgColor
             }
+            
+            var textColor: UIColor = .white
+            if segment.line?.color.isLight() ?? false {
+                textColor = .black
+            }
 
             if lineWidth > 33 {
                 if lineWidth > 74, segment.travelMode == .transit, nameWillFit {
                     let canvas = UIView()
                     let icon = UIImageView()
-                    icon.tintColor = .white
+                    icon.tintColor = textColor
                     icon.image = segment.line?.getIcon()
                     canvas.addSubview(icon)
                     icon.snp.makeConstraints { make in
@@ -95,7 +100,7 @@ class RouteOverView: UIView {
                     }
                     let label = UILabel()
                     label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-                    label.textColor = .white
+                    label.textColor = textColor
                     label.text = segment.line?.name
                     canvas.addSubview(label)
                     label.snp.makeConstraints { make in
@@ -119,7 +124,7 @@ class RouteOverView: UIView {
                     case .bike:
                         icon.image = #imageLiteral(resourceName: "Bike")
                     case .transit:
-                        icon.tintColor = .white
+                        icon.tintColor = textColor
                         icon.image = segment.line?.getIcon()
                     }
                     lineLabel.addSubview(icon)
