@@ -51,5 +51,13 @@ class MapViewControllerTests: XCTestCase {
         mapVC.displayStationInfo(to: station)
         XCTAssertEqual(mapVC.mapView.annotations.count, 1)
     }
+    
+    func testTapRouteOverView() {
+        let routeView = RouteOverView(with: Route(departureTime: Date(timeIntervalSinceNow: 60), arrivalTime: Date(timeIntervalSinceNow: 360), segments: []))
+        let tapRecognizer = UITapGestureRecognizer()
+        routeView.addGestureRecognizer(tapRecognizer)
+        mapVC.tapRoute(tapRecognizer)
+        XCTAssertFalse(routeView.gestureRecognizers!.isEmpty)
+    }
 
 }
