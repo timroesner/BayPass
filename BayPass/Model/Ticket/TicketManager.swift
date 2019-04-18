@@ -21,38 +21,36 @@ class TicketManager {
         fetchBARTStations()
         fetchCalTrainStations()
     }
-    
-    private func fetchCalTrainStations() {
-        
-    }
-    
+
+    private func fetchCalTrainStations() {}
+
     private func fetchBARTStations() {
-        BART().getAllStations(completion: { (stations) in
+        BART().getAllStations(completion: { stations in
             self.bartStations = stations
         })
     }
-    
+
     func getDropDownOptions(for agency: Agency) -> [(title: String, values: [String])] {
         var dropDownOptions = [(title: String, values: [String])]()
-        
+
         switch agency {
-            case .BART:
-                dropDownOptions.append((title: "Ticket Type", values: ["Single Ride", "Roundtrip"]))
-                dropDownOptions.append((title: "From", values: bartStations.map{ $0.key }.sorted()))
-                dropDownOptions.append((title: "To", values: bartStations.map{ $0.key }.sorted()))
-            default:
-                break
+        case .BART:
+            dropDownOptions.append((title: "Ticket Type", values: ["Single Ride", "Roundtrip"]))
+            dropDownOptions.append((title: "From", values: bartStations.map { $0.key }.sorted()))
+            dropDownOptions.append((title: "To", values: bartStations.map { $0.key }.sorted()))
+        default:
+            break
         }
         dropDownOptions.append((title: "Payment Method", values: PaymentMethod.allCases.map { $0.rawValue }))
         return dropDownOptions
     }
-    
+
     func getBARTPrice(from: String, to: String, completion: @escaping (Double) -> Void) {
         guard let fromAbbr = bartStations[from],
             let toAbbr = bartStations[to]
         else { return }
-        
-        BART().getFare(from: fromAbbr, to: toAbbr) { (fare) in
+
+        BART().getFare(from: fromAbbr, to: toAbbr) { fare in
             completion(fare)
         }
     }

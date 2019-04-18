@@ -22,7 +22,7 @@ class TicketCheckoutViewController: UIViewController {
 
         title = agency.stringValue
         navigationController?.navigationBar.prefersLargeTitles = false
-        
+
         dropDownOptions = TicketManager.shared.getDropDownOptions(for: agency)
         setUpTicketView(newTicketView: TicketView(agency: agency.stringValue, icon: agency.getIcon(), cornerRadius: 12))
         setupDropDowns()

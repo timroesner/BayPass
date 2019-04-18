@@ -7,11 +7,11 @@ class DropDownMenu: UIView, UITableViewDelegate, UITableViewDataSource {
     var selectedItemButton = UILabel()
     let arrow = UIImageView(image: #imageLiteral(resourceName: "arrow"))
     var isOpen = false
-    
+
     var delegate: DropDownDelegate?
     var tableViewOpenConstraint: Constraint?
     var tableViewClosedConstraint: Constraint?
-    
+
     private var dropDownOptions = [String]()
     private var selectedItem: String = "" {
         didSet {

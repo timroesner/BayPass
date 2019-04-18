@@ -56,6 +56,7 @@
 		2266C740224DC513004C8D2E /* ClipperOnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266C73F224DC513004C8D2E /* ClipperOnBoarding.swift */; };
 		227BBE6C21B4C78E00D3169E /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE6B21B4C78E00D3169E /* Bird.swift */; };
 		227BBE7121B4F48D00D3169E /* BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BBE7021B4F48D00D3169E /* BirdTests.swift */; };
+		2290D2692268522800FDDDE1 /* TicketManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290D2682268522800FDDDE1 /* TicketManagerTests.swift */; };
 		22A4E59022597F0400DF8AD9 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */; };
 		22ADA0D122604FF100AA9368 /* RouteOverViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ADA0D022604FF100AA9368 /* RouteOverViewTests.swift */; };
 		22B32246224DCF8D00F2508A /* BayPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32245224DCF8D00F2508A /* BayPassButton.swift */; };
@@ -199,6 +200,7 @@
 		227796CB21B6251F00BAF6BA /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		227BBE6B21B4C78E00D3169E /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 		227BBE7021B4F48D00D3169E /* BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdTests.swift; sourceTree = "<group>"; };
+		2290D2682268522800FDDDE1 /* TicketManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketManagerTests.swift; sourceTree = "<group>"; };
 		22A4E58F22597F0400DF8AD9 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 		22ADA0D022604FF100AA9368 /* RouteOverViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverViewTests.swift; sourceTree = "<group>"; };
 		22B32245224DCF8D00F2508A /* BayPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayPassButton.swift; sourceTree = "<group>"; };
@@ -620,6 +622,7 @@
 				6AB6ED122186821800A81302 /* ClipperCardTests.swift */,
 				6AB6ED142186822300A81302 /* PassTests.swift */,
 				6AB6ED162186822D00A81302 /* TicketTests.swift */,
+				2290D2682268522800FDDDE1 /* TicketManagerTests.swift */,
 			);
 			path = Ticket;
 			sourceTree = "<group>";
@@ -1005,6 +1008,7 @@
 				6AB6ED0A218680C300A81302 /* BikeDockTests.swift in Sources */,
 				22DB02422254579F00B8D600 /* ClipperOnBoardingTests.swift in Sources */,
 				EC83AD712262C48000AF7588 /* ticketCarouselViewCellTests.swift in Sources */,
+				2290D2692268522800FDDDE1 /* TicketManagerTests.swift in Sources */,
 				22A4E59022597F0400DF8AD9 /* UserManagerTests.swift in Sources */,
 				22F097552206868E009881F8 /* BartTests.swift in Sources */,
 				2262C3202187FD68000586EE /* MapAnnotationTests.swift in Sources */,

@@ -19,17 +19,17 @@ extension TicketCheckoutViewController: DropDownDelegate {
             }
         }
     }
-    
+
     func updateBARTTicketPrice() {
         guard let type = stackedViews[safe: 1] as? DropDownMenu,
             let fromDropDown = stackedViews[safe: 2] as? DropDownMenu,
             let toDropDown = stackedViews[safe: 3] as? DropDownMenu
         else { return }
-        
-        TicketManager.shared.getBARTPrice(from: fromDropDown.getSelectedItem(), to: toDropDown.getSelectedItem()) { (newPrice) in
-            let calculatedPrice = type.getSelectedItem() == "Roundtrip" ? newPrice*2 : newPrice
+
+        TicketManager.shared.getBARTPrice(from: fromDropDown.getSelectedItem(), to: toDropDown.getSelectedItem()) { newPrice in
+            let calculatedPrice = type.getSelectedItem() == "Roundtrip" ? newPrice * 2 : newPrice
             self.currentTicketPrice = calculatedPrice
-            self.payButton?.setTitle(String(format:"Pay $%.2f", calculatedPrice), for: .normal)
+            self.payButton?.setTitle(String(format: "Pay $%.2f", calculatedPrice), for: .normal)
         }
     }
 }
