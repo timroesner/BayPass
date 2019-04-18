@@ -91,8 +91,15 @@ class GoogleMaps {
             let departureDate = Date(timeIntervalSince1970: Double(departureInterval))
             let arrivalDate = Date(timeIntervalSince1970: Double(arrivalInterval))
 
-            let lineName = lineJson["short_name"] as? String ?? ""
-            let destinationName = lineJson["name"] as? String ?? ""
+            var lineName = ""
+            if let lineNameShort = lineJson["short_name"] as? String {
+                lineName = lineNameShort
+            } else {
+                lineName = lineJson["name"] as? String ?? ""
+            }
+            
+            let destinationName = transitDetails["headsign"] as? String ?? ""
+            
             let depStop = depStopJson["name"] as? String ?? ""
             let arrivalStop = arrivalStopJson["name"] as? String ?? ""
             let waypoints = [depStop, arrivalStop]
@@ -101,8 +108,11 @@ class GoogleMaps {
             if let agencies = lineJson["agencies"] as? [[String: Any]] {
                 agencyName = agencies[0]["name"] as? String ?? ""
             }
-
-            let line = transitSystem.allLines[lineName + "-" + agencyName] ?? Line(name: lineName, agency: Agency(stringValue: agencyName), destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+            
+            var line = transitSystem.allLines[lineName+" - "+destinationName] ?? Line(name: lineName, agency: Agency(stringValue: agencyName), destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+            line.agency = Agency(stringValue: agencyName)
+            
+            // Figure out how to calculate price
             let price = 2.50
 
             return RouteSegment(distanceInMeters: distance, departureTime: departureDate, arrivalTime: arrivalDate, polyline: polyline, travelMode: .transit, line: line, price: price, waypoints: waypoints)

@@ -36,17 +36,7 @@ class Here {
                         stations.append(newStation)
                     }
                 }
-
-                self.getAgencies(stationIds: stations.map { $0.code }) { agencyStationIDs in
-                    for index in 0 ..< stations.count {
-                        if let agency = agencyStationIDs[stations[index].code] {
-                            for lineIndex in 0 ..< stations[index].lines.count {
-                                stations[index].lines[lineIndex].agency = agency
-                            }
-                        }
-                    }
-                    completion(stations)
-                }
+                completion(stations)
             } else {
                 print("Failed in getting Stations near \(center)")
                 completion([])
