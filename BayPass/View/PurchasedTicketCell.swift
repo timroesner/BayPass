@@ -66,6 +66,7 @@ class PurchasedTicketCell: UITableViewCell {
             make.right.equalToSuperview().inset(9)
             make.width.equalTo(60)
             make.height.equalTo(22)
+            make.left.greaterThanOrEqualTo(nameLbl.snp.right).offset(4)
         }
 
         showLbl.textColor = UIColor(red: 0.16, green: 0.47, blue: 0.96, alpha: 1)

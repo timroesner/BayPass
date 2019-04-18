@@ -32,7 +32,7 @@ class TicketViewController: UIViewController {
 
     let purchasedTicketTableViewCellID = "purchasedTicketTableViewCellID"
 
-    let agencies = Agency.allCases
+    let agencies = Agency.allCases.filter{$0.rawValue != "0"}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,28 +51,25 @@ class TicketViewController: UIViewController {
         purchasedTicketTableView.register(PurchasedTicketCell.self, forCellReuseIdentifier: purchasedTicketTableViewCellID)
         layoutTableView()
 
+        
         // MARK: temporary data
-
         UserManager.shared.clearAllPurchasedTickets()
         let expiredDuration = DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: -220_482.0))
-        let validDuration = DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0))
+        let validDuration = DateInterval(start: Date(timeIntervalSinceNow: -60), end: Date(timeIntervalSinceNow: 36000))
 
-        let expiredTicket = Ticket(name: "Monthly Pass", duration: expiredDuration, price: 2.3, validOnAgency: Agency.CalTrain)
-        let validTicket1 = Ticket(name: "Weekly Pass", duration: validDuration, price: 2.3, validOnAgency: Agency.ACTransit)
-        let validTicket2 = Ticket(name: "Weekly Pass", duration: validDuration, price: 2.3, validOnAgency: Agency.SolTrans)
-        let validTicket3 = Ticket(name: "Monthly Pass", duration: validDuration, price: 2.3, validOnAgency: Agency.ACE)
-        let validSingleRide = Ticket(name: "Single Ride", count: 1, price: 2.50, validOnAgency: Agency.VTA)
+        let validDayPass = Ticket(name: "Day Pass", duration: validDuration, price: 5.00, validOnAgency: .VTA)
+        let validSingleRide = Ticket(name: "Single Ride - 3 Zones", count: 1, price: 9.75, validOnAgency: .CalTrain)
+        let expiredMonthly = Ticket(name: "Monthly Pass", duration: expiredDuration, price: 90.00, validOnAgency: .Muni)
 
-        UserManager.shared.addPurchased(ticket: expiredTicket)
-        UserManager.shared.addPurchased(ticket: validTicket1)
-        UserManager.shared.addPurchased(ticket: validTicket2)
-        UserManager.shared.addPurchased(ticket: validTicket3)
+        UserManager.shared.addPurchased(ticket: validDayPass)
+        UserManager.shared.addPurchased(ticket: expiredMonthly)
         UserManager.shared.addPurchased(ticket: validSingleRide)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        purchasedTicketTableView.reloadData()
     }
 
     func setUpTicketCarouselView() {
