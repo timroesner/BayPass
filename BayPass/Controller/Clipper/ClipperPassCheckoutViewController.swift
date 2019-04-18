@@ -29,7 +29,7 @@ class ClipperPassCheckoutViewController: UIViewController {
     func setUpTicketView(newTicketView: TicketView) {
         view.addSubview(newTicketView)
         newTicketView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25).priorityLow()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25).priority(.low)
             make.left.right.equalToSuperview().inset(16)
             make.height.equalTo(newTicketView.snp.width).multipliedBy(0.6)
         }
