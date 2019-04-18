@@ -10,6 +10,7 @@ import CoreLocation
 import UIKit
 
 struct ScooterCompany: Equatable {
+    static let shared = ScooterCompany(name: "None", icon: #imageLiteral(resourceName: "Scooter"), color: .black)
     var name: String
     var icon: UIImage
     var color: UIColor

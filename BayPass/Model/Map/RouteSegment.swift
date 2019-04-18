@@ -26,6 +26,7 @@ struct RouteSegment {
         self.durationInMinutes = durationInMinutes
         self.polyline = polyline
         self.travelMode = travelMode
+        self.travelMode = setTravelMode()
     }
 
     init(distanceInMeters: Int, departureTime: Date, arrivalTime: Date, polyline: MKPolyline, travelMode: TravelMode, line: Line, price: Double, waypoints: [String]) {
@@ -38,5 +39,15 @@ struct RouteSegment {
         self.line = line
         self.price = price
         self.waypoints = waypoints
+    }
+    
+    func setTravelMode() -> TravelMode {
+        if distanceInMeters < 750 {
+            return .walking
+        } else if distanceInMeters < 5000 {
+            return .scooter
+        } else {
+            return .bike
+        }
     }
 }

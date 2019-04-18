@@ -175,6 +175,8 @@ class RouteDetailsViewController: UIViewController {
         }
         
         let titleLabel = UILabel()
+        let subtitleLabel = UILabel()
+        
         titleLabel.textColor = .black
         titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         view.addSubview(titleLabel)
@@ -185,10 +187,14 @@ class RouteDetailsViewController: UIViewController {
             titleLabel.text = "Walk \(segment.distanceInMeters)m"
         case .scooter:
             iconView.image = #imageLiteral(resourceName: "Scooter")
-            titleLabel.text = "Scooter \(segment.distanceInMeters)m"
+            let duration = ScooterCompany.shared.getDurationInMinutes(fromMeters: Double(segment.distanceInMeters))
+            titleLabel.text = "Scooter for \(duration) min"
+            subtitleLabel.text = String(format: "Estimated charge: $%.2f", ScooterCompany.shared.calculatePrice(fromMinutes: duration))
         case .bike:
             iconView.image = #imageLiteral(resourceName: "Bike")
-            titleLabel.text = "Bike \(segment.distanceInMeters)m"
+            let duration = BikeDock.shared.getDurationInMinutes(fromMeters: Double(segment.distanceInMeters), eBike: false)
+            titleLabel.text = "Bike for \(duration) min"
+            subtitleLabel.text = String(format: "Estimated charge: $%.2f", BikeDock.shared.calculatePrice(fromMinutes: Double(duration)))
         default:
             break
         }
@@ -203,8 +209,6 @@ class RouteDetailsViewController: UIViewController {
                 make.top.equalToSuperview()
                 make.left.equalTo(iconView.snp.right).offset(8)
             }
-            let subtitleLabel = UILabel()
-            subtitleLabel.text = "Extra charge applies"
             subtitleLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
             subtitleLabel.textColor = .gray
             view.addSubview(subtitleLabel)
