@@ -30,7 +30,7 @@ class System {
                         self.allStationsDict[station.name] = station
                     }
                     for line in station.lines {
-                        self.allLines[line.name + " - " + line.destination] = line
+                        self.allLines[line.name+" - "+line.destination] = line
                     }
                 }
                 group.leave()

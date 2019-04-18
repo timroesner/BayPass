@@ -48,4 +48,20 @@ extension UIViewController {
             print("Apple Pay error")
         }
     }
+    
+    open override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            resetUserDataAlert()
+        }
+    }
+    
+    private func resetUserDataAlert() {
+        let alert = UIAlertController(title: "Reset", message: "Are you sure you want to delete all user data? This inlcudes Clipper Card and all purchased Tickets.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+            UserManager.shared.removeCard()
+            UserManager.shared.clearAllPurchasedTickets()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
 }

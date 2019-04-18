@@ -10,6 +10,7 @@ import CoreLocation
 import UIKit
 
 struct BikeDock {
+    static let shared = BikeDock(name: "None", location: CLLocation(latitude: 0, longitude: 0), bikesAvailible: 0)
     var name: String
     var location: CLLocation
     var bikesAvailible: Int

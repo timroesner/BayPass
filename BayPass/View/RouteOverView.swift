@@ -10,16 +10,19 @@ import SnapKit
 import UIKit
 
 class RouteOverView: UIView {
-    let durationLabel = UILabel()
-    let timeLabel = UILabel()
-    let priceLabel = UILabel()
-    let segmentView = UIView()
+    private let durationLabel = UILabel()
+    private let timeLabel = UILabel()
+    private let priceLabel = UILabel()
+    private let segmentView = UIView()
+    let route: Route
 
     init(with route: Route) {
+        self.route = route
         super.init(frame: CGRect.zero)
 
         layer.backgroundColor = UIColor.white.cgColor
         layer.cornerRadius = 14
+        layer.applySketchShadow(color: .black, alpha: 0.06, x: 0, y: 2, blur: 13, spread: 0)
 
         addSubview(durationLabel)
         durationLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
@@ -69,19 +72,25 @@ class RouteOverView: UIView {
             let lineLabel = UILabel()
             let lineMultiplier = Double(segment.durationInMinutes) / (totalDuration / 60)
             let lineWidth = viewWidth * lineMultiplier - 2
+            let nameWillFit = (lineWidth - Double((segment.line?.name.count ?? 0) * 8) - 30) > 4.0
             lineLabel.layer.cornerRadius = 4
-
+            
             if segment.travelMode == .transit {
                 lineLabel.layer.backgroundColor = segment.line?.color.cgColor
             } else {
                 lineLabel.layer.backgroundColor = UIColor(red: 216, green: 216, blue: 216).cgColor
             }
+            
+            var textColor: UIColor = .white
+            if segment.line?.color.isLight() ?? false {
+                textColor = .black
+            }
 
             if lineWidth > 33 {
-                if lineWidth > 74, segment.travelMode == .transit {
+                if lineWidth > 74, segment.travelMode == .transit, nameWillFit {
                     let canvas = UIView()
                     let icon = UIImageView()
-                    icon.tintColor = .white
+                    icon.tintColor = textColor
                     icon.image = segment.line?.getIcon()
                     canvas.addSubview(icon)
                     icon.snp.makeConstraints { make in
@@ -91,7 +100,7 @@ class RouteOverView: UIView {
                     }
                     let label = UILabel()
                     label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-                    label.textColor = .white
+                    label.textColor = textColor
                     label.text = segment.line?.name
                     canvas.addSubview(label)
                     label.snp.makeConstraints { make in
@@ -115,7 +124,7 @@ class RouteOverView: UIView {
                     case .bike:
                         icon.image = #imageLiteral(resourceName: "Bike")
                     case .transit:
-                        icon.tintColor = .white
+                        icon.tintColor = textColor
                         icon.image = segment.line?.getIcon()
                     }
                     lineLabel.addSubview(icon)

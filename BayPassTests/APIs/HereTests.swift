@@ -107,6 +107,19 @@ class HereTests: XCTestCase {
         wait(for: [ex], timeout: 5)
         XCTAssertNotNil(results)
     }
+    
+    func testGetAgencies() {
+        let ex = expectation(description: "Here for getting Agencies from a Station IDs")
+        let stationId: Int = 718_310_131
+        
+        var results: [Int: Agency]?
+        here.getAgencies(stationIds: [stationId]) { (result) in
+            results = result
+            ex.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertNotNil(results)
+    }
 
     func testParseStationForId() {
         let resJson = testJson["Res"] as! [String: Any]
