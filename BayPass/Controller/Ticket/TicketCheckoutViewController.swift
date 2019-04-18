@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stripe
 
 class TicketCheckoutViewController: UIViewController {
     var ticket = ""
@@ -19,6 +20,10 @@ class TicketCheckoutViewController: UIViewController {
     ]
     private var stackedViews = [UIView]()
 
+    // MARK: temporary data, waiting for integration of Ticket/Pass Manager
+    var currentTicketPrice = 0.0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -67,5 +72,42 @@ class TicketCheckoutViewController: UIViewController {
 
     @objc func pay() {
         print("pay")
+        
+        let paymentDropDown = stackedViews[safe: 3] as? DropDownMenu
+        if currentTicketPrice != 0.0 {
+            switch PaymentMethod(rawValue: (paymentDropDown?.getSelectedItem())!) ?? .applePay {
+            case .applePay:
+                checkoutWithApplePay(items: [(name: "Cash Value", amount: currentTicketPrice)], delegate: self)
+                return
+            case .creditDebit:
+                print("Credit / Debit")
+                return
+            }
+        } else {
+            displayAlert(title: "Invalid", msg: "The price of the current ticket is 0.0", dismissAfter: false)
+        }
     }
 }
+
+extension TicketCheckoutViewController: PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewController(_: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
+        STPAPIClient.shared().createToken(with: payment) { (token: STPToken?, error: Error?) in
+            guard let token = token, error == nil else {
+                completion(.failure)
+                return
+            }
+            
+            // Here we could call our backend if we actually would submit the payment
+            print(token)
+            completion(.success)
+        }
+    }
+    
+    func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
+        dismiss(animated: true, completion: {
+            UserManager.shared.addCashToCard(amount: self.currentTicketPrice)
+            self.dismissOrPop(animated: true)
+        })
+    }
+}
+
