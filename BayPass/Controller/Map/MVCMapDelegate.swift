@@ -19,7 +19,8 @@ extension MapViewController: MKMapViewDelegate {
             switch travelMode {
             case .walking:
                 polylineRenderer.strokeColor = UIColor().lightGrey
-                polylineRenderer.lineDashPattern = [6, 12]
+                polylineRenderer.lineDashPattern = [12, 10]
+                polylineRenderer.lineCap = .round
             case .transit:
                 if let colorString = polyline.subtitle {
                     polylineRenderer.strokeColor = UIColor(string: colorString)

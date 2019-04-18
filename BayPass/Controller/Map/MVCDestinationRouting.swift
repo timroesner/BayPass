@@ -42,6 +42,7 @@ extension MapViewController: UIScrollViewDelegate {
         }
         showLimeScootersOnMap(at: userLocation)
         showLimeScootersOnMap(at: destination.placemark.coordinate)
+        showBirdScootersOnMap(at: destination.placemark.coordinate, radius: 500)
     }
 
     func setupRoutesView(with routes: [Route]) {
@@ -63,6 +64,9 @@ extension MapViewController: UIScrollViewDelegate {
         var routeViews = [UIView]()
         for route in routes {
             let routeOverview = RouteOverView(with: route)
+            routeOverview.isUserInteractionEnabled = true
+            let swipeGesture = UITapGestureRecognizer(target: self, action: #selector(tapRoute(_:)))
+            routeOverview.addGestureRecognizer(swipeGesture)
             scrollView.addSubview(routeOverview)
             routeOverview.snp.makeConstraints { make in
                 make.top.equalToSuperview().offset(4)
@@ -117,6 +121,19 @@ extension MapViewController: UIScrollViewDelegate {
         if let boundingRect = route.getBoundingMapRect() {
             mapView.setVisibleMapRect(boundingRect, edgePadding: UIEdgeInsets(top: 140, left: 10, bottom: 140, right: 10), animated: true)
         }
+    }
+    
+    @objc func tapRoute(_ recognizer: UITapGestureRecognizer) {
+        let routeView = recognizer.view as? RouteOverView
+        let routeDetailsVC = RouteDetailsViewController()
+        routeDetailsVC.route = routeView?.route
+        routeDetailsVC.routeOverView = RouteOverView(with: routeView!.route)
+        bottomSheet.invalidateNotchHeights()
+        notchPercentages = [0, 0.87]
+        bottomSheet.viewControllers = [routeDetailsVC]
+        addChild(bottomSheet, in: view)
+        bottomSheet.drivingScrollView = routeDetailsVC.scrollView
+        bottomSheet.moveOverlay(toNotchAt: 1, animated: true)
     }
 
     @objc func cancelRouting() {

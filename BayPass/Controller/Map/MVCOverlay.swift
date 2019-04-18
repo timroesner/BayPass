@@ -28,6 +28,7 @@ extension MapViewController: OverlayContainerViewControllerDelegate {
     func setupSearchView() {
         searchVC.resetSearch()
         bottomSheet.drivingScrollView = searchVC.tableView
+        bottomSheet.invalidateNotchHeights()
         notchPercentages = [0.20, 0.93]
         bottomSheet.viewControllers = [searchVC]
     }

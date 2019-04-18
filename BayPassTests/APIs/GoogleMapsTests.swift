@@ -48,7 +48,7 @@ class GoogleMapsTests: XCTestCase {
         let firstSegment = testRoute?.segments[0]
         XCTAssertEqual(firstSegment?.distanceInMeters, 1149)
         XCTAssertEqual(firstSegment?.durationInMinutes, 14)
-        XCTAssertEqual(firstSegment?.travelMode, .walking)
+        XCTAssertEqual(firstSegment?.travelMode, .scooter)
         XCTAssertEqual(firstSegment?.polyline.coordinate.latitude, 37.3456950943918)
         XCTAssertEqual(firstSegment?.polyline.coordinate.longitude, -121.89542)
 
@@ -65,7 +65,7 @@ class GoogleMapsTests: XCTestCase {
         let thirdSegment = testRoute?.segments[2]
         XCTAssertEqual(thirdSegment?.distanceInMeters, 1548)
         XCTAssertEqual(thirdSegment?.durationInMinutes, 19)
-        XCTAssertEqual(thirdSegment?.travelMode, .walking)
+        XCTAssertEqual(thirdSegment?.travelMode, .scooter)
         XCTAssertEqual(thirdSegment?.polyline.coordinate.latitude, 37.32897023480877)
         XCTAssertEqual(thirdSegment?.polyline.coordinate.longitude, -122.013855)
     }
