@@ -50,7 +50,7 @@ class TicketCheckoutViewController: UIViewController {
             }
             stackedViews.append(dropDown)
         }
-        setUpButton(color: UIColor(named: "dark\(agency.stringValue.replacingOccurrences(of: " ", with: ""))") ?? UIColor.black)
+        setUpButton(color: agency.getColor())
     }
 
     func setUpButton(color: UIColor) {

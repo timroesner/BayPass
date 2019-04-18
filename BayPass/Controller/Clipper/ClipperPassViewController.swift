@@ -16,10 +16,9 @@ class ClipperPassViewController: UIViewController {
     let clipperPassCollectionViewCellID = "clipperPassCollectionViewCellID"
     let clipperPassCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)
-        layout.scrollDirection = .vertical
+        let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collection.backgroundColor = UIColor.white
-        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         collection.isScrollEnabled = true
         collection.showsVerticalScrollIndicator = false
         return collection
@@ -28,16 +27,15 @@ class ClipperPassViewController: UIViewController {
     let recentlyPurchasedClipperPassCollectionViewCellID = "recentlyPurchasedClipperPassCollectionViewCellID"
     let recentlyPurchasedClipperPassCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: layout)
+        let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         layout.scrollDirection = .horizontal
         collection.backgroundColor = UIColor.white
-        collection.translatesAutoresizingMaskIntoConstraints = false
         collection.isScrollEnabled = true
         collection.showsHorizontalScrollIndicator = false
         return collection
     }()
 
-    let agencies = Agency.allCases
+    let agencies = Agency.allCases.filter{$0.rawValue != "0"}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,17 +50,6 @@ class ClipperPassViewController: UIViewController {
         recentlyPurchasedClipperPassCollectionView.delegate = self
         recentlyPurchasedClipperPassCollectionView.dataSource = self
         recentlyPurchasedClipperPassCollectionView.register(ClipperPassCollectionViewCell.self, forCellWithReuseIdentifier: recentlyPurchasedClipperPassCollectionViewCellID)
-
-        // MARK: temporary data for testing "Recently Purchased"
-        let BARTPass = Pass(name: Agency.BART.stringValue,
-                            duration: DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0)),
-                            price: 0.0, validOnAgency: Agency.BART)
-        let CalTrainPass = Pass(name: Agency.CalTrain.stringValue,
-                                duration: DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0)),
-                                price: 0.0, validOnAgency: Agency.CalTrain)
-        UserManager.shared.addPass(pass: BARTPass)
-        UserManager.shared.addPass(pass: CalTrainPass)
-
         
         setupView()
     }

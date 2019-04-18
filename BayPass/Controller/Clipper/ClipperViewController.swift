@@ -33,6 +33,7 @@ class ClipperViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupRegularView()
+        collectionView?.reloadData()
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 

@@ -216,7 +216,7 @@
 		22B32249224DDE7900F2508A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22B3224B224DE8D900F2508A /* FetchClipperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchClipperData.swift; sourceTree = "<group>"; };
 		22B32252225324A100F2508A /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
-		22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperPassCollectionViewCell.swift; sourceTree = "<group>"; };
+		22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClipperPassCollectionViewCell.swift; path = ../Controller/Clipper/ClipperPassCollectionViewCell.swift; sourceTree = "<group>"; };
 		22B3225722533CF100F2508A /* ClipperViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperViewControllerTests.swift; sourceTree = "<group>"; };
 		22B3225A2253E76100F2508A /* ProgressHUDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProgressHUDTests.swift; path = BayPassTests/View/ProgressHUDTests.swift; sourceTree = SOURCE_ROOT; };
 		22B3225C2253E8DE00F2508A /* ClipperPassCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperPassCellTests.swift; sourceTree = "<group>"; };
@@ -421,6 +421,7 @@
 				224662E22228FC9B00E86C66 /* MoveIndicator.swift */,
 				223AF97122278965009EA730 /* DestinationSearchResultTableViewCell.swift */,
 				223AF96D22265949009EA730 /* StationSearchResultTableViewCell.swift */,
+				22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */,
 				224662F02229204200E86C66 /* EmptyView.swift */,
 				22B32252225324A100F2508A /* ProgressHUD.swift */,
 			);
@@ -501,7 +502,6 @@
 				EC26414E226599930081AC6E /* ClipperPassViewController.swift */,
 				EC2641562265B45D0081AC6E /* CPCollectionView.swift */,
 				EC2641522265AC2D0081AC6E /* ClipperPassCheckoutViewController.swift */,
-				22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */,
 				2266C73F224DC513004C8D2E /* ClipperOnBoarding.swift */,
 				22B32249224DDE7900F2508A /* SignInViewController.swift */,
 				22B3224B224DE8D900F2508A /* FetchClipperData.swift */,

@@ -32,7 +32,7 @@ class TicketViewController: UIViewController {
 
     let purchasedTicketTableViewCellID = "purchasedTicketTableViewCellID"
 
-    let agencies = Agency.allCases
+    let agencies = Agency.allCases.filter{$0.rawValue != "0"}
 
     override func viewDidLoad() {
         super.viewDidLoad()

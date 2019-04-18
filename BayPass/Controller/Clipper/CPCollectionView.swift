@@ -20,7 +20,6 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == clipperPassCollectionView {
             let cell = clipperPassCollectionView.dequeueReusableCell(withReuseIdentifier: clipperPassCollectionViewCellID, for: indexPath) as! ClipperPassCollectionViewCell
-            cell.backgroundColor = .white
             cell.setup(with: Pass(name: agencies[indexPath.row].stringValue,
                                   duration: DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: 470_482.0)),
                                   price: 0.0,
@@ -28,7 +27,6 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
             return cell
         } else {
             let cell = recentlyPurchasedClipperPassCollectionView.dequeueReusableCell(withReuseIdentifier: recentlyPurchasedClipperPassCollectionViewCellID, for: indexPath) as! ClipperPassCollectionViewCell
-            cell.backgroundColor = .white
             cell.setup(with: UserManager.shared.getValidPasses()[indexPath.row])
             return cell
         }
