@@ -26,7 +26,21 @@ class ClipperAddPassTests: XCTestCase {
         UserManager.shared.addPass(pass: pass)
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
+        
+        let itemsCount = vc.collectionView(vc.recentlyPurchasedClipperPassCollectionView, numberOfItemsInSection: 0)
+        XCTAssertEqual(itemsCount, 1)
+        
+        let cell = vc.collectionView(vc.recentlyPurchasedClipperPassCollectionView, cellForItemAt: IndexPath(row: 0, section: 0))
+        XCTAssertNotNil(cell)
+        
+        let insets = vc.collectionView(vc.recentlyPurchasedClipperPassCollectionView, layout: vc.recentlyPurchasedClipperPassCollectionView.collectionViewLayout, insetForSectionAt: 0)
+        XCTAssertEqual(insets, UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 15))
+        
+        let cellSize = vc.collectionView(vc.recentlyPurchasedClipperPassCollectionView, layout: vc.recentlyPurchasedClipperPassCollectionView.collectionViewLayout, sizeForItemAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(cellSize, CGSize(width: 250, height: 140))
+        
         vc.collectionView(vc.recentlyPurchasedClipperPassCollectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
+        
         UserManager.shared.removeCard()
     }
     
