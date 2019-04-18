@@ -20,18 +20,23 @@ class ClipperAddPassTests: XCTestCase {
     }
 
     func testRecentlyPurchased() {
-        let pass = Pass(name: "Monthly Pass", duration: DateInterval(start: Date(timeIntervalSinceNow: -300), duration: 36000), price: 260.0, validOnAgency: .CalTrain)
-        let testCard = ClipperCard(number: 9_999_999_999, cashValue: 0.0, passes: [pass])
+        let testCard = ClipperCard(number: 9_999_999_999, cashValue: 0.0, passes: [])
         UserManager.shared.setClipperCard(card: testCard)
+        let pass = Pass(name: "Monthly Pass", duration: DateInterval(start: Date(timeIntervalSinceNow: -300), duration: 36000), price: 260.0, validOnAgency: .CalTrain)
+        UserManager.shared.addPass(pass: pass)
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
+        vc.collectionView(vc.recentlyPurchasedClipperPassCollectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
+        UserManager.shared.removeCard()
     }
     
-    func testNewCard() {
+    func testWithNewCard() {
         let testCard = ClipperCard(number: 9_999_999_999, cashValue: 0.0, passes: [])
         UserManager.shared.setClipperCard(card: testCard)
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
+        vc.collectionView(vc.clipperPassCollectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
+        UserManager.shared.removeCard()
     }
 
 }
