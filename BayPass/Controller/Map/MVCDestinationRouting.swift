@@ -42,6 +42,7 @@ extension MapViewController: UIScrollViewDelegate {
         }
         showLimeScootersOnMap(at: userLocation)
         showLimeScootersOnMap(at: destination.placemark.coordinate)
+        showBirdScootersOnMap(at: destination.placemark.coordinate, radius: 500)
     }
 
     func setupRoutesView(with routes: [Route]) {
