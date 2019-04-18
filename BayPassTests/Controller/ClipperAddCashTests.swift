@@ -97,6 +97,6 @@ class ClipperAddCashTests: XCTestCase {
         }
         waitForExpectations(timeout: 10, handler: nil)
         print(statusResult as Any)
-        //XCTAssertEqual(statusResult, PKPaymentAuthorizationStatus.failure)
+        XCTAssertEqual(statusResult, PKPaymentAuthorizationStatus.failure)
     }
 }
