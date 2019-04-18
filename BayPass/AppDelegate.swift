@@ -9,6 +9,8 @@
 import Stripe
 import UIKit
 
+let transitSystem = System()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -17,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         let vc = TabViewController()
-
         window?.rootViewController = vc
+
+        transitSystem.getAllStations()
 
         // Stripe
         STPPaymentConfiguration.shared().publishableKey = Credentials().stripeKey

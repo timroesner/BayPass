@@ -7,8 +7,8 @@
 //
 
 @testable import BayPass
-import XCTest
 import MapKit
+import XCTest
 
 class RouteTests: XCTestCase {
     override func setUp() {
@@ -18,18 +18,17 @@ class RouteTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     func testRouteInit() {
         let depTime = Date(timeIntervalSinceNow: 60)
         let arrTime = Date(timeIntervalSinceNow: 240)
         let polyline = MKPolyline(coordinates: [])
-        let firstSegment = RouteSegment(distanceInMeters: 500, durationInMinutes: 22, polyline: polyline, travelMode: .walking)
-        let segments = [firstSegment]
-        let route = Route(departureTime: depTime, arrivalTime: arrTime, segments: segments)
-        
+        let segmentsX = [RouteSegment(distanceInMeters: 500, durationInMinutes: 22, polyline: polyline, travelMode: .walking)]
+        let route = Route(departureTime: depTime, arrivalTime: arrTime, segments: segmentsX)
+
         assert(route.departureTime == depTime)
         assert(route.arrivalTime == arrTime)
-        assert(route.segments == segments)
+        XCTAssertNotNil(route.segments)
     }
     
     func testEmptyBoundingRect() {

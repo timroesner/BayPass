@@ -9,8 +9,14 @@
 import UIKit
 
 extension TicketViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return UserManager.shared.getPurchasedTickets().count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection _: Int) -> Int {
+        let tickets = UserManager.shared.getPurchasedTickets()
+        if tickets.isEmpty {
+            tableView.backgroundView = EmptyView(text: "You have not purchased any tickets yet")
+        } else {
+            tableView.backgroundView = nil
+        }
+        return tickets.count
     }
 
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

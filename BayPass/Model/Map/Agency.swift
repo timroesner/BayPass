@@ -5,7 +5,6 @@
 //  Created by Ayesha Khan on 10/20/18.
 //  Copyright © 2018 Tim Roesner. All rights reserved.
 //
-
 import UIKit
 
 enum Agency: String, Codable, CaseIterable {
@@ -32,7 +31,7 @@ enum Agency: String, Codable, CaseIterable {
         case .Muni:
             return "Muni"
         case .GoldenGateTransit:
-            return "Golden Gate Transit"
+            return "Golden Gate\nTransit"
         case .ACTransit:
             return "AC Transit"
         case .UnionCity:
@@ -45,6 +44,33 @@ enum Agency: String, Codable, CaseIterable {
             return "SolTrans"
         default:
             return ""
+        }
+    }
+    
+    init(stringValue: String) {
+        switch stringValue {
+        case "VTA":
+            self = .VTA
+        case "BART":
+            self = .BART
+        case "CalTrain":
+            self = .CalTrain
+        case "Muni":
+            self = .Muni
+        case "Golden Gate Transit":
+            self = .GoldenGateTransit
+        case "AC Transit":
+            self = .ACTransit
+        case "Union City Transit":
+            self = .UnionCity
+        case "ACE":
+            self = .ACE
+        case "SamTrans":
+            self = .SamTrans
+        case "SolTrans":
+            self = .SolTrans
+        default:
+            self = .zero
         }
     }
 
@@ -72,6 +98,33 @@ enum Agency: String, Codable, CaseIterable {
             return #imageLiteral(resourceName: "Bus")
         default:
             return #imageLiteral(resourceName: "CalTrain")
+        }
+    }
+    
+    func getColor() -> UIColor {
+        switch self {
+        case .ACE:
+            return #colorLiteral(red: 0.6209517717, green: 0.3887558877, blue: 0.8284057975, alpha: 1)
+        case .ACTransit:
+            return #colorLiteral(red: 0.2426148951, green: 0.77398628, blue: 0.5919234753, alpha: 1)
+        case .BART:
+            return #colorLiteral(red: 0.2225468159, green: 0.5167737603, blue: 0.8060272932, alpha: 1)
+        case .CalTrain:
+            return #colorLiteral(red: 0.8666666667, green: 0.3294117647, blue: 0.2549019608, alpha: 1)
+        case .GoldenGateTransit:
+            return #colorLiteral(red: 0.3713163137, green: 0.7446632385, blue: 0.5321159363, alpha: 1)
+        case .Muni:
+            return #colorLiteral(red: 0.8471637368, green: 0.2528677583, blue: 0.4470937252, alpha: 1)
+        case .UnionCity:
+            return #colorLiteral(red: 0.2191202641, green: 0.5643225312, blue: 0.8827003837, alpha: 1)
+        case .VTA:
+            return #colorLiteral(red: 0.2041481137, green: 0.5105623603, blue: 0.7108158469, alpha: 1)
+        case .SamTrans:
+            return #colorLiteral(red: 0.3274793029, green: 0.347738862, blue: 0.8402771354, alpha: 1)
+        case .SolTrans:
+            return #colorLiteral(red: 0.9531665444, green: 0.6216368079, blue: 0.2471764088, alpha: 1)
+        case .zero:
+            return .black
         }
     }
 }

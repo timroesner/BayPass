@@ -5,12 +5,11 @@
 //  Created by Zhe Li on 2/19/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
-
 import SnapKit
 import UIKit
 
 class PurchasedTicketCell: UITableViewCell {
-    var ticketView = TicketView(agency: Agency.VTA.stringValue, icon: Agency.VTA.getIcon(), cornerRadius: 8)
+    var ticketView = TicketView(agency: Agency.VTA, icon: Agency.VTA.getIcon(), cornerRadius: 8)
     let nameLbl = UILabel()
     let durationLbl = UILabel()
     let background = UILabel()
@@ -21,7 +20,7 @@ class PurchasedTicketCell: UITableViewCell {
     }
 
     func setup(with ticket: Ticket) {
-        ticketView = TicketView(agency: ticket.validOnAgency.stringValue, icon: ticket.validOnAgency.getIcon(), cornerRadius: 8)
+        ticketView = TicketView(agency: ticket.validOnAgency, icon: ticket.validOnAgency.getIcon(), cornerRadius: 8)
         addSubview(ticketView)
         ticketView.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(60)
@@ -52,7 +51,7 @@ class PurchasedTicketCell: UITableViewCell {
         nameLbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         nameLbl.snp.makeConstraints { (make) -> Void in
             if ticket.duration == nil {
-                make.centerY.equalToSuperview().priorityLow()
+                make.centerY.equalToSuperview().priority(.low)
             } else {
                 make.top.equalTo(durationLbl.snp.bottom).offset(1)
             }
@@ -67,6 +66,7 @@ class PurchasedTicketCell: UITableViewCell {
             make.right.equalToSuperview().inset(9)
             make.width.equalTo(60)
             make.height.equalTo(22)
+            make.left.greaterThanOrEqualTo(nameLbl.snp.right).offset(4)
         }
 
         showLbl.textColor = UIColor(red: 0.16, green: 0.47, blue: 0.96, alpha: 1)

@@ -35,7 +35,7 @@ extension ClipperViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             // present add pass UI
-            navigationController?.pushViewController(ClipperAddCashViewController(), animated: true)
+            navigationController?.pushViewController(ClipperPassViewController(), animated: true)
         } else {
             // present pass details with selected pass
             let pass = UserManager.shared.getValidPasses()[indexPath.row - 1]

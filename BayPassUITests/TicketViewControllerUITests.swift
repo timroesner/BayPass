@@ -9,20 +9,19 @@
 import XCTest
 
 class TicketViewControllerUITests: XCTestCase {
-    
     override func setUp() {
         continueAfterFailure = false
-        
+
         // Set this launch argument to speed up tests
         let app = XCUIApplication()
         app.launchArguments = ["UITests"]
         app.launch()
     }
-    
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     func testSelectingTicket() {
         let app = XCUIApplication()
         let tabBarsQuery = app.tabBars
@@ -35,6 +34,4 @@ class TicketViewControllerUITests: XCTestCase {
         dayPassStaticText.tap()
         app.navigationBars["BART"].buttons["Tickets"].tap()
     }
-    
-    
 }

@@ -79,4 +79,13 @@ class ExtensionsTests: XCTestCase {
         assert(gradient.endPoint == CGPoint(x: 1, y: 1))
         assert(gradient.colors?.count == 2)
     }
+    
+    func testShakeGesture() {
+        let vc = UIViewController()
+        UIApplication.shared.keyWindow!.rootViewController = vc
+        vc.motionBegan(.motionShake, with: nil)
+        
+        let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
+        XCTAssertTrue(presentedVC is UIAlertController)
+    }
 }

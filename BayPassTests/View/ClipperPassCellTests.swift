@@ -10,7 +10,6 @@
 import XCTest
 
 class ClipperPassCellTests: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -24,12 +23,11 @@ class ClipperPassCellTests: XCTestCase {
         cell.setupAdd()
         XCTAssertNotNil(cell)
     }
-    
+
     func testSetupWithPass() {
         let pass = Pass(name: "monthly", duration: DateInterval(start: Date(), duration: 3600), price: 45.0, validOnAgency: Agency.CalTrain)
         let cell = ClipperPassCollectionViewCell()
         cell.setup(with: pass)
         XCTAssertNotNil(cell)
     }
-
 }

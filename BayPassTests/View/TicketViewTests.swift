@@ -7,11 +7,10 @@
 //
 
 @testable import BayPass
-import XCTest
 import SnapKit
+import XCTest
 
 class TicketViewTests: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -21,7 +20,7 @@ class TicketViewTests: XCTestCase {
     }
 
     func test85x125() {
-        let ticketView = TicketView(agency: "VTA", icon: UIImage(named: "Tram")!, cornerRadius: 8)
+        let ticketView = TicketView(agency: Agency.VTA, icon: UIImage(named: "Tram")!, cornerRadius: 8)
         let view = UIView()
         view.addSubview(ticketView)
         ticketView.snp.makeConstraints({ (make) -> Void in
@@ -36,9 +35,9 @@ class TicketViewTests: XCTestCase {
         assert(ticketView.nameLbl.text == "VTA")
         assert(ticketView.imageView.image == UIImage(named: "Tram"))
     }
-    
+
     func test95x60() {
-        let ticketView = TicketView(agency: "AC Transit", icon: UIImage(named: "Bus")!, cornerRadius: 8)
+        let ticketView = TicketView(agency: Agency.ACTransit, icon: UIImage(named: "Bus")!, cornerRadius: 8)
         let view = UIView()
         view.addSubview(ticketView)
         ticketView.snp.makeConstraints({ (make) -> Void in
@@ -53,9 +52,9 @@ class TicketViewTests: XCTestCase {
         assert(ticketView.nameLbl.text == "AC Transit")
         assert(ticketView.imageView.image == UIImage(named: "Bus"))
     }
-    
+
     func test135x200() {
-        let ticketView = TicketView(agency: "ACE", icon: UIImage(named: "CalTrain")!, cornerRadius: 12)
+        let ticketView = TicketView(agency: Agency.ACE, icon: UIImage(named: "CalTrain")!, cornerRadius: 12)
         let view = UIView()
         view.addSubview(ticketView)
         ticketView.snp.makeConstraints({ (make) -> Void in
@@ -70,9 +69,9 @@ class TicketViewTests: XCTestCase {
         assert(ticketView.nameLbl.text == "ACE")
         assert(ticketView.imageView.image == UIImage(named: "CalTrain"))
     }
-    
+
     func test160x85() {
-        let ticketView = TicketView(agency: "BART", icon: UIImage(named: "BART")!, cornerRadius: 8)
+        let ticketView = TicketView(agency: Agency.BART, icon: UIImage(named: "BART")!, cornerRadius: 8)
         let view = UIView()
         view.addSubview(ticketView)
         ticketView.snp.makeConstraints({ (make) -> Void in
@@ -87,9 +86,9 @@ class TicketViewTests: XCTestCase {
         assert(ticketView.nameLbl.text == "BART")
         assert(ticketView.imageView.image == UIImage(named: "BART"))
     }
-    
+
     func test250x140() {
-        let ticketView = TicketView(agency: "CalTrain", icon: UIImage(named: "CalTrain")!, cornerRadius: 8)
+        let ticketView = TicketView(agency: Agency.CalTrain, icon: UIImage(named: "CalTrain")!, cornerRadius: 8)
         let view = UIView()
         view.addSubview(ticketView)
         ticketView.snp.makeConstraints({ (make) -> Void in
@@ -104,9 +103,9 @@ class TicketViewTests: XCTestCase {
         assert(ticketView.nameLbl.text == "CalTrain")
         assert(ticketView.imageView.image == UIImage(named: "CalTrain"))
     }
-    
+
     func test335x190() {
-        let ticketView = TicketView(agency: "Golden Gate Transit", icon: UIImage(named: "Bus")!, cornerRadius: 8)
+        let ticketView = TicketView(agency: Agency.GoldenGateTransit, icon: UIImage(named: "Bus")!, cornerRadius: 8)
         let view = UIView()
         view.addSubview(ticketView)
         ticketView.snp.makeConstraints({ (make) -> Void in
@@ -115,15 +114,15 @@ class TicketViewTests: XCTestCase {
         })
         ticketView.layoutIfNeeded()
         let gradientColors = ticketView.gradient.colors as? [CGColor]
-        assert(gradientColors == [UIColor(named: "lightGoldenGateTransit")!.cgColor, UIColor(named: "darkGoldenGateTransit")!.cgColor])
-        assert(ticketView.gradient.cornerRadius == 8)
-        assert(ticketView.nameLbl.font == UIFont.systemFont(ofSize: 46, weight: .bold))
-        assert(ticketView.nameLbl.text == "Golden Gate Transit")
-        assert(ticketView.imageView.image == UIImage(named: "Bus"))
+        XCTAssertEqual(gradientColors, [UIColor(named: "lightGoldenGateTransit")!.cgColor, UIColor(named: "darkGoldenGateTransit")!.cgColor])
+        XCTAssertEqual(ticketView.gradient.cornerRadius, 8)
+        XCTAssertEqual(ticketView.nameLbl.font, UIFont.systemFont(ofSize: 46, weight: .bold))
+        XCTAssertEqual(ticketView.nameLbl.text, "Golden Gate\nTransit")
+        XCTAssertEqual(ticketView.imageView.image, UIImage(named: "Bus"))
     }
-    
+
     func testHugeWidth() {
-        let ticketView = TicketView(agency: "Union City Transit", icon: UIImage(named: "Bus")!, cornerRadius: 14)
+        let ticketView = TicketView(agency: Agency.ACTransit, icon: UIImage(named: "Bus")!, cornerRadius: 14)
         let view = UIView()
         view.addSubview(ticketView)
         ticketView.snp.makeConstraints({ (make) -> Void in
@@ -132,10 +131,9 @@ class TicketViewTests: XCTestCase {
         })
         ticketView.layoutIfNeeded()
     }
-    
+
     func testImaginaryAgency() {
-        let ticketView = TicketView(agency: "RMV", icon: #imageLiteral(resourceName: "Bus"), cornerRadius: 12)
+        let ticketView = TicketView(agency: Agency.zero, icon: #imageLiteral(resourceName: "Bus"), cornerRadius: 12)
         assert(ticketView.gradient.colors?.count == 2)
     }
-
 }

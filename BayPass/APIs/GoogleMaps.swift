@@ -11,6 +11,7 @@ import Foundation
 import MapKit
 
 class GoogleMaps {
+
     func getRoutes(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D, departureTime: Date = Date(), completion: @escaping ([Route]) -> Void) {
         let params = [
             "origin": "\(from.latitude),\(from.longitude)",
@@ -80,7 +81,9 @@ class GoogleMaps {
                 let arrivalInterval = arrivalJson["value"] as? Int,
                 let departureJson = transitDetails["departure_time"] as? [String: Any],
                 let departureInterval = departureJson["value"] as? Int,
-                let lineJson = transitDetails["line"] as? [String: Any]
+                let lineJson = transitDetails["line"] as? [String: Any],
+                let depStopJson = transitDetails["departure_stop"] as? [String: Any],
+                let arrivalStopJson = transitDetails["arrival_stop"] as? [String: Any]
             else {
                 return nil
             }
@@ -88,18 +91,32 @@ class GoogleMaps {
             let departureDate = Date(timeIntervalSince1970: Double(departureInterval))
             let arrivalDate = Date(timeIntervalSince1970: Double(arrivalInterval))
 
-            let lineName = lineJson["short_name"] as? String ?? ""
+            var lineName = ""
+            if let lineNameShort = lineJson["short_name"] as? String {
+                lineName = lineNameShort
+            } else {
+                lineName = lineJson["name"] as? String ?? ""
+            }
+            
+            let destinationName = transitDetails["headsign"] as? String ?? ""
+            
+            let depStop = depStopJson["name"] as? String ?? ""
+            let arrivalStop = arrivalStopJson["name"] as? String ?? ""
+            let waypoints = [depStop, arrivalStop]
 
-            // TODO: This section relies on getting the fare prices from firebase and the line from the API first
-            let line = Line(name: lineName, code: 232, destination: "De Anza", stops: [])
-            let waypoints = [Station]()
+            var agencyName = ""
+            if let agencies = lineJson["agencies"] as? [[String: Any]] {
+                agencyName = agencies[0]["name"] as? String ?? ""
+            }
+            
+            var line = transitSystem.allLines[lineName+" - "+destinationName] ?? Line(name: lineName, agency: Agency(stringValue: agencyName), destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+            line.agency = Agency(stringValue: agencyName)
+            
+            // Figure out how to calculate price
             let price = 2.50
 
             return RouteSegment(distanceInMeters: distance, departureTime: departureDate, arrivalTime: arrivalDate, polyline: polyline, travelMode: .transit, line: line, price: price, waypoints: waypoints)
-        }
-
-        // Walking
-        else {
+        } else {
             guard let durationJson = json["duration"] as? [String: Any],
                 var duration = durationJson["value"] as? Int
             else {

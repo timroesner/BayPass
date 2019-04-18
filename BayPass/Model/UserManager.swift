@@ -5,7 +5,6 @@
 //  Created by Tim Roesner on 3/29/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
-
 import Disk
 import Foundation
 
@@ -31,6 +30,13 @@ class UserManager {
     func addCashToCard(amount: Double) {
         clipperCard?.addCash(amount: amount)
     }
+
+    // ----------------
+    func addPass(pass: Pass) {
+        clipperCard?.passes.append(pass)
+    }
+
+    // ---------------
 
     func getValidPasses() -> [Pass] {
         var result = [Pass]()

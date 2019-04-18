@@ -31,7 +31,7 @@ class TicketCheckoutViewController: UIViewController {
     func setUpTicketView(newTicketView: TicketView) {
         view.addSubview(newTicketView)
         newTicketView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25).priorityLow()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25).priority(.low)
             make.left.right.equalToSuperview().inset(16)
             make.height.equalTo(newTicketView.snp.width).multipliedBy(0.6)
         }
@@ -51,7 +51,7 @@ class TicketCheckoutViewController: UIViewController {
             stackedViews.append(dropDown)
             didChangeSelectedItem(dropDown)
         }
-        setUpButton(color: UIColor(named: "dark\(agency.stringValue.replacingOccurrences(of: " ", with: ""))") ?? UIColor.black)
+        setUpButton(color: agency.getColor())
     }
 
     func setUpButton(color: UIColor) {

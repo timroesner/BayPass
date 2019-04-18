@@ -31,14 +31,14 @@ class StationSearchResultTableViewCell: UITableViewCell {
             make.left.equalTo(iconView.snp.right).offset(14)
             make.height.equalTo(21)
             make.top.equalToSuperview().inset(7)
-            make.right.greaterThanOrEqualToSuperview().inset(8)
+            make.right.equalToSuperview().inset(8)
         }
 
         contentView.addSubview(lineView)
         lineView.snp.makeConstraints { make in
             make.top.equalTo(title.snp.bottom).offset(4)
             make.left.equalTo(title.snp.left)
-            make.right.greaterThanOrEqualToSuperview().inset(8)
+            make.right.equalToSuperview().inset(8)
             make.height.equalTo(15)
             make.bottom.equalToSuperview().inset(9)
         }
@@ -48,10 +48,12 @@ class StationSearchResultTableViewCell: UITableViewCell {
         title.text = station.name
         iconView.tintColor = UIColor(hex: 0x9B9B9B)
         iconView.image = station.getIcon()
-        setLineView(with: station.lines)
+        
+        let uniqueLines = station.lines.filterDuplicate { ($0.name) }
+        setLineView(with: uniqueLines)
     }
 
-    private func setLineView(with lines: [String]) {
+    private func setLineView(with lines: [Line]) {
         var lineLabels = [UILabel]()
 
         for index in 0 ..< min(lines.count, 5) {
@@ -67,9 +69,11 @@ class StationSearchResultTableViewCell: UITableViewCell {
                 lineLabel.text = "＋"
             } else {
                 lineLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-                // What to do about line colors?
-                lineLabel.layer.backgroundColor = UIColor.blue.cgColor
-                lineLabel.text = lines[index]
+                lineLabel.layer.backgroundColor = lines[index].color.cgColor
+                if lines[index].color.isLight() == true {
+                    lineLabel.textColor = .black
+                }
+                lineLabel.text = "\(lines[index].name.prefix(3))"
             }
 
             lineView.addSubview(lineLabel)
@@ -84,6 +88,12 @@ class StationSearchResultTableViewCell: UITableViewCell {
                 make.width.equalTo(32)
             }
             lineLabels.append(lineLabel)
+        }
+    }
+
+    override func prepareForReuse() {
+        for view in lineView.subviews {
+            view.removeFromSuperview()
         }
     }
 

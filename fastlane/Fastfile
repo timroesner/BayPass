@@ -1,25 +1,21 @@
-default_platform :ios
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
 
 platform :ios do
-  before_all do
-    cocoapods
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    increment_build_number
+    build_app(workspace: "BayPass.xcworkspace", scheme: "BayPass")
+    upload_to_testflight
   end
-
-  desc "Runs all the tests"
-  lane :test do
-    setup_travis
-    cocoapods
-    scan(
-      scheme: "BayPass",
-      code_coverage: true
-    )
-    xcov(
-      workspace: "BayPass.xcworkspace",
-      scheme: "BayPass",
-      output_directory: "xcov_output",
-      minimum_coverage_percentage: 80.0,
-      slack_url: "https://hooks.slack.com/services/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"
-    )
-  end
-
 end
