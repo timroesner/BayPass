@@ -114,11 +114,11 @@ class TicketViewTests: XCTestCase {
         })
         ticketView.layoutIfNeeded()
         let gradientColors = ticketView.gradient.colors as? [CGColor]
-        assert(gradientColors == [UIColor(named: "lightGoldenGateTransit")!.cgColor, UIColor(named: "darkGoldenGateTransit")!.cgColor])
-        assert(ticketView.gradient.cornerRadius == 8)
-        assert(ticketView.nameLbl.font == UIFont.systemFont(ofSize: 46, weight: .bold))
-        assert(ticketView.nameLbl.text == "Golden Gate Transit")
-        assert(ticketView.imageView.image == UIImage(named: "Bus"))
+        XCTAssertEqual(gradientColors, [UIColor(named: "lightGoldenGateTransit")!.cgColor, UIColor(named: "darkGoldenGateTransit")!.cgColor])
+        XCTAssertEqual(ticketView.gradient.cornerRadius, 8)
+        XCTAssertEqual(ticketView.nameLbl.font, UIFont.systemFont(ofSize: 46, weight: .bold))
+        XCTAssertEqual(ticketView.nameLbl.text, "Golden Gate\nTransit")
+        XCTAssertEqual(ticketView.imageView.image, UIImage(named: "Bus"))
     }
 
     func testHugeWidth() {

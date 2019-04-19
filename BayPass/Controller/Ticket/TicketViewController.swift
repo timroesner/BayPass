@@ -91,14 +91,14 @@ class TicketViewController: UIViewController {
         titleLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         titleLbl.snp.makeConstraints { (make) -> Void in
             make.leading.equalToSuperview().offset(20)
-            make.top.equalTo(ticketCarouselView.snp.bottom).offset(10)
+            make.top.equalTo(ticketCarouselView.snp.bottom).offset(5)
         }
 
         // MARK: Purchased Ticket tableView
 
         view.addSubview(purchasedTicketTableView)
         purchasedTicketTableView.snp.makeConstraints { make in
-            make.top.equalTo(titleLbl.snp.bottom).offset(8)
+            make.top.equalTo(titleLbl.snp.bottom).offset(5)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }

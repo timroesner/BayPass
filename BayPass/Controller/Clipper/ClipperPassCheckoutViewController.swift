@@ -1,20 +1,17 @@
 //
-//  TicketCheckoutViewController.swift
+//  ClipperPassCheckoutViewController.swift
 //  BayPass
 //
-//  Created by 凌脩羽 on 3/6/19.
+//  Created by Zhe Li on 4/15/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
 import UIKit
 
-class TicketCheckoutViewController: UIViewController {
-    var ticket = ""
+class ClipperPassCheckoutViewController: UIViewController {
     var agency = Agency.zero
     var dropDownOptions: [(title: String, values: [String])] = [
         (title: "Ticket Type", values: ["Day Pass", "3 Day Pass", "Monthly Pass"]),
-        (title: "From", values: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6", "Zone 7"]),
-        (title: "To", values: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6", "Zone 7"]),
         (title: "Payment Method", values: PaymentMethod.allCases.map { $0.rawValue }),
     ]
     private var stackedViews = [UIView]()
