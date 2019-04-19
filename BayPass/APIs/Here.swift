@@ -224,7 +224,8 @@ class Here {
             let lineName = transport1["name"] as? String
             let lineDestination = transport1["dir"] as? String
             let at = transport1["At"] as? [String: Any]
-            let colorString = at?["color"] as? String
+            var colorString = at?["color"] as? String
+            if colorString == "#FEF0B5" || colorString == "#FFFF33" { colorString = "#F3B43F" }
             let color = UIColor(hex: Int(colorString?.dropFirst() ?? "", radix: 16) ?? 0x4A90E2)
             let modeNum = transportData?["mode"] as? Int
             let transitMode = transitModeConvert(num: modeNum ?? 0)
