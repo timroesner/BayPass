@@ -19,7 +19,8 @@ extension MapViewController: MKMapViewDelegate {
             switch travelMode {
             case .walking:
                 polylineRenderer.strokeColor = UIColor().lightGrey
-                polylineRenderer.lineDashPattern = [6, 12]
+                polylineRenderer.lineDashPattern = [12, 10]
+                polylineRenderer.lineCap = .round
             case .transit:
                 if let colorString = polyline.subtitle {
                     polylineRenderer.strokeColor = UIColor(string: colorString)
@@ -35,14 +36,14 @@ extension MapViewController: MKMapViewDelegate {
 
     func showBirdScootersOnMap(at location: CLLocationCoordinate2D, radius: Double) {
         Bird().getScooters(fromLocation: location, radius: radius) { scooters in
-            let annotations = scooters.map({ MapAnnotation(fromScooter: $0) })
+            let annotations = scooters.map { MapAnnotation(fromScooter: $0) }
             self.mapView.addAnnotations(annotations)
         }
     }
 
     func showLimeScootersOnMap(at location: CLLocationCoordinate2D) {
         Lime().getScooters(fromLocation: location) { scooters in
-            let annotations = scooters.map({ MapAnnotation(fromScooter: $0) })
+            let annotations = scooters.map { MapAnnotation(fromScooter: $0) }
             self.mapView.addAnnotations(annotations)
         }
     }

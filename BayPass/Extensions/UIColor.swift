@@ -29,6 +29,10 @@ extension UIColor {
         return UIColor(white: 155.0 / 255.0, alpha: 1.0)
     }
 
+    var clipperBlue: UIColor {
+        return UIColor(hex: 0x0C3F6A)
+    }
+
     func encode() -> String? {
         let components = cgColor.components ?? []
         guard components.count == 4 else {
@@ -50,5 +54,13 @@ extension UIColor {
         }
         assert(colorArray.count == 4, "Invalid string")
         self.init(red: colorArray[0], green: colorArray[1], blue: colorArray[2], alpha: colorArray[3])
+    }
+
+    // https://stackoverflow.com/a/47353477/10458607
+    // Changed to 1 for multiplier for components[2] to check for Yellow
+    func isLight() -> Bool {
+        guard let components = cgColor.components, components.count > 2 else { return false }
+        let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 1)) / 1000
+        return (brightness > 0.5)
     }
 }

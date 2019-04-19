@@ -23,6 +23,8 @@ extension MapViewController: SearchViewControllerDelegate {
             displayRoute(to: destination)
         }
 
-        if let station = result as? Station {}
+        if let station = result as? Station {
+            displayStationInfo(to: station)
+        }
     }
 }

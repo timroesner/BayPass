@@ -1,0 +1,59 @@
+{
+    "Res": {
+        "serviceUrl": "http://internal-ptkernel-prd-v485-1008798043.us-east-1.elb.amazonaws.com/goroute/CALIFORNIA_NEVADA_W001318_20190407",
+        "MultiNextDepartures": {
+            "MultiNextDeparture": [
+                {
+                    "Stn": {
+                        "y": 37.693311,
+                        "x": -122.46168,
+                        "name": "Hillside Blvd & Price St",
+                        "id": "703840432"
+                    },
+                    "NextDepartures": {
+                        "Dep": [
+                            {
+                                "time": "2019-06-24T07:30:00",
+                                "Stn": {
+                                    "y": 37.693311,
+                                    "x": -122.46168,
+                                    "name": "Hillside Blvd & Price St",
+                                    "id": "703840432"
+                                },
+                                "Transport": {
+                                    "mode": 5,
+                                    "dir": "Daly City Bart",
+                                    "name": "130",
+                                    "At": {
+                                        "category": "Bus",
+                                        "operator": "61ksam00"
+                                    }
+                                }
+                            }
+                        ],
+                        "Operators": {
+                            "Op": [
+                                {
+                                    "code": "61ksam00",
+                                    "type": "TT",
+                                    "name": "SamTrans",
+                                    "short_name": "sam",
+                                    "Link": [
+                                        {
+                                            "type": "website",
+                                            "href": "https://transit.api.here.com/r?appId=EoCcdY3ZM0BsSoHPvra4&u=http://www.samtrans.com",
+                                            "text": "SamTrans"
+                                        }
+                                    ],
+                                    "At": {
+                                        "phone": "800-660-4287"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

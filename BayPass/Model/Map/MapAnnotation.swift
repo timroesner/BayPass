@@ -38,7 +38,7 @@ class MapAnnotation: NSObject, MKAnnotation {
         title = fromStation.name
         coordinate = fromStation.location.coordinate
         icon = fromStation.getIcon()
-        color = fromStation.color
+        color = fromStation.getColor()
     }
 
     init(fromBikeDock: BikeDock) {
