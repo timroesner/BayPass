@@ -123,9 +123,10 @@
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
 		6AFF633B2242C47400266B7E /* Here.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF63392242C47400266B7E /* Here.json */; };
 		6AFF633C2242C47400266B7E /* HereAgency.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF633A2242C47400266B7E /* HereAgency.json */; };
+		7009567B226A8A3D00A0D500 /* TicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7009567A226A8A3D00A0D500 /* TicketDetailViewController.swift */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
 		70F72F69223043C300A8BC0A /* ClipperAddCashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */; };
-		B42F9F74301CC90D63BABE7C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B42F9F74301CC90D63BABE7C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		BB84D07A3E315ACA002D5BB9 /* libPods-BayPassUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6126A94A89582D885FCFDB1 /* libPods-BayPassUITests.a */; };
 		BE6080868E601733A9CD241E /* Pods_BayPassTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BC65A92B9C2C3A53739B2B /* Pods_BayPassTests.framework */; };
 		EC14F1B621B64E28009F69CF /* ClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC14F1B521B64E28009F69CF /* ClipperView.swift */; };
@@ -289,6 +290,7 @@
 		6ABF9837218250B1006878E4 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		6AFF63392242C47400266B7E /* Here.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Here.json; sourceTree = "<group>"; };
 		6AFF633A2242C47400266B7E /* HereAgency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HereAgency.json; sourceTree = "<group>"; };
+		7009567A226A8A3D00A0D500 /* TicketDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailViewController.swift; sourceTree = "<group>"; };
 		70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCheckoutViewController.swift; sourceTree = "<group>"; };
 		70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipperAddCashViewController.swift; sourceTree = "<group>"; };
 		99BC65A92B9C2C3A53739B2B /* Pods_BayPassTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayPassTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,7 +327,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B42F9F74301CC90D63BABE7C /* BuildFile in Frameworks */,
+				B42F9F74301CC90D63BABE7C /* (null) in Frameworks */,
 				BE6080868E601733A9CD241E /* Pods_BayPassTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +598,7 @@
 				2245E8842263234900A3F088 /* TVCCollectionView.swift */,
 				2245E8862263238400A3F088 /* TVCTableView.swift */,
 				70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */,
+				7009567A226A8A3D00A0D500 /* TicketDetailViewController.swift */,
 			);
 			path = Ticket;
 			sourceTree = "<group>";
@@ -996,6 +999,7 @@
 				22B40EFA2257FA9C009520C6 /* TextField.swift in Sources */,
 				22B53434222D135D007F4098 /* Date.swift in Sources */,
 				22B32253225324A100F2508A /* ProgressHUD.swift in Sources */,
+				7009567B226A8A3D00A0D500 /* TicketDetailViewController.swift in Sources */,
 				6AB6ECFF21867F1700A81302 /* ClipperViewController.swift in Sources */,
 				6AB6ECFE21867F1700A81302 /* MapViewController.swift in Sources */,
 				6A3F2CB621816B46006DA755 /* Route.swift in Sources */,
