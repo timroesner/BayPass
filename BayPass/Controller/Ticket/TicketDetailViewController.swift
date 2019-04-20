@@ -34,8 +34,8 @@ class TicketDetailViewController: UIViewController {
         // present ticket
         agency = ticket?.validOnAgency ?? Agency.zero
         setUpTicketView(newTicketView: TicketView(agency: agency, icon: agency.getIcon(), cornerRadius: 12))
-        setUpLabels()
-        
+        let count = ticket?.count
+        setUpLabels(count: count!)
         // scan ticket button at bottom of the view
         let color = agency.getColor()
         let scanTicketButton = BayPassButton(title: "Scan Ticket", color: color)
@@ -59,15 +59,73 @@ class TicketDetailViewController: UIViewController {
         stackedViews.append(newTicketView)
     }
     
-    func setUpLabels() {
+    func setUpLabels(count: Int) {
+        
+        if count > 0 {
+            view.addSubview(countLb)
+            countLb.text = "Count Remaining"
+            countLb.textColor = UIColor.gray
+            countLb.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+            countLb.snp.makeConstraints { (make) -> Void in
+                make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
+                make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(50)
+            }
+            stackedViews.append(countLb)
+            
+            view.addSubview(countInfoLb)
+            countInfoLb.text = String(count)
+            countInfoLb.textColor = UIColor.black
+            countInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+            countInfoLb.snp.makeConstraints { (make) -> Void in
+                make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
+                make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(10)
+            }
+            stackedViews.append(countInfoLb)
+            
+        }
+            
+        // not sure what happen here
+        else {
+            view.addSubview(durationLb)
+            durationLb.text = "Time Remaining"
+            durationLb.textColor = UIColor.gray
+            durationLb.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+            durationLb.snp.makeConstraints { (make) -> Void in
+                make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
+                make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(50)
+            }
+            stackedViews.append(durationLb)
+            
+            view.addSubview(durationInfoLb)
+            durationInfoLb.text = "1 day"
+            durationInfoLb.textColor = UIColor.black
+            durationInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+            durationInfoLb.snp.makeConstraints { (make) -> Void in
+                make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
+                make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(10)
+            }
+            stackedViews.append(countInfoLb)
+            
+        }
         view.addSubview(typeLb)
         typeLb.text = "Type"
         typeLb.textColor = UIColor.gray
         typeLb.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         typeLb.snp.makeConstraints { (make) -> Void in
-            make.leading.equalToSuperview().offset(30)
-            make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(30)
+            make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
+            make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(50)
         }
+        stackedViews.append(typeLb)
+        
+        view.addSubview(typeInfoLb)
+        typeInfoLb.text = ticket?.name
+        typeInfoLb.textColor = UIColor.black
+        typeInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+        typeInfoLb.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
+            make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(10)
+        }
+        stackedViews.append(typeInfoLb)
     }
     
     @objc func scanTicket() {
