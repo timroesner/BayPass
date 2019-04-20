@@ -71,7 +71,7 @@ class TicketDetailViewController: UIViewController {
                 make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(50)
             }
             stackedViews.append(countLb)
-            
+
             view.addSubview(countInfoLb)
             countInfoLb.text = String(count)
             countInfoLb.textColor = UIColor.black
@@ -81,9 +81,9 @@ class TicketDetailViewController: UIViewController {
                 make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(10)
             }
             stackedViews.append(countInfoLb)
-            
+
         }
-            
+
         // not sure what happen here
         else {
             view.addSubview(durationLb)
@@ -97,14 +97,14 @@ class TicketDetailViewController: UIViewController {
             stackedViews.append(durationLb)
             
             view.addSubview(durationInfoLb)
-            durationInfoLb.text = "1 day"
+            durationInfoLb.text = "1d 20h 20m"
             durationInfoLb.textColor = UIColor.black
             durationInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
             durationInfoLb.snp.makeConstraints { (make) -> Void in
                 make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
                 make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(10)
             }
-            stackedViews.append(countInfoLb)
+            stackedViews.append(durationInfoLb)
             
         }
         view.addSubview(typeLb)
