@@ -23,8 +23,8 @@ class TicketCheckoutViewController: UIViewController {
         title = agency.stringValue
         navigationController?.navigationBar.prefersLargeTitles = false
 
-        dropDownOptions = TicketManager.shared.getDropDownOptions(for: agency)
-        setUpTicketView(newTicketView: TicketView(agency: agency.stringValue, icon: agency.getIcon(), cornerRadius: 12))
+        dropDownOptions = TicketManager.shared.getDropDownOptions(for: agency, onlyPasses: false)
+        setUpTicketView(newTicketView: TicketView(agency: agency, icon: agency.getIcon(), cornerRadius: 12))
         setupDropDowns()
     }
 
@@ -49,7 +49,6 @@ class TicketCheckoutViewController: UIViewController {
                 make.left.right.equalToSuperview().inset(12)
             }
             stackedViews.append(dropDown)
-            didChangeSelectedItem(dropDown)
         }
         setUpButton(color: agency.getColor())
     }
@@ -63,6 +62,11 @@ class TicketCheckoutViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(20)
             make.right.left.equalToSuperview().inset(16)
             make.height.equalTo(50)
+        }
+        
+        // Update Button with price of preselected options
+        if let dropDown = stackedViews[safe: 1] as? DropDownMenu {
+            didChangeSelectedItem(dropDown)
         }
     }
 

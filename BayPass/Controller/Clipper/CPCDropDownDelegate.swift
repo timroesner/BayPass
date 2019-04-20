@@ -1,14 +1,14 @@
 //
-//  TCVCDropDownDelegate.swift
+//  CPCDropDownDelegate.swift
 //  BayPass
 //
-//  Created by Tim Roesner on 4/14/19.
+//  Created by Tim Roesner on 4/19/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-extension TicketCheckoutViewController: DropDownDelegate {
+extension ClipperPassCheckoutViewController: DropDownDelegate {
     func didChangeSelectedItem(_ sender: DropDownMenu) {
         if sender.titleLbl.text != "PAYMENT METHOD" {
             switch agency {
@@ -21,13 +21,13 @@ extension TicketCheckoutViewController: DropDownDelegate {
             }
         }
     }
-
+    
     func updateBARTTicketPrice() {
         guard let typeDropDown = stackedViews[safe: 1] as? DropDownMenu,
             let fromDropDown = stackedViews[safe: 2] as? DropDownMenu,
             let toDropDown = stackedViews[safe: 3] as? DropDownMenu
-        else { return }
-
+            else { return }
+        
         TicketManager.shared.getBARTPrice(from: fromDropDown.getSelectedItem(), to: toDropDown.getSelectedItem()) { newPrice in
             let calculatedPrice = typeDropDown.getSelectedItem() == "Roundtrip" ? newPrice * 2 : newPrice
             self.currentTicketPrice = calculatedPrice
@@ -39,7 +39,7 @@ extension TicketCheckoutViewController: DropDownDelegate {
         guard let typeDropDown = stackedViews[safe: 1] as? DropDownMenu,
             let fromDropDown = stackedViews[safe: 2] as? DropDownMenu,
             let toDropDown = stackedViews[safe: 3] as? DropDownMenu
-        else { return }
+            else { return }
         
         if let price = TicketManager.shared.getCalTrainPrice(ticketType: typeDropDown.getSelectedItem(), from: fromDropDown.getSelectedItem(), to: toDropDown.getSelectedItem()) {
             self.currentTicketPrice = price
