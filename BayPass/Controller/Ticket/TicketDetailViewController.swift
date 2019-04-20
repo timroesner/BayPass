@@ -26,11 +26,7 @@ class TicketDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        // OverlayContainer here
-//        bottomSheet.delegate = self as? OverlayContainerViewControllerDelegate
-//        addChild(bottomSheet, in: view)
-//        bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
-        // Do any additional setup after loading the view.
+        view.layer.cornerRadius = 21
         
         // present ticket
         agency = ticket?.validOnAgency ?? Agency.zero
@@ -38,6 +34,7 @@ class TicketDetailViewController: UIViewController {
         setUpTicketView(newTicketView: newTicketView)
         let count = ticket?.count
         setUpLabels(count: count!)
+        
         // scan ticket button at bottom of the view
         let color = agency.getColor()
         let scanTicketButton = BayPassButton(title: "Scan Ticket", color: color)
@@ -101,7 +98,7 @@ class TicketDetailViewController: UIViewController {
             stackedViews.append(durationLb)
             
             view.addSubview(durationInfoLb)
-            let d = NSInteger((ticket?.duration?.duration)!)
+            let d = Int(ticket?.duration?.duration ?? 0.0)
             let min = (d / 60) % 60
             let hour = (d / 3600) % 24
             let day = d / 3600 / 24

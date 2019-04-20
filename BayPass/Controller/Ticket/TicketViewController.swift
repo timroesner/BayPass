@@ -9,6 +9,7 @@
 import CoreLocation
 import SnapKit
 import UIKit
+import OverlayContainer
 
 class TicketViewController: UIViewController {
     let ticketCarouselViewCellID = "ticketCarouselViewCellID"
@@ -22,16 +23,15 @@ class TicketViewController: UIViewController {
         collection.showsHorizontalScrollIndicator = false
         return collection
     }()
-
     let titleLbl = UILabel()
     var purchasedTicketTableView: UITableView = {
         let tableView = UITableView()
         tableView.isScrollEnabled = true
         return tableView
     }()
-
     let purchasedTicketTableViewCellID = "purchasedTicketTableViewCellID"
-
+    let bottomSheet = OverlayContainerViewController(style: .rigid)
+    let notchPercentages: [CGFloat] = [0.0, 0.93]
     let agencies = Agency.allCases.filter { $0.rawValue != "0" }
 
     override func viewDidLoad() {
@@ -51,6 +51,7 @@ class TicketViewController: UIViewController {
         purchasedTicketTableView.register(PurchasedTicketCell.self, forCellReuseIdentifier: purchasedTicketTableViewCellID)
         layoutTableView()
 
+        bottomSheet.delegate = self
         
         // MARK: temporary data
         UserManager.shared.clearAllPurchasedTickets()

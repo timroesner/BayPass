@@ -39,6 +39,7 @@
 		224662F5222B4BE600E86C66 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F4222B4BE600E86C66 /* UIViewController.swift */; };
 		224662F7222B557600E86C66 /* SearchFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F6222B557600E86C66 /* SearchFloatView.swift */; };
 		224662F9222B5A0B00E86C66 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F8222B5A0B00E86C66 /* CustomTextField.swift */; };
+		2248B7C2226B9EE100714CEC /* TVCOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248B7C1226B9EE100714CEC /* TVCOverlay.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
 		2262C31621829E4A000586EE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31521829E4A000586EE /* Collection.swift */; };
@@ -208,6 +209,7 @@
 		224662F4222B4BE600E86C66 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		224662F6222B557600E86C66 /* SearchFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFloatView.swift; sourceTree = "<group>"; };
 		224662F8222B5A0B00E86C66 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2248B7C1226B9EE100714CEC /* TVCOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCOverlay.swift; sourceTree = "<group>"; };
 		2262C31121829BE3000586EE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2262C31321829CE9000586EE /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		2262C31521829E4A000586EE /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 				22FF60212263264600AEC7C7 /* TicketViewController.swift */,
 				2245E8842263234900A3F088 /* TVCCollectionView.swift */,
 				2245E8862263238400A3F088 /* TVCTableView.swift */,
+				2248B7C1226B9EE100714CEC /* TVCOverlay.swift */,
 				70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */,
 				22FF60292263FC2B00AEC7C7 /* TCVCDropDownDelegate.swift */,
 				7009567A226A8A3D00A0D500 /* TicketDetailViewController.swift */,
@@ -959,7 +962,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 				"${BUILT_PRODUCTS_DIR}/OverlayContainer/OverlayContainer.framework",
@@ -980,7 +983,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1022,6 +1025,7 @@
 				22B32253225324A100F2508A /* ProgressHUD.swift in Sources */,
 				7009567B226A8A3D00A0D500 /* TicketDetailViewController.swift in Sources */,
 				6AB6ECFF21867F1700A81302 /* ClipperViewController.swift in Sources */,
+				2248B7C2226B9EE100714CEC /* TVCOverlay.swift in Sources */,
 				6AB6ECFE21867F1700A81302 /* MapViewController.swift in Sources */,
 				6A3F2CB621816B46006DA755 /* Route.swift in Sources */,
 				ECCE1D52221D0053002F58AA /* PurchasedTicketCell.swift in Sources */,

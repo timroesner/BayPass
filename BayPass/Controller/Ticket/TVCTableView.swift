@@ -29,6 +29,9 @@ extension TicketViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let ticketDetailViewController = TicketDetailViewController()
         ticketDetailViewController.ticket = UserManager.shared.getPurchasedTickets()[indexPath.row]
-        navigationController?.pushViewController(ticketDetailViewController, animated: true)
+        bottomSheet.viewControllers = [ticketDetailViewController]
+        //bottomSheet.modalPresentationStyle = .overCurrentContext
+        present(bottomSheet, animated: true, completion: nil)
+        bottomSheet.moveOverlay(toNotchAt: 1, animated: true)
     }
 }
