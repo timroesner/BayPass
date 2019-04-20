@@ -21,6 +21,7 @@ class TicketDetailViewController: UIViewController {
     let durationInfoLb = UILabel()
     let typeLb = UILabel()
     let typeInfoLb = UILabel()
+    var session: NFCNDEFReaderSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,8 @@ class TicketDetailViewController: UIViewController {
         
         // present ticket
         agency = ticket?.validOnAgency ?? Agency.zero
-        setUpTicketView(newTicketView: TicketView(agency: agency, icon: agency.getIcon(), cornerRadius: 12))
+        let newTicketView = TicketView(agency: agency, icon: agency.getIcon(), cornerRadius: 12)
+        setUpTicketView(newTicketView: newTicketView)
         let count = ticket?.count
         setUpLabels(count: count!)
         // scan ticket button at bottom of the view
@@ -46,6 +48,8 @@ class TicketDetailViewController: UIViewController {
             make.height.equalTo(50)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(20)
         }
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(scanCard))
+        newTicketView.addGestureRecognizer(tapRecognizer)
     }
     
     func setUpTicketView(newTicketView: TicketView) {
@@ -134,5 +138,21 @@ class TicketDetailViewController: UIViewController {
     
     @objc func scanTicket() {
         print("scan ticket button pressed")
+    }
+    
+    @objc func scanCard() {
+        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
+        session?.alertMessage = "Hold your iPhone near the card reader."
+        session?.begin()
+    }
+}
+
+extension TicketDetailViewController: NFCNDEFReaderSessionDelegate {
+    func readerSession(_: NFCNDEFReaderSession, didInvalidateWithError _: Error) {
+        print("Error")
+    }
+    
+    func readerSession(_: NFCNDEFReaderSession, didDetectNDEFs _: [NFCNDEFMessage]) {
+        print("Success")
     }
 }
