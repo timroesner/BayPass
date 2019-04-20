@@ -34,7 +34,7 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
         if collectionView == clipperPassCollectionView {
-            return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+            return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         } else {
             return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 15)
         }
@@ -46,7 +46,7 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
 
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         if collectionView == clipperPassCollectionView {
-            return CGSize(width: 160, height: 85)
+            return CGSize(width: (view.frame.width/375)*160, height: (view.frame.width/375)*85)
         } else {
             return CGSize(width: 250, height: 140)
         }

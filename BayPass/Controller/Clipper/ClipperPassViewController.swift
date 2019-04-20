@@ -62,8 +62,7 @@ class ClipperPassViewController: UIViewController {
         
         view.addSubview(clipperPassCollectionView)
         clipperPassCollectionView.snp.makeConstraints { (make) -> Void in
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().inset(10)
+            make.left.right.equalToSuperview().inset(10)
             make.top.equalTo(agenciesLbl.snp.bottom).offset(10)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
