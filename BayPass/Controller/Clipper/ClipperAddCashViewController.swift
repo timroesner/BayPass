@@ -35,7 +35,7 @@ class ClipperAddCashViewController: UIViewController {
         let clipperView = ClipperView(cardNumber: clipperCard.number, cashValue: clipperCard.cashValue)
         view.addSubview(clipperView)
         clipperView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20).priority(.medium)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(clipperView.snp.width).multipliedBy(0.6)
         }
@@ -50,14 +50,22 @@ class ClipperAddCashViewController: UIViewController {
         valueTextField.addDoneButtonToKeyboard()
         view.addSubview(valueTextField)
         valueTextField.snp.makeConstraints { make in
-            make.top.equalTo(clipperView.snp.bottom).offset(38)
+            if view.frame.width < 325 {
+                make.top.equalTo(clipperView.snp.bottom).offset(8)
+            } else {
+                make.top.equalTo(clipperView.snp.bottom).offset(38)
+            }
             make.centerX.equalToSuperview()
             make.width.equalTo(230)
         }
 
         view.addSubview(dropDown)
         dropDown.snp.makeConstraints { make in
-            make.top.equalTo(valueTextField.snp.bottom).offset(38)
+            if view.frame.width < 325 {
+                make.top.equalTo(valueTextField.snp.bottom).offset(20)
+            } else {
+                make.top.equalTo(valueTextField.snp.bottom).offset(38)
+            }
             make.left.right.equalToSuperview().inset(20)
         }
 
@@ -68,6 +76,7 @@ class ClipperAddCashViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(20)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(50)
+            make.top.greaterThanOrEqualTo(dropDown.snp.bottom).offset(8)
         }
     }
 

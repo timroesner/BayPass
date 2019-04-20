@@ -77,7 +77,7 @@ class TicketViewController: UIViewController {
         ticketCarouselView.snp.makeConstraints { (make) -> Void in
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
-            make.top.equalTo(view.snp.top).offset(140)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.height.equalTo(240)
         }
     }
