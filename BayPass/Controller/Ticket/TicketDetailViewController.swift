@@ -97,7 +97,11 @@ class TicketDetailViewController: UIViewController {
             stackedViews.append(durationLb)
             
             view.addSubview(durationInfoLb)
-            durationInfoLb.text = "1d 20h 20m"
+            let d = NSInteger((ticket?.duration?.duration)!)
+            let min = (d / 60) % 60
+            let hour = (d / 3600) % 24
+            let day = d / 3600 / 24
+            durationInfoLb.text = "\(day) d \(hour) h \(min) m"
             durationInfoLb.textColor = UIColor.black
             durationInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
             durationInfoLb.snp.makeConstraints { (make) -> Void in
