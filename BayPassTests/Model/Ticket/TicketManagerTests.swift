@@ -20,8 +20,8 @@ class TicketManagerTests: XCTestCase {
     }
 
     func testCalTrainZonesFailure() {
-        let zones = TicketManager.shared.calculateCalTrainZones(from: "", to: "")
-        XCTAssertEqual(zones, 0)
+        let price = TicketManager.shared.getCalTrainPrice(ticketType: "Single Ride", from: "", to: "")
+        XCTAssertNil(price)
     }
 
 }
