@@ -11,32 +11,111 @@ import UIKit
 import CoreNFC
 
 class TicketDetailViewController: UIViewController {
-    let bottomSheet = OverlayContainerViewController(style: .rigid)
-    var ticket : Ticket?
-    var agency = Agency.zero
-    private var stackedViews = [UIView]()
-    let countLb = UILabel()
-    let countInfoLb = UILabel()
-    let durationLb = UILabel()
-    let durationInfoLb = UILabel()
-    let typeLb = UILabel()
-    let typeInfoLb = UILabel()
+    
+    var ticket: Ticket?
+    var pass: Pass?
+    var ticketView: TicketView
     var session: NFCNDEFReaderSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.layer.cornerRadius = 21
+    }
+    
+    init(ticket: Ticket) {
+        ticketView = TicketView(agency: ticket.validOnAgency, icon: ticket.validOnAgency.getIcon(), cornerRadius: 12)
+        self.ticket = ticket
+        super.init(nibName: nil, bundle: nil)
+        setUpTicketView()
+        setUpLabels()
+        setUpScanButton(color: ticket.validOnAgency.getColor())
+    }
+    
+    init(pass: Pass) {
+        ticketView = TicketView(agency: pass.validOnAgency, icon: pass.validOnAgency.getIcon(), cornerRadius: 12)
+        self.pass = pass
+        super.init(nibName: nil, bundle: nil)
+        setUpTicketView()
+        setUpLabels()
+    }
+    
+    func setUpTicketView() {
+        let moveIndicator = MoveIndicator()
+        view.addSubview(moveIndicator)
+        moveIndicator.setConstraints()
         
-        // present ticket
-        agency = ticket?.validOnAgency ?? Agency.zero
-        let newTicketView = TicketView(agency: agency, icon: agency.getIcon(), cornerRadius: 12)
-        setUpTicketView(newTicketView: newTicketView)
-        let count = ticket?.count
-        setUpLabels(count: count!)
+        view.addSubview(ticketView)
+        ticketView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(moveIndicator).offset(25)
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(ticketView.snp.width).multipliedBy(0.6)
+        }
+        ticketView.layoutIfNeeded()
+    }
+    
+    func setUpLabels() {
         
-        // scan ticket button at bottom of the view
-        let color = agency.getColor()
+        let infoTitleLabel = UILabel()
+        infoTitleLabel.textColor = UIColor.gray
+        infoTitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        
+        let infoLabel = UILabel()
+        infoLabel.textColor = UIColor.black
+        infoLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+        
+        if (ticket?.count ?? 0) > 0 {
+            infoTitleLabel.text = "Count Remaining"
+            infoLabel.text = String(ticket?.count ?? 0)
+        } else {
+            infoTitleLabel.text = "Time Remaining"
+            let d = Int(ticket?.duration?.duration ?? pass?.duration.duration ?? 0.0)
+            infoLabel.text = d.durationToStringShort()
+        }
+        
+        view.addSubview(infoTitleLabel)
+        infoTitleLabel.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(ticketView.snp.centerX)
+            make.top.equalTo(ticketView.snp.bottom).offset(50)
+        }
+        
+        view.addSubview(infoLabel)
+        infoLabel.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(infoTitleLabel.snp.centerX)
+            make.top.equalTo(infoTitleLabel.snp.bottom).offset(10)
+        }
+        
+        let border = UILabel()
+        border.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.00)
+        view.addSubview(border)
+        border.snp.makeConstraints { make in
+            make.height.equalTo(1.5)
+            make.left.right.equalToSuperview().inset(54)
+            make.top.equalTo(infoLabel.snp.bottom).offset(40)
+        }
+        
+        let typeLb = UILabel()
+        view.addSubview(typeLb)
+        typeLb.text = "Type"
+        typeLb.textColor = UIColor.gray
+        typeLb.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        typeLb.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(infoLabel.snp.centerX)
+            make.top.equalTo(border.snp.bottom).offset(40)
+        }
+        
+        let typeInfoLb = UILabel()
+        view.addSubview(typeInfoLb)
+        typeInfoLb.text = ticket?.name ?? pass?.name
+        typeInfoLb.textColor = UIColor.black
+        typeInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
+        typeInfoLb.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(typeLb.snp.centerX)
+            make.top.equalTo(typeLb.snp.bottom).offset(10)
+        }
+    }
+    
+    func setUpScanButton(color: UIColor) {
         let scanTicketButton = BayPassButton(title: "Scan Ticket", color: color)
         scanTicketButton.addTarget(self, action: #selector(scanTicket), for: .touchUpInside)
         view.addSubview(scanTicketButton)
@@ -47,91 +126,15 @@ class TicketDetailViewController: UIViewController {
         }
     }
     
-    func setUpTicketView(newTicketView: TicketView) {
-        view.addSubview(newTicketView)
-        newTicketView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25)
-            make.left.right.equalToSuperview().inset(16)
-            make.height.equalTo(newTicketView.snp.width).multipliedBy(0.6)
-        }
-        newTicketView.layoutIfNeeded()
-        stackedViews.append(newTicketView)
-    }
-    
-    func setUpLabels(count: Int) {
-        
-        if count > 0 {
-            view.addSubview(countLb)
-            countLb.text = "Count Remaining"
-            countLb.textColor = UIColor.gray
-            countLb.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-            countLb.snp.makeConstraints { (make) -> Void in
-                make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
-                make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(50)
-            }
-            stackedViews.append(countLb)
-
-            view.addSubview(countInfoLb)
-            countInfoLb.text = String(count)
-            countInfoLb.textColor = UIColor.black
-            countInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
-            countInfoLb.snp.makeConstraints { (make) -> Void in
-                make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
-                make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(10)
-            }
-            stackedViews.append(countInfoLb)
-
-        }
-
-        // not sure what happen here
-        else {
-            view.addSubview(durationLb)
-            durationLb.text = "Time Remaining"
-            durationLb.textColor = UIColor.gray
-            durationLb.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-            durationLb.snp.makeConstraints { (make) -> Void in
-                make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
-                make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(50)
-            }
-            stackedViews.append(durationLb)
-            
-            view.addSubview(durationInfoLb)
-            let d = Int(ticket?.duration?.duration ?? 0.0)
-            durationInfoLb.text = d.durationToStringShort()
-            durationInfoLb.textColor = UIColor.black
-            durationInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
-            durationInfoLb.snp.makeConstraints { (make) -> Void in
-                make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
-                make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(10)
-            }
-            stackedViews.append(durationInfoLb)
-            
-        }
-        view.addSubview(typeLb)
-        typeLb.text = "Type"
-        typeLb.textColor = UIColor.gray
-        typeLb.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        typeLb.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
-            make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(50)
-        }
-        stackedViews.append(typeLb)
-        
-        view.addSubview(typeInfoLb)
-        typeInfoLb.text = ticket?.name
-        typeInfoLb.textColor = UIColor.black
-        typeInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
-        typeInfoLb.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo((stackedViews.last?.snp.centerX)!)
-            make.top.equalTo((stackedViews.last?.snp.bottom)!).offset(10)
-        }
-        stackedViews.append(typeInfoLb)
-    }
-    
     @objc func scanTicket() {
         session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
         session?.alertMessage = "Hold your iPhone near the card reader."
         session?.begin()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        print("init(coder:) has not been implemented for TicketDetailVC")
+        return nil
     }
 }
 
