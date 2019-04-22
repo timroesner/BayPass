@@ -21,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = TabViewController()
         window?.rootViewController = vc
 
-        transitSystem.getAllStations()
+        if isRelease() {
+            transitSystem.getAllStations()
+        }
 
         // Stripe
         STPPaymentConfiguration.shared().publishableKey = Credentials().stripeKey
@@ -52,5 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+        
+    func isRelease() -> Bool {
+        var isRelease: Bool = true
+        assert({ isRelease = false; return true }())
+        return isRelease
     }
 }
