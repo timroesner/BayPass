@@ -9,6 +9,7 @@
 import CoreLocation
 import SnapKit
 import UIKit
+import OverlayContainer
 
 class TicketViewController: UIViewController {
     let ticketCarouselViewCellID = "ticketCarouselViewCellID"
@@ -22,17 +23,16 @@ class TicketViewController: UIViewController {
         collection.showsHorizontalScrollIndicator = false
         return collection
     }()
-
     let titleLbl = UILabel()
     var purchasedTicketTableView: UITableView = {
         let tableView = UITableView()
         tableView.isScrollEnabled = true
         return tableView
     }()
-
     let purchasedTicketTableViewCellID = "purchasedTicketTableViewCellID"
-
-    let agencies = Agency.allCases.filter{$0.rawValue != "0"}
+    let bottomSheet = OverlayContainerViewController(style: .rigid)
+    let notchPercentages: [CGFloat] = [0.0, 0.93]
+    let agencies = Agency.allCases.filter { $0.rawValue != "0" }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,7 @@ class TicketViewController: UIViewController {
         purchasedTicketTableView.register(PurchasedTicketCell.self, forCellReuseIdentifier: purchasedTicketTableViewCellID)
         layoutTableView()
 
+        bottomSheet.delegate = self
         
         // MARK: temporary data
         UserManager.shared.clearAllPurchasedTickets()
@@ -77,7 +78,7 @@ class TicketViewController: UIViewController {
         ticketCarouselView.snp.makeConstraints { (make) -> Void in
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
-            make.top.equalTo(view.snp.top).offset(140)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.height.equalTo(240)
         }
     }
@@ -91,14 +92,14 @@ class TicketViewController: UIViewController {
         titleLbl.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         titleLbl.snp.makeConstraints { (make) -> Void in
             make.leading.equalToSuperview().offset(20)
-            make.top.equalTo(ticketCarouselView.snp.bottom).offset(10)
+            make.top.equalTo(ticketCarouselView.snp.bottom).offset(5)
         }
 
         // MARK: Purchased Ticket tableView
 
         view.addSubview(purchasedTicketTableView)
         purchasedTicketTableView.snp.makeConstraints { make in
-            make.top.equalTo(titleLbl.snp.bottom).offset(8)
+            make.top.equalTo(titleLbl.snp.bottom).offset(5)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }

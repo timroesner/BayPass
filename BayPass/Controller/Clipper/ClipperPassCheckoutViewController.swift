@@ -1,19 +1,18 @@
 //
-//  TicketCheckoutViewController.swift
+//  ClipperPassCheckoutViewController.swift
 //  BayPass
 //
-//  Created by 凌脩羽 on 3/6/19.
+//  Created by Zhe Li on 4/15/19.
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
 import UIKit
 
-class TicketCheckoutViewController: UIViewController {
-    var ticket = ""
+class ClipperPassCheckoutViewController: UIViewController {
     var agency = Agency.zero
     var dropDownOptions = [(title: String, values: [String])]()
-    var stackedViews = [UIView]()
     var payButton: BayPassButton?
+    var stackedViews = [UIView]()
     var currentTicketPrice = 0.0
 
     override func viewDidLoad() {
@@ -22,8 +21,7 @@ class TicketCheckoutViewController: UIViewController {
 
         title = agency.stringValue
         navigationController?.navigationBar.prefersLargeTitles = false
-
-        dropDownOptions = TicketManager.shared.getDropDownOptions(for: agency, onlyPasses: false)
+        dropDownOptions = TicketManager.shared.getDropDownOptions(for: agency, onlyPasses: true)
         setUpTicketView(newTicketView: TicketView(agency: agency, icon: agency.getIcon(), cornerRadius: 12))
         setupDropDowns()
     }

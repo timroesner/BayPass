@@ -39,4 +39,32 @@ class BART {
             }
         }
     }
+
+    func getAllStations(completion: @escaping ([String: String]) -> Void) {
+        let params = [
+            "cmd": "stns",
+            "key": Credentials().bartToken,
+            "json": "y",
+        ]
+        Alamofire.request("https://api.bart.gov/api/stn.aspx", method: .get, parameters: params).responseJSON { response in
+            if let error = response.error {
+                print(error.localizedDescription)
+                return
+            }
+            if let json = response.result.value as? [String: Any] {
+                guard let root = json["root"] as? [String: Any],
+                    let stations = root["stations"] as? [String: Any],
+                    let stationsArray = stations["station"] as? [[String: Any]]
+                else { return }
+                var result = [String: String]()
+                for station in stationsArray {
+                    guard let name = station["name"] as? String,
+                        let abbriveation = station["abbr"] as? String
+                    else { continue }
+                    result[name] = abbriveation
+                }
+                completion(result)
+            }
+        }
+    }
 }
