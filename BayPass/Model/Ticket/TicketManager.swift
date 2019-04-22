@@ -25,7 +25,6 @@ class TicketManager {
         Alamofire.request("https://timroesner.com/baypass/tickets.json").responseJSON { (response) in
             if let tickets = response.result.value as? [String: [String: [String: Any]]] {
                 self.tickets = tickets
-                print(self.tickets)
             }
         }
     }
