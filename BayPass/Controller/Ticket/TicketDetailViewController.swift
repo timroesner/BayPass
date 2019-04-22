@@ -45,14 +45,12 @@ class TicketDetailViewController: UIViewController {
             make.height.equalTo(50)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(20)
         }
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(scanCard))
-        newTicketView.addGestureRecognizer(tapRecognizer)
     }
     
     func setUpTicketView(newTicketView: TicketView) {
         view.addSubview(newTicketView)
         newTicketView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25).priority(.low)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25)
             make.left.right.equalToSuperview().inset(16)
             make.height.equalTo(newTicketView.snp.width).multipliedBy(0.6)
         }
@@ -99,10 +97,7 @@ class TicketDetailViewController: UIViewController {
             
             view.addSubview(durationInfoLb)
             let d = Int(ticket?.duration?.duration ?? 0.0)
-            let min = (d / 60) % 60
-            let hour = (d / 3600) % 24
-            let day = d / 3600 / 24
-            durationInfoLb.text = "\(day) d \(hour) h \(min) m"
+            durationInfoLb.text = d.durationToStringShort()
             durationInfoLb.textColor = UIColor.black
             durationInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
             durationInfoLb.snp.makeConstraints { (make) -> Void in
@@ -134,10 +129,6 @@ class TicketDetailViewController: UIViewController {
     }
     
     @objc func scanTicket() {
-        print("scan ticket button pressed")
-    }
-    
-    @objc func scanCard() {
         session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
         session?.alertMessage = "Hold your iPhone near the card reader."
         session?.begin()
