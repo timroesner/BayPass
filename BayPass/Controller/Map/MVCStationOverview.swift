@@ -20,8 +20,7 @@ extension MapViewController {
         let coordinatRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         mapView.addAnnotation(MapAnnotation(fromStation: station))
         mapView.setRegion(mapView.regionThatFits(coordinatRegion), animated: true)
-
-        let stationVC = StationViewController()
+        stationVC.station = station
         bottomSheet.invalidateNotchHeights()
         notchPercentages = [0, 0.87]
         bottomSheet.viewControllers = [stationVC]

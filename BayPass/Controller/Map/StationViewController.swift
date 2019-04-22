@@ -8,7 +8,18 @@
 
 import UIKit
 
-class StationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol StationDelegate {
+    func onStationClicked(station: Station)
+}
+
+class StationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StationDelegate {
+    var station: Station?
+
+    func onStationClicked(station: Station) {
+        self.station = station
+        print("😁\(station)")
+    }
+
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return 0
     }
@@ -25,12 +36,21 @@ class StationViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.estimatedRowHeight = 57.0
+        tableView.estimatedRowHeight = 100.0
 
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 21
         setupViews()
     }
 
-    func setupViews() {}
+    func setupViews() {
+        setUpTitle()
+    }
+
+    func setUpTitle() {
+        let stationName = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 21))
+        stationName.text = station?.name
+        view.addSubview(stationName)
+        print("😀\(stationName.text)")
+    }
 }

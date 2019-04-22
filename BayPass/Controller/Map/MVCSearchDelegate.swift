@@ -25,6 +25,9 @@ extension MapViewController: SearchViewControllerDelegate {
 
         if let station = result as? Station {
             displayStationInfo(to: station)
+            stationDelegate?.onStationClicked(station: station)
+
+            print("😇 Passed station \(station)")
         }
     }
 }
