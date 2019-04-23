@@ -9,10 +9,13 @@
 import CoreNFC
 import SnapKit
 import UIKit
+import OverlayContainer
 
 class ClipperViewController: UIViewController {
     var collectionView: UICollectionView?
     let cellIdentifier = "clipperPassCell"
+    let bottomSheet = OverlayContainerViewController(style: .rigid)
+    var notchPercentages: [CGFloat] = [0.0, 0.93]
     var session: NFCNDEFReaderSession?
 
     override func viewDidLoad() {
@@ -20,6 +23,8 @@ class ClipperViewController: UIViewController {
 
         view.backgroundColor = .white
         title = "Clipper"
+        
+        bottomSheet.delegate = self
 
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal

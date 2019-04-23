@@ -34,13 +34,14 @@ extension ClipperViewController: UICollectionViewDelegate, UICollectionViewDataS
 
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            // present add pass UI
             navigationController?.pushViewController(ClipperPassViewController(), animated: true)
         } else {
-            // present pass details with selected pass
             let pass = UserManager.shared.getValidPasses()[indexPath.row - 1]
-            print(pass)
-            navigationController?.pushViewController(ClipperAddCashViewController(), animated: true)
+            let ticketDetailViewController = TicketDetailViewController(pass: pass)
+            bottomSheet.viewControllers = [ticketDetailViewController]
+            bottomSheet.modalPresentationStyle = .overCurrentContext
+            present(bottomSheet, animated: true, completion: nil)
+            bottomSheet.moveOverlay(toNotchAt: 1, animated: true)
         }
     }
 }
