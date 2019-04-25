@@ -16,6 +16,14 @@ protocol StationDelegate {
 class StationViewController: UIViewController, StationDelegate {
     var station: Station?
 
+    let cancelLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        label.text = "ⓧ"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = #colorLiteral(red: 0.7136465907, green: 0.7137709856, blue: 0.7136387825, alpha: 1)
+        return label
+    }()
+
     func onStationClicked(station: Station) {
         self.station = station
     }
@@ -50,14 +58,16 @@ class StationViewController: UIViewController, StationDelegate {
 
     func setUpTitle() {
         let stationName = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        stationName.text = station?.name
+        stationName.text = station?.name.replacingOccurrences(of: "\\s?\\([\\w\\s]*\\)", with: "", options: .regularExpression)
         stationName.font = stationName.font.withSize(25) // TODO: Format so it automatically fits
         stationName.font = UIFont.boldSystemFont(ofSize: 16)
+        stationName.numberOfLines = 0
 
         let stationImage = station?.getIcon()
         let stationImageView = UIImageView(image: stationImage)
         stationImageView.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         var arrayOfLineViews = [UIView]()
+
         if let lines = station?.lines {
             for line in lines {
                 let lineName = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -80,6 +90,7 @@ class StationViewController: UIViewController, StationDelegate {
 
         view.addSubview(stationName)
         view.addSubview(stationImageView)
+        view.addSubview(cancelLabel)
         stationImageView.snp.makeConstraints { make in
             make.topMargin.left.equalTo(22)
             make.topMargin.equalTo(18)
@@ -87,6 +98,10 @@ class StationViewController: UIViewController, StationDelegate {
         stationName.snp.makeConstraints { make in
             make.left.equalTo(stationImageView.snp.right)
             make.topMargin.equalTo(26)
+        }
+        cancelLabel.snp.makeConstraints { make in
+            make.topMargin.equalTo(20)
+            make.right.equalTo(-22)
         }
     }
 }
