@@ -16,13 +16,14 @@ extension MapViewController {
         mapView.removeAnnotations(mapView.annotations)
 
         let coordinate = CLLocationCoordinate2D(latitude: station.location.coordinate.latitude, longitude: station.location.coordinate.longitude)
-
-        let coordinatRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        let coordinateUpper = mapView.moveCenterByOffSet(offSet: CGPoint(x: 0, y: 150), coordinate: coordinate)
+        let coordinatRegion = MKCoordinateRegion(center: coordinateUpper, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         mapView.addAnnotation(MapAnnotation(fromStation: station))
+
         mapView.setRegion(mapView.regionThatFits(coordinatRegion), animated: true)
         stationVC.station = station
         bottomSheet.invalidateNotchHeights()
-        notchPercentages = [0, 0.87]
+        notchPercentages = [0.2, 0.5, 0.95]
         bottomSheet.viewControllers = [stationVC]
         addChild(bottomSheet, in: view)
         bottomSheet.moveOverlay(toNotchAt: 1, animated: true)
