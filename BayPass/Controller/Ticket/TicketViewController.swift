@@ -32,7 +32,7 @@ class TicketViewController: UIViewController {
 
     let purchasedTicketTableViewCellID = "purchasedTicketTableViewCellID"
 
-    let agencies = Agency.allCases.filter{$0.rawValue != "0"}
+    let agencies = Agency.allCases.filter { $0.rawValue != "0" }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +77,7 @@ class TicketViewController: UIViewController {
         ticketCarouselView.snp.makeConstraints { (make) -> Void in
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
-            make.top.equalTo(view.snp.top).offset(140)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.height.equalTo(240)
         }
     }
