@@ -105,4 +105,8 @@ class TicketManager {
             return tickets[agency.stringValue]?[ticketType]?["price"] as? Double
         }
     }
+    
+    func getPassDuration(agency: Agency, passType: String) -> Int {
+        return tickets[agency.stringValue]?[passType]?["duration"] as? Int ?? 1
+    }
 }

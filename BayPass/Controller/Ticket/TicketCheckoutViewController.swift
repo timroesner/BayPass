@@ -17,10 +17,6 @@ class TicketCheckoutViewController: UIViewController {
     var payButton: BayPassButton?
     var currentTicketPrice = 0.0
 
-    // MARK: temporary data, waiting for integration of Ticket/Pass Manager
-    var currentTicketPrice = 1.0
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -78,7 +74,7 @@ class TicketCheckoutViewController: UIViewController {
     @objc func pay() {
         //print("pay")
         
-        let paymentDropDown = stackedViews[safe: 4] as? DropDownMenu
+        let paymentDropDown = stackedViews[safe: stackedViews.count - 1] as? DropDownMenu
         //print(paymentDropDown?.getSelectedItem() ?? "default")
         if currentTicketPrice != 0.0 {
             switch PaymentMethod(rawValue: (paymentDropDown?.getSelectedItem())!) ?? .applePay {
@@ -113,6 +109,7 @@ extension TicketCheckoutViewController: PKPaymentAuthorizationViewControllerDele
         dismiss(animated: true, completion: {
             // To-Do: Add the ticekt to UserManager
             //UserManager.shared.addCashToCard(amount: self.currentTicketPrice)
+            
             self.dismissOrPop(animated: true)
         })
     }

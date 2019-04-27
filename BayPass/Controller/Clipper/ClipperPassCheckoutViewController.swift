@@ -15,10 +15,6 @@ class ClipperPassCheckoutViewController: UIViewController {
     var payButton: BayPassButton?
     var stackedViews = [UIView]()
     var currentTicketPrice = 0.0
-
-    // MARK: temporary data, waiting for integration of Ticket/Pass Manager
-    var currentPassPrice = 1.0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,12 +72,12 @@ class ClipperPassCheckoutViewController: UIViewController {
     @objc func pay() {
         //print("pay")
         
-        let paymentDropDown = stackedViews[safe: 2] as? DropDownMenu
+        let paymentDropDown = stackedViews[safe: stackedViews.count - 1] as? DropDownMenu
         //print(paymentDropDown?.getSelectedItem() ?? "default")
-        if currentPassPrice != 0.0 {
+        if currentTicketPrice != 0.0 {
             switch PaymentMethod(rawValue: (paymentDropDown?.getSelectedItem())!) ?? .applePay {
             case .applePay:
-                checkoutWithApplePay(items: [(name: "Cash Value", amount: currentPassPrice)], delegate: self)
+                checkoutWithApplePay(items: [(name: "Cash Value", amount: currentTicketPrice)], delegate: self)
                 return
             case .creditDebit:
                 print("Credit / Debit")
@@ -110,7 +106,25 @@ extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControlle
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
             // To-Do: Add the pass to UserManager
-            //UserManager.shared.addCashToCard(amount: self.currentPassPrice)
+            //UserManager.shared.addCashToCard(amount: self.currentTicketPrice)
+            
+            let typeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
+            let lastingHours = TicketManager.shared.getPassDuration(agency: self.agency, passType: typeDropDown?.getSelectedItem() ?? "")
+            print(lastingHours)
+            
+            let now = Date()
+            let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
+            let duration = DateInterval(start: now, end: (expiringTime))
+            print(duration)
+            
+            let newPass = Pass(name: typeDropDown?.getSelectedItem() ?? "", duration: duration, price: self.currentTicketPrice, validOnAgency: self.agency)
+            UserManager.shared.addPass(pass: newPass)
+            
+            let passes = UserManager.shared.getValidPasses()
+            for pass in passes {
+                print(pass.validOnAgency.stringValue + pass.name)
+            }
+            
             self.dismissOrPop(animated: true)
         })
     }
