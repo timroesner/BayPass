@@ -87,6 +87,20 @@ class ClipperPassCheckoutViewController: UIViewController {
             displayAlert(title: "Invalid", msg: "The price of the current pass is 0.0", dismissAfter: false)
         }
     }
+    
+    func createNewClipperPass() -> Pass {
+        let typeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
+        
+        let lastingHours = TicketManager.shared.getPassDuration(agency: self.agency, passType: typeDropDown?.getSelectedItem() ?? "")
+        let now = Date()
+        let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
+        let duration = DateInterval(start: now, end: (expiringTime))
+        //print(duration)
+        
+        let newClipperPass = Pass(name: typeDropDown?.getSelectedItem() ?? "", duration: duration, price: self.currentTicketPrice, validOnAgency: self.agency)
+        
+        return newClipperPass
+    }
 }
 
 extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControllerDelegate {
@@ -105,24 +119,10 @@ extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControlle
     
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
-            // To-Do: Add the pass to UserManager
-            //UserManager.shared.addCashToCard(amount: self.currentTicketPrice)
+            UserManager.shared.addPass(pass: self.createNewClipperPass())
             
-            let typeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
-            let lastingHours = TicketManager.shared.getPassDuration(agency: self.agency, passType: typeDropDown?.getSelectedItem() ?? "")
-            print(lastingHours)
-            
-            let now = Date()
-            let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
-            let duration = DateInterval(start: now, end: (expiringTime))
-            print(duration)
-            
-            let newPass = Pass(name: typeDropDown?.getSelectedItem() ?? "", duration: duration, price: self.currentTicketPrice, validOnAgency: self.agency)
-            UserManager.shared.addPass(pass: newPass)
-            
-            let passes = UserManager.shared.getValidPasses()
-            for pass in passes {
-                print(pass.validOnAgency.stringValue + pass.name)
+            for pass in UserManager.shared.getValidPasses() {
+                print(pass.validOnAgency.stringValue + " " + pass.name)
             }
             
             self.dismissOrPop(animated: true)
