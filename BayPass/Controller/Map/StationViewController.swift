@@ -103,7 +103,7 @@ class StationViewController: UIViewController {
     }
 
     func setUpTableView() {
-        myTableView = UITableView(frame: CGRect(x: 22, y: 60, width: 300, height: 1500)) // TODO: Fix so its auto
+        myTableView.frame = CGRect(x: 22, y: 55, width: 300, height: 1500)
         myTableView.dataSource = self
         myTableView.delegate = self
         myTableView.separatorColor = .clear
@@ -115,6 +115,10 @@ class StationViewController: UIViewController {
 extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return lines?.count ?? 0
+    }
+
+    func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
+        return 20
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
