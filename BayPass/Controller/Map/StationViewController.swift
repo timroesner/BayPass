@@ -103,7 +103,7 @@ class StationViewController: UIViewController {
     }
 
     func setUpTableView() {
-        myTableView = UITableView(frame: CGRect(x: 22, y: 60, width: 300, height: 900)) // TODO: Fix so its auto
+        myTableView = UITableView(frame: CGRect(x: 22, y: 60, width: 300, height: 1500)) // TODO: Fix so its auto
         myTableView.dataSource = self
         myTableView.delegate = self
         myTableView.separatorColor = .clear
