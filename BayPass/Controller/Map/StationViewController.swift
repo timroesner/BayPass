@@ -9,46 +9,38 @@
 import SnapKit
 import UIKit
 
-protocol StationDelegate {
-    func onStationClicked(station: Station)
-}
-
-class StationViewController: UIViewController, StationDelegate {
+class StationViewController: UIViewController {
+    var myTableView = UITableView()
     var station: Station?
+    let searchVC = SearchViewController()
 
-    let cancelLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+    var cancelLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
         label.text = "ⓧ"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = #colorLiteral(red: 0.7136465907, green: 0.7137709856, blue: 0.7136387825, alpha: 1)
+
         return label
     }()
 
-    func onStationClicked(station: Station) {
-        self.station = station
+    @objc func tapFunction(sender _: UITapGestureRecognizer) {
+        print("Tapped")
+        parent?.addChild(searchVC)
+        removeChild(self)
+        // TODO: Display SearchVC
     }
-
-//    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-//        return 0
-//    }
-//
-//    func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
-//        return StationTableViewCell()
-//    }
-
-    private(set) var tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        tableView.tableFooterView = UIView(frame: CGRect.zero)
-//        tableView.estimatedRowHeight = 30
+
         view.translatesAutoresizingMaskIntoConstraints = false
         view.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
 
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 21
+        cancelLabel.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
+        cancelLabel.addGestureRecognizer(tap)
         setupViews()
     }
 
@@ -91,6 +83,7 @@ class StationViewController: UIViewController, StationDelegate {
         view.addSubview(stationName)
         view.addSubview(stationImageView)
         view.addSubview(cancelLabel)
+
         stationImageView.snp.makeConstraints { make in
             make.topMargin.left.equalTo(22)
             make.topMargin.equalTo(18)
@@ -103,5 +96,26 @@ class StationViewController: UIViewController, StationDelegate {
             make.topMargin.equalTo(20)
             make.right.equalTo(-22)
         }
+    }
+
+    func setUpTableView() {
+        myTableView = UITableView(frame: CGRect(x: 22, y: 60, width: 300, height: 900)) // TODO: Fix so its auto
+        myTableView.dataSource = self
+        myTableView.delegate = self
+        view.addSubview(myTableView)
+
+        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    }
+}
+
+extension StationViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return station?.lines.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = "\(indexPath.row)"
+        return cell
     }
 }

@@ -9,12 +9,16 @@
 import UIKit
 
 class StationTableViewCell: UITableViewCell {
-    var line: Line?
+    var theLine: Line?
     private(set) var lineTransitIconImage = UIImageView()
     private(set) var lineNameLabel = UILabel()
     private(set) var lineTimingsLabel = UILabel()
     private(set) var lineReoccuringTimeLabel = UILabel()
-    private(set) var lineView = UIView()
+    private(set) var card: UIView = {
+        var view = UIView()
+        view.layer.cornerRadius = 15
+        return view
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,5 +28,9 @@ class StationTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setup(with _: Line?) {}
+    func setup(with line: Line?) {
+        theLine = line
+        lineTransitIconImage.image = line?.getIcon()
+        addSubview(card)
+    }
 }

@@ -19,7 +19,6 @@ class MapViewController: UIViewController {
     let stationVC = StationViewController()
     var locationManager = CLLocationManager()
     var notchPercentages = [CGFloat]()
-    var stationDelegate: StationDelegate?
     // Route Search properties
     var startIndex = 0
     var routes = [Route]()
