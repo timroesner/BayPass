@@ -108,7 +108,7 @@ class StationViewController: UIViewController {
         myTableView.delegate = self
         myTableView.separatorColor = .clear
         view.addSubview(myTableView)
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        myTableView.register(StationTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 }
 
@@ -118,8 +118,9 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "\(lines?[indexPath.row].name)"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? StationTableViewCell else { fatalError("Unable to create cell") }
+        cell.stationName.text = lines?[indexPath.row].name
+        cell.color = lines?[indexPath.row].color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1)
         return cell
     }
 }

@@ -9,15 +9,21 @@
 import UIKit
 
 class StationTableViewCell: UITableViewCell {
-    var theLine: Line?
-    private(set) var lineTransitIconImage = UIImageView()
-    private(set) var lineNameLabel = UILabel()
-    private(set) var lineTimingsLabel = UILabel()
-    private(set) var lineReoccuringTimeLabel = UILabel()
-    private(set) var card: UIView = {
-        var view = UIView()
-        view.layer.cornerRadius = 15
+    var color = UIColor()
+    lazy var backView: UIView = {
+        let view = UIView(frame: CGRect(x: 10, y: 6, width: 250, height: 25))
+
         return view
+    }()
+
+    lazy var iconImage: UIImageView = {
+        let image = UIImageView()
+        return image
+    }()
+
+    lazy var stationName: UILabel = {
+        let name = UILabel()
+        return name
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -28,9 +34,17 @@ class StationTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setup(with line: Line?) {
-        theLine = line
-        lineTransitIconImage.image = line?.getIcon()
-        addSubview(card)
+    override func layoutSubviews() {
+        contentView.backgroundColor = UIColor.clear
+        backgroundColor = UIColor.clear
+        backView.layer.cornerRadius = 5
+        backView.backgroundColor = color
+        backView.clipsToBounds = true
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        addSubview(backView)
+        backView.addSubview(stationName)
     }
 }
