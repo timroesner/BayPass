@@ -12,6 +12,7 @@ import UIKit
 class StationViewController: UIViewController {
     var myTableView = UITableView()
     var station: Station?
+    var lines: [Line]?
     let searchVC = SearchViewController()
 
     var cancelLabel: UILabel = {
@@ -32,6 +33,8 @@ class StationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lines = station?.lines
+        print("🎀\(lines)")
 
         view.translatesAutoresizingMaskIntoConstraints = false
         view.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
@@ -42,6 +45,7 @@ class StationViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
         cancelLabel.addGestureRecognizer(tap)
         setupViews()
+        setUpTableView()
     }
 
     func setupViews() {
@@ -50,7 +54,7 @@ class StationViewController: UIViewController {
 
     func setUpTitle() {
         let stationName = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        stationName.text = station?.name.replacingOccurrences(of: "\\s?\\([\\w\\s]*\\)", with: "", options: .regularExpression)
+        stationName.text = station?.name.replacingOccurrences(of: "\\s?\\([\\w\\s]*\\)", with: "", options: .regularExpression) // Removes Parantheses
         stationName.font = stationName.font.withSize(25) // TODO: Format so it automatically fits
         stationName.font = UIFont.boldSystemFont(ofSize: 16)
         stationName.numberOfLines = 0
@@ -102,20 +106,20 @@ class StationViewController: UIViewController {
         myTableView = UITableView(frame: CGRect(x: 22, y: 60, width: 300, height: 900)) // TODO: Fix so its auto
         myTableView.dataSource = self
         myTableView.delegate = self
+        myTableView.separatorColor = .clear
         view.addSubview(myTableView)
-
         myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 }
 
 extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return station?.lines.count ?? 0
+        return lines?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row)"
+        cell.textLabel?.text = "\(lines?[indexPath.row].name)"
         return cell
     }
 }
