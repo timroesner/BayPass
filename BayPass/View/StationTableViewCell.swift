@@ -35,7 +35,9 @@ class StationTableViewCell: UITableViewCell {
     }
 
     override func layoutSubviews() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = UIColor.clear
+//        contentView.clipsToBounds = true
         backgroundColor = UIColor.clear
         backView.layer.cornerRadius = 12
         let leftColor = color.lighter(by: 30)

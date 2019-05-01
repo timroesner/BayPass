@@ -105,7 +105,9 @@ class StationViewController: UIViewController {
         myTableView.dataSource = self
         myTableView.delegate = self
         myTableView.separatorColor = .clear
+        myTableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(myTableView)
+        myTableView.rowHeight = UITableView.automaticDimension
         myTableView.register(StationTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 }
