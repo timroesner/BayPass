@@ -106,6 +106,36 @@ class TicketManager {
         }
     }
     
+    /*
+    func createNewClipperPass(agency: Agency, passType: String, price: Double) -> Pass {
+        let lastingHours = getPassDuration(agency: agency, passType: passType)
+        let now = Date()
+        let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
+        let duration = DateInterval(start: now, end: (expiringTime))
+        //print(duration)
+        
+        let newClipperPass = Pass(name: passType, duration: duration, price: price, validOnAgency: agency)
+        
+        return newClipperPass
+    }
+ */
+    func createNewTicket(agency: Agency, passType: String, passSubType: String, price: Double) -> Ticket {
+        let onlyPass = tickets[agency.stringValue]?[passType]?["count"] == nil
+        if(onlyPass){
+            print("Initialize with duration")
+            let lastingHours = getPassDuration(agency: agency, passType: passType)
+            let now = Date()
+            let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
+            let duration = DateInterval(start: now, end: (expiringTime))
+            
+            return Ticket(name: passType + passSubType, duration: duration, price: price, validOnAgency: agency)
+        }else{
+            print("Initialize with count")
+            return Ticket(name: passType + passSubType, count: tickets[agency.stringValue]?[passType]?["count"] as! Int, price: price, validOnAgency: agency)
+        }
+        
+    }
+    
     func getPassDuration(agency: Agency, passType: String) -> Int {
         return tickets[agency.stringValue]?[passType]?["duration"] as? Int ?? 1
     }

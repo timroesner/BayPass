@@ -22,6 +22,7 @@ extension TicketViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = purchasedTicketTableView.dequeueReusableCell(withIdentifier: purchasedTicketTableViewCellID) as! PurchasedTicketCell
         cell.setup(with: UserManager.shared.getPurchasedTickets()[indexPath.row])
+        //print(cell.nameLbl.text)
         return cell
     }
 
