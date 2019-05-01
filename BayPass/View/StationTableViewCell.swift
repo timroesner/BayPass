@@ -12,12 +12,16 @@ class StationTableViewCell: UITableViewCell {
     var gradient = CAGradientLayer()
     var color = UIColor()
     lazy var backView: UIView = {
-        let view = UIView(frame: CGRect(x: 10, y: 6, width: self.frame.width - 20, height: 50))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50))
         return view
     }()
 
     lazy var iconImage: UIImageView = {
         let image = UIImageView()
+        image.snp.makeConstraints({ make in
+            make.topMargin.left.equalTo(22)
+            make.topMargin.equalTo(18)
+        })
         return image
     }()
 
@@ -47,5 +51,6 @@ class StationTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         addSubview(backView)
         backView.addSubview(stationName)
+//        backView.addSubview(iconImage)
     }
 }

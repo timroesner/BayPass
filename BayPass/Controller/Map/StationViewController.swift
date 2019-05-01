@@ -34,8 +34,6 @@ class StationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lines = station?.lines
-        print("🎀\(lines)")
-
         view.translatesAutoresizingMaskIntoConstraints = false
         view.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
 
@@ -45,11 +43,11 @@ class StationViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
         cancelLabel.addGestureRecognizer(tap)
         setupViews()
-        setUpTableView()
     }
 
     func setupViews() {
         setUpTitle()
+        setUpTableView()
     }
 
     func setUpTitle() {
@@ -103,7 +101,7 @@ class StationViewController: UIViewController {
     }
 
     func setUpTableView() {
-        myTableView.frame = CGRect(x: 22, y: 55, width: 300, height: 1500)
+        myTableView.frame = CGRect(x: 22, y: 55, width: 300, height: 3500)
         myTableView.dataSource = self
         myTableView.delegate = self
         myTableView.separatorColor = .clear
@@ -114,11 +112,13 @@ class StationViewController: UIViewController {
 
 extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        print("😇 \(lines?.count)")
+        print("🚀\(lines)")
         return lines?.count ?? 0
     }
 
     func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
-        return 20
+        return 70
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
