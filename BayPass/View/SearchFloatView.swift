@@ -67,10 +67,22 @@ class SearchFloatView: UIView, UITextFieldDelegate {
             make.height.equalTo(18)
             make.centerY.equalTo(leaveTimeButton)
         }
+        
+        /*// Add Observer
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textDidChange(_:)),
+                                               name: UITextField.textDidChangeNotification,
+                                               object: toTextField)*/
+        
     }
 
     required init?(coder _: NSCoder) {
         print("NSCoder not supported in SearchFloatView")
         return nil
     }
+    
+    /*
+    @objc private func textDidChange(_ notification: Notification) {
+        print("text changed")
+    }*/
 }
