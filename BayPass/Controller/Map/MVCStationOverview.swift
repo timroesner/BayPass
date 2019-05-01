@@ -23,7 +23,7 @@ extension MapViewController {
         mapView.setRegion(mapView.regionThatFits(coordinatRegion), animated: true)
         stationVC.station = station
         bottomSheet.invalidateNotchHeights()
-        notchPercentages = [0.2, 0.5, 0.95]
+        notchPercentages = [0.175, 0.5, 0.95]
         bottomSheet.viewControllers = [stationVC]
         addChild(bottomSheet, in: view)
         bottomSheet.moveOverlay(toNotchAt: 1, animated: true)

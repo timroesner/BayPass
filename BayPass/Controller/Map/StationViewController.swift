@@ -101,32 +101,34 @@ class StationViewController: UIViewController {
     }
 
     func setUpTableView() {
-        myTableView.frame = CGRect(x: 22, y: 55, width: 300, height: 3500)
+        myTableView.frame = CGRect(x: 22, y: 70, width: 325, height: 3500) // Fix so its automatic
         myTableView.dataSource = self
         myTableView.delegate = self
         myTableView.separatorColor = .clear
+        myTableView.separatorInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
         myTableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(myTableView)
         myTableView.rowHeight = UITableView.automaticDimension
         myTableView.register(StationTableViewCell.self, forCellReuseIdentifier: "Cell")
+        myTableView.rowHeight = 60
+        myTableView.isScrollEnabled = true
     }
 }
 
 extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        print("😇 \(lines?.count)")
-        print("🚀\(lines)")
         return lines?.count ?? 0
     }
 
     func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
-        return 70
+        return 40
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? StationTableViewCell else { fatalError("Unable to create cell") }
         cell.stationName.text = lines?[indexPath.row].name
         cell.color = lines?[indexPath.row].color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1)
+
         return cell
     }
 }

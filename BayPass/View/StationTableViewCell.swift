@@ -47,12 +47,7 @@ class StationTableViewCell: UITableViewCell {
         layer.addSublayer(gradient)
         backView.layer.insertSublayer(gradient, at: 0)
         backView.clipsToBounds = true
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
         addSubview(backView)
         backView.addSubview(stationName)
-//        backView.addSubview(iconImage)
     }
 }
