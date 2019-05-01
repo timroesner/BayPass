@@ -50,7 +50,11 @@ class DestinationRoutingTests: XCTestCase {
         
         let searchSearchField = app.searchFields["Search"]
         searchSearchField.tap()
-        searchSearchField.typeText("Apple")
+        app.keys["A"].tap()
+        app.keys["p"].tap()
+        app.keys["p"].tap()
+        app.keys["l"].tap()
+        app.keys["e"].tap()
         
         let searchButton = app.buttons["Search"]
         searchButton.tap()
