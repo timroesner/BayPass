@@ -75,6 +75,7 @@ class RouteDetailsViewControllerTests: XCTestCase {
         vc.route = route
         vc.routeOverView = RouteOverView(with: route)
         vc.buyTapped()
+        vc.close()
     }
 
 }
