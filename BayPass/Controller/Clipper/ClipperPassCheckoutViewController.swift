@@ -88,6 +88,7 @@ class ClipperPassCheckoutViewController: UIViewController {
         }
     }
     
+    /*
     func createNewClipperPass() -> Pass {
         let typeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
         
@@ -100,7 +101,7 @@ class ClipperPassCheckoutViewController: UIViewController {
         let newClipperPass = Pass(name: typeDropDown?.getSelectedItem() ?? "", duration: duration, price: self.currentTicketPrice, validOnAgency: self.agency)
         
         return newClipperPass
-    }
+    }*/
 }
 
 extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControllerDelegate {
@@ -119,7 +120,10 @@ extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControlle
     
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
-            UserManager.shared.addPass(pass: self.createNewClipperPass())
+            let ticketTypeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
+            let newClipperPass = TicketManager.shared.createNewClipperPass(agency: self.agency, passType: ticketTypeDropDown?.getSelectedItem() ?? "", price: self.currentTicketPrice)
+            
+            UserManager.shared.addPass(pass: newClipperPass)
             
             for pass in UserManager.shared.getValidPasses() {
                 print(pass.validOnAgency.stringValue + " " + pass.name)

@@ -136,6 +136,20 @@ class TicketManager {
         
     }
     
+    func createNewClipperPass(agency: Agency, passType: String, price: Double) -> Pass {
+        //let typeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
+        
+        let lastingHours = TicketManager.shared.getPassDuration(agency: agency, passType: passType)
+        let now = Date()
+        let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
+        let duration = DateInterval(start: now, end: (expiringTime))
+        //print(duration)
+        
+        let newClipperPass = Pass(name: passType, duration: duration, price: price, validOnAgency: agency)
+        
+        return newClipperPass
+    }
+    
     func getPassDuration(agency: Agency, passType: String) -> Int {
         return tickets[agency.stringValue]?[passType]?["duration"] as? Int ?? 1
     }
