@@ -65,7 +65,15 @@ class RouteDetailsViewControllerTests: XCTestCase {
     }
     
     func testBuyTickets() {
+        let depTime = Date(timeIntervalSinceNow: 60)
+        let arrTime = Date(timeIntervalSinceNow: 240)
+        let segmentScooter = RouteSegment(distanceInMeters: 800, durationInMinutes: 22, polyline: MKPolyline(), travelMode: .scooter)
+        let segmentBike = RouteSegment(distanceInMeters: 10000, durationInMinutes: 50, polyline: MKPolyline(), travelMode: .bike)
+        let route = Route(departureTime: depTime, arrivalTime: arrTime, segments: [segmentScooter, segmentBike])
+        
         let vc = RouteDetailsViewController()
+        vc.route = route
+        vc.routeOverView = RouteOverView(with: route)
         vc.buyTapped()
     }
 
