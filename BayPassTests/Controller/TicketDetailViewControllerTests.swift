@@ -21,7 +21,10 @@ class TicketDetailViewControllerTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+    func testTicketView() {
+       let ticketView = TicketView(agency: .CalTrain, icon: Agency.CalTrain.getIcon(), cornerRadius: 12)
+        XCTAssertEqual(ticketView.nameLbl.text, vc.ticketView.nameLbl.text)
+    }
     
     func testScanButton() {
         vc.scanTicket()
