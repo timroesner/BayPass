@@ -98,6 +98,7 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
             make.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+        parentSheet?.drivingScrollView = scrollView
     }
 }
 
