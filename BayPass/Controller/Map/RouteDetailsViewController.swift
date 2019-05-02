@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import OverlayContainer
 
 class RouteDetailsViewController: UIViewController {
     
     let scrollView = UIScrollView()
     var route: Route?
     var routeOverView: RouteOverView?
-    private var buyButton = UIButton()
+    var buyButton = UIButton()
+    var parentSheet: OverlayContainerViewController?
     private let dashedView = UIView()
 
     override func viewDidLoad() {
@@ -219,7 +221,7 @@ class RouteDetailsViewController: UIViewController {
     }
     
     @objc func buyTapped() {
-        print("Let's buy")
+        setupBulkTicketsView()
     }
 
 }
