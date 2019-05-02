@@ -52,7 +52,7 @@ class BulkTicketTableViewCell: UITableViewCell {
     }
     
     required init?(coder _: NSCoder) {
-        print("NSCoder not supported in PurchasedTicketCell")
+        print("NSCoder not supported in BulkTicketCell")
         return nil
     }
 }

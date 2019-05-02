@@ -223,5 +223,5 @@ class RouteDetailsViewController: UIViewController {
     @objc func buyTapped() {
         setupBulkTicketsView()
     }
-
+    
 }

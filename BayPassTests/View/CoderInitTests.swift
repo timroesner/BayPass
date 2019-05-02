@@ -90,4 +90,9 @@ class CoderInitTests: XCTestCase {
         let dropDown = DropDownMenu(coder: archiver)
         XCTAssertNil(dropDown)
     }
+    
+    func testBulkTicketCell() {
+        let cell = BulkTicketTableViewCell(coder: archiver)
+        XCTAssertNil(cell)
+    }
 }
