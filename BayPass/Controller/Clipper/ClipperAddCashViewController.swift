@@ -132,6 +132,7 @@ extension ClipperAddCashViewController: PKPaymentAuthorizationViewControllerDele
             // Here we could call our backend if we actually would submit the payment
             print(token)
             completion(.success)
+            UserManager.shared.addCashToCard(amount: self.value)
         }
     }
 
