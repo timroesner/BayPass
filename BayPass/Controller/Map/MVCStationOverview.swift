@@ -16,8 +16,11 @@ extension MapViewController {
         mapView.removeAnnotations(mapView.annotations)
 
         let coordinate = CLLocationCoordinate2D(latitude: station.location.coordinate.latitude, longitude: station.location.coordinate.longitude)
-        let coordinateUpper = mapView.moveCenterByOffSet(offSet: CGPoint(x: 0, y: 150), coordinate: coordinate)
-        let coordinatRegion = MKCoordinateRegion(center: coordinateUpper, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+//        let coordinateUpper = mapView.moveCenterByOffSet(offSet: CGPoint(x: 0, y: 150), coordinate: coordinate)
+
+        let mapEdgePadding = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+
+        let coordinatRegion = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         mapView.addAnnotation(MapAnnotation(fromStation: station))
 
         mapView.setRegion(mapView.regionThatFits(coordinatRegion), animated: true)

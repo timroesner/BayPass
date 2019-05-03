@@ -15,13 +15,11 @@ class StationViewController: UIViewController {
     var lines: [Line]?
     let searchVC = SearchViewController()
 
-    var cancelLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
-        label.text = "ⓧ"
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = #colorLiteral(red: 0.7136465907, green: 0.7137709856, blue: 0.7136387825, alpha: 1)
+    var cancelLabel: UIImageView = {
+        let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        image.image = #imageLiteral(resourceName: "close")
 
-        return label
+        return image
     }()
 
     @objc func tapFunction(sender _: UITapGestureRecognizer) {
@@ -121,14 +119,13 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
-        return 40
+        return 50
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? StationTableViewCell else { fatalError("Unable to create cell") }
-        cell.stationName.text = lines?[indexPath.row].name
-        cell.color = lines?[indexPath.row].color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! StationTableViewCell
+        let defaultLine = Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)
+        cell.setup(with: lines?[indexPath.row] ?? defaultLine)
         return cell
     }
 }

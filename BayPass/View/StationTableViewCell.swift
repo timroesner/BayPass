@@ -10,44 +10,64 @@ import UIKit
 
 class StationTableViewCell: UITableViewCell {
     var gradient = CAGradientLayer()
-    var color = UIColor()
-    lazy var backView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50))
-        return view
-    }()
+    var stationName = UILabel()
+    var backView = UIView()
+    var iconImageView = UIImageView()
 
-    lazy var iconImage: UIImageView = {
-        let image = UIImageView()
-        image.snp.makeConstraints({ make in
-            make.topMargin.left.equalTo(22)
-            make.topMargin.equalTo(18)
-        })
-        return image
-    }()
-
-    lazy var stationName: UILabel = {
-        let name = UILabel()
-        return name
-    }()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
 
-    override func layoutSubviews() {
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.backgroundColor = UIColor.clear
-//        contentView.clipsToBounds = true
-        backgroundColor = UIColor.clear
-        backView.layer.cornerRadius = 12
-        let leftColor = color.lighter(by: 30)
-        gradient = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: color)
-        gradient.frame = backView.frame
-        backView.layoutSublayers(of: gradient)
-        layer.addSublayer(gradient)
-        backView.layer.insertSublayer(gradient, at: 0)
-        backView.clipsToBounds = true
+    /*
+     lazy var backView: UIView = {
+     let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50))
+     return view
+     }()
+
+     lazy var stationName: UILabel = {
+     let name = UILabel()
+     return name
+     }()*/
+
+    func setup(with line: Line) {
         addSubview(backView)
-        backView.addSubview(stationName)
+        backView.clipsToBounds = true
+        backView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(2)
+            make.bottom.equalToSuperview().offset(2)
+            make.left.equalToSuperview().offset(2)
+            make.right.equalToSuperview().offset(2)
+        }
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+
+        backView.layer.cornerRadius = 12
+
+        // Gradient
+        let leftColor = line.color.lighter(by: 30)
+        gradient = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
+        gradient.frame = bounds
+        backView.layer.addSublayer(gradient)
+
+        iconImageView.image = line.getIcon()
+        iconImageView.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
+        iconImageView.snp.makeConstraints { _ in
+//            make.topMargin.equalToSuperview().offset(5)
+//            make.leftMargin.equalTo(snp_left).offset(5)
+        }
+        backView.addSubview(iconImageView)
+//
+//        backView.addSubview(stationName)
+//        stationName.text = line.name
+//        stationName.textColor = .black
+//        stationName.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+//        stationName.snp.makeConstraints { (make) in
+//            make.top.equalToSuperview().offset(5)
+//            make.leftMargin.equalTo(iconImageView.snp_rightMargin).offset(5)
+//        }
+    }
+
+    required init?(coder _: NSCoder) {
+        print("NSCoder not supported in PurchasedTicketCell")
+        return nil
     }
 }
