@@ -129,7 +129,8 @@ extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControlle
                 print(pass.validOnAgency.stringValue + " " + pass.name)
             }
             
-            self.dismissOrPop(animated: true)
+            //self.dismissOrPop(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         })
     }
 }
