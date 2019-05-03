@@ -6,6 +6,7 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
+import OverlayContainer
 import SnapKit
 import UIKit
 
@@ -14,6 +15,10 @@ class StationViewController: UIViewController {
     var station: Station?
     var lines: [Line]?
     let searchVC = SearchViewController()
+    var notchPercentages = [CGFloat]()
+    let bottomSheet = OverlayContainerViewController(style: .rigid)
+
+//    let mapVC = MapViewController()
 
     var cancelLabel: UIImageView = {
         let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
@@ -21,13 +26,6 @@ class StationViewController: UIViewController {
 
         return image
     }()
-
-    @objc func tapFunction(sender _: UITapGestureRecognizer) {
-        print("Tapped")
-        parent?.addChild(searchVC)
-        removeChild(self)
-        // TODO: Display SearchVC
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,5 +125,37 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
         let defaultLine = Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)
         cell.setup(with: lines?[indexPath.row] ?? defaultLine)
         return cell
+    }
+}
+
+extension StationViewController: OverlayContainerViewControllerDelegate {
+    func overlayContainerViewController(_: OverlayContainerViewController, heightForNotchAt index: Int, availableSpace: CGFloat) -> CGFloat {
+        return availableSpace * notchPercentages[index]
+    }
+
+    func numberOfNotches(in _: OverlayContainerViewController) -> Int {
+        return notchPercentages.count
+    }
+
+    @objc func tapFunction(sender _: UITapGestureRecognizer) {
+        print("Tapped")
+        removeChild(self)
+        searchVC.resetSearch()
+        bottomSheet.drivingScrollView = searchVC.tableView
+        bottomSheet.invalidateNotchHeights()
+        notchPercentages = [0.20, 0.93]
+        bottomSheet.viewControllers = [searchVC]
+
+        //        searchVC.resetSearch()
+        //        bottomSheet.drivingScrollView = searchVC.tableView
+        //        bottomSheet.invalidateNotchHeights()
+        //        notchPercentages = [0.20, 0.93]
+        //        bottomSheet.viewControllers = [searchVC]
+
+        //        mapVC.cancelRouting()
+        //        mapVC.setupSearchView()
+        // TODO: Display SearchVC
+        //        mapVC.centerOnUserLocation()
+        //        mapVC.setupSearchView()
     }
 }

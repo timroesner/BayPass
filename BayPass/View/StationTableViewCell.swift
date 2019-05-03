@@ -49,12 +49,23 @@ class StationTableViewCell: UITableViewCell {
         backView.layer.addSublayer(gradient)
 
         iconImageView.image = line.getIcon()
+        iconImageView.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        iconImageView.snp.makeConstraints { make in
+            make.size.equalTo(25)
+        }
         iconImageView.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
         iconImageView.snp.makeConstraints { _ in
 //            make.topMargin.equalToSuperview().offset(5)
 //            make.leftMargin.equalTo(snp_left).offset(5)
         }
         backView.addSubview(iconImageView)
+
+        backView.addSubview(stationName)
+        stationName.text = line.name
+        stationName.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        stationName.snp.makeConstraints { make in
+            make.leftMargin.equalTo(iconImageView.snp_rightMargin).offset(15)
+        }
 //
 //        backView.addSubview(stationName)
 //        stationName.text = line.name
