@@ -56,27 +56,6 @@ class StationViewController: UIViewController {
         let stationImage = station?.getIcon()
         let stationImageView = UIImageView(image: stationImage)
         stationImageView.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        var arrayOfLineViews = [UIView]()
-
-        if let lines = station?.lines {
-            for line in lines {
-                let lineName = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-                lineName.text = line.name
-                lineName.font = UIFont(name: "SFProText-Semibold", size: 200)
-                lineName.font = UIFont.boldSystemFont(ofSize: 16)
-                let lineImage = line.getIcon()
-                let lineImageView = UIImageView(image: lineImage)
-                let lineView: UIView = {
-                    let view = UIView()
-                    view.backgroundColor = line.color
-                    view.addSubview(lineName)
-                    view.addSubview(lineImageView)
-                    view.layer.cornerRadius = 20
-                    return view
-                }()
-                arrayOfLineViews.append(lineView)
-            }
-        }
 
         view.addSubview(stationName)
         view.addSubview(stationImageView)
