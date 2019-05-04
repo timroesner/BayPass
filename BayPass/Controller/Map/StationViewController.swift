@@ -61,9 +61,10 @@ class StationViewController: UIViewController {
         view.addSubview(stationName)
         view.addSubview(stationImageView)
         view.addSubview(cancelLabel)
+        view.addSubview(myTableView)
 
         stationImageView.snp.makeConstraints { make in
-            make.topMargin.left.equalTo(15)
+            make.topMargin.left.equalTo(12)
             make.topMargin.equalTo(18)
         }
         stationName.snp.makeConstraints { make in
@@ -74,17 +75,29 @@ class StationViewController: UIViewController {
             make.topMargin.equalTo(20)
             make.right.equalTo(-28)
         }
+
+        myTableView.snp.makeConstraints { make in
+            make.top.equalTo(stationImageView.snp.bottom).offset(5)
+            make.left.equalToSuperview().offset(20)
+            make.right.equalTo(-28)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
     }
 }
 
 extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     func setUpTableView() {
-        myTableView.frame = CGRect(x: 22, y: 66, width: 325, height: 3500) // TODO: Make it in SnapKit
+//        myTableView.frame = CGRect(x: 22, y: 66, width: 325, height: 3500) // TODO: Make it in SnapKit
+//        purchasedTicketTableView.snp.makeConstraints { make in
+//            make.top.equalTo(titleLbl.snp.bottom).offset(5)
+//            make.left.right.equalToSuperview()
+//            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+//        }
+
         myTableView.dataSource = self
         myTableView.delegate = self
         myTableView.separatorColor = .clear
         myTableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(myTableView)
         myTableView.rowHeight = UITableView.automaticDimension
         myTableView.register(LineTableViewCell.self, forCellReuseIdentifier: "Cell")
 //        myTableView.estimatedRowHeight = 100
