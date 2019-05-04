@@ -39,6 +39,7 @@ class StationViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
         cancelLabel.addGestureRecognizer(tap)
         setupViews()
+        myTableView.reloadData()
     }
 
     func setupViews() {
@@ -71,7 +72,7 @@ class StationViewController: UIViewController {
         }
         cancelLabel.snp.makeConstraints { make in
             make.topMargin.equalTo(20)
-            make.right.equalTo(-22)
+            make.right.equalTo(-28)
         }
     }
 }
@@ -86,23 +87,21 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
         view.addSubview(myTableView)
         myTableView.rowHeight = UITableView.automaticDimension
         myTableView.register(LineTableViewCell.self, forCellReuseIdentifier: "Cell")
-        myTableView.rowHeight = 100
+//        myTableView.estimatedRowHeight = 100
+        myTableView.rowHeight = 80
         myTableView.isScrollEnabled = true
+        myTableView.allowsSelection = false
     }
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return lines?.count ?? 0
     }
 
-    func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
-        return 50
-    }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! LineTableViewCell
         let defaultLine = Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)
         cell.setup(with: lines?[indexPath.row] ?? defaultLine)
-        cell.setGradientBackground(setColor: lines?[indexPath.row].color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1))
+//        cell.setGradientBackground(setColor: lines?[indexPath.row].color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1))
         return cell
     }
 }

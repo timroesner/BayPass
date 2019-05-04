@@ -14,6 +14,18 @@ class LineTableViewCell: UITableViewCell {
     var backView = UIView()
     var iconImageView = UIImageView()
 
+    override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set(newFrame) {
+            var frame = newFrame
+            frame.origin.y += 4
+            frame.size.height -= 2 * 2
+            super.frame = frame
+        }
+    }
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -30,19 +42,9 @@ class LineTableViewCell: UITableViewCell {
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
         backView.layer.cornerRadius = 12
-//        backView.setGradientBackground(setColor: line.color)
-
-        // Gradient
-//        let leftColor = line.color.lighter(by: 30)
-//        gradient = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
-//        gradient.frame = backView.bounds
-
-//        backView.layer.insertSublayer(gradient, at: 0)
-
-//        backView.layer.addSublayer(gradient)
-//        backView.layer.frame = backView.frame
         backView.clipsToBounds = true
-
+        backView.setGradientBackground(setColor: line.color)
+        bounds = bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0))
         iconImageView.image = line.getIcon()
         iconImageView.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         iconImageView.snp.makeConstraints { make in
@@ -93,5 +95,6 @@ extension UIView {
 
         // Insert Layer
         layer.addSublayer(gradientLayer)
+        layer.insertSublayer(gradientLayer, at: 0)
     }
 }
