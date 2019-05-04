@@ -30,14 +30,17 @@ class LineTableViewCell: UITableViewCell {
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
         backView.layer.cornerRadius = 12
-        backView.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+//        backView.setGradientBackground(setColor: line.color)
 
         // Gradient
-        let leftColor = line.color.lighter(by: 30)
-        gradient = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
-        gradient.frame = bounds
-        backView.layer.addSublayer(gradient)
-        backView.layer.frame = backView.frame
+//        let leftColor = line.color.lighter(by: 30)
+//        gradient = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
+//        gradient.frame = backView.bounds
+
+//        backView.layer.insertSublayer(gradient, at: 0)
+
+//        backView.layer.addSublayer(gradient)
+//        backView.layer.frame = backView.frame
         backView.clipsToBounds = true
 
         iconImageView.image = line.getIcon()
@@ -63,5 +66,32 @@ class LineTableViewCell: UITableViewCell {
     required init?(coder _: NSCoder) {
         print("NSCoder not supported in PurchasedTicketCell")
         return nil
+    }
+}
+
+extension UIView {
+    // This func will add gradient backgroung
+    // Just sample one
+    func setGradientBackground(setColor: UIColor) {
+        // Colors
+        let leftColor = setColor.lighter(by: 30)
+
+        // Set Gradient layer
+        var gradientLayer = CAGradientLayer()
+
+        // Colors
+        gradientLayer = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: setColor)
+
+        // Locations
+
+        // Here is the main Play
+        // Set Layer name so can be identified while Dequeuing cell
+        gradientLayer.name = "layerName"
+
+        // Set bounds
+        gradientLayer.frame = layer.bounds
+
+        // Insert Layer
+        layer.addSublayer(gradientLayer)
     }
 }
