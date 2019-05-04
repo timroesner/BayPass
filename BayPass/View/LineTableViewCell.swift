@@ -50,16 +50,12 @@ class LineTableViewCell: UITableViewCell {
         iconImageView.snp.makeConstraints { make in
             make.size.equalTo(25)
         }
-        iconImageView.frame = CGRect(x: 0, y: 0, width: 5, height: 5)
-        iconImageView.snp.makeConstraints { _ in
-//            make.topMargin.equalToSuperview().offset(5)
-//            make.leftMargin.equalTo(snp_left).offset(5)
-        }
         backView.addSubview(iconImageView)
 
         backView.addSubview(lineName)
         lineName.text = "\(line.name) to \(line.destination)"
         lineName.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        lineName.font = UIFont.boldSystemFont(ofSize: 12)
         lineName.snp.makeConstraints { make in
             make.leftMargin.equalTo(iconImageView.snp_rightMargin).offset(20)
         }
@@ -68,33 +64,5 @@ class LineTableViewCell: UITableViewCell {
     required init?(coder _: NSCoder) {
         print("NSCoder not supported in PurchasedTicketCell")
         return nil
-    }
-}
-
-extension UIView {
-    // This func will add gradient backgroung
-    // Just sample one
-    func setGradientBackground(setColor: UIColor) {
-        // Colors
-        let leftColor = setColor.lighter(by: 30)
-
-        // Set Gradient layer
-        var gradientLayer = CAGradientLayer()
-
-        // Colors
-        gradientLayer = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: setColor)
-
-        // Locations
-
-        // Here is the main Play
-        // Set Layer name so can be identified while Dequeuing cell
-        gradientLayer.name = "layerName"
-
-        // Set bounds
-        gradientLayer.frame = layer.bounds
-
-        // Insert Layer
-        layer.addSublayer(gradientLayer)
-        layer.insertSublayer(gradientLayer, at: 0)
     }
 }

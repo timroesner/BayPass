@@ -18,8 +18,6 @@ class StationViewController: UIViewController {
     var notchPercentages = [CGFloat]()
     let bottomSheet = OverlayContainerViewController(style: .rigid)
 
-//    let mapVC = MapViewController()
-
     var cancelLabel: UIImageView = {
         let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         image.image = #imageLiteral(resourceName: "close")
@@ -39,6 +37,11 @@ class StationViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
         cancelLabel.addGestureRecognizer(tap)
         setupViews()
+        myTableView.reloadData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         myTableView.reloadData()
     }
 
@@ -87,20 +90,12 @@ class StationViewController: UIViewController {
 
 extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     func setUpTableView() {
-//        myTableView.frame = CGRect(x: 22, y: 66, width: 325, height: 3500) // TODO: Make it in SnapKit
-//        purchasedTicketTableView.snp.makeConstraints { make in
-//            make.top.equalTo(titleLbl.snp.bottom).offset(5)
-//            make.left.right.equalToSuperview()
-//            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-//        }
-
         myTableView.dataSource = self
         myTableView.delegate = self
         myTableView.separatorColor = .clear
         myTableView.translatesAutoresizingMaskIntoConstraints = false
         myTableView.rowHeight = UITableView.automaticDimension
         myTableView.register(LineTableViewCell.self, forCellReuseIdentifier: "Cell")
-//        myTableView.estimatedRowHeight = 100
         myTableView.rowHeight = 80
         myTableView.isScrollEnabled = true
         myTableView.allowsSelection = false
@@ -114,7 +109,6 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! LineTableViewCell
         let defaultLine = Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)
         cell.setup(with: lines?[indexPath.row] ?? defaultLine)
-//        cell.setGradientBackground(setColor: lines?[indexPath.row].color ?? #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1))
         return cell
     }
 }
