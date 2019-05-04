@@ -18,35 +18,27 @@ class LineTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
 
-    /*
-     lazy var backView: UIView = {
-     let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50))
-     return view
-     }()
-
-     lazy var stationName: UILabel = {
-     let name = UILabel()
-     return name
-     }()*/
-
     func setup(with line: Line) {
         addSubview(backView)
         backView.clipsToBounds = true
         backView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(2)
-            make.bottom.equalToSuperview().offset(2)
-            make.left.equalToSuperview().offset(2)
-            make.right.equalToSuperview().offset(2)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
         }
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
         backView.layer.cornerRadius = 12
+        backView.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
 
         // Gradient
         let leftColor = line.color.lighter(by: 30)
         gradient = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
         gradient.frame = bounds
         backView.layer.addSublayer(gradient)
+        backView.layer.frame = backView.frame
+        backView.clipsToBounds = true
 
         iconImageView.image = line.getIcon()
         iconImageView.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

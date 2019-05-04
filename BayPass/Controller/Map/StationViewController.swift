@@ -99,16 +99,15 @@ class StationViewController: UIViewController {
 
 extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     func setUpTableView() {
-        myTableView.frame = CGRect(x: 22, y: -22, width: 325, height: 3500)
+        myTableView.frame = CGRect(x: 22, y: 66, width: 325, height: 3500) // TODO: Make it in SnapKit
         myTableView.dataSource = self
         myTableView.delegate = self
         myTableView.separatorColor = .clear
-//        myTableView.separatorInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
         myTableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(myTableView)
         myTableView.rowHeight = UITableView.automaticDimension
         myTableView.register(LineTableViewCell.self, forCellReuseIdentifier: "Cell")
-        myTableView.rowHeight = 80
+        myTableView.rowHeight = 100
         myTableView.isScrollEnabled = true
     }
 
@@ -146,17 +145,5 @@ extension StationViewController: OverlayContainerViewControllerDelegate {
         bottomSheet.invalidateNotchHeights()
         notchPercentages = [0.20, 0.93]
         bottomSheet.viewControllers = [searchVC]
-
-        //        searchVC.resetSearch()
-        //        bottomSheet.drivingScrollView = searchVC.tableView
-        //        bottomSheet.invalidateNotchHeights()
-        //        notchPercentages = [0.20, 0.93]
-        //        bottomSheet.viewControllers = [searchVC]
-
-        //        mapVC.cancelRouting()
-        //        mapVC.setupSearchView()
-        // TODO: Display SearchVC
-        //        mapVC.centerOnUserLocation()
-        //        mapVC.setupSearchView()
     }
 }
