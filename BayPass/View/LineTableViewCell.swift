@@ -8,9 +8,9 @@
 
 import UIKit
 
-class StationTableViewCell: UITableViewCell {
+class LineTableViewCell: UITableViewCell {
     var gradient = CAGradientLayer()
-    var stationName = UILabel()
+    var lineName = UILabel()
     var backView = UIView()
     var iconImageView = UIImageView()
 
@@ -60,21 +60,12 @@ class StationTableViewCell: UITableViewCell {
         }
         backView.addSubview(iconImageView)
 
-        backView.addSubview(stationName)
-        stationName.text = line.name
-        stationName.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        stationName.snp.makeConstraints { make in
-            make.leftMargin.equalTo(iconImageView.snp_rightMargin).offset(15)
+        backView.addSubview(lineName)
+        lineName.text = "\(line.name) to \(line.destination)"
+        lineName.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        lineName.snp.makeConstraints { make in
+            make.leftMargin.equalTo(iconImageView.snp_rightMargin).offset(20)
         }
-//
-//        backView.addSubview(stationName)
-//        stationName.text = line.name
-//        stationName.textColor = .black
-//        stationName.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-//        stationName.snp.makeConstraints { (make) in
-//            make.top.equalToSuperview().offset(5)
-//            make.leftMargin.equalTo(iconImageView.snp_rightMargin).offset(5)
-//        }
     }
 
     required init?(coder _: NSCoder) {

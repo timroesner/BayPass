@@ -83,7 +83,7 @@ class StationViewController: UIViewController {
         view.addSubview(cancelLabel)
 
         stationImageView.snp.makeConstraints { make in
-            make.topMargin.left.equalTo(22)
+            make.topMargin.left.equalTo(15)
             make.topMargin.equalTo(18)
         }
         stationName.snp.makeConstraints { make in
@@ -95,23 +95,23 @@ class StationViewController: UIViewController {
             make.right.equalTo(-22)
         }
     }
-
-    func setUpTableView() {
-        myTableView.frame = CGRect(x: 22, y: 70, width: 325, height: 3500) // Fix so its automatic
-        myTableView.dataSource = self
-        myTableView.delegate = self
-        myTableView.separatorColor = .clear
-        myTableView.separatorInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
-        myTableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(myTableView)
-        myTableView.rowHeight = UITableView.automaticDimension
-        myTableView.register(StationTableViewCell.self, forCellReuseIdentifier: "Cell")
-        myTableView.rowHeight = 60
-        myTableView.isScrollEnabled = true
-    }
 }
 
 extension StationViewController: UITableViewDelegate, UITableViewDataSource {
+    func setUpTableView() {
+        myTableView.frame = CGRect(x: 22, y: -22, width: 325, height: 3500)
+        myTableView.dataSource = self
+        myTableView.delegate = self
+        myTableView.separatorColor = .clear
+//        myTableView.separatorInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
+        myTableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(myTableView)
+        myTableView.rowHeight = UITableView.automaticDimension
+        myTableView.register(LineTableViewCell.self, forCellReuseIdentifier: "Cell")
+        myTableView.rowHeight = 80
+        myTableView.isScrollEnabled = true
+    }
+
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return lines?.count ?? 0
     }
@@ -121,9 +121,10 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! StationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! LineTableViewCell
         let defaultLine = Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)
         cell.setup(with: lines?[indexPath.row] ?? defaultLine)
+
         return cell
     }
 }

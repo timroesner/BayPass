@@ -129,7 +129,7 @@
 		6ABF983B218250B1006878E4 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9836218250B0006878E4 /* Line.swift */; };
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
 		6AC9C77A22698AB000A19D7B /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9C77922698AB000A19D7B /* StationViewController.swift */; };
-		6AC9C77E22698D6B00A19D7B /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9C77D22698D6B00A19D7B /* StationTableViewCell.swift */; };
+		6AC9C77E22698D6B00A19D7B /* LineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9C77D22698D6B00A19D7B /* LineTableViewCell.swift */; };
 		6AFF633B2242C47400266B7E /* Here.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF63392242C47400266B7E /* Here.json */; };
 		6AFF633C2242C47400266B7E /* HereAgency.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF633A2242C47400266B7E /* HereAgency.json */; };
 		70F72F672230439900A8BC0A /* TicketCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */; };
@@ -304,7 +304,7 @@
 		6ABF9836218250B0006878E4 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6ABF9837218250B1006878E4 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		6AC9C77922698AB000A19D7B /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
-		6AC9C77D22698D6B00A19D7B /* StationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
+		6AC9C77D22698D6B00A19D7B /* LineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTableViewCell.swift; sourceTree = "<group>"; };
 		6AFF63392242C47400266B7E /* Here.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Here.json; sourceTree = "<group>"; };
 		6AFF633A2242C47400266B7E /* HereAgency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HereAgency.json; sourceTree = "<group>"; };
 		70F72F662230439900A8BC0A /* TicketCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCheckoutViewController.swift; sourceTree = "<group>"; };
@@ -453,7 +453,7 @@
 				22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */,
 				224662F02229204200E86C66 /* EmptyView.swift */,
 				22B32252225324A100F2508A /* ProgressHUD.swift */,
-				6AC9C77D22698D6B00A19D7B /* StationTableViewCell.swift */,
+				6AC9C77D22698D6B00A19D7B /* LineTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1026,7 +1026,7 @@
 				224662E12228F7D200E86C66 /* SearchViewController.swift in Sources */,
 				22B40EFA2257FA9C009520C6 /* TextField.swift in Sources */,
 				6A7B33A522720075003E65DF /* MKMapView.swift in Sources */,
-				6AC9C77E22698D6B00A19D7B /* StationTableViewCell.swift in Sources */,
+				6AC9C77E22698D6B00A19D7B /* LineTableViewCell.swift in Sources */,
 				22B53434222D135D007F4098 /* Date.swift in Sources */,
 				22B32253225324A100F2508A /* ProgressHUD.swift in Sources */,
 				6AB6ECFF21867F1700A81302 /* ClipperViewController.swift in Sources */,
