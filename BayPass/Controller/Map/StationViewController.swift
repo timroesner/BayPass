@@ -14,6 +14,8 @@ class StationViewController: UIViewController {
     var myTableView = UITableView()
     var station: Station?
     var lines: [Line]?
+    let here = Here.shared
+    var timings: [String]?
     let searchVC = SearchViewController()
     var notchPercentages = [CGFloat]()
     let bottomSheet = OverlayContainerViewController(style: .rigid)
@@ -28,6 +30,9 @@ class StationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lines = station?.lines
+//        timings = getTimes()
+        print("⏰\(station?.timings)")
+
         view.translatesAutoresizingMaskIntoConstraints = false
         view.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
 
@@ -108,6 +113,8 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! LineTableViewCell
         let defaultLine = Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)
+//        cell.timing.text = timings?[indexPath.row]
+        cell.timings = station?.timings ?? [""]
         cell.setup(with: lines?[indexPath.row] ?? defaultLine)
 
         return cell

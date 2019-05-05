@@ -24,7 +24,7 @@ class Here {
             "app_code": Credentials().hereAppCode,
             "max": max,
         ] as [String: Any]
-
+        let group = DispatchGroup()
         var stations = [Station]()
         Alamofire.request("https://transit.api.here.com/v3/stations/by_geocoord.json?", method: .get, parameters: param).responseJSON { resp in
             if let json = resp.result.value as? [String: Any],
@@ -32,10 +32,18 @@ class Here {
                 let stationsJson = resJson["Stations"] as? [String: Any],
                 let stnsJson = stationsJson["Stn"] as? [[String: Any]] {
                 for stnJson in stnsJson {
-                    if let newStation = self.parseStation(from: stnJson) {
+                    if var newStation = self.parseStation(from: stnJson) {
+                        print(newStation.code)
+                        group.enter()
+                        self.getDepartureTimes(stationId: newStation.code, time: Date().getCurrentTimetoFormattedStringForHereAPI(), completion: { times in
+                            newStation.timings = times
+                            print("😫\(times):\(newStation.code)")
+                            group.leave()
+                        })
                         stations.append(newStation)
                     }
                 }
+
                 completion(stations)
             } else {
                 print("Failed in getting Stations near \(center)")
@@ -63,6 +71,7 @@ class Here {
                 for stnJson in stnsJson {
                     if let newStation = self.parseStationForId(from: stnJson) {
                         results.append(newStation)
+                        print(newStation)
                     }
                 }
                 completion(results)
@@ -233,7 +242,7 @@ class Here {
             transitModes.append(transitMode)
             lines.append(Line(name: lineName ?? "", agency: ag, destination: lineDestination ?? "", color: color, transitMode: transitMode))
         }
-        return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location)
+        return Station(name: name ?? "", code: Int(code!) ?? 0, transitModes: transitModes, lines: lines, location: location, timings: [""])
     }
 
     func parseLine(from json: [String: Any], stationID: Int) -> Line? {
