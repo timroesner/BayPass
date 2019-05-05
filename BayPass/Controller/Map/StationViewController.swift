@@ -19,7 +19,7 @@ class StationViewController: UIViewController {
     let bottomSheet = OverlayContainerViewController(style: .rigid)
 
     var cancelLabel: UIImageView = {
-        let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 45, height: 45))
         image.image = #imageLiteral(resourceName: "close")
 
         return image
@@ -109,6 +109,7 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! LineTableViewCell
         let defaultLine = Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)
         cell.setup(with: lines?[indexPath.row] ?? defaultLine)
+
         return cell
     }
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 class LineTableViewCell: UITableViewCell {
-    var gradient = CAGradientLayer()
     var lineName = UILabel()
     var backView = UIView()
     var iconImageView = UIImageView()
@@ -26,8 +25,12 @@ class LineTableViewCell: UITableViewCell {
         }
     }
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(style _: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: reuseIdentifier)
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
 
     func setup(with line: Line) {
@@ -39,7 +42,6 @@ class LineTableViewCell: UITableViewCell {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
-        contentView.translatesAutoresizingMaskIntoConstraints = false
 
         backView.layer.cornerRadius = 12
         backView.clipsToBounds = true
@@ -62,7 +64,7 @@ class LineTableViewCell: UITableViewCell {
     }
 
     required init?(coder _: NSCoder) {
-        print("NSCoder not supported in PurchasedTicketCell")
+        print("NSCoder not supported in LineTableViewCell")
         return nil
     }
 }
