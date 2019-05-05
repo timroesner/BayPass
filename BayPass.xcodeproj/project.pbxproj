@@ -41,6 +41,7 @@
 		224662F9222B5A0B00E86C66 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F8222B5A0B00E86C66 /* CustomTextField.swift */; };
 		2248B7C2226B9EE100714CEC /* TVCOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248B7C1226B9EE100714CEC /* TVCOverlay.swift */; };
 		2248B7C4226BA5E500714CEC /* Integer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248B7C3226BA5E500714CEC /* Integer.swift */; };
+		2259A6E8227E9BC500D8E5FD /* TicketViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259A6E7227E9BC500D8E5FD /* TicketViewControllerTests.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
 		2262C31621829E4A000586EE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31521829E4A000586EE /* Collection.swift */; };
@@ -214,6 +215,7 @@
 		224662F8222B5A0B00E86C66 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2248B7C1226B9EE100714CEC /* TVCOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCOverlay.swift; sourceTree = "<group>"; };
 		2248B7C3226BA5E500714CEC /* Integer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integer.swift; sourceTree = "<group>"; };
+		2259A6E7227E9BC500D8E5FD /* TicketViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewControllerTests.swift; sourceTree = "<group>"; };
 		2262C31121829BE3000586EE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2262C31321829CE9000586EE /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		2262C31521829E4A000586EE /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 				70F425082270C2C900202ADD /* MapViewControllerTests.swift */,
 				70F425092270C2C900202ADD /* RouteDetailsViewControllerTests.swift */,
 				22A284632268F6CB000C2E78 /* Clipper */,
+				2259A6E7227E9BC500D8E5FD /* TicketViewControllerTests.swift */,
 				70F4250C2270DCBF00202ADD /* TicketDetailViewControllerTests.swift */,
 			);
 			path = Controller;
@@ -963,7 +966,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 				"${BUILT_PRODUCTS_DIR}/OverlayContainer/OverlayContainer.framework",
@@ -984,7 +987,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BayPass/Pods-BayPass-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1118,6 +1121,7 @@
 				223AF97022278209009EA730 /* StationSearchResultTableViewCellTests.swift in Sources */,
 				6AB6ED172186822D00A81302 /* TicketTests.swift in Sources */,
 				22DB0240225450B900B8D600 /* ClipperSignInTests.swift in Sources */,
+				2259A6E8227E9BC500D8E5FD /* TicketViewControllerTests.swift in Sources */,
 				70F4250B2270C2C900202ADD /* RouteDetailsViewControllerTests.swift in Sources */,
 				ECB6E64C223071B200BF5446 /* DropDownMenuTests.swift in Sources */,
 				2262C31E2187ED24000586EE /* RouteSegmentTests.swift in Sources */,

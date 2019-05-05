@@ -13,17 +13,12 @@ class TicketDetailViewControllerTests: XCTestCase {
     let vc = TicketDetailViewController(ticket: Ticket(name: "Single Ride - 3 Zones", count: 1, price: 9.75, validOnAgency: .CalTrain))
     
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    func testTicketView() {
-       let ticketView = TicketView(agency: .CalTrain, icon: Agency.CalTrain.getIcon(), cornerRadius: 12)
-        XCTAssertEqual(ticketView.nameLbl.text, vc.ticketView.nameLbl.text)
     }
     
     func testScanButton() {

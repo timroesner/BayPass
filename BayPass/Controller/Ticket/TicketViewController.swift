@@ -52,19 +52,6 @@ class TicketViewController: UIViewController {
         layoutTableView()
 
         bottomSheet.delegate = self
-        
-        // MARK: temporary data
-        UserManager.shared.clearAllPurchasedTickets()
-        let expiredDuration = DateInterval(start: Date(timeIntervalSinceNow: -470_482.0), end: Date(timeIntervalSinceNow: -220_482.0))
-        let validDuration = DateInterval(start: Date(timeIntervalSinceNow: -60), end: Date(timeIntervalSinceNow: 36000))
-
-        let validDayPass = Ticket(name: "Day Pass", duration: validDuration, price: 5.00, validOnAgency: .VTA)
-        let validSingleRide = Ticket(name: "Single Ride - 3 Zones", count: 1, price: 9.75, validOnAgency: .CalTrain)
-        let expiredMonthly = Ticket(name: "Monthly Pass", duration: expiredDuration, price: 90.00, validOnAgency: .Muni)
-
-        UserManager.shared.addPurchased(ticket: validDayPass)
-        UserManager.shared.addPurchased(ticket: expiredMonthly)
-        UserManager.shared.addPurchased(ticket: validSingleRide)
     }
 
     override func viewWillAppear(_ animated: Bool) {
