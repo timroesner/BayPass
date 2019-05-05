@@ -21,7 +21,7 @@ class LineTableViewCell: UITableViewCell {
         set(newFrame) {
             var frame = newFrame
             frame.origin.y += 4
-            frame.size.height -= 2 * 2
+            frame.size.height -= 2 * 4
             super.frame = frame
         }
     }
