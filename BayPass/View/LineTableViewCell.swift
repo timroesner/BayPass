@@ -13,7 +13,6 @@ class LineTableViewCell: UITableViewCell {
     var lineName = UILabel()
     var backView = UIView()
     var iconImageView = UIImageView()
-    var timings = [String]()
 
     override var frame: CGRect {
         get {
@@ -22,7 +21,7 @@ class LineTableViewCell: UITableViewCell {
         set(newFrame) {
             var frame = newFrame
             frame.origin.y += 4
-            frame.size.height -= 2 * 4
+            frame.size.height -= 2 * 2
             super.frame = frame
         }
     }
@@ -55,6 +54,7 @@ class LineTableViewCell: UITableViewCell {
 
         backView.layer.cornerRadius = 12
         backView.clipsToBounds = true
+        backView.setGradientBackground(setColor: line.color)
         bounds = bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0))
         iconImageView.image = line.getIcon()
         iconImageView.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -70,7 +70,6 @@ class LineTableViewCell: UITableViewCell {
         lineName.snp.makeConstraints { make in
             make.leftMargin.equalTo(iconImageView.snp_rightMargin).offset(20)
         }
-        print("🎂\(timings)")
     }
 
     required init?(coder _: NSCoder) {

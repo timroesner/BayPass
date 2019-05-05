@@ -15,15 +15,13 @@ struct Station {
     var transitModes: [TransitMode]
     var lines: [Line]
     var location: CLLocation
-    var timings: [String]
 
-    init(name: String, code: Int, transitModes: [TransitMode], lines: [Line], location: CLLocation, timings: [String]) {
+    init(name: String, code: Int, transitModes: [TransitMode], lines: [Line], location: CLLocation) {
         self.name = name
         self.code = code
         self.transitModes = transitModes
         self.lines = lines
         self.location = location
-        self.timings = timings
     }
 
     func getPrimaryTransitMode() -> TransitMode {
@@ -37,7 +35,7 @@ struct Station {
             return .bus
         }
     }
-
+    
     func getColor() -> UIColor {
         switch getPrimaryTransitMode() {
         case .calTrain:
