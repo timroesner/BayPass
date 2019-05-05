@@ -115,12 +115,32 @@ class GoogleMaps {
             // Figure out how to calculate price
             var price = 0.0
             var subType: String?
+            let group = DispatchGroup()
+            
             switch line.agency {
             case .CalTrain:
+                if Parse().CalTrainGoogleToGTFS[depStop] == nil {
+                    print("Could not find: \(depStop)")
+                }
+                if Parse().CalTrainGoogleToGTFS[arrivalStop] == nil {
+                    print("Could not find: \(arrivalStop)")
+                }
                 price = TicketManager.shared.getCalTrainPrice(ticketType: "Single Ride", from: depStop, to: arrivalStop) ?? 0.0
             case .BART:
-                TicketManager.shared.getBARTPrice(from: depStop, to: arrivalStop) { (result) in
-                    price = result
+                if Parse().BARTGoogleToGTFS[depStop] == nil {
+                    print("Could not find: \(depStop)")
+                }
+                if Parse().BARTGoogleToGTFS[arrivalStop] == nil {
+                    print("Could not find: \(arrivalStop)")
+                }
+                
+                //group.enter()
+                DispatchQueue.global(qos: .default).async {
+                    TicketManager.shared.getBARTPrice(from: Parse().BARTGoogleToGTFS[depStop] ?? depStop, to: Parse().BARTGoogleToGTFS[arrivalStop] ?? arrivalStop) { (result) in
+                        print(result)
+                        price = result
+                        //group.leave()
+                    }
                 }
             case .VTA:
                 subType = line.name.first == "1" ? "Adult Express" : "Adult"
@@ -140,6 +160,7 @@ class GoogleMaps {
                 price = TicketManager.shared.getTicketPrice(agency: line.agency , ticketType: "Single Ride", subType: subType) ?? 0.0
             }
 
+            group.wait()
             return RouteSegment(distanceInMeters: distance, departureTime: departureDate, arrivalTime: arrivalDate, polyline: polyline, travelMode: .transit, line: line, price: price, waypoints: waypoints)
         } else {
             guard let durationJson = json["duration"] as? [String: Any],

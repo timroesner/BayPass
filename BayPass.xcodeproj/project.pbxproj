@@ -41,6 +41,7 @@
 		224662F9222B5A0B00E86C66 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F8222B5A0B00E86C66 /* CustomTextField.swift */; };
 		2259A6E0227AA32800D8E5FD /* RDVCBulkTickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259A6DF227AA32800D8E5FD /* RDVCBulkTickets.swift */; };
 		2259A6E2227AAD6500D8E5FD /* BulkTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259A6E1227AAD6500D8E5FD /* BulkTicketTableViewCell.swift */; };
+		2259A6E6227D5E1900D8E5FD /* GMParseToGTFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259A6E5227D5E1900D8E5FD /* GMParseToGTFS.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
 		2262C31621829E4A000586EE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31521829E4A000586EE /* Collection.swift */; };
@@ -212,6 +213,7 @@
 		224662F8222B5A0B00E86C66 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2259A6DF227AA32800D8E5FD /* RDVCBulkTickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDVCBulkTickets.swift; sourceTree = "<group>"; };
 		2259A6E1227AAD6500D8E5FD /* BulkTicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkTicketTableViewCell.swift; sourceTree = "<group>"; };
+		2259A6E5227D5E1900D8E5FD /* GMParseToGTFS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMParseToGTFS.swift; sourceTree = "<group>"; };
 		2262C31121829BE3000586EE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2262C31321829CE9000586EE /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		2262C31521829E4A000586EE /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -562,6 +564,7 @@
 				2212935B223B0C080098D52F /* Lime.swift */,
 				22F09752220683FC009881F8 /* BART.swift */,
 				222A926C221A6D0200FD1367 /* GoogleMaps.swift */,
+				2259A6E5227D5E1900D8E5FD /* GMParseToGTFS.swift */,
 				6A9261D52227663F009B61DF /* Here.swift */,
 			);
 			path = APIs;
@@ -1040,6 +1043,7 @@
 				2266C740224DC513004C8D2E /* ClipperOnBoarding.swift in Sources */,
 				6ABF983B218250B1006878E4 /* Line.swift in Sources */,
 				6A009190217EACCD0087A32B /* Scooter.swift in Sources */,
+				2259A6E6227D5E1900D8E5FD /* GMParseToGTFS.swift in Sources */,
 				6A00918E217EAB1D0087A32B /* BikeDock.swift in Sources */,
 				22B32255225329B400F2508A /* ClipperPassCollectionViewCell.swift in Sources */,
 				EC2641572265B45D0081AC6E /* CPCollectionView.swift in Sources */,

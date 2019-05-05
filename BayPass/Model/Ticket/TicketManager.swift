@@ -73,10 +73,13 @@ class TicketManager {
     }
 
     func getBARTPrice(from: String, to: String, completion: @escaping (Double) -> Void) {
+        print("\(from) \(bartStations[from])")
+        print("\(to) \(bartStations[to])")
+        print(bartStations)
         guard let fromAbbr = bartStations[from],
             let toAbbr = bartStations[to]
         else { return }
-
+        
         BART().getFare(from: fromAbbr, to: toAbbr) { fare in
             completion(fare)
         }
