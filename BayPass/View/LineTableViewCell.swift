@@ -9,6 +9,7 @@
 import UIKit
 
 class LineTableViewCell: UITableViewCell {
+    var gradientLayer = CAGradientLayer()
     var lineName = UILabel()
     var backView = UIView()
     var iconImageView = UIImageView()
@@ -25,15 +26,23 @@ class LineTableViewCell: UITableViewCell {
         }
     }
 
+    override func layoutSubviews() {
+        gradientLayer.frame = bounds
+    }
+
     override init(style _: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: reuseIdentifier)
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     func setup(with line: Line) {
+        let leftColor = line.color.lighter(by: 30)
+
+        gradientLayer = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
+        gradientLayer.name = "layerName"
+
+        backView.layer.addSublayer(gradientLayer)
+        backView.layer.insertSublayer(gradientLayer, at: 0)
+
         addSubview(backView)
         backView.clipsToBounds = true
         backView.snp.makeConstraints { make in
