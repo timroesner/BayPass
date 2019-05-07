@@ -20,7 +20,7 @@ extension MapViewController: CLLocationManagerDelegate {
     @objc func centerOnUserLocation() {
         if let userLocation = locationManager.location?.coordinate {
             if routes.isEmpty {
-                let region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+                let region = MKCoordinateRegion(center: userLocation, span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
                 mapView.setRegion(region, animated: true)
                 showBirdScootersOnMap(at: userLocation, radius: 50)
                 showLimeScootersOnMap(at: userLocation)
