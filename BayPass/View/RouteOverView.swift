@@ -19,6 +19,8 @@ class RouteOverView: UIView {
     init(with route: Route) {
         self.route = route
         super.init(frame: CGRect.zero)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePriceLabel), name: .didUpdatePrice, object: nil)
 
         layer.backgroundColor = UIColor.white.cgColor
         layer.cornerRadius = 14
@@ -56,6 +58,10 @@ class RouteOverView: UIView {
             make.height.equalTo(40)
             make.right.greaterThanOrEqualToSuperview().inset(16)
         }
+    }
+    
+    @objc func updatePriceLabel() {
+        priceLabel.text = route.getPrice()
     }
 
     private func setupLineView(with route: Route) -> UIView {
