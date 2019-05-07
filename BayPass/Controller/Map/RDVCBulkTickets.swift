@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stripe
 
 extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -26,8 +27,13 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
             make.left.equalToSuperview().inset(20)
         }
         
+        let routeHasMultipleTransit = (route?.segments.filter{ $0.travelMode == .transit }.count ?? 0) > 1
+        var buttonColor = #colorLiteral(red: 0.6504354477, green: 0.4037398994, blue: 0.844121635, alpha: 1)
+        if !routeHasMultipleTransit {
+            buttonColor = route?.segments.filter{ $0.travelMode == .transit }.first?.line?.color ?? .blue
+        }
         let priceString = " "+(route?.getPrice() ?? "")
-        let payButton = BayPassButton(title: "Pay"+priceString, color: #colorLiteral(red: 0.6504354477, green: 0.4037398994, blue: 0.844121635, alpha: 1))
+        let payButton = BayPassButton(title: "Pay"+priceString, color: buttonColor)
         payButton.addTarget(self, action: #selector(pay), for: .touchUpInside)
         view.addSubview(payButton)
         payButton.snp.makeConstraints { (make) in
@@ -75,7 +81,12 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     @objc func pay() {
-        print("Pay")
+        var items = [(name: String, amount: Double)]()
+        for ticket in (route?.segments.filter{$0.price > 0.0}) ?? [] {
+            items.append((name: "Single Ride - "+(ticket.line?.agency.stringValue ?? ""), amount: ticket.price))
+        }
+        items.append((name: "BayPass", amount: route?.getPrice() ?? 0.0))
+        checkoutWithApplePay(items: items, delegate: self)
     }
     
     @objc func close() {
@@ -99,6 +110,28 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         parentSheet?.drivingScrollView = scrollView
+    }
+}
+
+extension RouteDetailsViewController: PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewController(_: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
+        STPAPIClient.shared().createToken(with: payment) { (token: STPToken?, error: Error?) in
+            guard let token = token, error == nil else {
+                completion(.failure)
+                return
+            }
+            
+            // Here we could call our backend if we actually would submit the payment
+            print(token)
+            completion(.success)
+        }
+    }
+    
+    func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
+        dismiss(animated: true, completion: {
+            // TODO: Create and add Tickets with method from Dennis
+            self.dismissOrPop(animated: true)
+        })
     }
 }
 
