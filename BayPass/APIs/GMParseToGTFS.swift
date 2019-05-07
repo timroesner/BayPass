@@ -16,12 +16,12 @@ struct Parse {
         "24th St Mission": "24th St. Mission",
         "Antioch BART": "Antioch",
         "Ashby Station": "Ashby",
-        //"Balboa Park": "Balboa Park",
+        "Balboa Park Station": "Balboa Park",
         //"Bay Fair",
         //"Castro Valley",
         "Civic Center": "Civic Center/UN Plaza",
         "Coliseum Station": "Coliseum",
-        //"Colma",
+        "Colma Station": "Colma",
         "Concord Station": "Concord",
         "Daly City Station": "Daly City",
         "Downtown Berkeley Station": "Downtown Berkeley",
@@ -31,7 +31,7 @@ struct Parse {
         //"Embarcadero",
         //"Fremont",
         "Fruitvale Station": "Fruitvale",
-        //"Glen Park Station": "Glen Park",
+        "Glen Park Station": "Glen Park",
         //"Hayward",
         //"Lafayette",
         "Lake Merritt Station": "Lake Merritt",
@@ -60,5 +60,38 @@ struct Parse {
         "West Oakland Station": "West Oakland"
     ]
     
-    let CalTrainGoogleToGTFS = [:]
+    let CalTrainGoogleToGTFS = [
+        "San Francisco Station": "San Francisco",
+        "22nd St. Station": "22nd Street",
+        // "Bayshore",
+        "South San Francisco Station": "South San Francisco",
+        "San Bruno Station": "San Bruno",
+        "Millbrae": "Millbrae Transit Center",
+        "Broadway Station": "Broadway", // Weekend only
+        "Burlingame Station": "Burlingame",
+        "San Mateo Station": "San Mateo",
+        // "Hayward Park",
+        "Hillsdale Caltrain Station": "Hillsdale",
+        "Belmont Station": "Belmont",
+        // "San Carlos",
+        // "Redwood City",
+        "Atheron Station": "Atherton", //Weekend only
+        // "Menlo Park",
+        "Palo Alto Station": "Palo Alto",
+        //"": "Stanford", Football only
+        "California Avenue Train Station": "California Ave.",
+        "San Antonio Station": "San Antonio",
+        "Mountain View Station - Caltrain Platform": "Mountain View",
+        "Sunnyvale Station": "Sunnyvale",
+        "Lawrence Station": "Lawrence",
+        "Santa Clara Station": "Santa Clara",
+        // "College Park",
+        "San José Diridon Station": "San Jose Diridon",
+        "Tamien Caltrain": "Tamien",
+        "Capitol Station": "Capitol",
+        // "Blossom Hill", Commute hours only
+        "Morgan Hill Caltrain": "Morgan Hill",
+        // "San Martin", Commute hours only
+        "Gilroy Station": "Gilroy",
+    ]
 }
