@@ -32,12 +32,14 @@ We practice MVVM for our code strcuture, and use [Travis](https://travis-ci.org)
 ## Setup
 After cloning this repository you will first need to run `pod install` to download all the necessary pods, which are not stored as part of this repo. Also you will need to add your own API keys to a shell script named `env-vars.sh` which looks as follows:
 ```
-export BIRD_TOKEN = YOUR_TOKEN
-export BART_TOKEN = YOUR_TOKEN
-export GOOGLE_DIRECTIONS = YOUR_TOKEN
-export HEREAPPID = YOUR_TOKEN
-export HEREAPPCODE = YOUR_TOKEN
-export MULTICYCLES = YOUR_TOKEN
+export BIRD_TOKEN=YOUR_TOKEN
+export BART_TOKEN=YOUR_TOKEN
+export GOOGLE_DIRECTIONS=YOUR_GOOGLE_API_KEY
+export HEREAPPID=YOUR_HERE_ID
+export HEREAPPCODE=YOUR_HERE_APP_CODE
+export MULTICYCLES=YOUR_TOKEN
+export MERCHANT_ID=YOUR_APPLE_MERCHANT_ID
+export STRIPE_KEY=YOUR_STRIPE_KEY
 ```
 
 ## UI 
