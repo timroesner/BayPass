@@ -106,47 +106,28 @@ class TicketManager {
         }
     }
     
-    /*
-    func createNewClipperPass(agency: Agency, passType: String, price: Double) -> Pass {
-        let lastingHours = getPassDuration(agency: agency, passType: passType)
-        let now = Date()
-        let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
-        let duration = DateInterval(start: now, end: (expiringTime))
-        //print(duration)
+    func createNewTicket(agency: Agency, ticketType: String, subType: String, price: Double) -> Ticket {
+        let hasDuration = tickets[agency.stringValue]?[ticketType]?["count"] == nil
         
-        let newClipperPass = Pass(name: passType, duration: duration, price: price, validOnAgency: agency)
-        
-        return newClipperPass
-    }
- */
-    func createNewTicket(agency: Agency, passType: String, passSubType: String, price: Double) -> Ticket {
-        let onlyPass = tickets[agency.stringValue]?[passType]?["count"] == nil
-        if(onlyPass){
-            print("Initialize with duration")
-            let lastingHours = getPassDuration(agency: agency, passType: passType)
+        if(hasDuration){
+            let lastingHours = getPassDuration(agency: agency, passType: ticketType)
             let now = Date()
             let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
             let duration = DateInterval(start: now, end: (expiringTime))
             
-            return Ticket(name: passType + passSubType, duration: duration, price: price, validOnAgency: agency)
-        }else{
-            print("Initialize with count")
-            return Ticket(name: passType + passSubType, count: tickets[agency.stringValue]?[passType]?["count"] as! Int, price: price, validOnAgency: agency)
+            return Ticket(name: ticketType + subType, duration: duration, price: price, validOnAgency: agency)
+        } else {
+            return Ticket(name: ticketType + subType, count: tickets[agency.stringValue]?[ticketType]?["count"] as! Int, price: price, validOnAgency: agency)
         }
-        
     }
     
-    func createNewClipperPass(agency: Agency, passType: String, price: Double) -> Pass {
-        //let typeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
-        
+    func createNewClipperPass(agency: Agency, passType: String, subType: String, price: Double) -> Pass {
         let lastingHours = TicketManager.shared.getPassDuration(agency: agency, passType: passType)
         let now = Date()
         let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
         let duration = DateInterval(start: now, end: (expiringTime))
-        //print(duration)
         
-        let newClipperPass = Pass(name: passType, duration: duration, price: price, validOnAgency: agency)
-        
+        let newClipperPass = Pass(name: passType + subType, duration: duration, price: price, validOnAgency: agency)
         return newClipperPass
     }
     
