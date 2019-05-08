@@ -55,6 +55,7 @@ class TicketViewControllerTests: XCTestCase {
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
         vc.updateBARTTicketPrice()
+        vc.pay()
     }
     
     func testDidFinish() {

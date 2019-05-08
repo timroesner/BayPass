@@ -28,6 +28,7 @@ class ClipperPassCheckoutTests: XCTestCase {
     }
     
     func testPayButton() {
+        vc.currentPassPrice = 5.00
         vc.pay()
     }
     
