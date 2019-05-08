@@ -135,7 +135,8 @@ extension RouteDetailsViewController: PKPaymentAuthorizationViewControllerDelega
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
             if self.purchaseSucceded {
-                self.dismissOrPop(animated: true)
+                self.tabBarController?.selectedIndex = 1
+                self.close()
             }
         })
     }
