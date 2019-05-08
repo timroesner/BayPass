@@ -28,7 +28,7 @@ class ClipperPassCollectionViewCell: UICollectionViewCell {
 
     func setupAdd() {
         contentView.layer.backgroundColor = UIColor(hex: 0x9B9B9B).cgColor
-        contentView.layer.cornerRadius = 8
+        contentView.layer.cornerRadius = 12
 
         let title = UILabel()
         title.text = "Add"

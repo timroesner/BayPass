@@ -65,7 +65,7 @@
 		22ADA0D52262C2FC00AA9368 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ADA0D42262C2FC00AA9368 /* CALayer.swift */; };
 		22ADA0D72262DD8C00AA9368 /* RouteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ADA0D62262DD8C00AA9368 /* RouteDetailsViewController.swift */; };
 		22B32246224DCF8D00F2508A /* BayPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32245224DCF8D00F2508A /* BayPassButton.swift */; };
-		22B32248224DDDCF00F2508A /* CollectionViewCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */; };
+		22B32248224DDDCF00F2508A /* CVCCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32247224DDDCF00F2508A /* CVCCollectionView.swift */; };
 		22B3224A224DDE7900F2508A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32249224DDE7900F2508A /* SignInViewController.swift */; };
 		22B3224C224DE8D900F2508A /* FetchClipperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3224B224DE8D900F2508A /* FetchClipperData.swift */; };
 		22B32253225324A100F2508A /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B32252225324A100F2508A /* ProgressHUD.swift */; };
@@ -240,7 +240,7 @@
 		22ADA0D42262C2FC00AA9368 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		22ADA0D62262DD8C00AA9368 /* RouteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailsViewController.swift; sourceTree = "<group>"; };
 		22B32245224DCF8D00F2508A /* BayPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BayPassButton.swift; sourceTree = "<group>"; };
-		22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCVC.swift; sourceTree = "<group>"; };
+		22B32247224DDDCF00F2508A /* CVCCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCCollectionView.swift; sourceTree = "<group>"; };
 		22B32249224DDE7900F2508A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		22B3224B224DE8D900F2508A /* FetchClipperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchClipperData.swift; sourceTree = "<group>"; };
 		22B32252225324A100F2508A /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
@@ -536,15 +536,15 @@
 			isa = PBXGroup;
 			children = (
 				6AB6ECFC21867F1700A81302 /* ClipperViewController.swift */,
-				22B32247224DDDCF00F2508A /* CollectionViewCVC.swift */,
+				22B32247224DDDCF00F2508A /* CVCCollectionView.swift */,
 				22EA9429226D48470048111D /* CVCOverlay.swift */,
+				2266C73F224DC513004C8D2E /* ClipperOnBoarding.swift */,
+				22B32249224DDE7900F2508A /* SignInViewController.swift */,
+				22B3224B224DE8D900F2508A /* FetchClipperData.swift */,
 				EC26414E226599930081AC6E /* ClipperPassViewController.swift */,
 				EC2641562265B45D0081AC6E /* CPCollectionView.swift */,
 				EC2641522265AC2D0081AC6E /* ClipperPassCheckoutViewController.swift */,
 				22815C3E2269ADA00079E722 /* CPCDropDownDelegate.swift */,
-				2266C73F224DC513004C8D2E /* ClipperOnBoarding.swift */,
-				22B32249224DDE7900F2508A /* SignInViewController.swift */,
-				22B3224B224DE8D900F2508A /* FetchClipperData.swift */,
 				70F72F68223043C300A8BC0A /* ClipperAddCashViewController.swift */,
 			);
 			path = Clipper;
@@ -1077,7 +1077,7 @@
 				22B40EFC225815B5009520C6 /* PaymentMethod.swift in Sources */,
 				222A9276221A7DE900FD1367 /* GMPolyline.swift in Sources */,
 				6ABF983A218250B1006878E4 /* Agency.swift in Sources */,
-				22B32248224DDDCF00F2508A /* CollectionViewCVC.swift in Sources */,
+				22B32248224DDDCF00F2508A /* CVCCollectionView.swift in Sources */,
 				22B53432222D1152007F4098 /* RouteOverView.swift in Sources */,
 				6ABF983C218250B1006878E4 /* Station.swift in Sources */,
 				223AF97222278965009EA730 /* DestinationSearchResultTableViewCell.swift in Sources */,

@@ -34,8 +34,8 @@ class ClipperPassViewController: UIViewController {
         collection.showsHorizontalScrollIndicator = false
         return collection
     }()
-
     let agencies = Agency.allCases.filter{$0.rawValue != "0"}
+    let recentAgencies = UserManager.shared.getValidPasses().filterDuplicate{$0.validOnAgency}
 
     override func viewDidLoad() {
         super.viewDidLoad()
