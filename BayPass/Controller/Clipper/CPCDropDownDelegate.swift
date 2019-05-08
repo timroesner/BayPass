@@ -30,7 +30,7 @@ extension ClipperPassCheckoutViewController: DropDownDelegate {
         
         TicketManager.shared.getBARTPrice(from: fromDropDown.getSelectedItem(), to: toDropDown.getSelectedItem()) { newPrice in
             let calculatedPrice = typeDropDown.getSelectedItem() == "Roundtrip" ? newPrice * 2 : newPrice
-            self.currentTicketPrice = calculatedPrice
+            self.currentPassPrice = calculatedPrice
             self.payButton?.setTitle(String(format: "Pay $%.2f", calculatedPrice), for: .normal)
         }
     }
@@ -42,10 +42,10 @@ extension ClipperPassCheckoutViewController: DropDownDelegate {
             else { return }
         
         if let price = TicketManager.shared.getCalTrainPrice(ticketType: typeDropDown.getSelectedItem(), from: fromDropDown.getSelectedItem(), to: toDropDown.getSelectedItem()) {
-            self.currentTicketPrice = price
+            self.currentPassPrice = price
             self.payButton?.setTitle(String(format: "Pay $%.2f", price), for: .normal)
         } else {
-            self.currentTicketPrice = 0.0
+            self.currentPassPrice = 0.0
             self.payButton?.setTitle("Invalid Input", for: .normal)
         }
     }
@@ -56,10 +56,10 @@ extension ClipperPassCheckoutViewController: DropDownDelegate {
         let subType = subTypeDropDown?.titleLbl.text != "SUB TYPE" ? nil : subTypeDropDown?.getSelectedItem()
         
         if let price = TicketManager.shared.getTicketPrice(agency: agency, ticketType: typeDropDown.getSelectedItem(), subType: subType) {
-            self.currentTicketPrice = price
+            self.currentPassPrice = price
             self.payButton?.setTitle(String(format: "Pay $%.2f", price), for: .normal)
         } else {
-            self.currentTicketPrice = 0.0
+            self.currentPassPrice = 0.0
             self.payButton?.setTitle("Invalid Input", for: .normal)
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stripe
 
 class TicketCheckoutViewController: UIViewController {
     var ticket = ""
@@ -15,6 +16,8 @@ class TicketCheckoutViewController: UIViewController {
     var stackedViews = [UIView]()
     var payButton: BayPassButton?
     var currentTicketPrice = 0.0
+    var paymentSucceded = false
+    var newTicket: Ticket?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +74,52 @@ class TicketCheckoutViewController: UIViewController {
     }
 
     @objc func pay() {
-        print("pay")
+        let paymentOption = (stackedViews[safe: stackedViews.count - 1] as? DropDownMenu)?.getSelectedItem() ?? ""
+        let ticketTypeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
+        let ticketSubTypeDropDown = self.stackedViews[safe: 2] as? DropDownMenu
+        var subType = ""
+        if ticketSubTypeDropDown?.titleLbl.text == "SUB TYPE" {
+            subType = subType + " - " + (ticketSubTypeDropDown?.getSelectedItem() ?? "")
+        }
+        newTicket = TicketManager.shared.createNewTicket(agency: self.agency, ticketType: ticketTypeDropDown?.getSelectedItem() ?? "", subType: subType, price: self.currentTicketPrice)
+        
+        if currentTicketPrice != 0.0 {
+            switch PaymentMethod(rawValue: paymentOption) ?? .applePay {
+            case .applePay:
+                checkoutWithApplePay(items: [(name: newTicket?.name ?? "", amount: currentTicketPrice)], delegate: self)
+                return
+            case .creditDebit:
+                print("Credit / Debit")
+                return
+            }
+        } else {
+            displayAlert(title: "Invalid", msg: "The options you selected are not valid.", dismissAfter: false)
+        }
     }
 }
+
+extension TicketCheckoutViewController: PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewController(_: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
+        STPAPIClient.shared().createToken(with: payment) { (token: STPToken?, error: Error?) in
+            guard let token = token, error == nil else {
+                completion(.failure)
+                return
+            }
+            
+            // Here we could call our backend if we actually would submit the payment
+            print(token)
+            completion(.success)
+            self.paymentSucceded = true
+            UserManager.shared.addPurchased(ticket: self.newTicket!)
+        }
+    }
+    
+    func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
+        dismiss(animated: true, completion: {
+            if self.paymentSucceded {
+                self.dismissOrPop(animated: true)
+            }
+        })
+    }
+}
+

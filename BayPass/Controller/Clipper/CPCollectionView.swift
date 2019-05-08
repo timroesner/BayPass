@@ -13,7 +13,7 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
         if collectionView == clipperPassCollectionView {
             return agencies.count
         } else {
-            return UserManager.shared.getValidPasses().count
+            return recentAgencies.count
         }
     }
 
@@ -27,14 +27,15 @@ extension ClipperPassViewController: UICollectionViewDataSource, UICollectionVie
             return cell
         } else {
             let cell = recentlyPurchasedClipperPassCollectionView.dequeueReusableCell(withReuseIdentifier: recentlyPurchasedClipperPassCollectionViewCellID, for: indexPath) as! ClipperPassCollectionViewCell
-            cell.setup(with: UserManager.shared.getValidPasses()[indexPath.row])
+            cell.setup(with: recentAgencies[indexPath.row])
             return cell
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
         if collectionView == clipperPassCollectionView {
-            return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+            let inset: CGFloat = view.frame.width < 325 ? 5 : 10
+            return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
         } else {
             return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 15)
         }
