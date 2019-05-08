@@ -130,9 +130,14 @@ extension ClipperAddCashViewController: STPAddCardViewControllerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    func addCardViewController(_ addCardViewController: STPAddCardViewController,
-                               didCreateToken token: STPToken,
-                               completion: @escaping STPErrorBlock) {
+    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
+        //print(token)
+        
+        UserManager.shared.addCashToCard(amount: self.value)
+        completion(nil)
+        print("payment successful")
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
