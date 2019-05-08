@@ -8,6 +8,7 @@
 
 @testable import BayPass
 import XCTest
+import Stripe
 
 class ClipperPassCheckoutTests: XCTestCase {
      let vc = ClipperPassCheckoutViewController()
@@ -28,6 +29,32 @@ class ClipperPassCheckoutTests: XCTestCase {
     
     func testPayButton() {
         vc.pay()
+    }
+    
+    func testDidFinish() {
+        let request = Stripe.paymentRequest(withMerchantIdentifier: Credentials().merchantId, country: "US", currency: "USD")
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "TestItem", amount: NSDecimalNumber(value: 5.00))]
+        let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: request)!
+        vc.paymentAuthorizationViewControllerDidFinish(paymentVC)
+        
+        let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
+        XCTAssertFalse(presentedVC is ClipperPassCheckoutViewController)
+    }
+    
+    func testDidAuthorize() {
+        let request = Stripe.paymentRequest(withMerchantIdentifier: Credentials().merchantId, country: "US", currency: "USD")
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "TestItem", amount: NSDecimalNumber(value: 5.00))]
+        let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: request)!
+        let payment = PKPayment()
+        
+        let expectation = self.expectation(description: "async")
+        var statusResult = PKPaymentAuthorizationStatus(rawValue: 0)
+        vc.paymentAuthorizationViewController(paymentVC, didAuthorizePayment: payment) {
+            statusResult = $0
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        print(statusResult as Any)
     }
 
 }
