@@ -10,19 +10,17 @@ import UIKit
 
 extension TicketViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection _: Int) -> Int {
-        let tickets = UserManager.shared.getPurchasedTickets()
-        if tickets.isEmpty {
+        if purchasedTickets.isEmpty {
             tableView.backgroundView = EmptyView(text: "You have not purchased any tickets yet")
         } else {
             tableView.backgroundView = nil
         }
-        return tickets.count
+        return purchasedTickets.count
     }
 
     func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = purchasedTicketTableView.dequeueReusableCell(withIdentifier: purchasedTicketTableViewCellID) as! PurchasedTicketCell
-        cell.setup(with: UserManager.shared.getPurchasedTickets()[indexPath.row])
-        //print(cell.nameLbl.text)
+        cell.setup(with: purchasedTickets[indexPath.row])
         return cell
     }
 

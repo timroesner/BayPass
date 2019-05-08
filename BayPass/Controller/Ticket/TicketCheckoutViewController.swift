@@ -16,6 +16,8 @@ class TicketCheckoutViewController: UIViewController {
     var stackedViews = [UIView]()
     var payButton: BayPassButton?
     var currentTicketPrice = 0.0
+    var paymentSucceded = false
+    var newTicket: Ticket?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,21 +74,26 @@ class TicketCheckoutViewController: UIViewController {
     }
 
     @objc func pay() {
-        //print("pay")
+        let paymentOption = (stackedViews[safe: stackedViews.count - 1] as? DropDownMenu)?.getSelectedItem() ?? ""
+        let ticketTypeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
+        let ticketSubTypeDropDown = self.stackedViews[safe: 2] as? DropDownMenu
+        var subType = ""
+        if ticketSubTypeDropDown?.titleLbl.text == "SUB TYPE" {
+            subType = subType + " - " + (ticketSubTypeDropDown?.getSelectedItem() ?? "")
+        }
+        newTicket = TicketManager.shared.createNewTicket(agency: self.agency, ticketType: ticketTypeDropDown?.getSelectedItem() ?? "", subType: subType, price: self.currentTicketPrice)
         
-        let paymentDropDown = stackedViews[safe: stackedViews.count - 1] as? DropDownMenu
-        //print(paymentDropDown?.getSelectedItem() ?? "default")
         if currentTicketPrice != 0.0 {
-            switch PaymentMethod(rawValue: (paymentDropDown?.getSelectedItem())!) ?? .applePay {
+            switch PaymentMethod(rawValue: paymentOption) ?? .applePay {
             case .applePay:
-                checkoutWithApplePay(items: [(name: "Cash Value", amount: currentTicketPrice)], delegate: self)
+                checkoutWithApplePay(items: [(name: newTicket?.name ?? "", amount: currentTicketPrice)], delegate: self)
                 return
             case .creditDebit:
                 print("Credit / Debit")
                 return
             }
         } else {
-            displayAlert(title: "Invalid", msg: "The price of the current ticket is 0.0", dismissAfter: false)
+            displayAlert(title: "Invalid", msg: "The options you selected are not valid.", dismissAfter: false)
         }
     }
 }

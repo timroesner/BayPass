@@ -14,7 +14,9 @@ class ClipperPassCheckoutViewController: UIViewController {
     var dropDownOptions = [(title: String, values: [String])]()
     var payButton: BayPassButton?
     var stackedViews = [UIView]()
-    var currentTicketPrice = 0.0
+    var currentPassPrice = 0.0
+    var paymentSucceded = false
+    var newPass: Pass?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,14 +72,19 @@ class ClipperPassCheckoutViewController: UIViewController {
     }
 
     @objc func pay() {
-        //print("pay")
+        let paymentOption = (stackedViews[safe: stackedViews.count - 1] as? DropDownMenu)?.getSelectedItem() ?? ""
+        let passTypeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
+        let passSubTypeDropDown = self.stackedViews[safe: 2] as? DropDownMenu
+        var subType = ""
+        if passSubTypeDropDown?.titleLbl.text == "SUB TYPE" {
+            subType = subType + " - " + (passSubTypeDropDown?.getSelectedItem() ?? "")
+        }
+        newPass = TicketManager.shared.createNewClipperPass(agency: self.agency, passType: passTypeDropDown?.getSelectedItem() ?? "", subType: subType, price: self.currentPassPrice)
         
-        let paymentDropDown = stackedViews[safe: stackedViews.count - 1] as? DropDownMenu
-        //print(paymentDropDown?.getSelectedItem() ?? "default")
-        if currentTicketPrice != 0.0 {
-            switch PaymentMethod(rawValue: (paymentDropDown?.getSelectedItem())!) ?? .applePay {
+        if currentPassPrice != 0.0 {
+            switch PaymentMethod(rawValue: paymentOption) ?? .applePay {
             case .applePay:
-                checkoutWithApplePay(items: [(name: "Cash Value", amount: currentTicketPrice)], delegate: self)
+                checkoutWithApplePay(items: [(name: newPass?.name ?? "", amount: currentPassPrice)], delegate: self)
                 return
             case .creditDebit:
                 print("Credit / Debit")
@@ -87,21 +94,6 @@ class ClipperPassCheckoutViewController: UIViewController {
             displayAlert(title: "Invalid", msg: "The price of the current pass is 0.0", dismissAfter: false)
         }
     }
-    
-    /*
-    func createNewClipperPass() -> Pass {
-        let typeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
-        
-        let lastingHours = TicketManager.shared.getPassDuration(agency: self.agency, passType: typeDropDown?.getSelectedItem() ?? "")
-        let now = Date()
-        let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
-        let duration = DateInterval(start: now, end: (expiringTime))
-        //print(duration)
-        
-        let newClipperPass = Pass(name: typeDropDown?.getSelectedItem() ?? "", duration: duration, price: self.currentTicketPrice, validOnAgency: self.agency)
-        
-        return newClipperPass
-    }*/
 }
 
 extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControllerDelegate {
