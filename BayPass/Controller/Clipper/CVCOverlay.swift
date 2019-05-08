@@ -21,9 +21,6 @@ extension ClipperViewController: OverlayContainerViewControllerDelegate {
     func overlayContainerViewController(_: OverlayContainerViewController, didEndDraggingOverlay _: UIViewController, transitionCoordinator: OverlayContainerTransitionCoordinator) {
         if transitionCoordinator.targetNotchIndex == 0 {
             bottomSheet.dismiss(animated: true, completion: nil)
-            view.alpha = 1.0
-        } else {
-            view.alpha = 0.5
         }
     }
 }

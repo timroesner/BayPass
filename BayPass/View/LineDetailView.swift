@@ -46,6 +46,7 @@ class LineDetailView: UIView {
         nameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(iconView.snp.right).offset(3)
             make.centerY.equalTo(iconView)
+            make.right.equalToSuperview().inset(15)
         }
         
         startLabel.text = routeSegment.waypoints.first

@@ -47,15 +47,15 @@ enum Agency: String, Codable, CaseIterable {
         }
     }
     
-    init(stringValue: String) {
-        switch stringValue {
+    init(googleMapsValue: String) {
+        switch googleMapsValue {
         case "VTA":
             self = .VTA
-        case "BART":
+        case "Bay Area Rapid Transit":
             self = .BART
-        case "CalTrain":
+        case "Caltrain":
             self = .CalTrain
-        case "Muni":
+        case "San Francisco Municipal Transportation Agency":
             self = .Muni
         case "Golden Gate Transit":
             self = .GoldenGateTransit

@@ -76,7 +76,7 @@ class TicketManager {
         guard let fromAbbr = bartStations[from],
             let toAbbr = bartStations[to]
         else { return }
-
+        
         BART().getFare(from: fromAbbr, to: toAbbr) { fare in
             completion(fare)
         }
@@ -107,8 +107,15 @@ class TicketManager {
     }
     
     func createNewTicket(agency: Agency, ticketType: String, subType: String, price: Double) -> Ticket {
-        let hasDuration = tickets[agency.stringValue]?[ticketType]?["count"] == nil
+        if agency == .BART {
+            if ticketType == "Single Ride" {
+                return Ticket(name: ticketType, count: 1, price: price, validOnAgency: agency)
+            } else {
+                return Ticket(name: ticketType, count: 2, price: price, validOnAgency: agency)
+            }
+        }
         
+        let hasDuration = tickets[agency.stringValue]?[ticketType]?["count"] == nil
         if(hasDuration){
             let lastingHours = getPassDuration(agency: agency, passType: ticketType)
             let now = Date()
@@ -122,6 +129,10 @@ class TicketManager {
     }
     
     func createNewClipperPass(agency: Agency, passType: String, subType: String, price: Double) -> Pass {
+        if agency == .BART {
+            return Pass(name: passType, duration: DateInterval(start: Date(), duration: 432000), price: price, validOnAgency: agency)
+        }
+        
         let lastingHours = TicketManager.shared.getPassDuration(agency: agency, passType: passType)
         let now = Date()
         let expiringTime = now.addingTimeInterval(Double(lastingHours) * 3600.0)
@@ -132,6 +143,6 @@ class TicketManager {
     }
     
     func getPassDuration(agency: Agency, passType: String) -> Int {
-        return tickets[agency.stringValue]?[passType]?["duration"] as? Int ?? 1
+        return tickets[agency.stringValue]?[passType]?["duration"] as? Int ?? 0
     }
 }

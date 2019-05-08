@@ -9,6 +9,7 @@
 @testable import BayPass
 import XCTest
 import MapKit
+import Stripe
 
 class RouteDetailsViewControllerTests: XCTestCase {
 
@@ -65,8 +66,49 @@ class RouteDetailsViewControllerTests: XCTestCase {
     }
     
     func testBuyTickets() {
+        let line = Line(name: "522", agency: Agency.VTA, destination: "Palo Alto", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+        let waypoints = ["firstStop", "secondStop"]
+        let depTime = Date(timeIntervalSinceNow: 60)
+        let arrTime = Date(timeIntervalSinceNow: 240)
+        let segmentTransit = RouteSegment(distanceInMeters: 3000, departureTime: depTime, arrivalTime: arrTime, polyline: MKPolyline(), travelMode: TravelMode.transit, line: line, price: 2.50, waypoints: waypoints)
+        let route = Route(departureTime: depTime, arrivalTime: arrTime, segments: [segmentTransit, segmentTransit])
+        
         let vc = RouteDetailsViewController()
+        vc.route = route
+        vc.routeOverView = RouteOverView(with: route)
+        UIApplication.shared.keyWindow!.rootViewController = vc
+        XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
         vc.buyTapped()
+        vc.pay()
+        vc.close()
+    }
+    
+    func testDidFinish() {
+        let vc = RouteDetailsViewController()
+        let request = Stripe.paymentRequest(withMerchantIdentifier: Credentials().merchantId, country: "US", currency: "USD")
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "TestItem", amount: NSDecimalNumber(value: 5.00))]
+        let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: request)!
+        vc.paymentAuthorizationViewControllerDidFinish(paymentVC)
+        
+        let presentedVC = UIApplication.shared.keyWindow?.rootViewController?.presentedViewController
+        XCTAssertFalse(presentedVC is TicketDetailViewController)
+    }
+    
+    func testDidAuthorize() {
+        let vc = RouteDetailsViewController()
+        let request = Stripe.paymentRequest(withMerchantIdentifier: Credentials().merchantId, country: "US", currency: "USD")
+        request.paymentSummaryItems = [PKPaymentSummaryItem(label: "TestItem", amount: NSDecimalNumber(value: 5.00))]
+        let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: request)!
+        let payment = PKPayment()
+        
+        let expectation = self.expectation(description: "async")
+        var statusResult = PKPaymentAuthorizationStatus(rawValue: 0)
+        vc.paymentAuthorizationViewController(paymentVC, didAuthorizePayment: payment) {
+            statusResult = $0
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        print(statusResult as Any)
     }
 
 }

@@ -109,11 +109,39 @@ class GoogleMaps {
                 agencyName = agencies[0]["name"] as? String ?? ""
             }
             
-            var line = transitSystem.allLines[lineName+" - "+destinationName] ?? Line(name: lineName, agency: Agency(stringValue: agencyName), destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
-            line.agency = Agency(stringValue: agencyName)
+            var line = transitSystem.allLines[lineName+" - "+destinationName] ?? Line(name: lineName, agency: Agency(googleMapsValue: agencyName), destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+            line.agency = Agency(googleMapsValue: agencyName)
             
             // Figure out how to calculate price
-            let price = 2.50
+            var price = 0.0
+            var subType: String?
+            
+            switch line.agency {
+            case .CalTrain:
+                if Parse().CalTrainGoogleToGTFS[depStop] == nil {
+                    print("Could not find: \(depStop)")
+                }
+                if Parse().CalTrainGoogleToGTFS[arrivalStop] == nil {
+                    print("Could not find: \(arrivalStop)")
+                }
+                price = TicketManager.shared.getCalTrainPrice(ticketType: "Single Ride", from: Parse().CalTrainGoogleToGTFS[depStop] ?? depStop, to: Parse().CalTrainGoogleToGTFS[arrivalStop] ?? arrivalStop) ?? 0.0
+            case .VTA:
+                subType = line.name.first == "1" ? "Adult Express" : "Adult"
+            case .SamTrans:
+                subType = "Local"
+            case .ACTransit:
+                subType = "Local"
+            case .ACE:
+                subType = "Tri-Valley"
+            case .SolTrans:
+                subType = "Local"
+            default:
+                break
+            }
+            
+            if(price == 0.0) {
+                price = TicketManager.shared.getTicketPrice(agency: line.agency , ticketType: "Single Ride", subType: subType) ?? 0.0
+            }
 
             return RouteSegment(distanceInMeters: distance, departureTime: departureDate, arrivalTime: arrivalDate, polyline: polyline, travelMode: .transit, line: line, price: price, waypoints: waypoints)
         } else {

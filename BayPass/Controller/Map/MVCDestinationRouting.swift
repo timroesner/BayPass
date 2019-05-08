@@ -128,6 +128,7 @@ extension MapViewController: UIScrollViewDelegate {
         let routeDetailsVC = RouteDetailsViewController()
         routeDetailsVC.route = routeView?.route
         routeDetailsVC.routeOverView = RouteOverView(with: routeView!.route)
+        routeDetailsVC.parentSheet = bottomSheet
         bottomSheet.invalidateNotchHeights()
         notchPercentages = [0, 0.87]
         bottomSheet.viewControllers = [routeDetailsVC]
