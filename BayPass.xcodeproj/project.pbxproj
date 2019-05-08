@@ -39,11 +39,11 @@
 		224662F5222B4BE600E86C66 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F4222B4BE600E86C66 /* UIViewController.swift */; };
 		224662F7222B557600E86C66 /* SearchFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F6222B557600E86C66 /* SearchFloatView.swift */; };
 		224662F9222B5A0B00E86C66 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224662F8222B5A0B00E86C66 /* CustomTextField.swift */; };
+		2248B7C2226B9EE100714CEC /* TVCOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248B7C1226B9EE100714CEC /* TVCOverlay.swift */; };
+		2248B7C4226BA5E500714CEC /* Integer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248B7C3226BA5E500714CEC /* Integer.swift */; };
 		2259A6E0227AA32800D8E5FD /* RDVCBulkTickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259A6DF227AA32800D8E5FD /* RDVCBulkTickets.swift */; };
 		2259A6E2227AAD6500D8E5FD /* BulkTicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259A6E1227AAD6500D8E5FD /* BulkTicketTableViewCell.swift */; };
 		2259A6E6227D5E1900D8E5FD /* GMParseToGTFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259A6E5227D5E1900D8E5FD /* GMParseToGTFS.swift */; };
-		2248B7C2226B9EE100714CEC /* TVCOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248B7C1226B9EE100714CEC /* TVCOverlay.swift */; };
-		2248B7C4226BA5E500714CEC /* Integer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248B7C3226BA5E500714CEC /* Integer.swift */; };
 		2259A6E8227E9BC500D8E5FD /* TicketViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2259A6E7227E9BC500D8E5FD /* TicketViewControllerTests.swift */; };
 		2262C31221829BE3000586EE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31121829BE3000586EE /* UIColor.swift */; };
 		2262C31421829CE9000586EE /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262C31321829CE9000586EE /* ExtensionsTests.swift */; };
@@ -217,11 +217,11 @@
 		224662F4222B4BE600E86C66 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		224662F6222B557600E86C66 /* SearchFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFloatView.swift; sourceTree = "<group>"; };
 		224662F8222B5A0B00E86C66 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2248B7C1226B9EE100714CEC /* TVCOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCOverlay.swift; sourceTree = "<group>"; };
+		2248B7C3226BA5E500714CEC /* Integer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integer.swift; sourceTree = "<group>"; };
 		2259A6DF227AA32800D8E5FD /* RDVCBulkTickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDVCBulkTickets.swift; sourceTree = "<group>"; };
 		2259A6E1227AAD6500D8E5FD /* BulkTicketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkTicketTableViewCell.swift; sourceTree = "<group>"; };
 		2259A6E5227D5E1900D8E5FD /* GMParseToGTFS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMParseToGTFS.swift; sourceTree = "<group>"; };
-		2248B7C1226B9EE100714CEC /* TVCOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCOverlay.swift; sourceTree = "<group>"; };
-		2248B7C3226BA5E500714CEC /* Integer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integer.swift; sourceTree = "<group>"; };
 		2259A6E7227E9BC500D8E5FD /* TicketViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewControllerTests.swift; sourceTree = "<group>"; };
 		2262C31121829BE3000586EE /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2262C31321829CE9000586EE /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
