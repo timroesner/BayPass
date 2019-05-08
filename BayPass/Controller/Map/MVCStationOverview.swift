@@ -12,7 +12,6 @@ import UIKit
 extension MapViewController {
     func displayStationInfo(to station: Station) {
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
-        //removeChild(bottomSheet)
         mapView.removeAnnotations(mapView.annotations)
 
         let coordinate = CLLocationCoordinate2D(latitude: station.location.coordinate.latitude, longitude: station.location.coordinate.longitude)
