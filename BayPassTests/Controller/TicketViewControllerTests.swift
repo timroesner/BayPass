@@ -30,5 +30,22 @@ class TicketViewControllerTests: XCTestCase {
         XCTAssertNotNil(cell)
         vc.tableView(vc.purchasedTicketTableView, didSelectRowAt: IndexPath(row: 0, section: 0))
     }
+    
+    func testCheckoutDropDownCalTrain() {
+        let vc = TicketCheckoutViewController()
+        vc.agency = .CalTrain
+        UIApplication.shared.keyWindow!.rootViewController = vc
+        XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
+        vc.updateCalTrainTicketPrice()
+    }
+    
+    func testCheckoutDropDownVTA() {
+        let vc = TicketCheckoutViewController()
+        vc.agency = .VTA
+        UIApplication.shared.keyWindow!.rootViewController = vc
+        XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
+        vc.updateTicketPrice()
+        vc.pay()
+    }
 
 }

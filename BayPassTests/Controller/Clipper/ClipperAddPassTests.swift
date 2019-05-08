@@ -10,7 +10,6 @@
 import XCTest
 
 class ClipperAddPassTests: XCTestCase {
-    let vc = ClipperPassViewController()
     
     override func setUp() {
     }
@@ -24,6 +23,7 @@ class ClipperAddPassTests: XCTestCase {
         UserManager.shared.setClipperCard(card: testCard)
         let pass = Pass(name: "Monthly Pass", duration: DateInterval(start: Date(timeIntervalSinceNow: -300), duration: 36000), price: 260.0, validOnAgency: .CalTrain)
         UserManager.shared.addPass(pass: pass)
+        let vc = ClipperPassViewController()
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
         
@@ -47,6 +47,7 @@ class ClipperAddPassTests: XCTestCase {
     func testWithNewCard() {
         let testCard = ClipperCard(number: 9_999_999_999, cashValue: 0.0, passes: [])
         UserManager.shared.setClipperCard(card: testCard)
+        let vc = ClipperPassViewController()
         UIApplication.shared.keyWindow!.rootViewController = vc
         XCTAssertNotNil(UIApplication.shared.keyWindow?.rootViewController)
         vc.collectionView(vc.clipperPassCollectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
