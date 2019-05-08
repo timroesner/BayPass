@@ -29,7 +29,7 @@ class TicketViewController: UIViewController {
         tableView.isScrollEnabled = true
         return tableView
     }()
-
+    var purchasedTickets = UserManager.shared.getPurchasedTickets()
     let purchasedTicketTableViewCellID = "purchasedTicketTableViewCellID"
 
     let agencies = Agency.allCases.filter { $0.rawValue != "0" }
@@ -55,6 +55,7 @@ class TicketViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        purchasedTickets = UserManager.shared.getPurchasedTickets()
         purchasedTicketTableView.reloadData()
     }
 
