@@ -51,9 +51,9 @@ class Route {
                 var arrivalStopKey = segment.waypoints.last ?? ""
                 
                 var currentIndex = index+1
-                var currentSegment = segments[currentIndex]
-                while currentSegment.line?.agency == .BART {
-                    arrivalStopKey = currentSegment.waypoints.last ?? ""
+                var currentSegment = segments[safe: currentIndex]
+                while currentSegment?.line?.agency == .BART {
+                    arrivalStopKey = currentSegment?.waypoints.last ?? ""
                     currentIndex += 1
                     currentSegment = segments[currentIndex]
                 }
