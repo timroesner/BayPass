@@ -89,12 +89,28 @@ class TicketCheckoutViewController: UIViewController {
                 checkoutWithApplePay(items: [(name: newTicket?.name ?? "", amount: currentTicketPrice)], delegate: self)
                 return
             case .creditDebit:
-                print("Credit / Debit")
+                let addCardViewController = STPAddCardViewController()
+                addCardViewController.delegate = self
+                navigationController?.pushViewController(addCardViewController, animated: true)
                 return
             }
         } else {
             displayAlert(title: "Invalid", msg: "The options you selected are not valid.", dismissAfter: false)
         }
+    }
+}
+
+extension TicketCheckoutViewController: STPAddCardViewControllerDelegate {
+    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
+        
+        UserManager.shared.addPurchased(ticket: self.newTicket!)
+        completion(nil)
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -107,7 +123,6 @@ extension TicketCheckoutViewController: PKPaymentAuthorizationViewControllerDele
             }
             
             // Here we could call our backend if we actually would submit the payment
-            print(token)
             completion(.success)
             self.paymentSucceded = true
             UserManager.shared.addPurchased(ticket: self.newTicket!)

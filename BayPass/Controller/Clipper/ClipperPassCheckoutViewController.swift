@@ -87,12 +87,28 @@ class ClipperPassCheckoutViewController: UIViewController {
                 checkoutWithApplePay(items: [(name: newPass?.name ?? "", amount: currentPassPrice)], delegate: self)
                 return
             case .creditDebit:
-                print("Credit / Debit")
+                let addCardViewController = STPAddCardViewController()
+                addCardViewController.delegate = self
+                navigationController?.pushViewController(addCardViewController, animated: true)
                 return
             }
         } else {
             displayAlert(title: "Invalid", msg: "The price of the current pass is 0.0", dismissAfter: false)
         }
+    }
+}
+
+extension ClipperPassCheckoutViewController: STPAddCardViewControllerDelegate {
+    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
+        
+        UserManager.shared.addPass(pass: self.newPass!)
+        completion(nil)
+        
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -105,7 +121,6 @@ extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControlle
             }
             
             // Here we could call our backend if we actually would submit the payment
-            print(token)
             completion(.success)
             self.paymentSucceded = true
             UserManager.shared.addPass(pass: self.newPass!)
