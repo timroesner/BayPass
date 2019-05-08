@@ -109,7 +109,8 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! LineTableViewCell
         let defaultLine = Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)
         cell.setup(with: lines?[indexPath.row] ?? defaultLine)
-
+        print("🔮getting \(station?.code)")
+        print("🛒Date: \(Date().getCurrentTimetoFormattedStringForHereAPI())")
         return cell
     }
 }

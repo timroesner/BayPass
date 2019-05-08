@@ -130,6 +130,37 @@ class Here {
         }
     }
 
+    func getDepartureTimesForAStation(stationId: Int, completion: @escaping ([[String: String]]) -> Void) {
+        let param = [
+            "app_id": Credentials().hereAppID,
+            "app_code": Credentials().hereAppCode,
+            "lang": "en",
+            "stnId": stationId,
+            "time": Date().getCurrentTimetoFormattedStringForHereAPI(),
+        ] as [String: Any]
+
+        var timings = [[String: String]]()
+
+        Alamofire.request("https://transit.api.here.com/v3/board.json?", method: .get, parameters: param).responseJSON { response in
+            if let json = response.result.value as? [String: Any],
+                let resJson = json["Res"] as? [String: Any],
+                let multiNextDepartures = resJson["NextDepartures"] as? [String: Any],
+                let multiNextDeparture = multiNextDepartures["Dep"] as? [[String: Any]] {
+                for departures in multiNextDeparture {
+                    if let dep = self.parseTimingsFromStationId(from: departures) {
+                        print("🛡dep")
+                        timings.append(dep)
+                    }
+                }
+                completion(timings)
+                print("🐼\(timings)")
+            } else {
+                completion([])
+                print("Failed in getting Departure Times for Lines from Station")
+            }
+        }
+    }
+
     func getDepartureTimes(stationId: Int, time _: String, completion: @escaping ([String]) -> Void) {
         let param = [
             "app_id": Credentials().hereAppID,
@@ -204,6 +235,19 @@ class Here {
             times.append(departure["time"] as! String)
         }
         return times
+    }
+
+    func parseTimingsFromStationId(from json: [String: Any]) -> [String: String]? {
+        var times = ""
+        var timeAndDirection = [String: String]()
+        let dep = json["time"] as! String
+        times = dep
+        let transport = json["Transport"] as? [String: Any]
+        let name = transport?["name"] as! String
+        let dir = transport!["dir"] as! String
+        let direction = name + " to " + dir
+        timeAndDirection = [direction: times]
+        return timeAndDirection
     }
 
     func parseStation(from json: [String: Any]) -> Station? {

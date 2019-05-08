@@ -54,7 +54,6 @@ class LineTableViewCell: UITableViewCell {
 
         backView.layer.cornerRadius = 12
         backView.clipsToBounds = true
-        backView.setGradientBackground(setColor: line.color)
         bounds = bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0))
         iconImageView.image = line.getIcon()
         iconImageView.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
