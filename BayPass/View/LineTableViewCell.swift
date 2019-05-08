@@ -35,9 +35,13 @@ class LineTableViewCell: UITableViewCell {
     }
 
     func setup(with line: Line) {
-        let leftColor = line.color.lighter(by: 30)
-
-        gradientLayer = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
+        var leftColor = line.color.lighter(by: 30)
+        if (leftColor?.isLight())! {
+            leftColor = line.color.darker()
+            gradientLayer = CAGradientLayer(leftColor: line.color ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: leftColor!)
+        } else {
+            gradientLayer = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
+        }
         gradientLayer.name = "layerName"
 
         backView.layer.addSublayer(gradientLayer)
