@@ -89,7 +89,6 @@ class TicketCheckoutViewController: UIViewController {
                 checkoutWithApplePay(items: [(name: newTicket?.name ?? "", amount: currentTicketPrice)], delegate: self)
                 return
             case .creditDebit:
-                print("Credit / Debit")
                 let addCardViewController = STPAddCardViewController()
                 addCardViewController.delegate = self
                 navigationController?.pushViewController(addCardViewController, animated: true)
@@ -124,7 +123,6 @@ extension TicketCheckoutViewController: PKPaymentAuthorizationViewControllerDele
             }
             
             // Here we could call our backend if we actually would submit the payment
-            print(token)
             completion(.success)
             self.paymentSucceded = true
             UserManager.shared.addPurchased(ticket: self.newTicket!)

@@ -113,7 +113,6 @@ class ClipperAddCashViewController: UIViewController {
                 checkoutWithApplePay(items: [(name: "Cash Value", amount: value)], delegate: self)
                 return
             case .creditDebit:
-                print("Credit / Debit")
                 let addCardViewController = STPAddCardViewController()
                 addCardViewController.delegate = self
                 navigationController?.pushViewController(addCardViewController, animated: true)
@@ -148,7 +147,6 @@ extension ClipperAddCashViewController: PKPaymentAuthorizationViewControllerDele
             }
 
             // Here we could call our backend if we actually would submit the payment
-            print(token)
             completion(.success)
             self.paymentSucceded = true
             UserManager.shared.addCashToCard(amount: self.value)
