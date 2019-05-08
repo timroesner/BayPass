@@ -82,8 +82,8 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
     
     @objc func pay() {
         var items = [(name: String, amount: Double)]()
-        for ticket in (route?.segments.filter{$0.price > 0.0}) ?? [] {
-            items.append((name: "Single Ride - "+(ticket.line?.agency.stringValue ?? ""), amount: ticket.price))
+        for segment in (route?.segments.filter{$0.price > 0.0}) ?? [] {
+            items.append((name: "Single Ride - "+(segment.line?.agency.stringValue ?? ""), amount: segment.price))
         }
         items.append((name: "BayPass", amount: route?.getPrice() ?? 0.0))
         checkoutWithApplePay(items: items, delegate: self)
@@ -124,13 +124,19 @@ extension RouteDetailsViewController: PKPaymentAuthorizationViewControllerDelega
             // Here we could call our backend if we actually would submit the payment
             print(token)
             completion(.success)
+            self.purchaseSucceded = true
+            for segment in (self.route?.segments.filter{$0.price > 0.0}) ?? [] {
+                let newTicket = Ticket(name: "Single Ride", count: 1, price: segment.price, validOnAgency: segment.line?.agency ?? .zero)
+                UserManager.shared.addPurchased(ticket: newTicket)
+            }
         }
     }
     
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
-            // TODO: Create and add Tickets with method from Dennis
-            self.dismissOrPop(animated: true)
+            if self.purchaseSucceded {
+                self.dismissOrPop(animated: true)
+            }
         })
     }
 }

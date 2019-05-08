@@ -17,6 +17,7 @@ class RouteDetailsViewController: UIViewController {
     var buyButton = UIButton()
     var parentSheet: OverlayContainerViewController?
     private let dashedView = UIView()
+    var purchaseSucceded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
