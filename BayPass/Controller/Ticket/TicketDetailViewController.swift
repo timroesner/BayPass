@@ -21,6 +21,7 @@ class TicketDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.layer.cornerRadius = 21
+        view.layer.applySketchShadow(color: .black, alpha: 0.20, x: 6, y: 6, blur: 25, spread: 5)
     }
     
     init(ticket: Ticket) {
