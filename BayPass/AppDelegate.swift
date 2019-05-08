@@ -34,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
         }
+        
+        UserManager.shared.load()
+        
         return true
     }
 
@@ -48,10 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_: UIApplication) {
         NotificationCenter.default.post(Notification(name: .willEnterForeground))
+        UserManager.shared.load()
     }
 
     func applicationDidBecomeActive(_: UIApplication) {
-        UserManager.shared.load()
+        
     }
 
     func applicationWillTerminate(_: UIApplication) {

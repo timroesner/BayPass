@@ -61,6 +61,7 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
             UserManager.shared.removeCard()
             UserManager.shared.clearAllPurchasedTickets()
+            self.viewWillAppear(false)
         }))
         present(alert, animated: true, completion: nil)
     }

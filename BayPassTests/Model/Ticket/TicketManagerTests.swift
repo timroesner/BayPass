@@ -48,5 +48,18 @@ class TicketManagerTests: XCTestCase {
         let price = TicketManager.shared.getTicketPrice(agency: .Muni, ticketType: "Day Pass", subType: nil)
         XCTAssertEqual(price, 5.00)
     }
+    
+    func testCreateNewTicket(){
+        let newTicket = TicketManager.shared.createNewTicket(agency: Agency.CalTrain, ticketType: "Day Pass", subType: "", price: 7.5)
+        XCTAssertEqual(newTicket.validOnAgency, Agency.CalTrain)
+        XCTAssertEqual(newTicket.name, "Day Pass")
+    }
+    
+    func testCreateNewClipperPass(){
+        let newPass = TicketManager.shared.createNewClipperPass(agency: Agency.Muni, passType: "Day Pass", subType: "", price: 5.00)
+        XCTAssertEqual(newPass.validOnAgency, Agency.Muni)
+        XCTAssertEqual(newPass.name, "Day Pass")
+        
+    }
 
 }

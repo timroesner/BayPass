@@ -31,12 +31,9 @@ class UserManager {
         clipperCard?.addCash(amount: amount)
     }
 
-    // ----------------
     func addPass(pass: Pass) {
         clipperCard?.passes.append(pass)
     }
-
-    // ---------------
 
     func getValidPasses() -> [Pass] {
         var result = [Pass]()
@@ -51,7 +48,6 @@ class UserManager {
     }
 
     // MARK: Purchased Tickets functions
-
     func getPurchasedTickets() -> [Ticket] {
         purchasedTickets.sort(by: { (first, second) -> Bool in
             if first.count > 0 {
@@ -80,7 +76,12 @@ class UserManager {
 
     func save() {
         do {
-            try Disk.save(clipperCard, to: .documents, as: "clipperCard.json")
+            if clipperCard != nil {
+                try Disk.save(clipperCard, to: .documents, as: "clipperCard.json")
+            } else {
+                let path = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                try FileManager().removeItem(at: path.appendingPathComponent("clipperCard.json"))
+            }
             try Disk.save(purchasedTickets, to: .documents, as: "purchasedTickets.json")
             print("Successfully saved user data")
         } catch {
