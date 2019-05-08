@@ -115,22 +115,16 @@ extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControlle
             // Here we could call our backend if we actually would submit the payment
             print(token)
             completion(.success)
+            self.paymentSucceded = true
+            UserManager.shared.addPass(pass: self.newPass!)
         }
     }
     
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
-            let ticketTypeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
-            let newClipperPass = TicketManager.shared.createNewClipperPass(agency: self.agency, passType: ticketTypeDropDown?.getSelectedItem() ?? "", price: self.currentTicketPrice)
-            
-            UserManager.shared.addPass(pass: newClipperPass)
-            
-            for pass in UserManager.shared.getValidPasses() {
-                print(pass.validOnAgency.stringValue + " " + pass.name)
+            if self.paymentSucceded {
+                self.navigationController?.popToRootViewController(animated: true)
             }
-            
-            //self.dismissOrPop(animated: true)
-            self.navigationController?.popToRootViewController(animated: true)
         })
     }
 }

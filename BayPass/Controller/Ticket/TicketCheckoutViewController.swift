@@ -102,30 +102,16 @@ extension TicketCheckoutViewController: PKPaymentAuthorizationViewControllerDele
             // Here we could call our backend if we actually would submit the payment
             print(token)
             completion(.success)
+            self.paymentSucceded = true
+            UserManager.shared.addPurchased(ticket: self.newTicket!)
         }
     }
     
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
-            // To-Do: Add the ticekt to UserManager
-            
-            let ticketTypeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
-            let ticketSubTypeDropDown = self.stackedViews[safe: 2] as? DropDownMenu
-            var subType = ""
-            if((ticketSubTypeDropDown?.titleLbl.text) != nil){
-                if(ticketSubTypeDropDown?.titleLbl.text == "SUB TYPE"){
-                    subType = subType + " - " + (ticketSubTypeDropDown?.getSelectedItem())!
-                }
+            if self.paymentSucceded {
+                self.dismissOrPop(animated: true)
             }
-            
-            let newTicket = TicketManager.shared.createNewTicket(agency: self.agency, passType: ticketTypeDropDown?.getSelectedItem() ?? "", passSubType: subType, price: self.currentTicketPrice)
-            UserManager.shared.addPurchased(ticket: newTicket)
-            
-            for ticket in UserManager.shared.getPurchasedTickets() {
-                print(ticket.validOnAgency.stringValue + " " + ticket.name)
-            }
-            
-            self.dismissOrPop(animated: true)
         })
     }
 }
