@@ -113,7 +113,6 @@ extension ClipperPassCheckoutViewController: STPAddCardViewControllerDelegate {
     }
 }
 
-
 extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControllerDelegate {
     func paymentAuthorizationViewController(_: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
         STPAPIClient.shared().createToken(with: payment) { (token: STPToken?, error: Error?) in
