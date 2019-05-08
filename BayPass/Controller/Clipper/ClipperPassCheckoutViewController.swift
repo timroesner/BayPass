@@ -88,6 +88,9 @@ class ClipperPassCheckoutViewController: UIViewController {
                 return
             case .creditDebit:
                 print("Credit / Debit")
+                let addCardViewController = STPAddCardViewController()
+                addCardViewController.delegate = self
+                navigationController?.pushViewController(addCardViewController, animated: true)
                 return
             }
         } else {
@@ -95,6 +98,21 @@ class ClipperPassCheckoutViewController: UIViewController {
         }
     }
 }
+
+extension ClipperPassCheckoutViewController: STPAddCardViewControllerDelegate {
+    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
+        
+        UserManager.shared.addPass(pass: self.newPass!)
+        completion(nil)
+        
+        navigationController?.popToRootViewController(animated: true)
+    }
+}
+
 
 extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControllerDelegate {
     func paymentAuthorizationViewController(_: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
