@@ -14,28 +14,36 @@ class StationViewController: UIViewController {
     var myTableView = UITableView()
     var station: Station?
     var lines: [Line]?
+    var linesTimeDict = [[String: String]]()
     let searchVC = SearchViewController()
-    var notchPercentages = [CGFloat]()
-    let bottomSheet = OverlayContainerViewController(style: .rigid)
 
     var cancelLabel: UIImageView = {
         let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 45, height: 45))
         image.image = #imageLiteral(resourceName: "close")
-
         return image
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let group = DispatchGroup()
         lines = station?.lines
+
+        DispatchQueue.main.async {
+            group.enter()
+            Here.shared.getDepartureTimesForAStation(stationId: self.station?.code ?? 0) { lineToTimesDict in
+                self.linesTimeDict = lineToTimesDict
+                print("🌬\(self.linesTimeDict)")
+                group.leave()
+            }
+        }
+        group.notify(queue: .main) {
+            print("🏖\(self.linesTimeDict)")
+        }
         view.translatesAutoresizingMaskIntoConstraints = false
         view.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
 
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 21
-        cancelLabel.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
-        cancelLabel.addGestureRecognizer(tap)
         setupViews()
         myTableView.reloadData()
     }
@@ -109,28 +117,27 @@ extension StationViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! LineTableViewCell
         let defaultLine = Line(name: "m", agency: Agency.ACE, destination: "n", color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bart)
         cell.setup(with: lines?[indexPath.row] ?? defaultLine)
-        print("🔮getting \(station?.code)")
+        print("🔮getting \(String(describing: station?.code))")
         print("🛒Date: \(Date().getCurrentTimetoFormattedStringForHereAPI())")
+        let nameAndDir = (lines?[indexPath.row].name)! + " to " + (lines?[indexPath.row].destination)!
+        let time = getTimeForLine(directionFromLine: nameAndDir)
+        cell.timeLabel.text = time
+        print("🤬\(time)")
         return cell
     }
-}
 
-extension StationViewController: OverlayContainerViewControllerDelegate {
-    func overlayContainerViewController(_: OverlayContainerViewController, heightForNotchAt index: Int, availableSpace: CGFloat) -> CGFloat {
-        return availableSpace * notchPercentages[index]
-    }
+    func getTimeForLine(directionFromLine: String) -> String {
+        var time = ""
+        var dictionary = [String: String]()
 
-    func numberOfNotches(in _: OverlayContainerViewController) -> Int {
-        return notchPercentages.count
-    }
+        for dict in linesTimeDict {
+            dictionary = dict.filter({ $0.key == directionFromLine })
+        }
 
-    @objc func tapFunction(sender _: UITapGestureRecognizer) {
-        print("Tapped")
-        removeChild(self)
-        searchVC.resetSearch()
-        bottomSheet.drivingScrollView = searchVC.tableView
-        bottomSheet.invalidateNotchHeights()
-        notchPercentages = [0.20, 0.93]
-        bottomSheet.viewControllers = [searchVC]
+        print("🚀\(linesTimeDict)")
+        print("🍭\(dictionary)")
+        time = dictionary.values.description
+        print("⏰\(time)")
+        return time
     }
 }

@@ -13,6 +13,7 @@ class LineTableViewCell: UITableViewCell {
     var lineName = UILabel()
     var backView = UIView()
     var iconImageView = UIImageView()
+    var timeLabel = UILabel()
 
     override var frame: CGRect {
         get {
@@ -38,7 +39,7 @@ class LineTableViewCell: UITableViewCell {
         var leftColor = line.color.lighter(by: 30)
         if (leftColor?.isLight())! {
             leftColor = line.color.darker()
-            gradientLayer = CAGradientLayer(leftColor: line.color ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: leftColor!)
+            gradientLayer = CAGradientLayer(leftColor: line.color, rightColor: leftColor!)
         } else {
             gradientLayer = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
         }
@@ -63,15 +64,25 @@ class LineTableViewCell: UITableViewCell {
         iconImageView.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         iconImageView.snp.makeConstraints { make in
             make.size.equalTo(25)
+//            make.topMargin.equalTo(self.snp_topMargin).offset(3)
         }
         backView.addSubview(iconImageView)
 
         backView.addSubview(lineName)
         lineName.text = "\(line.name) to \(line.destination)"
         lineName.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        lineName.font = UIFont.boldSystemFont(ofSize: 12)
+        lineName.font = UIFont.boldSystemFont(ofSize: 16)
         lineName.snp.makeConstraints { make in
             make.leftMargin.equalTo(iconImageView.snp_rightMargin).offset(20)
+            make.topMargin.equalTo(self.snp_topMargin).offset(3)
+        }
+
+        backView.addSubview(timeLabel)
+        timeLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        timeLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        timeLabel.snp.makeConstraints { make in
+            make.bottomMargin.equalTo(self.snp_bottomMargin).offset(-5)
+            make.rightMargin.equalTo(self.snp_rightMargin).offset(-5)
         }
     }
 
