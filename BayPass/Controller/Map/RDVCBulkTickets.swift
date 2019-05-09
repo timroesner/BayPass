@@ -58,7 +58,9 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
             make.bottom.equalTo(payButton.snp.top).offset(-2)
         }
         
-        let closeButton = BayPassButton(title: "X", color: .lightGray)
+        let closeButton = BayPassButton(title: "", color: .lightGray)
+        let xIcon = UIImageView(image: #imageLiteral(resourceName: "x-icon"))
+        xIcon.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
         closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
         view.addSubview(closeButton)
         closeButton.snp.makeConstraints { (make) in
@@ -66,6 +68,13 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
             make.right.equalToSuperview().inset(20)
             make.left.equalTo(payButton.snp.right).offset(12)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(16)
+        }
+        closeButton.addSubview(xIcon)
+        xIcon.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
         }
     }
     
