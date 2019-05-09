@@ -60,6 +60,10 @@ class RouteOverView: UIView {
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .didUpdatePrice, object: nil)
+    }
+    
     @objc func updatePriceLabel() {
         priceLabel.text = route.getPrice()
     }

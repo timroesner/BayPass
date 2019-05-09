@@ -9,9 +9,9 @@
 import SnapKit
 import UIKit
 
-class SearchFloatView: UIView, UITextFieldDelegate {
-    private var fromTextField = UITextField()
-    private var toTextField = UITextField()
+class SearchFloatView: UIView {
+    var fromTextField = UITextField()
+    var toTextField = UITextField()
     let leaveTimeButton = UIButton()
     let cancelButton = UIButton()
 
@@ -23,7 +23,7 @@ class SearchFloatView: UIView, UITextFieldDelegate {
 
         let fromView = CustomTextField(title: "From", placeholder: "Location")
         fromTextField = fromView.textField
-        fromTextField.delegate = self
+        fromTextField.autocorrectionType = .no
         fromTextField.text = from
         addSubview(fromView)
         fromView.snp.makeConstraints { make in
@@ -33,9 +33,9 @@ class SearchFloatView: UIView, UITextFieldDelegate {
             make.height.equalTo(38)
         }
 
-        let toView = CustomTextField(title: "To", placeholder: "Location")
+        let toView = CustomTextField(title: "To", placeholder: "Destination")
         toTextField = toView.textField
-        toTextField.delegate = self
+        toTextField.autocorrectionType = .no
         toTextField.text = to
         addSubview(toView)
         toView.snp.makeConstraints { make in
