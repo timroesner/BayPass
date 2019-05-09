@@ -10,7 +10,7 @@ import CoreLocation
 import MapKit
 import UIKit
 
-struct Route {
+class Route {
     var departureTime: Date
     var arrivalTime: Date
     var segments: [RouteSegment]
@@ -19,14 +19,54 @@ struct Route {
         self.departureTime = departureTime
         self.arrivalTime = arrivalTime
         self.segments = segments
+        calculateBartPrice()
     }
 
     func getPrice() -> String {
         var total = 0.0
+        var isEstimate = ""
+
+        for segment in segments {
+            if segment.price == 0.0, segment.line != nil, segment.line?.agency != .BART {
+                isEstimate = "~"
+            }
+            total += segment.price
+        }
+        return isEstimate + String(format: "$%.2f", total)
+    }
+
+    func getPrice() -> Double {
+        var total = 0.0
+
         for segment in segments {
             total += segment.price
         }
-        return String(format: "$%.2f", total)
+        return total
+    }
+
+    func calculateBartPrice() {
+        for (index, segment) in segments.enumerated() {
+            if segment.line?.agency == .BART {
+                let depStopKey = segment.waypoints.first ?? ""
+                var arrivalStopKey = segment.waypoints.last ?? ""
+
+                var currentIndex = index + 1
+                var currentSegment = segments[safe: currentIndex]
+                while currentSegment?.line?.agency == .BART {
+                    arrivalStopKey = currentSegment?.waypoints.last ?? ""
+                    currentIndex += 1
+                    currentSegment = segments[currentIndex]
+                }
+
+                let depStop = Parse().BARTGoogleToGTFS[depStopKey] ?? depStopKey
+                let arrivalStop = Parse().BARTGoogleToGTFS[arrivalStopKey] ?? arrivalStopKey
+                TicketManager.shared.getBARTPrice(from: depStop, to: arrivalStop) { price in
+                    segment.price = price
+                    NotificationCenter.default.post(Notification(name: .didUpdatePrice))
+                }
+                break
+            }
+        }
     }
 
     func getPolylines() -> [MKPolyline] {

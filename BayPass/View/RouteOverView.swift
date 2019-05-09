@@ -20,6 +20,8 @@ class RouteOverView: UIView {
         self.route = route
         super.init(frame: CGRect.zero)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePriceLabel), name: .didUpdatePrice, object: nil)
+
         layer.backgroundColor = UIColor.white.cgColor
         layer.cornerRadius = 14
         layer.applySketchShadow(color: .black, alpha: 0.06, x: 0, y: 2, blur: 13, spread: 0)
@@ -58,6 +60,14 @@ class RouteOverView: UIView {
         }
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .didUpdatePrice, object: nil)
+    }
+
+    @objc func updatePriceLabel() {
+        priceLabel.text = route.getPrice()
+    }
+
     private func setupLineView(with route: Route) -> UIView {
         let lineView = UIView()
         let totalDuration = route.arrivalTime.timeIntervalSince(route.departureTime)
@@ -74,13 +84,13 @@ class RouteOverView: UIView {
             let lineWidth = viewWidth * lineMultiplier - 2
             let nameWillFit = (lineWidth - Double((segment.line?.name.count ?? 0) * 8) - 30) > 4.0
             lineLabel.layer.cornerRadius = 4
-            
+
             if segment.travelMode == .transit {
                 lineLabel.layer.backgroundColor = segment.line?.color.cgColor
             } else {
                 lineLabel.layer.backgroundColor = UIColor(red: 216, green: 216, blue: 216).cgColor
             }
-            
+
             var textColor: UIColor = .white
             if segment.line?.color.isLight() ?? false {
                 textColor = .black

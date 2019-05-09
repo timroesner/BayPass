@@ -6,8 +6,8 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import UIKit
 import Stripe
+import UIKit
 
 class ClipperPassCheckoutViewController: UIViewController {
     var agency = Agency.zero
@@ -17,7 +17,7 @@ class ClipperPassCheckoutViewController: UIViewController {
     var currentPassPrice = 0.0
     var paymentSucceded = false
     var newPass: Pass?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -64,7 +64,7 @@ class ClipperPassCheckoutViewController: UIViewController {
             make.right.left.equalToSuperview().inset(16)
             make.height.equalTo(50)
         }
-        
+
         // Update Button with price of preselected options
         if let dropDown = stackedViews[safe: 1] as? DropDownMenu {
             didChangeSelectedItem(dropDown)
@@ -73,26 +73,41 @@ class ClipperPassCheckoutViewController: UIViewController {
 
     @objc func pay() {
         let paymentOption = (stackedViews[safe: stackedViews.count - 1] as? DropDownMenu)?.getSelectedItem() ?? ""
-        let passTypeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
-        let passSubTypeDropDown = self.stackedViews[safe: 2] as? DropDownMenu
+        let passTypeDropDown = stackedViews[safe: 1] as? DropDownMenu
+        let passSubTypeDropDown = stackedViews[safe: 2] as? DropDownMenu
         var subType = ""
         if passSubTypeDropDown?.titleLbl.text == "SUB TYPE" {
             subType = subType + " - " + (passSubTypeDropDown?.getSelectedItem() ?? "")
         }
-        newPass = TicketManager.shared.createNewClipperPass(agency: self.agency, passType: passTypeDropDown?.getSelectedItem() ?? "", subType: subType, price: self.currentPassPrice)
-        
+        newPass = TicketManager.shared.createNewClipperPass(agency: agency, passType: passTypeDropDown?.getSelectedItem() ?? "", subType: subType, price: currentPassPrice)
+
         if currentPassPrice != 0.0 {
             switch PaymentMethod(rawValue: paymentOption) ?? .applePay {
             case .applePay:
                 checkoutWithApplePay(items: [(name: newPass?.name ?? "", amount: currentPassPrice)], delegate: self)
                 return
             case .creditDebit:
-                print("Credit / Debit")
+                let addCardViewController = STPAddCardViewController()
+                addCardViewController.delegate = self
+                navigationController?.pushViewController(addCardViewController, animated: true)
                 return
             }
         } else {
             displayAlert(title: "Invalid", msg: "The price of the current pass is 0.0", dismissAfter: false)
         }
+    }
+}
+
+extension ClipperPassCheckoutViewController: STPAddCardViewControllerDelegate {
+    func addCardViewControllerDidCancel(_: STPAddCardViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func addCardViewController(_: STPAddCardViewController, didCreateToken _: STPToken, completion: @escaping STPErrorBlock) {
+        UserManager.shared.addPass(pass: newPass!)
+        completion(nil)
+
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -103,15 +118,14 @@ extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControlle
                 completion(.failure)
                 return
             }
-            
+
             // Here we could call our backend if we actually would submit the payment
-            print(token)
             completion(.success)
             self.paymentSucceded = true
             UserManager.shared.addPass(pass: self.newPass!)
         }
     }
-    
+
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
             if self.paymentSucceded {

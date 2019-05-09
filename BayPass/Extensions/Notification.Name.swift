@@ -12,4 +12,8 @@ extension Notification.Name {
     static var willEnterForeground: Notification.Name {
         return .init(rawValue: "willEnterForeground")
     }
+
+    static var didUpdatePrice: Notification.Name {
+        return .init(rawValue: "didUpdatePrice")
+    }
 }

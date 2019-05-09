@@ -113,12 +113,27 @@ class ClipperAddCashViewController: UIViewController {
                 checkoutWithApplePay(items: [(name: "Cash Value", amount: value)], delegate: self)
                 return
             case .creditDebit:
-                print("Credit / Debit")
+                let addCardViewController = STPAddCardViewController()
+                addCardViewController.delegate = self
+                navigationController?.pushViewController(addCardViewController, animated: true)
                 return
             }
         } else {
             displayAlert(title: "Invalid", msg: "Please make sure all fields are filled and correct", dismissAfter: false)
         }
+    }
+}
+
+extension ClipperAddCashViewController: STPAddCardViewControllerDelegate {
+    func addCardViewControllerDidCancel(_: STPAddCardViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func addCardViewController(_: STPAddCardViewController, didCreateToken _: STPToken, completion: @escaping STPErrorBlock) {
+        UserManager.shared.addCashToCard(amount: value)
+        completion(nil)
+
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -131,7 +146,6 @@ extension ClipperAddCashViewController: PKPaymentAuthorizationViewControllerDele
             }
 
             // Here we could call our backend if we actually would submit the payment
-            print(token)
             completion(.success)
             self.paymentSucceded = true
             UserManager.shared.addCashToCard(amount: self.value)

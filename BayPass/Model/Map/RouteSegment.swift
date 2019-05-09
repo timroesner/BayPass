@@ -10,7 +10,7 @@ import CoreLocation
 import Foundation
 import MapKit
 
-struct RouteSegment {
+class RouteSegment {
     var distanceInMeters: Int
     var departureTime: Date?
     var arrivalTime: Date?
@@ -40,7 +40,7 @@ struct RouteSegment {
         self.price = price
         self.waypoints = waypoints
     }
-    
+
     func setTravelMode() -> TravelMode {
         if distanceInMeters < 750 {
             return .walking

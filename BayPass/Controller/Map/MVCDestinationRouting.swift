@@ -12,24 +12,41 @@ import SnapKit
 import UIKit
 
 extension MapViewController: UIScrollViewDelegate {
-    func displayRoute(to destination: MKMapItem) {
-        var userLocation: CLLocationCoordinate2D
-        if ProcessInfo.processInfo.arguments.contains("UITests") {
-            userLocation = CLLocationCoordinate2D(latitude: 37.331348, longitude: -121.888877)
+    func displayRoute(from: MKMapItem? = nil, to destination: MKMapItem) {
+        startItem = from
+        endItem = destination
+
+        var startLocation: CLLocationCoordinate2D
+        if let fromItem = from {
+            startLocation = fromItem.placemark.coordinate
         } else {
-            guard let realUserLocation = locationManager.location?.coordinate else {
-                displayAlert(title: "User Location unknown", msg: "Please allow BayPass to access your current location, to plan a route to this destination.", dismissAfter: false)
-                return
+            if ProcessInfo.processInfo.arguments.contains("UITests") {
+                startLocation = CLLocationCoordinate2D(latitude: 37.331348, longitude: -121.888877)
+            } else {
+                guard let realUserLocation = locationManager.location?.coordinate else {
+                    displayAlert(title: "User Location unknown", msg: "Please allow BayPass to access your current location, to plan a route to this destination.", dismissAfter: false)
+                    return
+                }
+                startLocation = realUserLocation
             }
-            userLocation = realUserLocation
         }
 
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
         removeChild(bottomSheet)
 
+        for view in view.subviews {
+            if view is UIScrollView || view is SearchFloatView {
+                view.removeFromSuperview()
+            }
+        }
         mapView.removeAnnotations(mapView.annotations)
+        mapView.removeOverlays(mapView.overlays)
 
-        let searchFloat = SearchFloatView(from: "Current Location", to: destination.name ?? "No Name")
+        let searchFloat = SearchFloatView(from: from?.name ?? "Current Location", to: destination.name ?? "No Name")
+        searchFloat.fromTextField.delegate = self
+        searchFloat.fromTextField.addTarget(self, action: #selector(searchTextFieldChanged(_:)), for: .editingChanged)
+        searchFloat.toTextField.delegate = self
+        searchFloat.toTextField.addTarget(self, action: #selector(searchTextFieldChanged(_:)), for: .editingChanged)
         view.addSubview(searchFloat)
         searchFloat.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(12)
@@ -37,10 +54,10 @@ extension MapViewController: UIScrollViewDelegate {
         }
         searchFloat.cancelButton.addTarget(self, action: #selector(cancelRouting), for: .touchUpInside)
 
-        GoogleMaps().getRoutes(from: userLocation, to: destination.placemark.coordinate) { routes in
+        GoogleMaps().getRoutes(from: startLocation, to: destination.placemark.coordinate) { routes in
             self.setupRoutesView(with: routes)
         }
-        showLimeScootersOnMap(at: userLocation)
+        showLimeScootersOnMap(at: startLocation)
         showLimeScootersOnMap(at: destination.placemark.coordinate)
         showBirdScootersOnMap(at: destination.placemark.coordinate, radius: 500)
     }
@@ -122,12 +139,13 @@ extension MapViewController: UIScrollViewDelegate {
             mapView.setVisibleMapRect(boundingRect, edgePadding: UIEdgeInsets(top: 140, left: 10, bottom: 140, right: 10), animated: true)
         }
     }
-    
+
     @objc func tapRoute(_ recognizer: UITapGestureRecognizer) {
         let routeView = recognizer.view as? RouteOverView
         let routeDetailsVC = RouteDetailsViewController()
         routeDetailsVC.route = routeView?.route
         routeDetailsVC.routeOverView = RouteOverView(with: routeView!.route)
+        routeDetailsVC.parentSheet = bottomSheet
         bottomSheet.invalidateNotchHeights()
         notchPercentages = [0, 0.87]
         bottomSheet.viewControllers = [routeDetailsVC]

@@ -21,7 +21,6 @@ class AgencyTests: XCTestCase {
 
     func test_Agency_BuildsThePath() {
         let subject = Agency(rawValue: "BAR")
-
         XCTAssertEqual(subject, Agency.BART)
     }
 
@@ -37,7 +36,7 @@ class AgencyTests: XCTestCase {
         XCTAssertEqual(Agency.GoldenGateTransit.stringValue, "Golden Gate\nTransit")
         XCTAssertEqual(Agency.UnionCity.stringValue, "Union City Transit")
     }
-    
+
     func testColor() {
         XCTAssertEqual(Agency.CalTrain.getColor(), #colorLiteral(red: 0.8666666667, green: 0.3294117647, blue: 0.2549019608, alpha: 1))
         XCTAssertEqual(Agency.BART.getColor(), #colorLiteral(red: 0.2225468159, green: 0.5167737603, blue: 0.8060272932, alpha: 1))

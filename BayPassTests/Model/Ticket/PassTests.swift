@@ -35,7 +35,7 @@ class PassTests: XCTestCase {
     func testIsValidTrue() {
         let duration = DateInterval(start: Date(), duration: 60)
         let testPass = Pass(name: "BART", duration: duration, price: 12.35, validOnAgency: agency!)
-        assert(testPass.isValid())
+        XCTAssertTrue(testPass.isValid())
     }
 
     func testIsValidFalse() {

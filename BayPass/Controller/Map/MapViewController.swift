@@ -19,6 +19,14 @@ class MapViewController: UIViewController {
     let stationVC = StationViewController()
     var locationManager = CLLocationManager()
     var notchPercentages = [CGFloat]()
+    var startItem: MKMapItem?
+    var endItem = MKMapItem()
+    var destinations = [MKMapItem]()
+    let destinationsTableView = UITableView()
+    let destinationCellId = "destinationCell"
+    var keyboardHeight: CGFloat = 0.0
+    var changingFrom = false
+
     // Route Search properties
     var startIndex = 0
     var routes = [Route]()
@@ -36,6 +44,18 @@ class MapViewController: UIViewController {
         setupLocation()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(centerOnUserLocation), name: .willEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: .willEnterForeground, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+
     func setupViews() {
         mapView.showsUserLocation = true
         mapView.delegate = self
@@ -45,6 +65,10 @@ class MapViewController: UIViewController {
         mapView.snp.makeConstraints { make in
             make.top.bottom.right.left.equalToSuperview()
         }
+
+        destinationsTableView.delegate = self
+        destinationsTableView.dataSource = self
+        destinationsTableView.register(DestinationSearchResultTableViewCell.self, forCellReuseIdentifier: destinationCellId)
 
         let blurredStatusBar = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         view.addSubview(blurredStatusBar)
@@ -58,5 +82,11 @@ class MapViewController: UIViewController {
         searchVC.parentMapVC = self
         setupSearchView()
         addChild(bottomSheet, in: view)
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardHeight = keyboardSize.height
+        }
     }
 }
