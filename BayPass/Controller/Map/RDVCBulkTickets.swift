@@ -55,7 +55,7 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.left.equalToSuperview().inset(20)
             make.right.equalToSuperview()
-            make.bottom.equalTo(payButton.snp.top).offset(2)
+            make.bottom.equalTo(payButton.snp.top).offset(-2)
         }
         
         let closeButton = BayPassButton(title: "X", color: .lightGray)
@@ -77,6 +77,7 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
         let segement = route?.segments.filter{$0.price > 0.0}[safe: indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ticketCell", for: indexPath) as! BulkTicketTableViewCell
         cell.setup(with: segement)
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell
     }
     
