@@ -527,8 +527,8 @@
 				224662E82229059500E86C66 /* SVCTableView.swift */,
 				224662E42229011F00E86C66 /* SVCDelegate.swift */,
 				22ADA0D62262DD8C00AA9368 /* RouteDetailsViewController.swift */,
-				6AC9C77922698AB000A19D7B /* StationViewController.swift */,
 				2259A6DF227AA32800D8E5FD /* RDVCBulkTickets.swift */,
+				6AC9C77922698AB000A19D7B /* StationViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1331,13 +1331,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BayPass/BayPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65QL794L6H;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ayeshakhan.BayPass-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.timroesner.BayPass-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1352,13 +1352,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BayPass/BayPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65QL794L6H;
+				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ayeshakhan.BayPass-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.timroesner.BayPass-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
