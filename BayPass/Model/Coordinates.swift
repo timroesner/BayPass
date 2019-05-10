@@ -14,8 +14,8 @@ struct Coordinates {
     var radius: Int
     var max: Int
 
-    init(center: CLLocationCoordinate2D, radius: Int, max: Int) {
-        self.center = center
+    init(latitude: Double, longitude: Double, radius: Int, max: Int) {
+        self.center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         self.radius = radius
         self.max = max
     }
