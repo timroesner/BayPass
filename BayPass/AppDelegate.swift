@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = TabViewController()
         window?.rootViewController = vc
 
-        if !isRelease() {
+        if isRelease() {
             transitSystem.getAllStations()
         }
 
