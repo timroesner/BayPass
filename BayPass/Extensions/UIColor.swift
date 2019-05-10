@@ -57,10 +57,9 @@ extension UIColor {
     }
 
     // https://stackoverflow.com/a/47353477/10458607
-    // Changed to 1 for multiplier for components[2] to check for Yellow
     func isLight() -> Bool {
-        guard let components = cgColor.components, components.count > 2 else { return false }
-        let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 1)) / 1000
+        guard let components = cgColor.components, components.count > 2 else {return false}
+        let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000
         return (brightness > 0.5)
     }
 
