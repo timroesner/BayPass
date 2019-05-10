@@ -20,7 +20,11 @@ class LineDetailView: UIView {
     private let color: UIColor
 
     init(with routeSegment: RouteSegment) {
-        color = routeSegment.line?.color ?? .blue
+        if routeSegment.line?.color.isLight() ?? false {
+            color = routeSegment.line?.color.darker(by: 15.0) ?? UIColor(hex: 0x4A90E2)
+        } else {
+            color = routeSegment.line?.color ?? UIColor(hex: 0x4A90E2)
+        }
         super.init(frame: CGRect.zero)
         backgroundColor = .white
         layer.backgroundColor = UIColor.white.cgColor
@@ -41,7 +45,7 @@ class LineDetailView: UIView {
 
         nameLabel.text = routeSegment.line?.name
         nameLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
-        nameLabel.textColor = routeSegment.line?.color
+        nameLabel.textColor = color
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
             make.left.equalTo(iconView.snp.right).offset(3)
@@ -110,7 +114,6 @@ class LineDetailView: UIView {
             make.bottom.equalTo(endLabel)
         }
 
-        // Shadow
         layer.applySketchShadow(color: .black, alpha: 0.18, x: -3, y: 6, blur: 25, spread: -10)
     }
 

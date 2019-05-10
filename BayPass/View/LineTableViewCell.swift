@@ -27,9 +27,9 @@ class LineTableViewCell: UITableViewCell {
 
     func setup(with tuple: (line: Line, departureTimes: [Date])) {
         if tuple.line.color.isLight() {
-            gradientLayer = CAGradientLayer(leftColor: tuple.line.color.darker(by: 0.10) ?? .blue, rightColor: tuple.line.color.darker(by: 0.40) ?? .blue)
+            gradientLayer = CAGradientLayer(leftColor: tuple.line.color.darker(by: 5.0) ?? .blue, rightColor: tuple.line.color.darker(by: 20.0) ?? .blue)
         } else {
-            gradientLayer = CAGradientLayer(leftColor: tuple.line.color, rightColor: tuple.line.color.lighter(by: 0.30) ?? .blue)
+            gradientLayer = CAGradientLayer(leftColor: tuple.line.color, rightColor: tuple.line.color.lighter(by: 10.0) ?? .blue)
         }
         backView.layer.insertSublayer(gradientLayer, at: 0)
         
