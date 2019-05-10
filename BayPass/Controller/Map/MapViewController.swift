@@ -16,7 +16,6 @@ class MapViewController: UIViewController {
     private(set) var mapView = MKMapView()
     let bottomSheet = OverlayContainerViewController(style: .rigid)
     let searchVC = SearchViewController()
-    let stationVC = StationViewController()
     var locationManager = CLLocationManager()
     var notchPercentages = [CGFloat]()
     var startItem: MKMapItem?
@@ -31,14 +30,8 @@ class MapViewController: UIViewController {
     var startIndex = 0
     var routes = [Route]()
 
-    let here = Here.shared
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        here.getDepartureTimesForAStation(stationId: 718_610_281) { res in
-            print("🛁\(res)")
-        }
-        print("🗺")
         NotificationCenter.default.addObserver(self, selector: #selector(centerOnUserLocation), name: .willEnterForeground, object: nil)
         setupViews()
         setupLocation()
