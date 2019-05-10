@@ -24,10 +24,11 @@ class System {
             group.enter()
             here.getStationsNearby(center: c.center, radius: c.radius, max: c.max) { stations in
                 for station in stations {
-                    if var stationThatsAlreadyThere = self.allStationsDict[station.name] {
+                    let stationName = station.name.replacingOccurrences(of: "\\s?\\([\\w\\s]*\\)", with: "", options: .regularExpression)
+                    if var stationThatsAlreadyThere = self.allStationsDict[stationName] {
                         stationThatsAlreadyThere.lines.append(contentsOf: station.lines)
                     } else {
-                        self.allStationsDict[station.name] = station
+                        self.allStationsDict[stationName] = station
                     }
                     for line in station.lines {
                         self.allLines[line.name+" - "+line.destination] = line
