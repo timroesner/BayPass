@@ -6,42 +6,41 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import UIKit
 import Stripe
+import UIKit
 
 extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func setupBulkTicketsView() {
         for view in view.subviews {
             if !(view is RouteOverView) {
                 view.removeFromSuperview()
             }
         }
-        
+
         let titleLabel = UILabel()
         titleLabel.text = "Summary"
         titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
+        titleLabel.snp.makeConstraints { make in
             make.top.equalTo(routeOverView!.snp.bottom).offset(16)
             make.left.equalToSuperview().inset(20)
         }
-        
-        let routeHasMultipleTransit = (route?.segments.filter{ $0.travelMode == .transit }.count ?? 0) > 1
+
+        let routeHasMultipleTransit = (route?.segments.filter { $0.travelMode == .transit }.count ?? 0) > 1
         var buttonColor = #colorLiteral(red: 0.6504354477, green: 0.4037398994, blue: 0.844121635, alpha: 1)
         if !routeHasMultipleTransit {
-            buttonColor = route?.segments.filter{ $0.travelMode == .transit }.first?.line?.color ?? .blue
+            buttonColor = route?.segments.filter { $0.travelMode == .transit }.first?.line?.color ?? .blue
         }
-        let priceString = " "+(route?.getPrice() ?? "")
-        let payButton = BayPassButton(title: "Pay"+priceString, color: buttonColor)
+        let priceString = " " + (route?.getPrice() ?? "")
+        let payButton = BayPassButton(title: "Pay" + priceString, color: buttonColor)
         payButton.addTarget(self, action: #selector(pay), for: .touchUpInside)
         view.addSubview(payButton)
-        payButton.snp.makeConstraints { (make) in
+        payButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(16)
             make.height.equalTo(50)
             make.left.equalToSuperview().inset(16)
         }
-        
+
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,7 +50,7 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
         tableView.register(BulkTicketTableViewCell.self, forCellReuseIdentifier: "ticketCell")
         parentSheet?.drivingScrollView = tableView
         view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.left.equalToSuperview().inset(20)
             make.right.equalToSuperview()
@@ -63,7 +62,7 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
         xIcon.tintColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
         closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
         view.addSubview(closeButton)
-        closeButton.snp.makeConstraints { (make) in
+        closeButton.snp.makeConstraints { make in
             make.height.width.equalTo(50)
             make.right.equalToSuperview().inset(20)
             make.left.equalTo(payButton.snp.right).offset(12)
@@ -77,44 +76,44 @@ extension RouteDetailsViewController: UITableViewDelegate, UITableViewDataSource
             make.right.equalToSuperview().offset(-10)
         }
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return route?.segments.filter{$0.price > 0.0}.count ?? 0
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return route?.segments.filter { $0.price > 0.0 }.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let segement = route?.segments.filter{$0.price > 0.0}[safe: indexPath.row]
+        let segement = route?.segments.filter { $0.price > 0.0 }[safe: indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ticketCell", for: indexPath) as! BulkTicketTableViewCell
         cell.setup(with: segement)
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell
     }
-    
+
     @objc func pay() {
         var items = [(name: String, amount: Double)]()
-        for segment in (route?.segments.filter{$0.price > 0.0}) ?? [] {
-            items.append((name: "Single Ride - "+(segment.line?.agency.stringValue ?? ""), amount: segment.price))
+        for segment in (route?.segments.filter { $0.price > 0.0 }) ?? [] {
+            items.append((name: "Single Ride - " + (segment.line?.agency.stringValue ?? ""), amount: segment.price))
         }
         items.append((name: "BayPass", amount: route?.getPrice() ?? 0.0))
         checkoutWithApplePay(items: items, delegate: self)
     }
-    
+
     @objc func close() {
         for view in view.subviews {
             if !(view is RouteOverView) {
                 view.removeFromSuperview()
             }
         }
-        
+
         view.addSubview(buyButton)
-        buyButton.snp.makeConstraints { (make) in
+        buyButton.snp.makeConstraints { make in
             make.top.equalTo(routeOverView!.snp.bottom).offset(16)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
-        
+
         view.addSubview(scrollView)
-        scrollView.snp.makeConstraints { (make) in
+        scrollView.snp.makeConstraints { make in
             make.top.equalTo(buyButton.snp.bottom).offset(16)
             make.left.right.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
@@ -130,18 +129,18 @@ extension RouteDetailsViewController: PKPaymentAuthorizationViewControllerDelega
                 completion(.failure)
                 return
             }
-            
+
             // Here we could call our backend if we actually would submit the payment
             print(token)
             completion(.success)
             self.purchaseSucceded = true
-            for segment in (self.route?.segments.filter{$0.price > 0.0}) ?? [] {
+            for segment in (self.route?.segments.filter { $0.price > 0.0 }) ?? [] {
                 let newTicket = Ticket(name: "Single Ride", count: 1, price: segment.price, validOnAgency: segment.line?.agency ?? .zero)
                 UserManager.shared.addPurchased(ticket: newTicket)
             }
         }
     }
-    
+
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
             if self.purchaseSucceded {
@@ -151,5 +150,3 @@ extension RouteDetailsViewController: PKPaymentAuthorizationViewControllerDelega
         })
     }
 }
-
-

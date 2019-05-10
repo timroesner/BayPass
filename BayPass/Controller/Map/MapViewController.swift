@@ -25,24 +25,24 @@ class MapViewController: UIViewController {
     let destinationCellId = "destinationCell"
     var keyboardHeight: CGFloat = 0.0
     var changingFrom = false
-    
+
     // Route Search properties
     var startIndex = 0
     var routes = [Route]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(centerOnUserLocation), name: .willEnterForeground, object: nil)
         setupViews()
         setupLocation()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         NotificationCenter.default.addObserver(self, selector: #selector(centerOnUserLocation), name: .willEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(centerOnUserLocation), name: .willEnterForeground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .willEnterForeground, object: nil)
@@ -58,7 +58,7 @@ class MapViewController: UIViewController {
         mapView.snp.makeConstraints { make in
             make.top.bottom.right.left.equalToSuperview()
         }
-        
+
         destinationsTableView.delegate = self
         destinationsTableView.dataSource = self
         destinationsTableView.register(DestinationSearchResultTableViewCell.self, forCellReuseIdentifier: destinationCellId)
@@ -76,7 +76,7 @@ class MapViewController: UIViewController {
         setupSearchView()
         addChild(bottomSheet, in: view)
     }
-    
+
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             keyboardHeight = keyboardSize.height

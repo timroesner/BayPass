@@ -30,7 +30,7 @@ class System {
                         self.allStationsDict[station.name] = station
                     }
                     for line in station.lines {
-                        self.allLines[line.name+" - "+line.destination] = line
+                        self.allLines[line.name + " - " + line.destination] = line
                     }
                 }
                 group.leave()
@@ -39,6 +39,10 @@ class System {
         group.notify(queue: .main) {
             self.allStations.append(contentsOf: self.allStationsDict.values)
         }
+    }
+
+    func getTimingsFromStation(stationCode _: Int) -> [String] {
+        return []
     }
 
     func findStations(with query: String) -> [Station] {

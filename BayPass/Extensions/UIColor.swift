@@ -57,10 +57,30 @@ extension UIColor {
     }
 
     // https://stackoverflow.com/a/47353477/10458607
-    // Changed to 1 for multiplier for components[2] to check for Yellow
     func isLight() -> Bool {
-        guard let components = cgColor.components, components.count > 2 else { return false }
-        let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 1)) / 1000
+        guard let components = cgColor.components, components.count > 2 else {return false}
+        let brightness = ((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000
         return (brightness > 0.5)
+    }
+
+    // https://stackoverflow.com/a/38435309/10458607
+    func lighter(by percentage: CGFloat = 30.0) -> UIColor? {
+        return adjust(by: abs(percentage))
+    }
+
+    func darker(by percentage: CGFloat = 30.0) -> UIColor? {
+        return adjust(by: -1 * abs(percentage))
+    }
+
+    func adjust(by percentage: CGFloat = 30.0) -> UIColor? {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        if getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+            return UIColor(red: min(red + percentage / 100, 1.0),
+                           green: min(green + percentage / 100, 1.0),
+                           blue: min(blue + percentage / 100, 1.0),
+                           alpha: alpha)
+        } else {
+            return nil
+        }
     }
 }

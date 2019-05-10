@@ -19,7 +19,7 @@ class RouteOverView: UIView {
     init(with route: Route) {
         self.route = route
         super.init(frame: CGRect.zero)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(updatePriceLabel), name: .didUpdatePrice, object: nil)
 
         layer.backgroundColor = UIColor.white.cgColor
@@ -59,11 +59,11 @@ class RouteOverView: UIView {
             make.right.greaterThanOrEqualToSuperview().inset(16)
         }
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self, name: .didUpdatePrice, object: nil)
     }
-    
+
     @objc func updatePriceLabel() {
         priceLabel.text = route.getPrice()
     }
@@ -84,13 +84,13 @@ class RouteOverView: UIView {
             let lineWidth = viewWidth * lineMultiplier - 2
             let nameWillFit = (lineWidth - Double((segment.line?.name.count ?? 0) * 8) - 30) > 4.0
             lineLabel.layer.cornerRadius = 4
-            
+
             if segment.travelMode == .transit {
                 lineLabel.layer.backgroundColor = segment.line?.color.cgColor
             } else {
                 lineLabel.layer.backgroundColor = UIColor(red: 216, green: 216, blue: 216).cgColor
             }
-            
+
             var textColor: UIColor = .white
             if segment.line?.color.isLight() ?? false {
                 textColor = .black

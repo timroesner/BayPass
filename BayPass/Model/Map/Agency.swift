@@ -46,7 +46,7 @@ enum Agency: String, Codable, CaseIterable {
             return ""
         }
     }
-    
+
     init(googleMapsValue: String) {
         switch googleMapsValue {
         case "VTA":
@@ -100,7 +100,7 @@ enum Agency: String, Codable, CaseIterable {
             return #imageLiteral(resourceName: "CalTrain")
         }
     }
-    
+
     func getColor() -> UIColor {
         switch self {
         case .ACE:
