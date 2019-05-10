@@ -118,11 +118,10 @@ class Here {
         guard let lineName = json["name"] as? String,
             let lineDestination = json["dir"] as? String,
             let at = json["At"] as? [String: Any],
-            var colorString = at["color"] as? String,
             let modeNum = json["mode"] as? Int
         else { return nil }
         
-        
+        var colorString = at["color"] as? String ?? ""
         if colorString == "#FEF0B5" || colorString == "#FFFF33" {
             colorString = "#F3B43F"
         }

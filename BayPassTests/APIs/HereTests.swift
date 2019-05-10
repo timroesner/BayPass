@@ -68,9 +68,13 @@ class HereTests: XCTestCase {
         var times: (line: Line, departureTimes: [Date])?
 
         let resJson = testJsonForDepTime["Res"] as? [String: Any]
-        let multiNextDepartures = resJson?["MultiNextDepartures"] as? [String: Any]
-        let multiNextDeparture = multiNextDepartures?["MultiNextDeparture"] as? [[String: Any]]
-        for mul in multiNextDeparture! {
+        let multiNextDeparturesJson = resJson?["MultiNextDepartures"] as? [String: Any]
+        let multiNextDepartureJson = multiNextDeparturesJson?["MultiNextDeparture"] as? [[String: Any]]
+        //print(multiNextDepartureJson)
+        let nextDepartures = multiNextDepartureJson?[safe: 0]?["NextDepartures"] as? [String: Any]
+        let departures = nextDepartures?["Dep"] as? [[String: Any]] ?? []
+        
+        for mul in departures {
             times = here.parseTimingsFromStationId(from: mul)
         }
         XCTAssertNotNil(times)
