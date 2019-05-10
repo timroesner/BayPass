@@ -30,6 +30,7 @@ class ClipperViewController: UIViewController {
         layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView?.backgroundColor = .white
+        collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.register(ClipperPassCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView?.delegate = self
         collectionView?.dataSource = self
