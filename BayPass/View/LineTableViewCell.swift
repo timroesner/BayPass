@@ -10,80 +10,102 @@ import UIKit
 
 class LineTableViewCell: UITableViewCell {
     var gradientLayer = CAGradientLayer()
-    var lineName = UILabel()
-    var backView = UIView()
-    var iconImageView = UIImageView()
-    var timeLabel = UILabel()
+    let lineName = UILabel()
+    let backView = UIView()
+    let iconImageView = UIImageView()
+    let timeLabels = [UILabel(), UILabel(), UILabel()]
+    let frequencyLabel = UILabel()
 
-    override var frame: CGRect {
-        get {
-            return super.frame
-        }
-        set(newFrame) {
-            var frame = newFrame
-            frame.origin.y += 4
-            frame.size.height -= 2 * 4
-            super.frame = frame
-        }
+    override init(style _: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: reuseIdentifier)
+        setupViews()
     }
-
+    
     override func layoutSubviews() {
         gradientLayer.frame = bounds
     }
 
-    override init(style _: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: reuseIdentifier)
-    }
-
-    func setup(with line: Line) {
-        var leftColor = line.color.lighter(by: 30)
-        if (leftColor?.isLight())! {
-            leftColor = line.color.darker()
-            gradientLayer = CAGradientLayer(leftColor: line.color, rightColor: leftColor!)
+    func setup(with tuple: (line: Line, departureTimes: [Date])) {
+        if tuple.line.color.isLight() {
+            gradientLayer = CAGradientLayer(leftColor: tuple.line.color.darker(by: 0.10) ?? .blue, rightColor: tuple.line.color.darker(by: 0.40) ?? .blue)
         } else {
-            gradientLayer = CAGradientLayer(leftColor: leftColor ?? #colorLiteral(red: 0.1754914722, green: 0.8503269947, blue: 1, alpha: 1), rightColor: line.color)
+            gradientLayer = CAGradientLayer(leftColor: tuple.line.color, rightColor: tuple.line.color.lighter(by: 0.30) ?? .blue)
         }
-        gradientLayer.name = "layerName"
-
-        backView.layer.addSublayer(gradientLayer)
         backView.layer.insertSublayer(gradientLayer, at: 0)
-
-        addSubview(backView)
+        
+        iconImageView.image = tuple.line.getIcon()
+        if tuple.line.destination.contains(tuple.line.name) {
+            lineName.text = tuple.line.destination
+        } else {
+           lineName.text = "\(tuple.line.name) to \(tuple.line.destination)"
+        }
+        for index in 0 ..< min(tuple.departureTimes.count, 3) {
+            timeLabels[index].text = tuple.departureTimes[index].timeShort()
+        }
+        let frequencyInMinutes = tuple.departureTimes[safe: 0]?.duration(to: tuple.departureTimes[safe: 1] ?? Date()) ?? "?? min"
+        frequencyLabel.text = "Every \(frequencyInMinutes)"
+    }
+    
+    private func setupViews() {
+        backView.layer.cornerRadius = 12
         backView.clipsToBounds = true
+        backView.layer.backgroundColor = UIColor.blue.cgColor
+        addSubview(backView)
         backView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(10)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
-
-        backView.layer.cornerRadius = 12
-        backView.clipsToBounds = true
-        bounds = bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0))
-        iconImageView.image = line.getIcon()
+        
+        
         iconImageView.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        backView.addSubview(iconImageView)
         iconImageView.snp.makeConstraints { make in
             make.size.equalTo(25)
-//            make.topMargin.equalTo(self.snp_topMargin).offset(3)
+            make.left.top.equalToSuperview().inset(6)
         }
-        backView.addSubview(iconImageView)
-
-        backView.addSubview(lineName)
-        lineName.text = "\(line.name) to \(line.destination)"
+        
+        for (index, label) in timeLabels.enumerated() {
+            label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            label.textAlignment = .right
+            let isFirst = index == 0
+            label.font = isFirst ? UIFont.systemFont(ofSize: 15, weight: .bold) : UIFont.systemFont(ofSize: 12, weight: .regular)
+            
+            backView.addSubview(label)
+            label.snp.makeConstraints { make in
+                make.right.equalToSuperview().inset(12)
+                make.width.equalTo(70)
+                
+                if isFirst {
+                    make.centerY.equalTo(iconImageView)
+                } else {
+                    make.top.equalTo(timeLabels[index-1].snp.bottom).offset(2)
+                }
+            }
+        }
+        
         lineName.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        lineName.font = UIFont.boldSystemFont(ofSize: 16)
+        lineName.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        backView.addSubview(lineName)
         lineName.snp.makeConstraints { make in
-            make.leftMargin.equalTo(iconImageView.snp_rightMargin).offset(20)
-            make.topMargin.equalTo(self.snp_topMargin).offset(3)
+            make.left.equalTo(iconImageView.snp.right).offset(4)
+            make.centerY.equalTo(iconImageView)
+            make.right.equalTo(timeLabels.first!.snp.left)
         }
-
-        backView.addSubview(timeLabel)
-        timeLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        timeLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        timeLabel.snp.makeConstraints { make in
-            make.bottomMargin.equalTo(self.snp_bottomMargin).offset(-5)
-            make.rightMargin.equalTo(self.snp_rightMargin).offset(-5)
+        
+        frequencyLabel.textColor = .white
+        frequencyLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        backView.addSubview(frequencyLabel)
+        frequencyLabel.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().inset(12)
+            make.bottom.equalToSuperview().inset(16)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        gradientLayer.removeFromSuperlayer()
     }
 
     required init?(coder _: NSCoder) {
