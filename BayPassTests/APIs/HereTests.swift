@@ -34,34 +34,6 @@ class HereTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testGetStationIds() {
-        let ex = expectation(description: "Here for getting Station Ids")
-        let center = CLLocationCoordinate2D(latitude: 37.5032238, longitude: -121.9434281)
-        let radius = 1500
-        let max = 1
-
-        var results: [Int]?
-
-        here.getStationIds(center: center, radius: radius, max: max) { res in
-            results = res
-            ex.fulfill()
-        }
-        wait(for: [ex], timeout: 5)
-        XCTAssertEqual(results!, [718_310_131])
-    }
-
-    func testGetStationIdFail() {
-        let ex = expectation(description: "Here for getting Agency")
-        var result: [Int]?
-        let center = CLLocationCoordinate2D(latitude: 0, longitude: -121.9434281)
-        here.getStationIds(center: center, radius: 0, max: 0) { resp in
-            result = resp
-            ex.fulfill()
-        }
-        wait(for: [ex], timeout: 5)
-        XCTAssertEqual(result!, [0])
-    }
-
     func testGetStationsNearby() {
         let ex = expectation(description: "Here for getting Station Ids")
         let center = CLLocationCoordinate2D(latitude: 37.5032238, longitude: -121.9434281)
@@ -79,78 +51,29 @@ class HereTests: XCTestCase {
         XCTAssertEqual(results![0].code, 718_310_131)
     }
 
-    func testGetLine() {
-        let ex = expectation(description: "Here for getting Line from a Station ID")
-        let stationId: Int = 718_310_131
-
-        var results: [Line]?
-        here.getLine(stationId: stationId) { resp in
-            results = resp
-            ex.fulfill()
-        }
-
-        wait(for: [ex], timeout: 5)
-        XCTAssertNotNil(results)
-    }
-
     func testGetDepartureTimes() {
         let ex = expectation(description: "Here for getting Line from a Station ID")
         let stationId: Int = 718_310_131
-        let time = Date().getCurrentTimetoFormattedStringForHereAPI()
 
-        var results: [String]?
-        here.getDepartureTimes(stationId: stationId, time: time) { resp in
-            results = resp
+        var results: [(line: Line, departureTimes: [Date])]?
+        here.getDepartureTimesForAStation(stationId: stationId, completion: { (result) in
+            results = result
             ex.fulfill()
-        }
-
+        })
         wait(for: [ex], timeout: 5)
         XCTAssertNotNil(results)
     }
-    
-    func testGetAgencies() {
-        let ex = expectation(description: "Here for getting Agencies from a Station IDs")
-        let stationId: Int = 718_310_131
-        
-        var results: [Int: Agency]?
-        here.getAgencies(stationIds: [stationId]) { (result) in
-            results = result
-            ex.fulfill()
-        }
-        waitForExpectations(timeout: 10, handler: nil)
-        XCTAssertNotNil(results)
-    }
-
-    func testParseStationForId() {
-        let resJson = testJson["Res"] as! [String: Any]
-        let stationsJson = resJson["Stations"] as! [String: Any]
-        let stnsJson = stationsJson["Stn"] as! [[String: Any]]
-
-        let test = here.parseStationForId(from: stnsJson[0])
-
-        XCTAssertEqual(test, 718_290_976)
-    }
-
-    func testParseOperatorFromStationId() {
-        let resJson = testJsonForAgency["Res"] as! [String: Any]
-        let multiNextDepartures = resJson["MultiNextDepartures"] as! [String: Any]
-        let multiNextDeparture = multiNextDepartures["MultiNextDeparture"] as! [[String: Any]]
-
-        let test = here.parseOperatorFromStationId(from: multiNextDeparture[0])
-
-        XCTAssertEqual(test, Agency.SamTrans)
-    }
 
     func testParseTimesFromStationIds() {
-        var times = [String]()
+        var times: (line: Line, departureTimes: [Date])?
 
         let resJson = testJsonForDepTime["Res"] as? [String: Any]
         let multiNextDepartures = resJson?["MultiNextDepartures"] as? [String: Any]
         let multiNextDeparture = multiNextDepartures?["MultiNextDeparture"] as? [[String: Any]]
         for mul in multiNextDeparture! {
-            times = here.parseTimeFromStationId(from: mul)!
+            times = here.parseTimingsFromStationId(from: mul)
         }
-        XCTAssertEqual(times, ["2019-06-24T07:30:00"])
+        XCTAssertNotNil(times)
     }
 
     func testParseStation() {
