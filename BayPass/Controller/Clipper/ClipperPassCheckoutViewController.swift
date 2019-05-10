@@ -120,6 +120,7 @@ extension ClipperPassCheckoutViewController: PKPaymentAuthorizationViewControlle
             }
 
             // Here we could call our backend if we actually would submit the payment
+            print(token)
             completion(.success)
             self.paymentSucceded = true
             UserManager.shared.addPass(pass: self.newPass!)
