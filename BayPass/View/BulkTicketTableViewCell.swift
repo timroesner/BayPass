@@ -13,12 +13,12 @@ class BulkTicketTableViewCell: UITableViewCell {
     var ticketView = TicketView(agency: Agency.VTA, icon: Agency.VTA.getIcon(), cornerRadius: 8)
     let nameLbl = UILabel()
     let priceLbl = UILabel()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .none
     }
-    
+
     func setup(with segment: RouteSegment?) {
         ticketView = TicketView(agency: segment?.line?.agency ?? .zero, icon: segment?.line?.agency.getIcon() ?? #imageLiteral(resourceName: "Bus"), cornerRadius: 8)
         addSubview(ticketView)
@@ -27,7 +27,7 @@ class BulkTicketTableViewCell: UITableViewCell {
             make.width.equalTo(95)
             make.centerY.equalToSuperview()
         }
-        
+
         nameLbl.text = "Single Ride"
         addSubview(nameLbl)
         nameLbl.textColor = .black
@@ -36,7 +36,7 @@ class BulkTicketTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.left.equalTo(ticketView.snp.right).offset(12)
         }
-        
+
         priceLbl.text = String(format: "$%.2f", segment?.price ?? 0.0)
         priceLbl.textColor = .gray
         priceLbl.font = UIFont.systemFont(ofSize: 13, weight: .bold)
@@ -46,11 +46,11 @@ class BulkTicketTableViewCell: UITableViewCell {
             make.right.equalToSuperview().inset(20)
         }
     }
-    
+
     override func prepareForReuse() {
         ticketView.removeFromSuperview()
     }
-    
+
     required init?(coder _: NSCoder) {
         print("NSCoder not supported in BulkTicketCell")
         return nil

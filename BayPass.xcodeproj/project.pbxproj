@@ -113,6 +113,7 @@
 		6A39E64C2259D07400F6BE0C /* RouteOverViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A39E64B2259D07400F6BE0C /* RouteOverViewTests.swift */; };
 		6A3F2CB621816B46006DA755 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F2CB521816B46006DA755 /* Route.swift */; };
 		6A5B7A11225C4CC50009D89F /* HereDepTime.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A5B7A10225C4CC50009D89F /* HereDepTime.json */; };
+		6A7B33A522720075003E65DF /* MKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B33A422720075003E65DF /* MKMapView.swift */; };
 		6A9261D62227663F009B61DF /* Here.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9261D52227663F009B61DF /* Here.swift */; };
 		6AA28D292252AFE7002079B3 /* MVCStationOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA28D282252AFE7002079B3 /* MVCStationOverview.swift */; };
 		6AAFCD1121853C59004021E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22049D9D214C9DF0007FF904 /* AppDelegate.swift */; };
@@ -134,6 +135,8 @@
 		6ABF983A218250B1006878E4 /* Agency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9835218250B0006878E4 /* Agency.swift */; };
 		6ABF983B218250B1006878E4 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9836218250B0006878E4 /* Line.swift */; };
 		6ABF983C218250B1006878E4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF9837218250B1006878E4 /* Station.swift */; };
+		6AC9C77A22698AB000A19D7B /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9C77922698AB000A19D7B /* StationViewController.swift */; };
+		6AC9C77E22698D6B00A19D7B /* LineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9C77D22698D6B00A19D7B /* LineTableViewCell.swift */; };
 		6AFF633B2242C47400266B7E /* Here.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF63392242C47400266B7E /* Here.json */; };
 		6AFF633C2242C47400266B7E /* HereAgency.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF633A2242C47400266B7E /* HereAgency.json */; };
 		7009567B226A8A3D00A0D500 /* TicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7009567A226A8A3D00A0D500 /* TicketDetailViewController.swift */; };
@@ -298,6 +301,7 @@
 		6A39E64B2259D07400F6BE0C /* RouteOverViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteOverViewTests.swift; sourceTree = "<group>"; };
 		6A3F2CB521816B46006DA755 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		6A5B7A10225C4CC50009D89F /* HereDepTime.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HereDepTime.json; sourceTree = "<group>"; };
+		6A7B33A422720075003E65DF /* MKMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapView.swift; sourceTree = "<group>"; };
 		6A9261D52227663F009B61DF /* Here.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Here.swift; sourceTree = "<group>"; };
 		6AA28D282252AFE7002079B3 /* MVCStationOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCStationOverview.swift; sourceTree = "<group>"; };
 		6AAFCD1921854723004021E8 /* ScooterCompanyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScooterCompanyTests.swift; sourceTree = "<group>"; };
@@ -317,6 +321,8 @@
 		6ABF9835218250B0006878E4 /* Agency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agency.swift; sourceTree = "<group>"; };
 		6ABF9836218250B0006878E4 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		6ABF9837218250B1006878E4 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		6AC9C77922698AB000A19D7B /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
+		6AC9C77D22698D6B00A19D7B /* LineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTableViewCell.swift; sourceTree = "<group>"; };
 		6AFF63392242C47400266B7E /* Here.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Here.json; sourceTree = "<group>"; };
 		6AFF633A2242C47400266B7E /* HereAgency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HereAgency.json; sourceTree = "<group>"; };
 		7009567A226A8A3D00A0D500 /* TicketDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDetailViewController.swift; sourceTree = "<group>"; };
@@ -470,6 +476,7 @@
 				22B32254225329B400F2508A /* ClipperPassCollectionViewCell.swift */,
 				224662F02229204200E86C66 /* EmptyView.swift */,
 				22B32252225324A100F2508A /* ProgressHUD.swift */,
+				6AC9C77D22698D6B00A19D7B /* LineTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -521,6 +528,7 @@
 				224662E42229011F00E86C66 /* SVCDelegate.swift */,
 				22ADA0D62262DD8C00AA9368 /* RouteDetailsViewController.swift */,
 				2259A6DF227AA32800D8E5FD /* RDVCBulkTickets.swift */,
+				6AC9C77922698AB000A19D7B /* StationViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -542,6 +550,7 @@
 				2248B7C3226BA5E500714CEC /* Integer.swift */,
 				226697E2223A2750005B82EC /* Notification.Name.swift */,
 				22B40EF92257FA9C009520C6 /* TextField.swift */,
+				6A7B33A422720075003E65DF /* MKMapView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1023,6 +1032,7 @@
 				6A009193217EAD820087A32B /* ScooterCompany.swift in Sources */,
 				22EA942A226D48470048111D /* CVCOverlay.swift in Sources */,
 				22C331B92186B80800836173 /* RouteSegment.swift in Sources */,
+				6AC9C77A22698AB000A19D7B /* StationViewController.swift in Sources */,
 				22ADA0D322610EA100AA9368 /* LineDetailView.swift in Sources */,
 				224662E32228FC9B00E86C66 /* MoveIndicator.swift in Sources */,
 				22ADA0D52262C2FC00AA9368 /* CALayer.swift in Sources */,
@@ -1042,6 +1052,8 @@
 				6AB22BEB225FF05E0073F023 /* SystemCoordinates.swift in Sources */,
 				224662E12228F7D200E86C66 /* SearchViewController.swift in Sources */,
 				22B40EFA2257FA9C009520C6 /* TextField.swift in Sources */,
+				6A7B33A522720075003E65DF /* MKMapView.swift in Sources */,
+				6AC9C77E22698D6B00A19D7B /* LineTableViewCell.swift in Sources */,
 				22B53434222D135D007F4098 /* Date.swift in Sources */,
 				22B32253225324A100F2508A /* ProgressHUD.swift in Sources */,
 				7009567B226A8A3D00A0D500 /* TicketDetailViewController.swift in Sources */,
@@ -1319,7 +1331,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BayPass/BayPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1341,7 +1352,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BayPass/BayPass.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 7BT7DC73YL;
 				INFOPLIST_FILE = BayPass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

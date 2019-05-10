@@ -12,11 +12,10 @@ import SnapKit
 import UIKit
 
 extension MapViewController: UIScrollViewDelegate {
-    
     func displayRoute(from: MKMapItem? = nil, to destination: MKMapItem) {
         startItem = from
         endItem = destination
-        
+
         var startLocation: CLLocationCoordinate2D
         if let fromItem = from {
             startLocation = fromItem.placemark.coordinate
@@ -140,7 +139,7 @@ extension MapViewController: UIScrollViewDelegate {
             mapView.setVisibleMapRect(boundingRect, edgePadding: UIEdgeInsets(top: 140, left: 10, bottom: 140, right: 10), animated: true)
         }
     }
-    
+
     @objc func tapRoute(_ recognizer: UITapGestureRecognizer) {
         let routeView = recognizer.view as? RouteOverView
         let routeDetailsVC = RouteDetailsViewController()

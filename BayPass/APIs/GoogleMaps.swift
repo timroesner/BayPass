@@ -11,7 +11,6 @@ import Foundation
 import MapKit
 
 class GoogleMaps {
-
     func getRoutes(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D, departureTime: Date = Date(), completion: @escaping ([Route]) -> Void) {
         let params = [
             "origin": "\(from.latitude),\(from.longitude)",
@@ -97,9 +96,9 @@ class GoogleMaps {
             } else {
                 lineName = lineJson["name"] as? String ?? ""
             }
-            
+
             let destinationName = transitDetails["headsign"] as? String ?? ""
-            
+
             let depStop = depStopJson["name"] as? String ?? ""
             let arrivalStop = arrivalStopJson["name"] as? String ?? ""
             let waypoints = [depStop, arrivalStop]
@@ -108,14 +107,14 @@ class GoogleMaps {
             if let agencies = lineJson["agencies"] as? [[String: Any]] {
                 agencyName = agencies[0]["name"] as? String ?? ""
             }
-            
-            var line = transitSystem.allLines[lineName+" - "+destinationName] ?? Line(name: lineName, agency: Agency(googleMapsValue: agencyName), destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
+
+            var line = transitSystem.allLines[lineName + " - " + destinationName] ?? Line(name: lineName, agency: Agency(googleMapsValue: agencyName), destination: destinationName, color: #colorLiteral(red: 0.2901960784, green: 0.5647058824, blue: 0.8862745098, alpha: 1), transitMode: TransitMode.bus)
             line.agency = Agency(googleMapsValue: agencyName)
-            
+
             // Figure out how to calculate price
             var price = 0.0
             var subType: String?
-            
+
             switch line.agency {
             case .CalTrain:
                 if Parse().CalTrainGoogleToGTFS[depStop] == nil {
@@ -138,9 +137,9 @@ class GoogleMaps {
             default:
                 break
             }
-            
-            if(price == 0.0) {
-                price = TicketManager.shared.getTicketPrice(agency: line.agency , ticketType: "Single Ride", subType: subType) ?? 0.0
+
+            if price == 0.0 {
+                price = TicketManager.shared.getTicketPrice(agency: line.agency, ticketType: "Single Ride", subType: subType) ?? 0.0
             }
 
             return RouteSegment(distanceInMeters: distance, departureTime: departureDate, arrivalTime: arrivalDate, polyline: polyline, travelMode: .transit, line: line, price: price, waypoints: waypoints)

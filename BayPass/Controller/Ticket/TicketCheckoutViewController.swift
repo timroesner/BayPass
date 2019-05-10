@@ -6,8 +6,8 @@
 //  Copyright © 2019 Tim Roesner. All rights reserved.
 //
 
-import UIKit
 import Stripe
+import UIKit
 
 class TicketCheckoutViewController: UIViewController {
     var ticket = ""
@@ -66,7 +66,7 @@ class TicketCheckoutViewController: UIViewController {
             make.right.left.equalToSuperview().inset(16)
             make.height.equalTo(50)
         }
-        
+
         // Update Button with price of preselected options
         if let dropDown = stackedViews[safe: 1] as? DropDownMenu {
             didChangeSelectedItem(dropDown)
@@ -75,14 +75,14 @@ class TicketCheckoutViewController: UIViewController {
 
     @objc func pay() {
         let paymentOption = (stackedViews[safe: stackedViews.count - 1] as? DropDownMenu)?.getSelectedItem() ?? ""
-        let ticketTypeDropDown = self.stackedViews[safe: 1] as? DropDownMenu
-        let ticketSubTypeDropDown = self.stackedViews[safe: 2] as? DropDownMenu
+        let ticketTypeDropDown = stackedViews[safe: 1] as? DropDownMenu
+        let ticketSubTypeDropDown = stackedViews[safe: 2] as? DropDownMenu
         var subType = ""
         if ticketSubTypeDropDown?.titleLbl.text == "SUB TYPE" {
             subType = subType + " - " + (ticketSubTypeDropDown?.getSelectedItem() ?? "")
         }
-        newTicket = TicketManager.shared.createNewTicket(agency: self.agency, ticketType: ticketTypeDropDown?.getSelectedItem() ?? "", subType: subType, price: self.currentTicketPrice)
-        
+        newTicket = TicketManager.shared.createNewTicket(agency: agency, ticketType: ticketTypeDropDown?.getSelectedItem() ?? "", subType: subType, price: currentTicketPrice)
+
         if currentTicketPrice != 0.0 {
             switch PaymentMethod(rawValue: paymentOption) ?? .applePay {
             case .applePay:
@@ -101,15 +101,15 @@ class TicketCheckoutViewController: UIViewController {
 }
 
 extension TicketCheckoutViewController: STPAddCardViewControllerDelegate {
-    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+    func addCardViewControllerDidCancel(_: STPAddCardViewController) {
         navigationController?.popViewController(animated: true)
     }
     
     func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreateToken token: STPToken, completion: @escaping STPErrorBlock) {
-        
+        print(token)
         UserManager.shared.addPurchased(ticket: self.newTicket!)
         completion(nil)
-        
+
         navigationController?.popToRootViewController(animated: true)
     }
 }
@@ -121,14 +121,15 @@ extension TicketCheckoutViewController: PKPaymentAuthorizationViewControllerDele
                 completion(.failure)
                 return
             }
-            
+
             // Here we could call our backend if we actually would submit the payment
+            print(token)
             completion(.success)
             self.paymentSucceded = true
             UserManager.shared.addPurchased(ticket: self.newTicket!)
         }
     }
-    
+
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
             if self.paymentSucceded {
@@ -137,4 +138,3 @@ extension TicketCheckoutViewController: PKPaymentAuthorizationViewControllerDele
         })
     }
 }
-

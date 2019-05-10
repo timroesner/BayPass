@@ -40,7 +40,7 @@ class RouteSegment {
         self.price = price
         self.waypoints = waypoints
     }
-    
+
     func setTravelMode() -> TravelMode {
         if distanceInMeters < 750 {
             return .walking
