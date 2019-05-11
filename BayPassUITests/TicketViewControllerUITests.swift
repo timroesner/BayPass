@@ -28,7 +28,7 @@ class TicketViewControllerUITests: XCTestCase {
         tabBarsQuery.buttons["Map"].tap()
         tabBarsQuery.buttons["Ticket"].tap()
         app.collectionViews.cells.otherElements.containing(.staticText, identifier:"BART").element.tap()
-        
+
         let dayPassStaticText = app.staticTexts["Single Ride"]
         dayPassStaticText.tap()
         dayPassStaticText.tap()
