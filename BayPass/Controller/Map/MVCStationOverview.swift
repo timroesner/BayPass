@@ -14,7 +14,10 @@ extension MapViewController {
         bottomSheet.moveOverlay(toNotchAt: 0, animated: true)
         mapView.removeAnnotations(mapView.annotations)
 
-        mapView.addAnnotation(MapAnnotation(fromStation: station))
+        let stationAnnotation = MapAnnotation(fromStation: station)
+        mapView.addAnnotation(stationAnnotation)
+        mapView.selectAnnotation(stationAnnotation, animated: true)
+        
         let insets = UIEdgeInsets(top: 0, left: view.frame.width/2, bottom: 0, right: 0)
         let rect = MKMapRect(origin: MKMapPoint(station.location.coordinate), size: MKMapSize(width: 3000, height: 3000))
         mapView.setVisibleMapRect(rect, edgePadding: insets, animated: true)

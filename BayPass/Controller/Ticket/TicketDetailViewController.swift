@@ -107,10 +107,13 @@ class TicketDetailViewController: UIViewController {
         view.addSubview(typeInfoLb)
         typeInfoLb.text = ticket?.name ?? pass?.name
         typeInfoLb.textColor = UIColor.black
+        typeInfoLb.numberOfLines = 0
+        typeInfoLb.textAlignment = .center
         typeInfoLb.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         typeInfoLb.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(typeLb.snp.centerX)
             make.top.equalTo(typeLb.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(20)
         }
     }
 

@@ -24,8 +24,8 @@ class System {
             group.enter()
             here.getStationsNearby(center: c.center, radius: c.radius, max: c.max) { stations in
                 for station in stations {
-                    if var stationThatsAlreadyThere = self.allStationsDict[station.name] {
-                        stationThatsAlreadyThere.lines.append(contentsOf: station.lines)
+                    if self.allStationsDict[station.name] != nil {
+                        self.allStationsDict[station.name]?.lines.append(contentsOf: station.lines)
                     } else {
                         self.allStationsDict[station.name] = station
                     }

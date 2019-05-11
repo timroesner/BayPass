@@ -48,7 +48,7 @@ struct Parse {
         "Powell Street Station": "Powell St.",
         "Richmond Station": "Richmond",
         "Rockridge Station": "Rockridge",
-        // "San Bruno",
+        "San Bruno Station": "San Bruno",
         "San Francisco International Airport Station": "San Francisco International Airport",
         "San Leandro Station": "San Leandro",
         "South Hayward BART Station": "South Hayward",

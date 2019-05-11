@@ -117,15 +117,19 @@ class Here {
     func parseLine(from json: [String : Any]) -> Line? {
         guard let lineName = json["name"] as? String,
             let lineDestination = json["dir"] as? String,
-            let at = json["At"] as? [String: Any],
             let modeNum = json["mode"] as? Int
-        else { return nil }
+        else {
+            print("Could not parse line json: \(json)")
+            return nil
+        }
         
-        var colorString = at["color"] as? String ?? ""
+        let at = json["At"] as? [String: Any]
+        var colorString = at?["color"] as? String ?? ""
         if colorString == "#FEF0B5" || colorString == "#FFFF33" {
             colorString = "#F3B43F"
         }
         let color = UIColor(hex: Int(colorString.dropFirst(), radix: 16) ?? 0x4A90E2)
+        
         let transitMode = transitModeConvert(num: modeNum)
         let ag = Agency.zero
         

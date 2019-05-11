@@ -293,7 +293,7 @@
 		6A009197217EAF800087A32B /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		6A009199217EAFFE0087A32B /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		6A0A9BE92256F6C60093CA57 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		6A0A9BEF225734B50093CA57 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		6A0A9BEF225734B50093CA57 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Coordinates.swift; path = ../Coordinates.swift; sourceTree = "<group>"; };
 		6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = BayPass/Model/Map/MapAnnotation.swift; sourceTree = SOURCE_ROOT; };
 		6A18FDBA2235AFB7002047B9 /* HereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HereTests.swift; sourceTree = "<group>"; };
 		6A221D6B224DB37A00A36175 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = System.swift; path = ../../System.swift; sourceTree = "<group>"; };
@@ -666,6 +666,7 @@
 				6A0ED235217BFA4B003CD497 /* MapAnnotation.swift */,
 				6A221D6B224DB37A00A36175 /* System.swift */,
 				6AB22BEA225FF05E0073F023 /* SystemCoordinates.swift */,
+				6A0A9BEF225734B50093CA57 /* Coordinates.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -686,7 +687,6 @@
 			children = (
 				6A009191217EAD580087A32B /* Map */,
 				6A009194217EAF090087A32B /* Ticket */,
-				6A0A9BEF225734B50093CA57 /* Coordinates.swift */,
 				22B40EFB225815B5009520C6 /* PaymentMethod.swift */,
 				226DAA9F2266FFDE00B10E20 /* UserManager.swift */,
 			);
