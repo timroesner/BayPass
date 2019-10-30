@@ -29,7 +29,7 @@ enum Agency: String, Codable, CaseIterable {
         case .CalTrain:
             return "CalTrain"
         case .Muni:
-            return "Muni"
+            return "MUNI"
         case .GoldenGateTransit:
             return "Golden Gate\nTransit"
         case .ACTransit:
