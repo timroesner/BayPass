@@ -32,11 +32,11 @@ class TabBarUITests: XCTestCase {
         
         // Ticket
         tabBarsQuery.buttons["Ticket"].tap()
-        let ticketsTitle =  XCUIApplication().navigationBars["Tickets"].otherElements["Tickets"]
+        let ticketsTitle =  XCUIApplication().navigationBars["Tickets"]
         XCTAssert(ticketsTitle.exists)
         
         // Clipper
         tabBarsQuery.buttons["Clipper"].tap()
-        let clipperTitle = XCUIApplication().navigationBars["Clipper"].otherElements["Clipper"]
+        let clipperTitle = XCUIApplication().navigationBars["Clipper"]
         XCTAssert(clipperTitle.exists)    }
 }
