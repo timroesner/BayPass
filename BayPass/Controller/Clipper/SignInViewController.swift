@@ -19,7 +19,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
         view.backgroundColor = .white
         title = "MyClipper"
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
         setupView()
     }
 

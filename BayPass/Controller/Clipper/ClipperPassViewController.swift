@@ -41,7 +41,7 @@ class ClipperPassViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Add Pass"
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
 
         clipperPassCollectionView.delegate = self
         clipperPassCollectionView.dataSource = self

@@ -23,7 +23,7 @@ class ClipperPassCheckoutViewController: UIViewController {
         view.backgroundColor = .white
 
         title = agency.stringValue
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
         dropDownOptions = TicketManager.shared.getDropDownOptions(for: agency, onlyPasses: true)
         setUpTicketView(newTicketView: TicketView(agency: agency, icon: agency.getIcon(), cornerRadius: 12))
         setupDropDowns()
