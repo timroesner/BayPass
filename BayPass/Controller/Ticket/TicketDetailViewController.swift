@@ -68,8 +68,9 @@ class TicketDetailViewController: UIViewController {
             infoLabel.text = String(ticket?.count ?? 0)
         } else {
             infoTitleLabel.text = "Time Remaining"
-            let d = Int(ticket?.duration?.duration ?? pass?.duration.duration ?? 0.0)
-            infoLabel.text = d.durationToStringShort()
+            let endDate = (ticket?.duration?.end ?? pass?.duration.end ?? Date())
+            let remaining = Int(DateInterval(start: Date(), end: endDate).duration)
+            infoLabel.text = remaining.durationToStringShort()
         }
 
         view.addSubview(infoTitleLabel)
