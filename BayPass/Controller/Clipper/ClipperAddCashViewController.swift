@@ -16,13 +16,13 @@ class ClipperAddCashViewController: UIViewController {
     var valueTextField = SkyFloatingLabelTextField()
     let dropDown = DropDownMenu(title: "Payment Method", items: PaymentMethod.allCases.map { $0.rawValue })
     var value = 0.0
-    var paymentSucceded = false
+    var paymentSucceeded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Add Cash Value"
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
 
         setupView()
     }
@@ -148,14 +148,14 @@ extension ClipperAddCashViewController: PKPaymentAuthorizationViewControllerDele
             // Here we could call our backend if we actually would submit the payment
             print(token)
             completion(.success)
-            self.paymentSucceded = true
+            self.paymentSucceeded = true
             UserManager.shared.addCashToCard(amount: self.value)
         }
     }
 
     func paymentAuthorizationViewControllerDidFinish(_: PKPaymentAuthorizationViewController) {
         dismiss(animated: true, completion: {
-            if self.paymentSucceded {
+            if self.paymentSucceeded {
                 self.dismissOrPop(animated: true)
             }
         })
