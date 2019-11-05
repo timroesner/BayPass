@@ -39,7 +39,7 @@ class DestinationRoutingTests: XCTestCase {
         let cancelButton = app.buttons["Cancel"]
         cancelButton.tap()
         
-        let bottomDrawer = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 2).children(matching: .other).element.children(matching: .other).element.children(matching: .other).children(matching: .other).element(boundBy: 0)
+        let bottomDrawer = app.images.firstMatch
         
         bottomDrawer.swipeUp()
         bottomDrawer.swipeDown()
